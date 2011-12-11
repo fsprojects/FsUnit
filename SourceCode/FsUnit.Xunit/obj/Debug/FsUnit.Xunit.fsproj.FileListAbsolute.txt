@@ -1,0 +1,6 @@
+C:\hg\fsunit\SourceCode\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.dll
+C:\hg\fsunit\SourceCode\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.pdb
+C:\hg\fsunit\SourceCode\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.XML
+C:\hg\fsunit\SourceCode\FsUnit.Xunit\obj\Debug\ResolveAssemblyReference.cache
+C:\hg\fsunit\SourceCode\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.dll
+C:\hg\fsunit\SourceCode\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.pdb
