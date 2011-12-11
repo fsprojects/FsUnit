@@ -1,7 +1,7 @@
 namespace $rootnamespace$.Tests
 
 open MbUnit.Framework
-open FsUnit.MbXunit
+open FsUnit.MbUnit
 
 type LightBulb(state) =
    member x.On = state

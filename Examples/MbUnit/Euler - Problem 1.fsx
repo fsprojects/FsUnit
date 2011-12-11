@@ -1,7 +1,7 @@
 module Test.``Project Euler - Problem 1``
 
-open NUnit.Framework
-open FsUnit
+open MbUnit.Framework
+open FsUnit.MbUnit
 
 let GetSumOfMultiplesOf3And5 max =  
     seq{3..max-1} |> Seq.fold(fun acc number ->  

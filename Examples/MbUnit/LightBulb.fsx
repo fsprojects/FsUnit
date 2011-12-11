@@ -1,7 +1,7 @@
 namespace LightBulb.Tests
 
-open NUnit.Framework
-open FsUnit
+open MbUnit.Framework
+open FsUnit.MbUnit
 
 type LightBulb(state) =
     member x.On = state

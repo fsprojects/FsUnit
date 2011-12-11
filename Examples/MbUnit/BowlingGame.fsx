@@ -4,8 +4,8 @@ Thanks to Keith Nicholas and "Julian" from hubFS for this example!
 *)
 module BowlingGame.``A game of bowling``
 
-open NUnit.Framework
-open FsUnit
+open MbUnit.Framework
+open FsUnit.MbUnit
 
 let (|EndOfGame|IncompleteStrike|Strike|Normal|Other|) (l, frame) =
     match l with
