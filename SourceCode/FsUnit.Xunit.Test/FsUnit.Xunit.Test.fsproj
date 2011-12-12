@@ -54,6 +54,7 @@
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="equalWithinTests.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
