@@ -8,68 +8,68 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:AssemblyInfo.fs" caret="211" fromTop="6" />
       <File id="3890DC0F-5225-4ADF-9B9E-F6A482046A9E/f:AssemblyInfo.fs" caret="214" fromTop="0" />
       <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:AssemblyInfo.fs" caret="275" fromTop="8" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:containTests.fs" caret="1686" fromTop="12" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1536" fromTop="16" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beFalseTests.fs" caret="561" fromTop="18" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beGreaterThanOrEqualTo.fs" caret="904" fromTop="18" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beGreaterThanTests.fs" caret="747" fromTop="18" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beLessThanOrEqualToTests.fs" caret="772" fromTop="18" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beLessThanTests.fs" caret="714" fromTop="18" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beOfExactTypeTests.fs" caret="737" fromTop="17" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beSameAsTests.fs" caret="747" fromTop="15" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="12" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldStartWithTests.fs" caret="462" fromTop="7" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldEndWithTests.fs" caret="450" fromTop="7" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beTrueTests.fs" caret="442" fromTop="7" />
       <File id="3890DC0F-5225-4ADF-9B9E-F6A482046A9E/f:FsUnit.fs" caret="244" fromTop="8" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullOrEmptyStringTests.fs" caret="958" fromTop="14" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="966" fromTop="11" />
       <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:haveLengthTests.fs" caret="239" fromTop="7" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:haveCountTests.fs" caret="852" fromTop="26" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:haveLengthTests.fs" caret="354" fromTop="10" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyStringTests.fs" caret="646" fromTop="10" />
       <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullTests.fs" caret="561" fromTop="14" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="511" fromTop="15" />
-      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="940" fromTop="13" />
       <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullTests.fs" caret="532" fromTop="9" />
       <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:containTests.fs" caret="0" fromTop="0" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="462" fromTop="7" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:equalTests.fs" caret="496" fromTop="14" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:equalTests.fs" caret="648" fromTop="6" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="462" fromTop="4" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullOrEmptyStringTests.fs" caret="958" fromTop="14" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="829" fromTop="13" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="3776" fromTop="9" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="3257" fromTop="19" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1635" fromTop="18" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1604" fromTop="18" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beOfExactTypeTests.fs" caret="481" fromTop="16" />
     </RecentFiles>
     <RecentEdits>
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beTrueTests.fs" caret="532" fromTop="17" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="12" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="14" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="10" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="13" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:raiseTests.fs" caret="1062" fromTop="12" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldEndWithTests.fs" caret="450" fromTop="13" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldEndWithTests.fs" caret="450" fromTop="17" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldStartWithTests.fs" caret="462" fromTop="13" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyStringTests.fs" caret="646" fromTop="14" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullOrEmptyStringTests.fs" caret="958" fromTop="8" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldStartWithTests.fs" caret="462" fromTop="16" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldStartWithTests.fs" caret="462" fromTop="7" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:shouldEndWithTests.fs" caret="450" fromTop="8" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="33" fromTop="1" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="1676" fromTop="18" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="97" fromTop="18" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="97" fromTop="6" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullOrEmptyStringTests.fs" caret="958" fromTop="14" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="966" fromTop="11" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="470" fromTop="16" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="298" fromTop="12" />
-      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="97" fromTop="4" />
-      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="330" fromTop="8" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beNullTests.fs" caret="561" fromTop="14" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:equalTests.fs" caret="1693" fromTop="10" />
-      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:equalTests.fs" caret="1693" fromTop="6" />
       <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="1112" fromTop="6" />
       <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullTests.fs" caret="532" fromTop="9" />
-      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="1676" fromTop="11" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="1680" fromTop="11" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:equalTests.fs" caret="647" fromTop="6" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:equalTests.fs" caret="619" fromTop="8" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="2740" fromTop="10" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="3341" fromTop="10" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beOfExactTypeTests.fs" caret="768" fromTop="13" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="374" fromTop="6" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="535" fromTop="0" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beNullOrEmptyStringTests.fs" caret="960" fromTop="16" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="1046" fromTop="15" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="1046" fromTop="6" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="1645" fromTop="12" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="3802" fromTop="11" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1571" fromTop="5" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1571" fromTop="9" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1571" fromTop="9" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1571" fromTop="11" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1571" fromTop="7" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1602" fromTop="7" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1602" fromTop="11" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1602" fromTop="15" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1602" fromTop="10" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1602" fromTop="11" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="3257" fromTop="10" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beEmptyTests.fs" caret="1635" fromTop="18" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="75" fromTop="4" />
+      <File id="E224780C-6652-4F1F-9987-493E12389E6F/f:beEmptyTests.fs" caret="1604" fromTop="18" />
+      <File id="E224780C-6652-4F1F-9987-493E48989E6F/f:beOfExactTypeTests.fs" caret="642" fromTop="12" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

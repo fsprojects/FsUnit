@@ -1,1 +1,1 @@
-Added examples for MbUnit and xUnit.
+Fixed a number of issues in the MbUnit and xUnit implementations.

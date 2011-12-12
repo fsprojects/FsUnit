@@ -9,49 +9,41 @@ type ``contain tests`` ()=
         [1] |> should contain 1
 
     [<Test>] member test.
-     ``empty List should fail to contain item`` ()=
-        [] |> should not (contain 1)
+     ``List with multiple items should contain item`` ()=
+        [1;2;3] |> should contain 2
 
     [<Test>] member test.
      ``populated List should not contain item`` ()=
-        [2] |> should not (contain 1)
+        [2;4;5] |> should not (contain 3)
 
     [<Test>] member test.
      ``empty List should not contain item`` ()=
         [] |> should not (contain 1)
 
     [<Test>] member test.
-     ``List with item should fail to not contain item`` ()=
-        [1] |> should contain 1
-
-    [<Test>] member test.
-     ``Array with item should contain item`` ()=
-        [|1|] |> should contain 1
-
-    [<Test>] member test.
-     ``empty Array should fail to contain item`` ()=
-        [||] |> should not (contain 1)
+     ``Array with multiple items should contain item`` ()=
+        [|1;2;3|] |> should contain 2
 
     [<Test>] member test.
      ``empty Array should not contain item`` ()=
         [||] |> should not (contain 1)
 
     [<Test>] member test.
-     ``Array with item should fail to not contain item`` ()=
-        [|1|] |> should contain 1
+     ``Array with different items should not contain item`` ()=
+        [|2;3;4|] |> should not (contain 1)
 
     [<Test>] member test.
      ``Seq with item should contain item`` ()=
         seq { yield 1 } |> should contain 1
 
     [<Test>] member test.
-     ``empty Seq should fail to contain item`` ()=
-        Seq.empty |> should not (contain 1)
-
-    [<Test>] member test.
      ``empty Seq should not contain item`` ()=
         Seq.empty |> should not (contain 1)
 
     [<Test>] member test.
-     ``Seq with item should fail to not contain item`` ()=
-        seq { yield 1 } |> should contain 1
+     ``Seq with items should contain item`` ()=
+        { 2..3 } |> should contain 2
+
+    [<Test>] member test.
+     ``Seq with different items should contain item`` ()=
+        { 2..3 } |> should not (contain 1)

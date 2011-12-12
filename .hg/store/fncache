@@ -2299,3 +2299,4 @@ data/NuGet/FsUnit.xUnit/FsUnit.xUnit.1.0.0.3.nupkg.i
 data/NuGet/FsUnit.xUnit/Lib/NET20/NHamcrest.dll.i
 data/NuGet/FsUnit.xUnit/Lib/NET40/NHamcrest.dll.i
 data/README.md.i
+data/SourceCode/FsUnit.Xunit.Test/bin/Release/FsUnit.Xunit.Test.pdb.d
