@@ -1,1 +1,1 @@
-Fixed a number of issues in the MbUnit and xUnit implementations.
+Added equalWithin for MbUnit, xUnit, and NUnit.

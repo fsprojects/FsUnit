@@ -2300,3 +2300,8 @@ data/NuGet/FsUnit.xUnit/Lib/NET20/NHamcrest.dll.i
 data/NuGet/FsUnit.xUnit/Lib/NET40/NHamcrest.dll.i
 data/README.md.i
 data/SourceCode/FsUnit.Xunit.Test/bin/Release/FsUnit.Xunit.Test.pdb.d
+data/SourceCode/FsUnit.MbUnit.Test/equalWithinTests.fs.i
+data/SourceCode/FsUnit.MbUnit.Test/obj/Release/FsUnit.MbUnit.Test.pdb.d
+data/SourceCode/FsUnit.NUnit.Test/equalWithinTests.fs.i
+data/SourceCode/FsUnit.Xunit.Test/equalWithinTests.fs.i
+data/SourceCode/FsUnit.Xunit.Test/obj/Release/FsUnit.Xunit.Test.pdb.d
