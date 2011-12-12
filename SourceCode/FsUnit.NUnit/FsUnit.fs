@@ -12,6 +12,8 @@ let should (f : 'a -> #Constraint) x (y : obj) =
     
 let equal x = EqualConstraint(x)
 
+let equalWithin tolerance x = equal(x).Within tolerance
+
 let not x = NotConstraint(x)
 
 let contain x = ContainsConstraint(x)

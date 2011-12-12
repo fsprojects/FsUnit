@@ -53,6 +53,7 @@
     <Compile Include="beOfExactTypeTests.fs" />
     <Compile Include="beGreaterThanOrEqualTo.fs" />
     <Compile Include="beLessThanOrEqualToTests.fs" />
+    <Compile Include="equalWithinTests.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
