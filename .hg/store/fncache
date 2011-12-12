@@ -2287,3 +2287,15 @@ data/build/FsUnit.xUnit/NET40/FsUnit.Xunit.dll.i
 data/build/FsUnit.xUnit/NET40/FsUnit.Xunit.pdb.i
 data/build/FsUnit.xUnit/NET40/NHamcrest.dll.i
 data/build/FsUnit.xUnit/NET40/xunit.dll.i
+data/Examples/MbUnit/BowlingGame.fsx.i
+data/Examples/MbUnit/Euler - Problem 1.fsx.i
+data/Examples/MbUnit/LightBulb.fsx.i
+data/Examples/xUnit/BowlingGame.fsx.i
+data/Examples/xUnit/Euler - Problem 1.fsx.i
+data/Examples/xUnit/LightBulb.fsx.i
+data/NuGet/FsUnit.MbUnit/FsUnit.MbUnit.1.0.0.3.nupkg.i
+data/NuGet/FsUnit.NUnit/FsUnit.1.0.0.3.nupkg.i
+data/NuGet/FsUnit.xUnit/FsUnit.xUnit.1.0.0.3.nupkg.i
+data/NuGet/FsUnit.xUnit/Lib/NET20/NHamcrest.dll.i
+data/NuGet/FsUnit.xUnit/Lib/NET40/NHamcrest.dll.i
+data/README.md.i

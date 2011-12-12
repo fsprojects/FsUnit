@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.dll" total="113" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-12-10" time="19:36:57">
+<test-results name="C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.dll" total="113" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-12-11" time="21:44:25">
   <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\hg\fsunit" machine-name="WIN-ANF7NS6V9M0" user="Daniel Mohl" user-domain="WIN-ANF7NS6V9M0" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.dll" executed="True" result="Success" success="True" time="0.786" asserts="0">
+  <test-suite type="Assembly" name="C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.dll" executed="True" result="Success" success="True" time="0.812" asserts="0">
     <results>
-      <test-suite type="Namespace" name="FsUnit" executed="True" result="Success" success="True" time="0.772" asserts="0">
+      <test-suite type="Namespace" name="FsUnit" executed="True" result="Success" success="True" time="0.799" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="0.772" asserts="0">
+          <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="0.799" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="be Empty tests" executed="True" result="Success" success="True" time="0.178" asserts="0">
+              <test-suite type="TestFixture" name="be Empty tests" executed="True" result="Success" success="True" time="0.170" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be Empty tests.empty Array should be Empty" executed="True" result="Success" success="True" time="0.033" asserts="1" />
-                  <test-case name="FsUnit.Test.be Empty tests.empty Array should fail to not be Empty" executed="True" result="Success" success="True" time="0.026" asserts="2" />
-                  <test-case name="FsUnit.Test.be Empty tests.empty List should be Empty" executed="True" result="Success" success="True" time="0.005" asserts="1" />
-                  <test-case name="FsUnit.Test.be Empty tests.empty List should fail to not be Empty" executed="True" result="Success" success="True" time="0.013" asserts="2" />
-                  <test-case name="FsUnit.Test.be Empty tests.empty Seq should be Empty" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                  <test-case name="FsUnit.Test.be Empty tests.empty Array should be Empty" executed="True" result="Success" success="True" time="0.034" asserts="1" />
+                  <test-case name="FsUnit.Test.be Empty tests.empty Array should fail to not be Empty" executed="True" result="Success" success="True" time="0.028" asserts="2" />
+                  <test-case name="FsUnit.Test.be Empty tests.empty List should be Empty" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                  <test-case name="FsUnit.Test.be Empty tests.empty List should fail to not be Empty" executed="True" result="Success" success="True" time="0.012" asserts="2" />
+                  <test-case name="FsUnit.Test.be Empty tests.empty Seq should be Empty" executed="True" result="Success" success="True" time="0.005" asserts="1" />
                   <test-case name="FsUnit.Test.be Empty tests.empty Seq should fail to not be Empty" executed="True" result="Success" success="True" time="0.003" asserts="2" />
-                  <test-case name="FsUnit.Test.be Empty tests.non-empty Array should fail to be Empty" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-                  <test-case name="FsUnit.Test.be Empty tests.non-empty Array should not be Empty" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                  <test-case name="FsUnit.Test.be Empty tests.non-empty List should fail to be Empty" executed="True" result="Success" success="True" time="0.012" asserts="2" />
+                  <test-case name="FsUnit.Test.be Empty tests.non-empty Array should fail to be Empty" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                  <test-case name="FsUnit.Test.be Empty tests.non-empty Array should not be Empty" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be Empty tests.non-empty List should fail to be Empty" executed="True" result="Success" success="True" time="0.013" asserts="2" />
                   <test-case name="FsUnit.Test.be Empty tests.non-empty List should not be Empty" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="FsUnit.Test.be Empty tests.non-empty Seq should fail to be Empty" executed="True" result="Success" success="True" time="0.020" asserts="2" />
+                  <test-case name="FsUnit.Test.be Empty tests.non-empty Seq should fail to be Empty" executed="True" result="Success" success="True" time="0.009" asserts="2" />
                   <test-case name="FsUnit.Test.be Empty tests.non-empty Seq should not be Empty" executed="True" result="Success" success="True" time="0.004" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be EmptyString tests" executed="True" result="Success" success="True" time="0.017" asserts="0">
+              <test-suite type="TestFixture" name="be EmptyString tests" executed="True" result="Success" success="True" time="0.018" asserts="0">
                 <results>
                   <test-case name="FsUnit.Test.be EmptyString tests.empty string should be EmptyString" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                   <test-case name="FsUnit.Test.be EmptyString tests.empty string should fail to not be EmptyString" executed="True" result="Success" success="True" time="0.003" asserts="2" />
@@ -33,106 +33,106 @@
                   <test-case name="FsUnit.Test.be EmptyString tests.non-empty string should not be EmptyString" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be False tests" executed="True" result="Success" success="True" time="0.016" asserts="0">
+              <test-suite type="TestFixture" name="be False tests" executed="True" result="Success" success="True" time="0.022" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be False tests.false should be False" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be False tests.false should fail to not be False" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.be False tests.false should be False" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be False tests.false should fail to not be False" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                   <test-case name="FsUnit.Test.be False tests.true should fail to be False" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-                  <test-case name="FsUnit.Test.be False tests.true should not be False" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be False tests.true should not be False" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be greaterThan tests" executed="True" result="Success" success="True" time="0.042" asserts="0">
+              <test-suite type="TestFixture" name="be greaterThan tests" executed="True" result="Success" success="True" time="0.045" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be greaterThan tests.11 should be greater than 10" executed="True" result="Success" success="True" time="0.016" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThan tests.11.1 should be greater than 11.0" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThan tests.9 should not be greater than 10" executed="True" result="Success" success="True" time="0.006" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThan tests.9.1 should not be greater than 9.2" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThan tests.9.2 should not be greater than 9.2" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThan tests.11 should be greater than 10" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThan tests.11.1 should be greater than 11.0" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThan tests.9 should not be greater than 10" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThan tests.9.1 should not be greater than 9.2" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThan tests.9.2 should not be greater than 9.2" executed="True" result="Success" success="True" time="0.005" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be greaterThanOrEqualTo tests" executed="True" result="Success" success="True" time="0.021" asserts="0">
+              <test-suite type="TestFixture" name="be greaterThanOrEqualTo tests" executed="True" result="Success" success="True" time="0.026" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.11 should be greater than 10" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.11.1 should be greater than 11.0" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.11 should be greater than 10" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.11.1 should be greater than 11.0" executed="True" result="Success" success="True" time="0.001" asserts="1" />
                   <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9 should be equal to 9" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9 should not be greater than 10" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9 should not be greater than 10" executed="True" result="Success" success="True" time="0.004" asserts="1" />
                   <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9.1 should not be greater than 9.2" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9.2 should be equal to 9.2" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="FsUnit.Test.be greaterThanOrEqualTo tests.9.2 should be equal to 9.2" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be lessThan tests" executed="True" result="Success" success="True" time="0.021" asserts="0">
+              <test-suite type="TestFixture" name="be lessThan tests" executed="True" result="Success" success="True" time="0.020" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be lessThan tests.10 should be less than 11" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="FsUnit.Test.be lessThan tests.10 should not be less than 9" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThan tests.10 should be less than 11" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThan tests.10 should not be less than 9" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                   <test-case name="FsUnit.Test.be lessThan tests.10.0 should be less than 10.1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be lessThan tests.9.1 should not be less than 9.1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be lessThan tests.9.2 should not be less than 9.1" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThan tests.9.1 should not be less than 9.1" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThan tests.9.2 should not be less than 9.1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be lessThanOrEqualTo tests" executed="True" result="Success" success="True" time="0.016" asserts="0">
+              <test-suite type="TestFixture" name="be lessThanOrEqualTo tests" executed="True" result="Success" success="True" time="0.020" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10 should be less than 11" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10 should not be less than 9" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10.0 should be less than 10.1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10 should be less than 11" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10 should not be less than 9" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.10.0 should be less than 10.1" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                   <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.9.1 should be less than or equal to 9.1" executed="True" result="Success" success="True" time="0.001" asserts="1" />
                   <test-case name="FsUnit.Test.be lessThanOrEqualTo tests.9.2 should not be less than 9.1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be Null tests" executed="True" result="Success" success="True" time="0.014" asserts="0">
+              <test-suite type="TestFixture" name="be Null tests" executed="True" result="Success" success="True" time="0.023" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be Null tests.non-null should fail to be  Null" executed="True" result="Success" success="True" time="0.003" asserts="2" />
-                  <test-case name="FsUnit.Test.be Null tests.non-null should not be Null" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be Null tests.non-null should fail to be  Null" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.be Null tests.non-null should not be Null" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                   <test-case name="FsUnit.Test.be Null tests.null should be Null" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be Null tests.null should fail to not be Null" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.be Null tests.null should fail to not be Null" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                 </results>
               </test-suite>
               <test-suite type="TestFixture" name="be NullOrEmptyString tests" executed="True" result="Success" success="True" time="0.024" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.empty string should be NullOrEmptyString" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.empty string should fail to not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.004" asserts="2" />
-                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.non-empty string should fail to be NullOrEmptyString" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.non-empty string should not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.empty string should be NullOrEmptyString" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.empty string should fail to not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.non-empty string should fail to be NullOrEmptyString" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.non-empty string should not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                   <test-case name="FsUnit.Test.be NullOrEmptyString tests.null should be NullOrEmptyString" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.null should fail to not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                  <test-case name="FsUnit.Test.be NullOrEmptyString tests.null should fail to not be NullOrEmptyString" executed="True" result="Success" success="True" time="0.002" asserts="2" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be SameAs tests" executed="True" result="Success" success="True" time="0.019" asserts="0">
+              <test-suite type="TestFixture" name="be SameAs tests" executed="True" result="Success" success="True" time="0.021" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be SameAs tests.an object should be the same as itself" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be SameAs tests.an object should fail to be same as different object" executed="True" result="Success" success="True" time="0.003" asserts="2" />
-                  <test-case name="FsUnit.Test.be SameAs tests.an object should fail to not be same as itself" executed="True" result="Success" success="True" time="0.005" asserts="2" />
-                  <test-case name="FsUnit.Test.be SameAs tests.an object should not be same as different object" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be SameAs tests.an object should be the same as itself" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.be SameAs tests.an object should fail to be same as different object" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.be SameAs tests.an object should fail to not be same as itself" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.be SameAs tests.an object should not be same as different object" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="be True tests" executed="True" result="Success" success="True" time="0.013" asserts="0">
+              <test-suite type="TestFixture" name="be True tests" executed="True" result="Success" success="True" time="0.025" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.be True tests.false should fail to be True" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.be True tests.false should fail to be True" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                   <test-case name="FsUnit.Test.be True tests.false should not be True" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.be True tests.true should be True" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.be True tests.true should fail to not be True" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.be True tests.true should be True" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.be True tests.true should fail to not be True" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="contain tests" executed="True" result="Success" success="True" time="0.080" asserts="0">
+              <test-suite type="TestFixture" name="contain tests" executed="True" result="Success" success="True" time="0.089" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.contain tests.Array with item should contain item" executed="True" result="Success" success="True" time="0.024" asserts="1" />
-                  <test-case name="FsUnit.Test.contain tests.Array with item should fail to not contain item" executed="True" result="Success" success="True" time="0.003" asserts="2" />
-                  <test-case name="FsUnit.Test.contain tests.empty Array should fail to contain item" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.contain tests.Array with item should contain item" executed="True" result="Success" success="True" time="0.027" asserts="1" />
+                  <test-case name="FsUnit.Test.contain tests.Array with item should fail to not contain item" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.contain tests.empty Array should fail to contain item" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                   <test-case name="FsUnit.Test.contain tests.empty Array should not contain item" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.contain tests.empty List should fail to contain item" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                  <test-case name="FsUnit.Test.contain tests.empty List should fail to contain item" executed="True" result="Success" success="True" time="0.004" asserts="2" />
                   <test-case name="FsUnit.Test.contain tests.empty List should not contain item" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.contain tests.empty Seq should fail to contain item" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-                  <test-case name="FsUnit.Test.contain tests.empty Seq should not contain item" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="FsUnit.Test.contain tests.empty Seq should fail to contain item" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.contain tests.empty Seq should not contain item" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                   <test-case name="FsUnit.Test.contain tests.List with item should contain item" executed="True" result="Success" success="True" time="0.006" asserts="1" />
                   <test-case name="FsUnit.Test.contain tests.List with item should fail to not contain item" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                   <test-case name="FsUnit.Test.contain tests.Seq with item should contain item" executed="True" result="Success" success="True" time="0.005" asserts="1" />
-                  <test-case name="FsUnit.Test.contain tests.Seq with item should fail to not contain item" executed="True" result="Success" success="True" time="0.006" asserts="2" />
+                  <test-case name="FsUnit.Test.contain tests.Seq with item should fail to not contain item" executed="True" result="Success" success="True" time="0.004" asserts="2" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="equal Tests" executed="True" result="Success" success="True" time="0.060" asserts="0">
+              <test-suite type="TestFixture" name="equal Tests" executed="True" result="Success" success="True" time="0.061" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.equal Tests.reference type should equal itself" executed="True" result="Success" success="True" time="0.003" asserts="1" />
-                  <test-case name="FsUnit.Test.equal Tests.reference type should fail to equal other" executed="True" result="Success" success="True" time="0.006" asserts="2" />
-                  <test-case name="FsUnit.Test.equal Tests.reference type should fail to not equal itself" executed="True" result="Success" success="True" time="0.005" asserts="2" />
+                  <test-case name="FsUnit.Test.equal Tests.reference type should equal itself" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                  <test-case name="FsUnit.Test.equal Tests.reference type should fail to equal other" executed="True" result="Success" success="True" time="0.008" asserts="2" />
+                  <test-case name="FsUnit.Test.equal Tests.reference type should fail to not equal itself" executed="True" result="Success" success="True" time="0.002" asserts="2" />
                   <test-case name="FsUnit.Test.equal Tests.reference type should not equal other" executed="True" result="Success" success="True" time="0.001" asserts="1" />
                   <test-case name="FsUnit.Test.equal Tests.should fail when Equals returns false" executed="True" result="Success" success="True" time="0.004" asserts="2" />
                   <test-case name="FsUnit.Test.equal Tests.should fail when negated and Equals returns true" executed="True" result="Success" success="True" time="0.004" asserts="2" />
@@ -144,62 +144,62 @@
                   <test-case name="FsUnit.Test.equal Tests.value type should not equal nonequivalent value" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="have Count tests" executed="True" result="Success" success="True" time="0.025" asserts="0">
+              <test-suite type="TestFixture" name="have Count tests" executed="True" result="Success" success="True" time="0.030" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.have Count tests.Collection with 1 item should fail to not have Count 1" executed="True" result="Success" success="True" time="0.011" asserts="2" />
+                  <test-case name="FsUnit.Test.have Count tests.Collection with 1 item should fail to not have Count 1" executed="True" result="Success" success="True" time="0.012" asserts="2" />
                   <test-case name="FsUnit.Test.have Count tests.Collection with 1 item should have Count 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.have Count tests.empty Collection should fail to have Count 1" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.have Count tests.empty Collection should fail to have Count 1" executed="True" result="Success" success="True" time="0.004" asserts="2" />
                   <test-case name="FsUnit.Test.have Count tests.empty Collection should not have Count 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="haveLength tests" executed="True" result="Success" success="True" time="0.039" asserts="0">
+              <test-suite type="TestFixture" name="haveLength tests" executed="True" result="Success" success="True" time="0.042" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.haveLength tests.Array with 1 item should fail to not have Length 1" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.haveLength tests.Array with 1 item should fail to not have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="2" />
                   <test-case name="FsUnit.Test.haveLength tests.Array with 1 item should have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.haveLength tests.empty Array should fail to have Length 1" executed="True" result="Success" success="True" time="0.003" asserts="2" />
-                  <test-case name="FsUnit.Test.haveLength tests.empty Array should not have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.haveLength tests.empty List should fail to have Length 1" executed="True" result="Success" success="True" time="0.005" asserts="2" />
+                  <test-case name="FsUnit.Test.haveLength tests.empty Array should fail to have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="FsUnit.Test.haveLength tests.empty Array should not have Length 1" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="FsUnit.Test.haveLength tests.empty List should fail to have Length 1" executed="True" result="Success" success="True" time="0.006" asserts="2" />
                   <test-case name="FsUnit.Test.haveLength tests.empty List should not have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.haveLength tests.List with 1 item should fail to not have Length 1" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+                  <test-case name="FsUnit.Test.haveLength tests.List with 1 item should fail to not have Length 1" executed="True" result="Success" success="True" time="0.005" asserts="2" />
                   <test-case name="FsUnit.Test.haveLength tests.List with 1 item should have Length 1" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="raise tests" executed="True" result="Success" success="True" time="0.045" asserts="0">
+              <test-suite type="TestFixture" name="raise tests" executed="True" result="Success" success="True" time="0.032" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.raise tests.should fail when exception is not thrown" executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                  <test-case name="FsUnit.Test.raise tests.should fail when exception is not thrown" executed="True" result="Success" success="True" time="0.008" asserts="2" />
                   <test-case name="FsUnit.Test.raise tests.should fail when exception thrown is not the type expected" executed="True" result="Success" success="True" time="0.005" asserts="2" />
-                  <test-case name="FsUnit.Test.raise tests.should fail when negated and exception is thrown" executed="True" result="Success" success="True" time="0.005" asserts="2" />
-                  <test-case name="FsUnit.Test.raise tests.should pass when exception of expected type is thrown" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.raise tests.should pass when negated and exception is not thrown" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="FsUnit.Test.raise tests.should fail when negated and exception is thrown" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+                  <test-case name="FsUnit.Test.raise tests.should pass when exception of expected type is thrown" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.raise tests.should pass when negated and exception is not thrown" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="should be of exact type tests" executed="True" result="Success" success="True" time="0.017" asserts="0">
+              <test-suite type="TestFixture" name="should be of exact type tests" executed="True" result="Success" success="True" time="0.021" asserts="0">
                 <results>
                   <test-case name="FsUnit.Test.should be of exact type tests.0.0 should be of exact type float" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.should be of exact type tests.1 should be of exact type int" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.should be of exact type tests.1 should not be of exact type obj" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-                  <test-case name="FsUnit.Test.should be of exact type tests.1 should not be of exact type string" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.should be of exact type tests.empty string should be of exact type String" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="FsUnit.Test.should be of exact type tests.1 should be of exact type int" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.should be of exact type tests.1 should not be of exact type obj" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="FsUnit.Test.should be of exact type tests.1 should not be of exact type string" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.should be of exact type tests.empty string should be of exact type String" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="should endWith tests" executed="True" result="Success" success="True" time="0.036" asserts="0">
+              <test-suite type="TestFixture" name="should endWith tests" executed="True" result="Success" success="True" time="0.016" asserts="0">
                 <results>
-                  <test-case name="FsUnit.Test.should endWith tests.empty string should end with &quot;&quot;" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                  <test-case name="FsUnit.Test.should endWith tests.empty string should end with &quot;&quot;" executed="True" result="Success" success="True" time="0.005" asserts="1" />
                   <test-case name="FsUnit.Test.should endWith tests.ships should end with ps" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                   <test-case name="FsUnit.Test.should endWith tests.ships should not end with ss" executed="True" result="Success" success="True" time="0.002" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="should startWith tests" executed="True" result="Success" success="True" time="0.011" asserts="0">
+              <test-suite type="TestFixture" name="should startWith tests" executed="True" result="Success" success="True" time="0.016" asserts="0">
                 <results>
                   <test-case name="FsUnit.Test.should startWith tests.empty string should start with &quot;&quot;" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                  <test-case name="FsUnit.Test.should startWith tests.ships should not start with ss" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                  <test-case name="FsUnit.Test.should startWith tests.ships should start with ps" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.should startWith tests.ships should not start with ss" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="FsUnit.Test.should startWith tests.ships should start with ps" executed="True" result="Success" success="True" time="0.003" asserts="1" />
                 </results>
               </test-suite>
-              <test-suite type="TestFixture" name="shouldFail tests" executed="True" result="Success" success="True" time="0.007" asserts="0">
+              <test-suite type="TestFixture" name="shouldFail tests" executed="True" result="Success" success="True" time="0.009" asserts="0">
                 <results>
                   <test-case name="FsUnit.Test.shouldFail tests.empty List should fail to contain item" executed="True" result="Success" success="True" time="0.002" asserts="2" />
-                  <test-case name="FsUnit.Test.shouldFail tests.non-null should fail to be  Null" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                  <test-case name="FsUnit.Test.shouldFail tests.non-null should fail to be  Null" executed="True" result="Success" success="True" time="0.003" asserts="2" />
                 </results>
               </test-suite>
             </results>

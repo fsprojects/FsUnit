@@ -4,7 +4,6 @@ open System
 open MbUnit.Framework
 open NHamcrest
 open NHamcrest.Core
-open Gallio.Framework.Assertions
 
 let should (f : 'a -> #IMatcher<obj>) x (y : obj) =
     let c = f x
@@ -16,7 +15,9 @@ let should (f : 'a -> #IMatcher<obj>) x (y : obj) =
 
 let equal x = Is.EqualTo<obj> x
 
-let not (x:obj) = Is.Not(x)
+let not (x:obj) = match box x with
+                  | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
+                  |  x -> Is.Not<obj>(Is.EqualTo<obj>(x))
 
 let throw (t:Type) = new CustomMatcher<obj>("Should throw exception", 
                          fun f -> match f with
@@ -29,8 +30,6 @@ let throw (t:Type) = new CustomMatcher<obj>("Should throw exception",
                                   | _ -> false )
 
 let be = id
-
-let Empty = new CustomMatcher<obj>("Collection has no items", fun c -> (c :?> seq<obj>) |> Seq.isEmpty)
 
 let Null = Is.Null()
 
@@ -60,7 +59,7 @@ let endWith (input:string) = new CustomMatcher<obj>("A string ends with a specif
 
 let startWith (input:string) = new CustomMatcher<obj>("A string starts with a specified value", fun s -> (string s).StartsWith input)
 
-let ofExactType<'a> = Is.InstanceOf(typeof<'a>)
+let ofExactType<'a> = new CustomMatcher<obj>("Is exact type", fun x -> (unbox x).GetType() = typeof<'a>)
 
 let contain x = new CustomMatcher<obj>("Collection has item", 
                           fun c -> match c with
@@ -69,5 +68,4 @@ let contain x = new CustomMatcher<obj>("Collection has item",
                                    | :? seq<_> as s -> s |> Seq.exists(fun i -> i = x)
                                    | _ -> false)
 
-// haveLength and haveCount are no implemented for MbUnit
-// shouldFail is not implemented for MbUnit
+// haveLength, haveCount, Empty, and shouldFail are not implemented for MbUnit

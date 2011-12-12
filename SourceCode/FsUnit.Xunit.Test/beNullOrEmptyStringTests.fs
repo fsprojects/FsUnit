@@ -26,4 +26,4 @@ type ``be NullOrEmptyString tests`` ()=
         
     [<Fact>] member test.
      ``null should fail to not be NullOrEmptyString`` ()=
-        null |> should not (be NullOrEmptyString)
+        null |> should be NullOrEmptyString

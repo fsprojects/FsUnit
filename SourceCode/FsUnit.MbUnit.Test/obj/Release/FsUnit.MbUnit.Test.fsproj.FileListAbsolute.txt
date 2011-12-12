@@ -1,4 +1,3 @@
-C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Release\ResolveAssemblyReference.cache
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.Test.XML
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.Test.dll
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.Test.pdb
@@ -10,5 +9,6 @@ C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\MbUnit35.dll
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\NHamcrest.dll
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml
+C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Release\ResolveAssemblyReference.cache
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Release\FsUnit.MbUnit.Test.dll
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Release\FsUnit.MbUnit.Test.pdb

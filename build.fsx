@@ -78,7 +78,7 @@ Target? BuildApp <-
         |> Seq.iter (fun (bDir, filename, nuDir) ->  
             XCopy (bDir + filename) (nuDir + getVersionConstant + @"\" + filename))
 
-    ["v2.0"; "v4.0"] |> Seq.iter(fun v -> buildIt v)
+    ["v4.0"; "v2.0"] |> Seq.iter(fun v -> buildIt v)
  
 Target? BuildTest <-
   fun _ ->

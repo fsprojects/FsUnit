@@ -22,7 +22,7 @@ type ``equal Tests`` ()=
     
     [<Test>] member test.
      ``value type should fail to equal nonequivalent value`` ()=
-        1 |> should not (equal 1)
+        'f' |> should not (equal 'F')
     
     [<Test>] member test.
      ``value type should not equal nonequivalent value`` ()=
