@@ -31,6 +31,3 @@ type ``equalWithin tests``() =
       ``should not equal within tolerance``() =
           10.1 |> should not ((equalWithin 0.001) 10.11)
 
-    [<Test>] member test.
-      ``should fail outside tolerance``() =
-          10.1 |> should not ((equalWithin 0.01) 10.4)

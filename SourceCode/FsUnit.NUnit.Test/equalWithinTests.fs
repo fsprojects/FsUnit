@@ -21,7 +21,7 @@ type ``equalWithin tests``() =
 
     [<Test>] member test.
       ``should equal within tolerance when exactly equal``() =
-          10.11 |> should (equalWithin 0.1) 10.11
+          10.11 |> should (equalWithin 0.0001) 10.11
 
     [<Test>] member test.
       ``should equal within tolerance when less than``() =
