@@ -27,6 +27,7 @@ let nugetMbUnitLibDir = @".\NuGet\FsUnit.MbUnit\Lib\"
 let nugetXunitLibDir = @".\NuGet\FsUnit.Xunit\Lib\"
 let targetPlatformDir = getTargetPlatformDir "4.0.30319"
 
+let appMatchersReferences  = !! @".\SourceCode\FsUnit.CustomMatchers\*.*proj" 
 let appNUnitReferences  = !! @".\SourceCode\FsUnit.NUnit\*.*proj" 
 let appMbUnitReferences  = !! @".\SourceCode\FsUnit.MbUnit\*.*proj"
 let appXunitReferences  = !! @".\SourceCode\FsUnit.xUnit\*.*proj" 
@@ -65,16 +66,18 @@ Target? BuildApp <-
         let buildDirectory dir = 
             sprintf @"%s%s\" dir getVersionConstant
         
-        [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMbUnitReferences);
-         (buildDirectory(buildXunitDir), appXunitReferences)]
+        [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMatchersReferences);
+         (buildDirectory(buildMbUnitDir), appMbUnitReferences); (buildDirectory(buildXunitDir), appXunitReferences)]
         |> Seq.iter (fun (bDir, appRefs) -> MSBuild bDir "Rebuild" (["Configuration","Release"] @ frameworkParams) appRefs
                                             |> Log "AppBuild-Output: " )
         
         [(buildDirectory(buildNUnitDir), "FsUnit.NUnit.dll", nugetNUnitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.dll", nugetMbUnitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.xml", nugetMbUnitLibDir);
+         (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetMbUnitLibDir);
          (buildDirectory(buildXunitDir), "FsUnit.Xunit.dll", nugetXunitLibDir);
-         (buildDirectory(buildXunitDir), "FsUnit.Xunit.xml", nugetXunitLibDir)]
+         (buildDirectory(buildXunitDir), "FsUnit.Xunit.xml", nugetXunitLibDir);
+         (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetXunitLibDir)]
         |> Seq.iter (fun (bDir, filename, nuDir) ->  
             XCopy (bDir + filename) (nuDir + getVersionConstant + @"\" + filename))
 

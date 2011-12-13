@@ -11,3 +11,5 @@ C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Debug\ResolveAssemblyReference.cache
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.dll
 C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.pdb
+C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
+C:\hg\fsunit\SourceCode\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.xml

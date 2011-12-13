@@ -71,6 +71,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
+      <Name>FsUnit.CustomMatchers</Name>
+      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\FsUnit.Xunit\FsUnit.Xunit.fsproj">
       <Name>FsUnit.Xunit</Name>
       <Project>{f2cc41fd-6b5a-487b-a2c8-f301add68d22}</Project>

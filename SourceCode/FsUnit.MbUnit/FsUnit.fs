@@ -13,68 +13,42 @@ let should (f : 'a -> #IMatcher<obj>) x (y : obj) =
         | _ -> y
     Assert.That(y, c)
 
-let equal x = Is.EqualTo<obj> x
+let equal expected = CustomMatchers.equal expected
 
-//TODO: Look into a better way of doing this.
-let equalWithin (tolerance:obj) (x:obj) = new CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (tolerance.ToString()), 
-                                                     fun a -> let actualParsed, actual = Double.TryParse(string a)
-                                                              let expectedParsed, expect = Double.TryParse(string x)
-                                                              let toleranceParsed, tol = Double.TryParse(string tolerance)
-                                                              if actualParsed && expectedParsed && toleranceParsed then
-                                                                  abs(actual - expect) <= tol
-                                                              else false )
+let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
 
-let not (x:obj) = match box x with
-                  | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
-                  |  x -> Is.Not<obj>(Is.EqualTo<obj>(x))
+let not (expected:obj) = CustomMatchers.not expected
 
-let throw (t:Type) = new CustomMatcher<obj>(string t, 
-                         fun f -> match f with
-                                  | :? (unit -> unit) as testFunc -> 
-                                      try
-                                        testFunc() 
-                                        false
-                                      with
-                                      | ex -> if ex.GetType() = t then true else false
-                                  | _ -> false )
+let throw (t:Type) = CustomMatchers.throw t
 
-let be = id
+let be = CustomMatchers.be
 
-let Null = Is.Null()
+let Null = CustomMatchers.Null
 
-let EmptyString = new CustomMatcher<obj>("A non empty string", fun s -> (string s).Trim() = "")
+let EmptyString = CustomMatchers.EmptyString
 
-let NullOrEmptyString = new CustomMatcher<obj>("A not empty or not null string", fun s -> String.IsNullOrEmpty(unbox s))
+let NullOrEmptyString = CustomMatchers.NullOrEmptyString
 
-let True = new CustomMatcher<obj>("True", fun b -> unbox b = true)
+let True = CustomMatchers.True
 
-let False = new CustomMatcher<obj>("False", fun b -> unbox b = false)
+let False = CustomMatchers.False
 
-let sameAs x = Is.SameAs<obj>(x)
+let sameAs expected = CustomMatchers.sameAs expected
 
-let greaterThan (x:obj) = new CustomMatcher<obj>(string x, 
-                                     fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) > 0)
+let greaterThan (expected:obj) = CustomMatchers.greaterThan expected
 
-let greaterThanOrEqualTo (x:obj) = new CustomMatcher<obj>(string x, 
-                                              fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) >= 0)
+let greaterThanOrEqualTo (expected:obj) = CustomMatchers.greaterThanOrEqualTo expected
 
-let lessThan (x:obj) = new CustomMatcher<obj>(string x, 
-                                    fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) < 0)
+let lessThan (expected:obj) = CustomMatchers.lessThan expected
 
-let lessThanOrEqualTo (x:obj) = new CustomMatcher<obj>(string x, 
-                                           fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) <= 0)
+let lessThanOrEqualTo (expected:obj) = CustomMatchers.lessThanOrEqualTo expected
 
-let endWith (x:string) = new CustomMatcher<obj>(string x, fun s -> (string s).EndsWith x)
+let endWith (expected:string) = CustomMatchers.endWith expected
 
-let startWith (x:string) = new CustomMatcher<obj>(string x, fun s -> (string s).StartsWith x)
+let startWith (expected:string) = CustomMatchers.startWith expected
 
-let ofExactType<'a> = new CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> (unbox x).GetType() = typeof<'a>)
+let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
-let contain x = new CustomMatcher<obj>("Contains", 
-                          fun c -> match c with
-                                   | :? list<_> as l -> l |> List.exists(fun i -> i = x)
-                                   | :? array<_> as a -> a |> Array.exists(fun i -> i = x)
-                                   | :? seq<_> as s -> s |> Seq.exists(fun i -> i = x)
-                                   | _ -> false)
+let contain expected = CustomMatchers.contain expected
 
 // haveLength, haveCount, Empty, and shouldFail are not implemented for MbUnit and xUnit
