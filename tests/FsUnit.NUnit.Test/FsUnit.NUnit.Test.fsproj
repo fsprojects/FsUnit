@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{025096f3-20fb-40f2-8caa-34efda450e87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FsUnit.NUnit.Test</RootNamespace>
+    <AssemblyName>FsUnit.NUnit.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Name>FsUnit.NUnit.Test</Name>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition="Exists('$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll')" />
+  <ItemGroup>
+    <Compile Include="beNullTests.fs" />
+    <Compile Include="beEmptyTests.fs" />
+    <Compile Include="beEmptyStringTests.fs" />
+    <Compile Include="beNullOrEmptyStringTests.fs" />
+    <Compile Include="beTrueTests.fs" />
+    <Compile Include="beFalseTests.fs" />
+    <Compile Include="beSameAsTests.fs" />
+    <Compile Include="containTests.fs" />
+    <Compile Include="equalTests.fs" />
+    <Compile Include="raiseTests.fs" />
+    <Compile Include="haveLengthTests.fs" />
+    <Compile Include="haveCountTests.fs" />
+    <Compile Include="beGreaterThanTests.fs" />
+    <Compile Include="beLessThanTests.fs" />
+    <Compile Include="shouldFailTests.fs" />
+    <Compile Include="shouldEndWithTests.fs" />
+    <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="beOfExactTypeTests.fs" />
+    <Compile Include="beGreaterThanOrEqualTo.fs" />
+    <Compile Include="beLessThanOrEqualToTests.fs" />
+    <Compile Include="equalWithinTests.fs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FsUnit.NUnit\FsUnit.NUnit.fsproj">
+      <Name>FsUnit.NUnit</Name>
+      <Project>{3890dc0f-5225-4adf-9b9e-f6a482046a9e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

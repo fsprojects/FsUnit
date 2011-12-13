@@ -1,4 +1,4 @@
-#r "./SourceCode/packages/FAKE.1.58.10/tools/FakeLib.dll"
+#r "./packages/FAKE.1.58.10/tools/FakeLib.dll"
 
 open Fake 
 open System.IO
@@ -18,29 +18,29 @@ let buildNUnitDir = @".\build\FsUnit.NUnit\"
 let buildMbUnitDir = @".\build\FsUnit.MbUnit\"
 let buildXunitDir = @".\build\FsUnit.xUnit\"
 let packagesDir = @".\packages\"
-let testNUnitDir = @".\SourceCode\FsUnit.NUnit.Test\bin\Release\"
-let testMbUnitDir = @".\SourceCode\FsUnit.MbUnit.Test\bin\Release\"
-let testXunitDir = @".\SourceCode\FsUnit.xUnit.Test\bin\Release\"
+let testNUnitDir = @".\tests\FsUnit.NUnit.Test\bin\Release\"
+let testMbUnitDir = @".\tests\FsUnit.MbUnit.Test\bin\Release\"
+let testXunitDir = @".\tests\FsUnit.xUnit.Test\bin\Release\"
 let deployDir = @".\deploy\"
 let nugetNUnitLibDir = @".\NuGet\FsUnit.NUnit\Lib\"
 let nugetMbUnitLibDir = @".\NuGet\FsUnit.MbUnit\Lib\"
 let nugetXunitLibDir = @".\NuGet\FsUnit.Xunit\Lib\"
 let targetPlatformDir = getTargetPlatformDir "4.0.30319"
 
-let appMatchersReferences  = !! @".\SourceCode\FsUnit.CustomMatchers\*.*proj" 
-let appNUnitReferences  = !! @".\SourceCode\FsUnit.NUnit\*.*proj" 
-let appMbUnitReferences  = !! @".\SourceCode\FsUnit.MbUnit\*.*proj"
-let appXunitReferences  = !! @".\SourceCode\FsUnit.xUnit\*.*proj" 
-let nunitTestReferences = !! @".\SourceCode\FsUnit.NUnit.Test\*.*proj"
-let mbUnitTestReferences = !! @".\SourceCode\FsUnit.MbUnit.Test\*.*proj"
-let xunitTestReferences = !! @".\SourceCode\FsUnit.xUnit.Test\*.*proj"
+let appNUnitReferences  = !! @".\src\FsUnit.NUnit\*.*proj" 
+let appMbUnitReferences  = !! @".\src\FsUnit.MbUnit\*.*proj"
+let appXunitReferences  = !! @".\src\FsUnit.xUnit\*.*proj" 
+let appMatchersReferences  = !! @".\src\FsUnit.CustomMatchers\*.*proj" 
+let nunitTestReferences = !! @".\tests\FsUnit.NUnit.Test\*.*proj"
+let mbUnitTestReferences = !! @".\tests\FsUnit.MbUnit.Test\*.*proj"
+let xunitTestReferences = !! @".\tests\FsUnit.xUnit.Test\*.*proj"
 let testNUnitAssemblies = !! (testNUnitDir + @"\*.Test.dll")
 let testMbUnitAssemblies = !! (testMbUnitDir + @"\*.Test.dll")
 let testxUnitAssemblies = !! (testXunitDir + @"\*.Test.dll") 
-let nunitPath = @".\SourceCode\packages\NUnit.2.5.10.11092\tools"
+let nunitPath = @".\packages\NUnit.2.5.10.11092\tools"
 let nunitOutput = testNUnitDir + @"TestResults.xml"
-let mbUnitPath = @".\SourceCode\packages\mbunit.3.3.454.0\tools\bin\gallio.echo.exe"
-let xunitPath = @".\SourceCode\packages\xunit.1.8.0.1549\tools\xunit.console.clr4.x86"
+let mbUnitPath = @".\packages\mbunit.3.3.454.0\tools\bin\gallio.echo.exe"
+let xunitPath = @".\packages\xunit.1.8.0.1549\tools\xunit.console.clr4.x86"
  
 // Targets
 Target? Clean <-

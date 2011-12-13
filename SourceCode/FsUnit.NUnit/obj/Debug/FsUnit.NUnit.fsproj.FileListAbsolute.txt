@@ -1,5 +1,0 @@
-C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.dll
-C:\hg\fsunit\SourceCode\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.pdb
-C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Debug\ResolveAssemblyReference.cache
-C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.dll
-C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.pdb

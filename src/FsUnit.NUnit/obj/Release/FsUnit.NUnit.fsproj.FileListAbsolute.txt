@@ -1,0 +1,14 @@
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\bin\Release\FsUnit.NUnit.dll
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\bin\Release\FsUnit.NUnit.pdb
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\bin\Release\nunit.framework.dll
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\bin\Release\nunit.framework.xml
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Release\ResolveAssemblyReference.cache
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Release\FsUnit.NUnit.dll
+C:\hg\fsunit\SourceCode\FsUnit.NUnit\obj\Release\FsUnit.NUnit.pdb
+C:\hg\fsunit\build\FsUnit.NUnit\NET40\FsUnit.NUnit.dll
+C:\hg\fsunit\build\FsUnit.NUnit\NET40\FsUnit.NUnit.pdb
+C:\hg\fsunit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.dll
+C:\hg\fsunit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.pdb
+C:\hg\fsunit\src\FsUnit.NUnit\obj\Release\ResolveAssemblyReference.cache
+C:\hg\fsunit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.dll
+C:\hg\fsunit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.pdb
