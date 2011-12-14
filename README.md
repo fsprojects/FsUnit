@@ -19,6 +19,22 @@ One object equals or does not equal another:
 
     1 |> should not (equal 2)
 
+One numeric object equals or does not equal another, with a specified tolerance:
+
+    10.1 |> should (equalWithin 0.1) 10.11
+
+    10.1 |> should not ((equalWithin 0.001) 10.11)
+
+A string does or does not start with or end with a specified substring:
+
+    "ships" |> should startWith "sh"
+
+    "ships" |> should not (startWith "ss")
+
+    "ships" |> should endWith "ps"
+
+    "ships" |> should not (endWith "ss")
+
 A List, Seq, or Array instance contains or does not contain a value:
 
     [1] |> should contain 1
@@ -43,10 +59,6 @@ A number of assertions can be created using the `be` keyword:
 
     false |> should not (be True)
 
-    [] |> should be Empty
-
-    [1] |> should not (be Empty)
-
     "" |> should be EmptyString
 
     "" |> should be NullOrEmptyString
@@ -60,15 +72,41 @@ A number of assertions can be created using the `be` keyword:
     anObj |> should be (sameAs anObj)
 
     anObj |> should not (be sameAs otherObj)
+	
+    11 |> should be (greaterThan 10)
+
+    9 |> should not (be greaterThan 10)
+
+    11 |> should be (greaterThanOrEqualTo 10)
+
+    9 |> should not (be greaterThanOrEqualTo 10)
+
+    10 |> should be (lessThan 11)
+
+    10 |> should not (be lessThan 9)
+
+    10.0 |> should be (lessThanOrEqualTo 10.1)
+
+    10 |> should not (be lessThanOrEqualTo 9)
+
+    0.0 |> should be ofExactType<float>
+
+    1 |> should not (be ofExactType<obj>)
+	
+    [] |> should be Empty // NUnit only
+
+    [1] |> should not (be Empty) // NUnit only
 
 **Examples**
 
-The following are examples of FsUnit with NUnit. 
+The following are examples of FsUnit with MbUnit, xUnit, and NUnit respectively: 
+
+MbUnit:
 
     module Test.``Project Euler - Problem 1``
-	
-	open NUnit.Framework
-    open FsUnit
+
+    open MbUnit.Framework
+    open FsUnit.MbUnit
 
     let GetSumOfMultiplesOf3And5 max =  
         seq{3..max-1} |> Seq.fold(fun acc number ->  
@@ -78,36 +116,13 @@ The following are examples of FsUnit with NUnit.
     [<Test>]
     let ``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23`` () =  
         GetSumOfMultiplesOf3And5(10) |> should equal 23 
+    }}
 
-Here is a simple example of a class and some associated tests (taken from FsUnit's examples):
-
-    namespace LightBulb.Tests
-	
-    open NUnit.Framework
-    open FsUnit
-
-    type LightBulb(state) =
-        member x.On = state
-        override x.ToString() =
-            match x.On with
-            | true  -> "On"
-        |     false -> "Off"
-
-    [<TestFixture>] 
-    type ``Given a LightBulb that has had its state set to true`` ()=
-        let lightBulb = new LightBulb(true)
-
-        [<Test>] member test.
-         ``when I ask whether it is On it answers true.`` ()=
-                lightBulb.On |> should be True
-
-        [<Test>] member test.
-         ``when I convert it to a string it becomes "On".`` ()=
-                string lightBulb |> should equal "On"
-
-This next example shows how to use FsUnit with xUnit (Thanks to Keith Nicholas and "Julian" from hubFS for this example!
-  http://cs.hubfs.net/forums/thread/3938.aspx):
-
+xUnit:
+    (*
+    Thanks to Keith Nicholas and "Julian" from hubFS for this example!
+      http://cs.hubfs.net/forums/thread/3938.aspx
+    *)
     module BowlingGame.``A game of bowling``
 
     open Xunit
@@ -164,3 +179,41 @@ This next example shows how to use FsUnit with xUnit (Thanks to Keith Nicholas a
     [<Fact>]
     let ``that looks like an average bowler's game should get the expected score (example game).`` () =
         scoreBowls [1;4;4;5;6;4;5;5;10;0;1;7;3;6;4;10;2;8;6] |> should equal 133
+
+NUnit (Note: NUnit can also be utilized without specifying a type as in the examples for MbUnit and xUnit):
+
+    namespace LightBulb.Tests
+
+    open NUnit.Framework
+    open FsUnit
+
+    type LightBulb(state) =
+        member x.On = state
+        override x.ToString() =
+            match x.On with
+            | true  -> "On"
+            | false -> "Off"
+
+    [<TestFixture>] 
+    type ``Given a LightBulb that has had its state set to true`` ()=
+        let lightBulb = new LightBulb(true)
+
+        [<Test>] member x.
+         ``when I ask whether it is On it answers true.`` ()=
+                lightBulb.On |> should be True
+
+        [<Test>] member x.
+         ``when I convert it to a string it becomes "On".`` ()=
+                string lightBulb |> should equal "On"
+
+    [<TestFixture>]
+    type ``Given a LightBulb that has had its state set to false`` ()=
+        let lightBulb = new LightBulb(false)
+    
+        [<Test>] member x.
+         ``when I ask whether it is On it answers false.`` ()=
+                lightBulb.On |> should be False
+    
+        [<Test>] member x.
+         ``when I convert it to a string it becomes "Off".`` ()=
+                string lightBulb |> should equal "Off"
