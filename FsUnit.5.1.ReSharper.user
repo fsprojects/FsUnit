@@ -1,0 +1,53 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.fsproj/l:C!?hg?fsunit?src?FsUnit.MbUnit?FsUnit.MbUnit.fsproj" caret="3556" fromTop="17" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:FsUnit.fs" caret="0" fromTop="0" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beGreaterThanTests.fs" caret="464" fromTop="10" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beGreaterThanOrEqualTo.fs" caret="500" fromTop="13" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beLessThanTests.fs" caret="411" fromTop="16" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beLessThanOrEqualToTests.fs" caret="333" fromTop="12" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beOfExactTypeTests.fs" caret="697" fromTop="14" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:equalWithinTests.fs" caret="962" fromTop="15" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:shouldStartWithTests.fs" caret="466" fromTop="17" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:shouldEndWithTests.fs" caret="414" fromTop="16" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.Test.fsproj/l:C!?hg?fsunit?tests?FsUnit.MbUnit.Test?FsUnit.MbUnit.Test.fsproj" caret="3773" fromTop="17" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:FsUnit.fs" caret="2114" fromTop="12" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:AssemblyInfo.fs" caret="212" fromTop="6" />
+      <File id="3C6A91DC-A865-497B-A304-3E9AA3E119CB/f:AssemblyInfo.fs" caret="228" fromTop="6" />
+      <File id="3890DC0F-5225-4ADF-9B9E-F6A482046A9E/f:AssemblyInfo.fs" caret="210" fromTop="6" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:AssemblyInfo.fs" caret="275" fromTop="8" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.fsproj/l:C!?hg?fsunit?src?FsUnit.MbUnit?FsUnit.MbUnit.fsproj" caret="2152" fromTop="1" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.fsproj/l:C!?hg?fsunit?src?FsUnit.MbUnit?FsUnit.MbUnit.fsproj" caret="2318" fromTop="5" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.fsproj/l:C!?hg?fsunit?src?FsUnit.MbUnit?FsUnit.MbUnit.fsproj" caret="2484" fromTop="9" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.fsproj/l:C!?hg?fsunit?src?FsUnit.MbUnit?FsUnit.MbUnit.fsproj" caret="2650" fromTop="13" />
+      <File id="025096F3-20FB-40F2-8CAA-34EFDA450E87/f:beLessThanOrEqualToTests.fs" caret="333" fromTop="12" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.Test.fsproj/l:C!?hg?fsunit?tests?FsUnit.MbUnit.Test?FsUnit.MbUnit.Test.fsproj" caret="2983" fromTop="3" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.Test.fsproj/l:C!?hg?fsunit?tests?FsUnit.MbUnit.Test?FsUnit.MbUnit.Test.fsproj" caret="3284" fromTop="10" />
+      <File id="d:Miscellaneous Files/f:FsUnit.MbUnit.Test.fsproj/l:C!?hg?fsunit?tests?FsUnit.MbUnit.Test?FsUnit.MbUnit.Test.fsproj" caret="3450" fromTop="14" />
+      <File id="600090EF-5C83-4E0C-B341-F2C909FE45D7/f:AssemblyInfo.fs" caret="212" fromTop="6" />
+      <File id="3C6A91DC-A865-497B-A304-3E9AA3E119CB/f:AssemblyInfo.fs" caret="228" fromTop="6" />
+      <File id="3890DC0F-5225-4ADF-9B9E-F6A482046A9E/f:AssemblyInfo.fs" caret="210" fromTop="6" />
+      <File id="F2CC41FD-6B5A-487B-A2C8-F301ADD68D22/f:AssemblyInfo.fs" caret="210" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.9\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
