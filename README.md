@@ -116,13 +116,9 @@ MbUnit:
     [<Test>]
     let ``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23`` () =  
         GetSumOfMultiplesOf3And5(10) |> should equal 23 
-    }}
 
-xUnit:
-    (*
-    Thanks to Keith Nicholas and "Julian" from hubFS for this example!
-      http://cs.hubfs.net/forums/thread/3938.aspx
-    *)
+xUnit (Thanks to Keith Nicholas and "Julian" from hubFS for this example! http://cs.hubfs.net/forums/thread/3938.aspx):
+
     module BowlingGame.``A game of bowling``
 
     open Xunit
