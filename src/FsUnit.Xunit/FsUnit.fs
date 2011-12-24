@@ -18,7 +18,7 @@ type Xunit.Assert with
             matcher.DescribeMismatch(actual, mismatchDescription)
             raise (new MatchException(description.ToString(), mismatchDescription.ToString(), null))
 
-let should (f : 'a -> #IMatcher<obj>) x (y : obj) =
+let inline should (f : 'a -> ^b) x (y : obj) =
     let c = f x
     let y =
         match y with

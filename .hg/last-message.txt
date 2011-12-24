@@ -1,1 +1,1 @@
-Restructured the project.
+Increased the assembly versions and updated the NuGet packages.

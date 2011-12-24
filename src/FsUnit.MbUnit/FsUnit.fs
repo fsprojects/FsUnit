@@ -5,7 +5,7 @@ open MbUnit.Framework
 open NHamcrest
 open NHamcrest.Core
 
-let should (f : 'a -> #IMatcher<obj>) x (y : obj) =
+let inline should (f : 'a -> ^b) x (y : obj) =
     let c = f x
     let y =
         match y with

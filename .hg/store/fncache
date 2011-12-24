@@ -2950,3 +2950,4 @@ data/tests/FsUnit.Xunit.Test/packages.config.i
 data/tests/FsUnit.Xunit.Test/raiseTests.fs.i
 data/tests/FsUnit.Xunit.Test/shouldEndWithTests.fs.i
 data/tests/FsUnit.Xunit.Test/shouldStartWithTests.fs.i
+data/FsUnit.5.1.ReSharper.user.i
