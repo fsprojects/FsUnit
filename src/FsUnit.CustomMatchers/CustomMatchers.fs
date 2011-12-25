@@ -1,6 +1,7 @@
 ﻿module FsUnit.CustomMatchers
 
 open System
+open System.Collections
 open NHamcrest
 open NHamcrest.Core
 
@@ -61,7 +62,7 @@ let startWith (x:string) = new CustomMatcher<obj>(string x, fun s -> (string s).
 
 let ofExactType<'a> = new CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> (unbox x).GetType() = typeof<'a>)
 
-let contain x = new CustomMatcher<obj>("Contains", 
+let contain x = new CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()), 
                           fun c -> match c with
                                    | :? list<_> as l -> l |> List.exists(fun i -> i = x)
                                    | :? array<_> as a -> a |> Array.exists(fun i -> i = x)

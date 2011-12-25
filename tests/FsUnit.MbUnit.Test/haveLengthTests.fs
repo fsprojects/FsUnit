@@ -8,7 +8,7 @@ type ``haveLength tests`` ()=
     // F# List
     [<Test>] member test.
      ``List with 2 items should have Length 2`` ()=
-        [1;2].Length |> should equal 2
+        [1;2] |> should haveLength 2
 
     [<Test>] member test.
      ``empty List should fail to have Length 1`` ()=

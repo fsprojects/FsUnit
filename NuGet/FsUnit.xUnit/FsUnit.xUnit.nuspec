@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>FsUnit.xUnit</id>
-    <version>1.0.0.3</version>
+    <version>1.0.0.4</version>
     <dependencies>
       <dependency id="xunit" version="[1.8.0.1448, 1.8.0.1550)" />
     </dependencies>
@@ -13,6 +13,7 @@
     <language>en-US</language>
     <projectUrl>http://fsunit.codeplex.com/</projectUrl> 
     <licenseUrl>http://fsunit.codeplex.com/license</licenseUrl>
+	<tags>F# fsharp xUnit FsUnit</tags>
   </metadata>
   <files>
 	  <file src="Content\*.pp" target="Content" />
