@@ -18,3 +18,14 @@ C:\hg\fsunit\src\FsUnit.Xunit\bin\Debug\xunit.dll
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.dll
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.pdb
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.XML
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.XML
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.pdb
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.CustomMatchers.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\NHamcrest.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\xunit.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.CustomMatchers.pdb
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.CustomMatchers.xml
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.fsprojResolveAssemblyReference.cache
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.pdb

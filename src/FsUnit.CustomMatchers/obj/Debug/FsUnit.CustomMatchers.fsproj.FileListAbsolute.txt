@@ -20,3 +20,10 @@ C:\hg\fsunit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.XML
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.dll
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
 C:\hg\fsunit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.XML
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.XML
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.pdb
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\NHamcrest.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.fsprojResolveAssemblyReference.cache
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.pdb
