@@ -56,6 +56,7 @@
     <Compile Include="equalWithinTests.fs" />
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="NaNTests.fs" />
+    <Compile Include="beUniqueTests.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
