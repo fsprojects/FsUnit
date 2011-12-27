@@ -54,6 +54,8 @@
     <Compile Include="beGreaterThanOrEqualTo.fs" />
     <Compile Include="beLessThanOrEqualToTests.fs" />
     <Compile Include="equalWithinTests.fs" />
+    <Compile Include="instanceOfTests.fs" />
+    <Compile Include="NaNTests.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -42,3 +42,7 @@ C:\hg\fsunit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
 C:\hg\fsunit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.xml
 C:\hg\fsunit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
 C:\hg\fsunit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.XML
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.fsprojResolveAssemblyReference.cache
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.dll
+C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.pdb
