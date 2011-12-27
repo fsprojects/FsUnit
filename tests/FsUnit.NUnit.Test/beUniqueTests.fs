@@ -18,7 +18,7 @@ type ``have unique items list tests`` ()=
     
     [<Test>] member test.
      ``one-item list should fail to have non-unique items `` ()=
-        shouldFail(fun () -> [1] |> should be unique)
+        shouldFail(fun () -> [1] |> should not (be unique))
 
     [<Test>] member test.
      ``unique list should have unique items `` ()=
