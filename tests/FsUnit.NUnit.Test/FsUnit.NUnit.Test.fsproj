@@ -57,6 +57,7 @@
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="NaNTests.fs" />
     <None Include="packages.config" />
+    <Compile Include="haveUniqueItemsTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

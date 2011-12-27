@@ -61,4 +61,4 @@ let instanceOf x = new InstanceOfTypeConstraint(x)
 
 let NaN = new NaNConstraint()
 
-let uniqueItems = new UniqueItemsConstraint()
+let unique = new UniqueItemsConstraint()
