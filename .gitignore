@@ -1,0 +1,16 @@
+bin/
+obj/
+*.suo
+*.user
+*.log
+
+*.cache 
+*.sln.cache
+TestResult.xml
+src/GlobalInfo.cs
+_ReSharper.*/
+*resharper.user
+build/
+pkg/
+
+TestResults/
