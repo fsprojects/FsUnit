@@ -241,7 +241,7 @@ A few things to keep in mind:
 Release Notes
 =======
 
-* 0.1.1.0 - In-progress... Currently includes new assertions for NUnit such as NaN, instanceOfType, and unique.
-* 0.1.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
-* 0.0.9.1 - Added several new assertions.
-* 0.0.9.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.
+* 1.0.1.3 - In-progress... Currently includes new assertions for NUnit such as NaN, instanceOfType, and unique.
+* 1.0.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
+* 0.9.1.1 - Added several new assertions.
+* 0.9.0.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.
