@@ -2,14 +2,15 @@ FsUnit
 =======
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-Project. FsUnit currently supports NUnit, MbUnit, and xUnit.
+FsUnit currently supports NUnit, MbUnit, and xUnit.
 
 The goals of FsUnit are:
 
 * to make unit-testing feel more at home in F# , i.e., more functional.
 * to leverage existing test frameworks while at the same time adapting them to the F# language in new ways.
 
-**Syntax**
+Syntax
+=======
 
 With FsUnit, you can write unit tests like this:
 
@@ -97,7 +98,16 @@ A number of assertions can be created using the `be` keyword:
 
     [1] |> should not (be Empty) // NUnit only
 
-**Examples**
+	"test" |> should be instanceOfType<string> // Currently, NUnit only and requires version 1.0.1.0+
+	
+	"test" |> should not (be instanceOfType<int>) // Currently, NUnit only and requires version 1.0.1.0+
+		
+	2.0 |> should not (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
+	
+	[1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
+	
+Examples
+=======
 
 The following are examples of FsUnit with MbUnit, xUnit, and NUnit respectively: 
 
@@ -213,3 +223,25 @@ NUnit (Note: NUnit can also be utilized without specifying a type as in the exam
         [<Test>] member x.
          ``when I convert it to a string it becomes "Off".`` ()=
                 string lightBulb |> should equal "Off"
+
+Getting Involved
+=======
+
+GitHub makes collaboration very easy. To get involved with FsUnit, simply follow the directions provided by GitHub to
+fork this repository, then implement lots of cool stuff, and finally send a pull request.
+
+A few things to keep in mind:
+
+* Going forward, FsUnit will aim to support as much functionality as possible across all support testing frameworks.
+
+* Development environments need to be setup to run tests for MbUnit, xUnit.NET and NUnit. A product like Resharper can make this easier.
+
+* Since the unit tests for FsUnit are written with FsUnit, failing tests are just as important as passing tests.  
+
+Release Notes
+=======
+
+* 0.1.1.0 - In-progress... Currently includes new assertions for NUnit such as NaN, instanceOfType, and unique.
+* 0.1.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
+* 0.0.9.1 - Added several new assertions.
+* 0.0.9.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.

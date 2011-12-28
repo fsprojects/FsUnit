@@ -57,8 +57,8 @@ let startWith (s:string) = StartsWithConstraint s
 
 let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
-let instanceOf x = new InstanceOfTypeConstraint(x)
+let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
 
-let NaN = new NaNConstraint()
+let NaN = NaNConstraint()
 
-let unique = new UniqueItemsConstraint()
+let unique = UniqueItemsConstraint()
