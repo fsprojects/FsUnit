@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doc>
-<assembly><name>FsUnit.CustomMatchers</name></assembly>
+<assembly><name>FsUnit.MsTest</name></assembly>
 <members>
 <member name="">
 
@@ -59,7 +59,13 @@
 <member name="">
 
 </member>
-<member name="T:FsUnit.CustomMatchers">
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FsUnit.MsTest">
 
 </member>
 </members>

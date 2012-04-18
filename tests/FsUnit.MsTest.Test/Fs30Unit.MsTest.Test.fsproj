@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{eedd7886-d39f-4f4c-ad9a-13d98510a164}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FsUnit.MsTest.Test</RootNamespace>
+    <AssemblyName>Fs30Unit.MsTest.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Name>Fs30Unit.MsTest.Test</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Debug\Fs30Unit.MsTest.Test.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\Release\Fs30Unit.MsTest.Test.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="NHamcrest">
+      <HintPath>..\..\lib\NHamcrest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FsUnit.CustomMatchers\Fs30Unit.CustomMatchers.fsproj">
+      <Name>Fs30Unit.CustomMatchers</Name>
+      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\FsUnit.MsTestUnit\FsUnit.MsTestUnit.fsproj">
+      <Name>FsUnit.MsTestUnit</Name>
+      <Project>{e9d287a5-74a5-4b0e-b200-7e6777e7af79}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="beEmptyStringTests.fs" />
+    <Compile Include="beEmptyTests.fs" />
+    <Compile Include="beFalseTests.fs" />
+    <Compile Include="beGreaterThanOrEqualTo.fs" />
+    <Compile Include="beGreaterThanTests.fs" />
+    <Compile Include="beLessThanOrEqualToTests.fs" />
+    <Compile Include="beLessThanTests.fs" />
+    <Compile Include="beNullOrEmptyStringTests.fs" />
+    <Compile Include="beNullTests.fs" />
+    <Compile Include="beOfExactTypeTests.fs" />
+    <Compile Include="beSameAsTests.fs" />
+    <Compile Include="beTrueTests.fs" />
+    <Compile Include="containTests.fs" />
+    <Compile Include="equalTests.fs" />
+    <Compile Include="equalWithinTests.fs" />
+    <Compile Include="haveCountTests.fs" />
+    <Compile Include="haveLengthTests.fs" />
+    <Compile Include="raiseTests.fs" />
+    <Compile Include="shouldEndWithTests.fs" />
+    <Compile Include="shouldStartWithTests.fs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
