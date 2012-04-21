@@ -1,7 +1,7 @@
-c:\nuget\nuget.exe pack .\FsUnit.MsTest.nuspec 
+c:\nuget\nuget.exe pack .\Fs30Unit.MsTest.nuspec 
 
-md c:\nuget\FsUnit.MsTest\
+md c:\nuget\Fs30Unit.MsTest\
 
-copy *.nupkg c:\nuget\FsUnit.MsTest\ /Y
+copy *.nupkg c:\nuget\Fs30Unit.MsTest\ /Y
 
 pause
