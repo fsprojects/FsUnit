@@ -32,9 +32,6 @@ C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.Xunit\obj\
 C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.dll
 C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.pdb
 C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.XML
-C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\ResolveAssemblyReference.cache
-C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.dll
-C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.pdb
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.XML
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.dll
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.Xunit.pdb
@@ -44,3 +41,6 @@ C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\xunit.dll
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.CustomMatchers.pdb
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\FsUnit.CustomMatchers.xml
 C:\git\FsUnit\src\FsUnit.Xunit\bin\Debug\xunit.xml
+C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\ResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.dll
+C:\git\FsUnit\src\FsUnit.Xunit\obj\Debug\FsUnit.Xunit.pdb

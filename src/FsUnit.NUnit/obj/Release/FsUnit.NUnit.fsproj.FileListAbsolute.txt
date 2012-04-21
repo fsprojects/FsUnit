@@ -18,4 +18,4 @@ C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.dll
 C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.pdb
 C:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.dll
 C:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.pdb
-C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.fsprojResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\ResolveAssemblyReference.cache

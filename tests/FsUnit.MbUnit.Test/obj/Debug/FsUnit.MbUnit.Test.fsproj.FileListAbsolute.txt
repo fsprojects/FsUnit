@@ -67,13 +67,6 @@ C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\Gallio35.dll
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\MbUnit.dll
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\MbUnit35.dll
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\NHamcrest.dll
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.xml
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\ResolveAssemblyReference.cache
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.dll
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.XML
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.dll
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.pdb
@@ -88,4 +81,10 @@ C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.xml
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.xml
-C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.fsprojResolveAssemblyReference.cache
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.dll
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.pdb
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.xml
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml

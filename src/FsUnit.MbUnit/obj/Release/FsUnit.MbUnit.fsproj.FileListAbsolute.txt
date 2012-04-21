@@ -29,4 +29,4 @@ C:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\FsUnit.MbUnit.pdb
 C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.dll
 C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.pdb
 C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.XML
-C:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\FsUnit.MbUnit.fsprojResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\ResolveAssemblyReference.cache

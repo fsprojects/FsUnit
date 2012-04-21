@@ -34,4 +34,4 @@ C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.CustomMatchers.XML
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.CustomMatchers.dll
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.CustomMatchers.pdb
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.CustomMatchers.XML
-C:\git\FsUnit\src\FsUnit.CustomMatchers\obj\Release\FsUnit.CustomMatchers.fsprojResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.CustomMatchers\obj\Release\ResolveAssemblyReference.cache

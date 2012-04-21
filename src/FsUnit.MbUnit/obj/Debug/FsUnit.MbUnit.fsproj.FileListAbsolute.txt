@@ -38,8 +38,6 @@ C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.MbUnit\obj
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.dll
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.XML
-C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\FsUnit.MbUnit.dll
-C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\FsUnit.MbUnit.pdb
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\FsUnit.MbUnit.XML
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\FsUnit.MbUnit.dll
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\FsUnit.MbUnit.pdb
@@ -51,4 +49,6 @@ C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\MbUnit35.dll
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\NHamcrest.dll
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\FsUnit.CustomMatchers.pdb
 C:\git\FsUnit\src\FsUnit.MbUnit\bin\Debug\FsUnit.CustomMatchers.xml
-C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\FsUnit.MbUnit.fsprojResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\ResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\FsUnit.MbUnit.dll
+C:\git\FsUnit\src\FsUnit.MbUnit\obj\Debug\FsUnit.MbUnit.pdb
