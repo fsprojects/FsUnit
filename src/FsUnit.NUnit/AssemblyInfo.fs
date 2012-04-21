@@ -4,6 +4,6 @@ open System.Runtime.CompilerServices
 
 [<assembly: AssemblyTitle("FsUnit.NUnit")>]
 [<assembly: AssemblyProduct("FsUnit.NUnit")>]
-[<assembly: AssemblyVersion("1.0.0.5")>]
+[<assembly: AssemblyVersion("1.1.0.0")>]
 [<assembly: InternalsVisibleTo("FsUnit.NUnit.Test")>]
 do()

@@ -2,6 +2,7 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
+open FsUnitDepricated
 
 type ``have Count tests`` ()=
     let emptyList = new System.Collections.Generic.List<int>()

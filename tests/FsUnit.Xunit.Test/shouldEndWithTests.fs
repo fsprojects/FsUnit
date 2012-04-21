@@ -2,6 +2,7 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
+open FsUnitDepricated
 
 type ``should endWith tests`` ()=
     [<Fact>] member test.

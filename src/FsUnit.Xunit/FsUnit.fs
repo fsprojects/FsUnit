@@ -30,7 +30,7 @@ let equal expected = CustomMatchers.equal expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
 
-let not (expected:obj) = CustomMatchers.not expected
+let not' (expected:obj) = CustomMatchers.not' expected
 
 let throw (t:Type) = CustomMatchers.throw t
 
@@ -63,5 +63,8 @@ let startWith (expected:string) = CustomMatchers.startWith expected
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
 let contain expected = CustomMatchers.contain expected
+
+module FsUnitDepricated = 
+    let not x = not' x
 
 // haveLength, haveCount, Empty, and shouldFail are not implemented for MbUnit and xUnit

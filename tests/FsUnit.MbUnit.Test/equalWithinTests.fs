@@ -2,6 +2,7 @@
 
 open MbUnit.Framework
 open FsUnit.MbUnit
+open FsUnitDepricated
 
 (* Thanks to erdoll for this suggestion: http://fsunit.codeplex.com/discussions/269320 *)
 

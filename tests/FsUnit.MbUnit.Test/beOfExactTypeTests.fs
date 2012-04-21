@@ -2,6 +2,7 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
+open FsUnitDepricated
 
 [<TestFixture>]
 type ``should be of exact type tests`` ()=

@@ -14,8 +14,6 @@ let equal x = EqualConstraint(x)
 
 let equalWithin tolerance x = equal(x).Within tolerance
 
-let not x = NotConstraint(x)
-
 let contain x = ContainsConstraint(x)
 
 let haveLength n = Has.Length.EqualTo(n)
@@ -62,3 +60,9 @@ let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
 let NaN = NaNConstraint()
 
 let unique = UniqueItemsConstraint()
+
+let not' x = NotConstraint(x)
+
+module FsUnitDepricated = 
+    let not x = not' x
+

@@ -18,29 +18,29 @@ One object equals or does not equal another:
 
     1 |> should equal 1
 
-    1 |> should not (equal 2)
+    1 |> should not' (equal 2)
 
 One numeric object equals or does not equal another, with a specified tolerance:
 
     10.1 |> should (equalWithin 0.1) 10.11
 
-    10.1 |> should not ((equalWithin 0.001) 10.11)
+    10.1 |> should not' ((equalWithin 0.001) 10.11)
 
 A string does or does not start with or end with a specified substring:
 
     "ships" |> should startWith "sh"
 
-    "ships" |> should not (startWith "ss")
+    "ships" |> should not' (startWith "ss")
 
     "ships" |> should endWith "ps"
 
-    "ships" |> should not (endWith "ss")
+    "ships" |> should not' (endWith "ss")
 
 A List, Seq, or Array instance contains or does not contain a value:
 
     [1] |> should contain 1
 
-    [] |> should not (contain 1)
+    [] |> should not' (contain 1)
 
 A List or Array instance has a certain length (NUnit only):
 
@@ -58,7 +58,7 @@ A number of assertions can be created using the `be` keyword:
 
     true |> should be True
 
-    false |> should not (be True)
+    false |> should not' (be True)
 
     "" |> should be EmptyString
 
@@ -68,43 +68,50 @@ A number of assertions can be created using the `be` keyword:
 
     null |> should be Null
 
-    anObj |> should not (be Null)
+    anObj |> should not' (be Null)
 
     anObj |> should be (sameAs anObj)
 
-    anObj |> should not (be sameAs otherObj)
+    anObj |> should not' (be sameAs otherObj)
 	
     11 |> should be (greaterThan 10)
 
-    9 |> should not (be greaterThan 10)
+    9 |> should not' (be greaterThan 10)
 
     11 |> should be (greaterThanOrEqualTo 10)
 
-    9 |> should not (be greaterThanOrEqualTo 10)
+    9 |> should not' (be greaterThanOrEqualTo 10)
 
     10 |> should be (lessThan 11)
 
-    10 |> should not (be lessThan 9)
+    10 |> should not' (be lessThan 9)
 
     10.0 |> should be (lessThanOrEqualTo 10.1)
 
-    10 |> should not (be lessThanOrEqualTo 9)
+    10 |> should not' (be lessThanOrEqualTo 9)
 
     0.0 |> should be ofExactType<float>
 
-    1 |> should not (be ofExactType<obj>)
+    1 |> should not' (be ofExactType<obj>)
 	
     [] |> should be Empty // NUnit only
 
-    [1] |> should not (be Empty) // NUnit only
+    [1] |> should not' (be Empty) // NUnit only
 
 	"test" |> should be instanceOfType<string> // Currently, NUnit only and requires version 1.0.1.0+
 	
-	"test" |> should not (be instanceOfType<int>) // Currently, NUnit only and requires version 1.0.1.0+
+	"test" |> should not' (be instanceOfType<int>) // Currently, NUnit only and requires version 1.0.1.0+
 		
-	2.0 |> should not (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
+	2.0 |> should not' (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
 	
 	[1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
+
+Depricated Functions
+=======
+
+Prior to version 1.1.0.0, FsUnit implemented a function named "not" that overwrote the F# operator of the same name. This is not ideal, 
+so as of version 1.1.0.0 the FsUnit function has been renamed to "not'" (not + single-quote). If you need or want the previous function, it 
+can be made available by opening the FsUnitDepricated module. 
 	
 Examples
 =======
@@ -241,7 +248,8 @@ A few things to keep in mind:
 Release Notes
 =======
 
-* 1.0.1.3 - In-progress... Currently includes new assertions for NUnit such as NaN, instanceOfType, and unique.
+* 1.1.0.0 - Pulls in the latest versions for xUnit.NET and NUnit. Replaces the "not" keyword with "not'" and adds the FsUnitDepricated module for backward compatibility.
+* 1.0.1.3 - Inncludes new assertions for NUnit such as NaN, instanceOfType, and unique.
 * 1.0.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
 * 0.9.1.1 - Added several new assertions.
 * 0.9.0.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.

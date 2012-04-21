@@ -1,6 +1,7 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
+open FsUnitDepricated
 
 [<TestFixture>]
 type ``be NullOrEmptyString tests`` ()=

@@ -37,10 +37,10 @@ let xunitTestReferences = !! @".\tests\FsUnit.xUnit.Test\*.*proj"
 let testNUnitAssemblies = !! (testNUnitDir + @"\*.Test.dll")
 let testMbUnitAssemblies = !! (testMbUnitDir + @"\*.Test.dll")
 let testxUnitAssemblies = !! (testXunitDir + @"\*.Test.dll") 
-let nunitPath = @".\packages\NUnit.2.5.10.11092\tools"
+let nunitPath = @".\packages\NUnit.2.6.0.12054\tools"
 let nunitOutput = testNUnitDir + @"TestResults.xml"
 let mbUnitPath = @".\packages\mbunit.3.3.454.0\tools\bin\gallio.echo.exe"
-let xunitPath = @".\packages\xunit.1.8.0.1549\tools\xunit.console.clr4.x86"
+let xunitPath = @".\packages\xunit.1.9.0.1566\tools\xunit.console.clr4"
  
 // Targets
 Target? Clean <-

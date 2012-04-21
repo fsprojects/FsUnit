@@ -16,9 +16,9 @@ let equalWithin (t:obj) (x:obj) = new CustomMatcher<obj>(sprintf "%s with a tole
                                                                   abs(actual - expect) <= tol
                                                               else false )
 
-let not (x:obj) = match box x with
-                  | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
-                  |  x -> Is.Not<obj>(Is.EqualTo<obj>(x))
+let not' (x:obj) = match box x with
+                   | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
+                   |  x -> Is.Not<obj>(Is.EqualTo<obj>(x))
 
 let throw (t:Type) = new CustomMatcher<obj>(string t, 
                          fun f -> match f with
