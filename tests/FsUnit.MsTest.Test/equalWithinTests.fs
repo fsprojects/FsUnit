@@ -2,6 +2,7 @@
 
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
+open FsUnitDepricated
 
 (* Thanks to erdoll for this suggestion: http://fsunit.codeplex.com/discussions/269320 *)
 

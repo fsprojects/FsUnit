@@ -21,9 +21,9 @@ C:\hg\fsunit\src\FsUnit.Xunit\obj\Release\FsUnit.Xunit.pdb
 C:\git\FsUnit\build\FsUnit.xUnit\NET40\FsUnit.Xunit.dll
 C:\git\FsUnit\build\FsUnit.xUnit\NET40\FsUnit.Xunit.pdb
 C:\git\FsUnit\build\FsUnit.xUnit\NET40\FsUnit.Xunit.XML
-C:\git\FsUnit\src\FsUnit.Xunit\obj\Release\ResolveAssemblyReference.cache
 C:\git\FsUnit\src\FsUnit.Xunit\obj\Release\FsUnit.Xunit.dll
 C:\git\FsUnit\src\FsUnit.Xunit\obj\Release\FsUnit.Xunit.pdb
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.Xunit.dll
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.Xunit.pdb
 C:\git\FsUnit\build\FsUnit.xUnit\NET20\FsUnit.Xunit.XML
+C:\git\FsUnit\src\FsUnit.Xunit\obj\Release\FsUnit.Xunit.fsprojResolveAssemblyReference.cache

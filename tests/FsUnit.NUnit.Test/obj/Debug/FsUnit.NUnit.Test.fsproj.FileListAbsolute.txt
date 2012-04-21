@@ -36,7 +36,6 @@ C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.pdb
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\nunit.framework.dll
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.pdb
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\nunit.framework.xml
-C:\git\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\ResolveAssemblyReference.cache
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.dll
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.pdb
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.Test.dll
@@ -45,3 +44,4 @@ C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.dll
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\nunit.framework.dll
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.pdb
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\nunit.framework.xml
+C:\git\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.fsprojResolveAssemblyReference.cache

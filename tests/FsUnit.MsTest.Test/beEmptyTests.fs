@@ -2,7 +2,7 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-
+open FsUnitDepricated
 
 type ``be Empty tests`` ()=
     [<TestMethod>] member test.

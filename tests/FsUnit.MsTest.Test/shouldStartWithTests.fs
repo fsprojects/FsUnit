@@ -2,6 +2,7 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
+open FsUnitDepricated
 
 [<TestClass>]
 type ``should startWith tests`` ()=

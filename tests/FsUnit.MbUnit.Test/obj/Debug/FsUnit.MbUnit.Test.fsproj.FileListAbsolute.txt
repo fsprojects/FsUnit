@@ -88,3 +88,4 @@ C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.xml
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.pdb
 C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.xml
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.fsprojResolveAssemblyReference.cache

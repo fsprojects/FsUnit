@@ -21,10 +21,10 @@ C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.NUnit\obj\
 C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.pdb
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.dll
 C:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.pdb
-C:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\ResolveAssemblyReference.cache
 C:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.dll
 C:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.pdb
 C:\git\FsUnit\src\FsUnit.NUnit\bin\Debug\FsUnit.NUnit.dll
 C:\git\FsUnit\src\FsUnit.NUnit\bin\Debug\FsUnit.NUnit.pdb
 C:\git\FsUnit\src\FsUnit.NUnit\bin\Debug\nunit.framework.dll
 C:\git\FsUnit\src\FsUnit.NUnit\bin\Debug\nunit.framework.xml
+C:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.fsprojResolveAssemblyReference.cache

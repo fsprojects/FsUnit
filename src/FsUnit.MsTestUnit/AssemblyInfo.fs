@@ -2,8 +2,8 @@
 open System.Reflection
 open System.Runtime.CompilerServices
 
-[<assembly: AssemblyTitle("FsUnit.Xunit")>]
-[<assembly: AssemblyProduct("FsUnit.Xunit")>]
-[<assembly: AssemblyVersion("1.0.0.3")>]
-[<assembly: InternalsVisibleTo("FsUnit.Xunit.Test")>]
+[<assembly: AssemblyTitle("FsUnit.MsTest")>]
+[<assembly: AssemblyProduct("FsUnit.MsTest")>]
+[<assembly: AssemblyVersion("1.1.0.0")>]
+[<assembly: InternalsVisibleTo("FsUnit.MsTest.Test")>]
 do()
