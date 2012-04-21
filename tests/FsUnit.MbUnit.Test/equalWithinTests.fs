@@ -2,7 +2,6 @@
 
 open MbUnit.Framework
 open FsUnit.MbUnit
-open FsUnitDepricated
 
 (* Thanks to erdoll for this suggestion: http://fsunit.codeplex.com/discussions/269320 *)
 
@@ -30,5 +29,5 @@ type ``equalWithin tests``() =
 
     [<Test>] member test.
       ``should not equal within tolerance``() =
-          10.1 |> should not ((equalWithin 0.001) 10.11)
+          10.1 |> should not' ((equalWithin 0.001) 10.11)
 
