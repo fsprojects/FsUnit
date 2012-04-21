@@ -703,17 +703,6 @@
             </summary>
             <value>The result.</value>
         </member>
-        <member name="P:NUnit.Framework.TestCaseAttribute.Categories">
-            <summary>
-            Gets a list of categories associated with this test;
-            </summary>
-        </member>
-        <member name="P:NUnit.Framework.TestCaseAttribute.Category">
-            <summary>
-            Gets or sets the category associated with this test.
-            May be a single category or a comma-separated list.
-            </summary>
-        </member>
         <member name="P:NUnit.Framework.TestCaseAttribute.ExpectedException">
             <summary>
             Gets or sets the expected exception.
@@ -819,17 +808,6 @@
         <member name="P:NUnit.Framework.TestFixtureAttribute.Description">
             <summary>
             Descriptive text for this fixture
-            </summary>
-        </member>
-        <member name="P:NUnit.Framework.TestFixtureAttribute.Category">
-            <summary>
-            Gets and sets the category for this fixture.
-            May be a comma-separated list of categories.
-            </summary>
-        </member>
-        <member name="P:NUnit.Framework.TestFixtureAttribute.Categories">
-            <summary>
-            Gets a list of categories for this fixture
             </summary>
         </member>
         <member name="P:NUnit.Framework.TestFixtureAttribute.Arguments">

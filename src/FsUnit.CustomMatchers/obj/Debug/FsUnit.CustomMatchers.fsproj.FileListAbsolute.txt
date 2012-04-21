@@ -27,3 +27,16 @@ C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatc
 C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.fsprojResolveAssemblyReference.cache
 C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.dll
 C:\Users\rodrigovidal\Desenvolvimento\Github\FsUnit\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.XML
+C:\git\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.dll
+C:\git\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\src\FsUnit.CustomMatchers\bin\Debug\NHamcrest.dll
+C:\git\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\ResolveAssemblyReference.cache
+C:\git\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.dll
+C:\git\FsUnit\src\FsUnit.CustomMatchers\obj\Debug\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.dll
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.XML
+C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.dll
+C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
+C:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.XML
