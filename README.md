@@ -2,7 +2,7 @@ FsUnit
 =======
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-FsUnit currently supports NUnit, MbUnit, and xUnit.
+FsUnit currently supports NUnit, MbUnit, xUnit, and MsTest (VS11 only).
 
 The goals of FsUnit are:
 
@@ -112,6 +112,26 @@ Depricated Functions
 Prior to version 1.1.0.0, FsUnit implemented a function named "not" that overwrote the F# operator of the same name. This is not ideal, 
 so as of version 1.1.0.0 the FsUnit function has been renamed to "not'" (not + single-quote). If you need or want the previous function, it 
 can be made available by opening the FsUnitDepricated module. 
+
+Visual Studio 11 Support
+=======
+
+Visual Studio 11 is supported for all 4 of the testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
+FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.xUnit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
+in order to use these libraries in VS11. After installing one of these packages, add an App.config file to the project (if one doesn't already exist).
+Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
+Package Manager Console. This command will update the App.config to include binding redirects from previous version of FSharp.Core to 
+FSharp.Core version 4.3.0.0. More information about this command can be found at http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference.
+
+NuGet
+=======
+
+NuGet packages are available for each of the supported testing frameworks:
+
+* The package with ID FsUnit supports NUnit. It is the original.
+* The package with ID FsUnit.xUnit supports xUnit.NET.
+* The package with ID FsUnit.MbUnit supports MbUnit.
+* The packager with ID Fs30Unit.MsTest supports MsTest in VS11. 
 	
 Examples
 =======
@@ -248,8 +268,8 @@ A few things to keep in mind:
 Release Notes
 =======
 
-* 1.1.0.0 - Pulls in the latest versions for xUnit.NET and NUnit. Replaces the "not" keyword with "not'" and adds the FsUnitDepricated module for backward compatibility.
-* 1.0.1.3 - Inncludes new assertions for NUnit such as NaN, instanceOfType, and unique.
+* 1.1.0.0 - Pulls in the latest versions for xUnit.NET and NUnit. Replaces the "not" keyword with "not'" and adds the FsUnitDepricated module for backward compatibility. Adds MsTest support for VS11 only.
+* 1.0.1.3 - Includes new assertions for NUnit such as NaN, instanceOfType, and unique.
 * 1.0.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
 * 0.9.1.1 - Added several new assertions.
 * 0.9.0.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.
