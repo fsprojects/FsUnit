@@ -116,7 +116,7 @@ can be made available by opening the FsUnitDepricated module.
 Visual Studio 11 Support
 =======
 
-Visual Studio 11 is supported for all 4 of the testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
+Visual Studio 11 support is available for all 4 of the targetted testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
 FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.xUnit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
 in order to use these libraries in VS11. After installing one of these packages, add an App.config file to the project (if one doesn't already exist).
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
