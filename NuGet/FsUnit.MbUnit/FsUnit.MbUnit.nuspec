@@ -2,9 +2,9 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>FsUnit.MbUnit</id>
-    <version>1.1.0.0</version>
+    <version>1.1.0.1</version>
     <dependencies>
-      <dependency id="MbUnit" version="[3.3.454.0, 3.3.454.1)" />
+      <dependency id="MbUnit" version="3.3.454.0" />
     </dependencies>
     <authors>Ray Vernagus and Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -19,5 +19,6 @@
 	  <file src="Content\*.pp" target="Content" />
 	  <file src="Lib\NET20\*.*" target="Lib\Net20" />
 	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
+	  <file src="Tools\*.*" target="tools" />
   </files>
 </package>
