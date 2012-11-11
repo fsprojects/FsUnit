@@ -30,3 +30,12 @@ C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.dll
 C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.pdb
 C:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.XML
 C:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\ResolveAssemblyReference.cache
+E:\git\FsUnit\build\FsUnit.MbUnit\NET40\FsUnit.MbUnit.dll
+E:\git\FsUnit\build\FsUnit.MbUnit\NET40\FsUnit.MbUnit.pdb
+E:\git\FsUnit\build\FsUnit.MbUnit\NET40\FsUnit.MbUnit.XML
+E:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\FsUnit.MbUnit.fsprojResolveAssemblyReference.cache
+E:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\FsUnit.MbUnit.dll
+E:\git\FsUnit\src\FsUnit.MbUnit\obj\Release\FsUnit.MbUnit.pdb
+E:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.dll
+E:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.pdb
+E:\git\FsUnit\build\FsUnit.MbUnit\NET20\FsUnit.MbUnit.XML

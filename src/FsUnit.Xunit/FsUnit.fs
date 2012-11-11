@@ -10,7 +10,7 @@ type MatchException (expected, actual, userMessage) =
     inherit AssertActualExpectedException(expected, actual, userMessage)
 
 type Xunit.Assert with
-    static member That<'a> (actual, matcher:IMatcher<'a>) =
+    static member That<'a> (actual, matcher:IMatcher<'a>) =        
         if not (matcher.Matches(actual)) then
             let description = new StringDescription()
             matcher.DescribeTo(description)

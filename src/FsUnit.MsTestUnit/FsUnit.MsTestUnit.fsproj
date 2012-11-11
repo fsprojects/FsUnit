@@ -48,8 +48,8 @@
     <Compile Include="FsUnit.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FsUnit.CustomMatchers\Fs30Unit.CustomMatchers.fsproj">
-      <Name>Fs30Unit.CustomMatchers</Name>
+    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
+      <Name>FsUnit.CustomMatchers</Name>
       <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
       <Private>True</Private>
     </ProjectReference>

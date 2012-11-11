@@ -56,3 +56,19 @@ type ``equal Tests`` ()=
     [<Test>] member test.
      ``should pass when negated and Equals returns false`` ()=
         anObj |> should not (equal (NeverEqual()))
+
+    [<Test>] member test.
+     ``should pass when comparing two lists that have the same values`` ()=
+        [1] |> should equal [1]
+
+    [<Test>] member test.
+     ``should pass when comparing two arrays that have the same values`` ()=
+        [|1|] |> should equal [|1|]
+
+    [<Test>] member test.
+     ``should pass when comparing two lists that do not have the same values`` ()=
+        [1] |> should not (equal [2])
+
+    [<Test>] member test.
+     ``should pass when comparing two arrays that do not have the same values`` ()=
+        [|1|] |> should not (equal [|2|])

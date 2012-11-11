@@ -19,3 +19,10 @@ C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.pdb
 C:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.dll
 C:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.pdb
 C:\git\FsUnit\src\FsUnit.NUnit\obj\Release\ResolveAssemblyReference.cache
+E:\git\FsUnit\build\FsUnit.NUnit\NET40\FsUnit.NUnit.dll
+E:\git\FsUnit\build\FsUnit.NUnit\NET40\FsUnit.NUnit.pdb
+E:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.fsprojResolveAssemblyReference.cache
+E:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.dll
+E:\git\FsUnit\src\FsUnit.NUnit\obj\Release\FsUnit.NUnit.pdb
+E:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.dll
+E:\git\FsUnit\build\FsUnit.NUnit\NET20\FsUnit.NUnit.pdb
