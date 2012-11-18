@@ -1,18 +1,23 @@
 <?xml version="1.0"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>Fs30Unit.MsTest</id>
-    <version>1.1.0.2</version>
+    <id>FsUnit.xUnit.Sample</id>
+    <version>1.1.1.2</version>
+    <dependencies>
+      <dependency id="xunit" version="1.9.0.1565" />
+    </dependencies>
     <authors>Ray Vernagus and Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>FsUnit is a set of extensions that add special testing syntax to MsTest.</description>
+    <description>FsUnit is a set of extensions that add special testing syntax to xUnit.</description>
     <summary>The goals of FsUnit are to make unit-testing feel more functional while leverage existing testing frameworks.</summary>
     <language>en-US</language>
     <projectUrl>http://fsunit.codeplex.com/</projectUrl> 
     <licenseUrl>http://fsunit.codeplex.com/license</licenseUrl>
-	<tags>F# fsharp MsTest FsUnit</tags>
+	<tags>F# fsharp xUnit FsUnit</tags>
   </metadata>
   <files>
+	  <file src="Content\*.pp" target="Content" />
+	  <file src="Lib\NET20\*.*" target="Lib\Net20" />
 	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>

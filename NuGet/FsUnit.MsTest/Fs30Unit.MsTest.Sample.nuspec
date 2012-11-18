@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>Fs30Unit.MsTest</id>
+    <id>Fs30Unit.MsTest.Sample</id>
     <version>1.1.0.2</version>
     <authors>Ray Vernagus and Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,6 +13,7 @@
 	<tags>F# fsharp MsTest FsUnit</tags>
   </metadata>
   <files>
+	  <file src="Content\*.pp" target="Content" />
 	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>
