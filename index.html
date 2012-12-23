@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fsunit by dmohl</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Fsunit</h1>
+        <p class="header">FsUnit makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/dmohl/FsUnit/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/dmohl/FsUnit/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/dmohl/FsUnit">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/dmohl">dmohl</a></p>
+
+
+      </header>
+      <section>
+        <h1>FsUnit</h1>
+
+<p><strong>FsUnit</strong> is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
+FsUnit currently supports NUnit, MbUnit, xUnit, and MsTest (VS11 only).</p>
+
+<p>The goals of FsUnit are:</p>
+
+<ul>
+<li>to make unit-testing feel more at home in F# , i.e., more functional.</li>
+<li>to leverage existing test frameworks while at the same time adapting them to the F# language in new ways.</li>
+</ul><h1>How to Get It</h1>
+
+<p>NuGet packages are available for each of the supported testing frameworks:</p>
+
+<ul>
+<li>NUnit - The package with ID FsUnit supports NUnit. It is the original.</li>
+<li>xUnit.NET - The package with ID FsUnit.xUnit supports xUnit.NET.</li>
+<li>MbUnit - The package with ID FsUnit.MbUnit supports MbUnit.</li>
+<li>MSTest - The packager with ID Fs30Unit.MsTest supports MsTest in VS11. </li>
+</ul><h1>Getting Started</h1>
+
+<p>With FsUnit, you can write unit tests like this:</p>
+
+<p>One object equals or does not equal another:</p>
+
+<pre><code>1 |&gt; should equal 1
+
+1 |&gt; should not' (equal 2)
+</code></pre>
+
+<p>One numeric object equals or does not equal another, with a specified tolerance:</p>
+
+<pre><code>10.1 |&gt; should (equalWithin 0.1) 10.11
+
+10.1 |&gt; should not' ((equalWithin 0.001) 10.11)
+</code></pre>
+
+<p>A string does or does not start with or end with a specified substring:</p>
+
+<pre><code>"ships" |&gt; should startWith "sh"
+
+"ships" |&gt; should not' (startWith "ss")
+
+"ships" |&gt; should endWith "ps"
+
+"ships" |&gt; should not' (endWith "ss")
+</code></pre>
+
+<p>A List, Seq, or Array instance contains or does not contain a value:</p>
+
+<pre><code>[1] |&gt; should contain 1
+
+[] |&gt; should not' (contain 1)
+</code></pre>
+
+<p>A List or Array instance has a certain length (NUnit only):</p>
+
+<pre><code>anArray |&gt; should haveLength 4
+</code></pre>
+
+<p>A Collection instance has a certain count (NUnit only):</p>
+
+<pre><code>aCollection |&gt; should haveCount 4
+</code></pre>
+
+<p>A function should throw a certain type of exception:</p>
+
+<pre><code>(fun () -&gt; failwith "BOOM!" |&gt; ignore) |&gt; should throw typeof&lt;System.Exception&gt;
+</code></pre>
+
+<p>A number of assertions can be created using the <code>be</code> keyword:</p>
+
+<pre><code>true |&gt; should be True
+
+false |&gt; should not' (be True)
+
+"" |&gt; should be EmptyString
+
+"" |&gt; should be NullOrEmptyString
+
+null |&gt; should be NullOrEmptyString
+
+null |&gt; should be Null
+
+anObj |&gt; should not' (be Null)
+
+anObj |&gt; should be (sameAs anObj)
+
+anObj |&gt; should not' (be sameAs otherObj)
+
+11 |&gt; should be (greaterThan 10)
+
+9 |&gt; should not' (be greaterThan 10)
+
+11 |&gt; should be (greaterThanOrEqualTo 10)
+
+9 |&gt; should not' (be greaterThanOrEqualTo 10)
+
+10 |&gt; should be (lessThan 11)
+
+10 |&gt; should not' (be lessThan 9)
+
+10.0 |&gt; should be (lessThanOrEqualTo 10.1)
+
+10 |&gt; should not' (be lessThanOrEqualTo 9)
+
+0.0 |&gt; should be ofExactType&lt;float&gt;
+
+1 |&gt; should not' (be ofExactType&lt;obj&gt;)
+
+[] |&gt; should be Empty // NUnit only
+
+[1] |&gt; should not' (be Empty) // NUnit only
+
+"test" |&gt; should be instanceOfType&lt;string&gt; // Currently, NUnit only and requires version 1.0.1.0+
+
+"test" |&gt; should not' (be instanceOfType&lt;int&gt;) // Currently, NUnit only and requires version 1.0.1.0+
+
+2.0 |&gt; should not' (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
+
+[1;2;3] |&gt; should be unique // Currently, NUnit only and requires version 1.0.1.0+
+</code></pre>
+
+<h1>Visual Studio 11 Support</h1>
+
+<p>Visual Studio 11 support is available for all 4 of the targetted testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
+FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.xUnit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
+in order to use these libraries in VS11. After installing one of these packages, add an App.config file to the project (if one doesn't already exist).
+Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
+Package Manager Console. This command will update the App.config to include binding redirects from previous version of FSharp.Core to 
+FSharp.Core version 4.3.0.0. More information about this command can be found at <a href="http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference">http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference</a>.</p>
+
+<h1>Examples</h1>
+
+<p>The following are examples of FsUnit with MbUnit, xUnit, and NUnit respectively: </p>
+
+<p>MbUnit:</p>
+
+<pre><code>module Test.``Project Euler - Problem 1``
+
+open MbUnit.Framework
+open FsUnit.MbUnit
+
+let GetSumOfMultiplesOf3And5 max =  
+    seq{3..max-1} |&gt; Seq.fold(fun acc number -&gt;  
+                        (if (number % 3 = 0 || number % 5 = 0) then   
+                            acc + number else acc)) 0 
+
+[&lt;Test&gt;]
+let ``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23`` () =  
+    GetSumOfMultiplesOf3And5(10) |&gt; should equal 23 
+</code></pre>
+
+<p>xUnit (Thanks to Keith Nicholas and "Julian" from hubFS for this example! <a href="http://cs.hubfs.net/forums/thread/3938.aspx):">http://cs.hubfs.net/forums/thread/3938.aspx):</a></p>
+
+<pre><code>module BowlingGame.``A game of bowling``
+
+open Xunit
+open FsUnit.Xunit
+
+let (|EndOfGame|IncompleteStrike|Strike|Normal|Other|) (l, frame) =
+    match l with
+    | _ when frame = 11            -&gt; EndOfGame(0)
+    | [10;s]                       -&gt; IncompleteStrike(10+s+s)
+    | 10::s::n::tail               -&gt; Strike(10+s+n, s::n::tail)
+    |  f::s::n::tail when f+s = 10 -&gt; Normal(f+s+n,  n::tail)
+    |  f::s::n::tail               -&gt; Normal(f+s,    n::tail)
+    | ls                           -&gt; Other(List.fold (+) 0 ls)
+
+let scoreBowls bowls =
+    let rec scoreBowls' frame l current_score =
+        let nextframe = scoreBowls' (frame+1)
+        match (l, frame) with
+        | EndOfGame(score)        -&gt; current_score + score
+        | IncompleteStrike(score) -&gt; current_score + score
+        | Strike(score, l)        -&gt; nextframe l (current_score + score)
+        | Normal(score, l)        -&gt; nextframe l (current_score + score)
+        | Other(score)            -&gt; current_score + score
+    scoreBowls' 1 bowls 0
+
+[&lt;Fact&gt;] 
+let ``with simple scores should get the expected score.`` () =
+    scoreBowls [1;2;3] |&gt; should equal 6
+
+[&lt;Fact&gt;]
+let ``with a spare should get the expected score (spare).`` () =
+    scoreBowls [2;8;1] |&gt; should equal 12
+
+[&lt;Fact&gt;]
+let ``with a strike should get the expected score (strike).`` () =
+    scoreBowls [10;1;2] |&gt; should equal 16
+
+[&lt;Fact&gt;]
+let ``that is perfect should get a score of 300.``() =
+    scoreBowls [for i in 1..18 -&gt; 10] |&gt; should equal 300
+
+[&lt;Fact&gt;]
+let ``with spares in the last frame should get the expected score (spare in last frame).`` () =
+    scoreBowls ([for i in 1..18 -&gt; 0] @ [2;8;1]) |&gt; should equal 11
+
+[&lt;Fact&gt;]
+let ``with a strike in the last frame should get the expected score (strike in last frame).`` () =
+    scoreBowls ([for i in 1..18 -&gt; 0] @ [10;10;1]) |&gt; should equal 21
+
+[&lt;Fact&gt;] 
+let ``with double strikes should add the score of the first strike to the score of the second.`` () =
+    scoreBowls [10;10;1] |&gt; should equal 33
+
+[&lt;Fact&gt;]
+let ``that looks like an average bowler's game should get the expected score (example game).`` () =
+    scoreBowls [1;4;4;5;6;4;5;5;10;0;1;7;3;6;4;10;2;8;6] |&gt; should equal 133
+</code></pre>
+
+<p>NUnit (Note: NUnit can also be utilized without specifying a type as in the examples for MbUnit and xUnit):</p>
+
+<pre><code>namespace LightBulb.Tests
+
+open NUnit.Framework
+open FsUnit
+
+type LightBulb(state) =
+    member x.On = state
+    override x.ToString() =
+        match x.On with
+        | true  -&gt; "On"
+        | false -&gt; "Off"
+
+[&lt;TestFixture&gt;] 
+type ``Given a LightBulb that has had its state set to true`` ()=
+    let lightBulb = new LightBulb(true)
+
+    [&lt;Test&gt;] member x.
+     ``when I ask whether it is On it answers true.`` ()=
+            lightBulb.On |&gt; should be True
+
+    [&lt;Test&gt;] member x.
+     ``when I convert it to a string it becomes "On".`` ()=
+            string lightBulb |&gt; should equal "On"
+
+[&lt;TestFixture&gt;]
+type ``Given a LightBulb that has had its state set to false`` ()=
+    let lightBulb = new LightBulb(false)
+
+    [&lt;Test&gt;] member x.
+     ``when I ask whether it is On it answers false.`` ()=
+            lightBulb.On |&gt; should be False
+
+    [&lt;Test&gt;] member x.
+     ``when I convert it to a string it becomes "Off".`` ()=
+            string lightBulb |&gt; should equal "Off"
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
