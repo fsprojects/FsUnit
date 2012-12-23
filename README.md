@@ -1,4 +1,4 @@
-The main FsUnit site can be found at http://dmohl.github.com/FsUnit/
+The main FsUnit page can be found at http://dmohl.github.com/FsUnit/
 
 FsUnit
 =======
