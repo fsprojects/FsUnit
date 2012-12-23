@@ -1,3 +1,5 @@
+The main FsUnit site can be found at http://dmohl.github.com/FsUnit/
+
 FsUnit
 =======
 
