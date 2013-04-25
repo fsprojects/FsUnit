@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NHamcrest</id>
+    <version>1.2.1</version>
+    <title>NHamcrest</title>
+    <authors>Graham Hay</authors>
+    <owners>Graham Hay</owners>
+    <licenseUrl>https://github.com/grahamrhay/NHamcrest/raw/88acdfcdcda9c9d1bbbc1e1cb09c5cbffa85e392/LICENCE.txt</licenseUrl>
+    <projectUrl>https://github.com/grahamrhay/NHamcrest</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET port of Hamcrest, a matcher library</description>
+    <summary>.NET port of Hamcrest, a matcher library</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>unittesting hamcrest matcher</tags>
+    <references>
+      <reference file="NHamcrest.dll" />
+    </references>
+  </metadata>
+</package>

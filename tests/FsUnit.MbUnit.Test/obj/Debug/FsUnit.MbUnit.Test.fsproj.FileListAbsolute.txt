@@ -117,3 +117,19 @@ E:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.pdb
 E:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.CustomMatchers.xml
 E:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.pdb
 E:\git\FsUnit\tests\FsUnit.MbUnit.Test\bin\Release\FsUnit.MbUnit.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.XML
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.Test.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\Gallio.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\Gallio35.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\MbUnit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\MbUnit35.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.CustomMatchers.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\bin\Debug\FsUnit.MbUnit.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.fsprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.MbUnit.Test\obj\Debug\FsUnit.MbUnit.Test.pdb

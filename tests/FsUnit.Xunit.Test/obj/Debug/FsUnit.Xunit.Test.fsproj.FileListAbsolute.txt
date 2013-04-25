@@ -85,3 +85,17 @@ E:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.CustomMatchers.xml
 E:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.pdb
 E:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\FsUnit.Xunit.xml
 E:\git\FsUnit\tests\FsUnit.xUnit.Test\bin\Release\xunit.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.Test.XML
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.Test.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.CustomMatchers.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\xunit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.CustomMatchers.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.CustomMatchers.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\FsUnit.Xunit.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\bin\Debug\xunit.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\obj\Debug\FsUnit.Xunit.Test.fsprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\obj\Debug\FsUnit.Xunit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.Xunit.Test\obj\Debug\FsUnit.Xunit.Test.pdb

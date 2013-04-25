@@ -37,3 +37,10 @@ E:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.pdb
 E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.dll
 E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.pdb
 E:\git\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.fsprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\bin\Debug\FsUnit.NUnit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\bin\Debug\FsUnit.NUnit.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\bin\Debug\nunit.framework.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\bin\Debug\nunit.framework.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.fsprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\src\FsUnit.NUnit\obj\Debug\FsUnit.NUnit.pdb

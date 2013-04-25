@@ -59,3 +59,12 @@ E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.Test.pdb
 E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\nunit.framework.dll
 E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\FsUnit.NUnit.pdb
 E:\git\FsUnit\tests\FsUnit.NUnit.Test\bin\Release\nunit.framework.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.Test.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\nunit.framework.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\FsUnit.NUnit.pdb
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\bin\Debug\nunit.framework.xml
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.fsprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.dll
+C:\Users\Jack\Documents\Code Libraries\FsUnit\tests\FsUnit.NUnit.Test\obj\Debug\FsUnit.NUnit.Test.pdb
