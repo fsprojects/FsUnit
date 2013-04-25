@@ -1,68 +1,77 @@
-﻿module FsUnit
+﻿// TODO : Add license header
+
+namespace FsUnit
+
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
-let should (f : 'a -> #Constraint) x (y : obj) =
-    let c = f x
-    let y =
-        match y with
-        | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
-        | _ -> y
-    Assert.That(y, c)
+
+//
+[<AutoOpen>]
+module TopLevelOperators =
+    let Null = NullConstraint()
+
+    let Empty = EmptyConstraint()
+
+    let EmptyString = EmptyStringConstraint()
+
+    let NullOrEmptyString = NullOrEmptyStringConstraint()
+
+    let True = TrueConstraint()
+
+    let False = FalseConstraint()
+
+    let NaN = NaNConstraint()
+
+    let unique = UniqueItemsConstraint()
+
+    let should (f : 'a -> #Constraint) x (y : obj) =
+        let c = f x
+        let y =
+            match y with
+            | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
+            | _ -> y
+        Assert.That(y, c)
     
-let equal x = EqualConstraint(x)
+    let equal x = EqualConstraint(x)
 
-let equalWithin tolerance x = equal(x).Within tolerance
+    let equalWithin tolerance x = equal(x).Within tolerance
 
-let contain x = ContainsConstraint(x)
+    let contain x = ContainsConstraint(x)
 
-let haveLength n = Has.Length.EqualTo(n)
+    let haveLength n = Has.Length.EqualTo(n)
 
-let haveCount n = Has.Count.EqualTo(n)
+    let haveCount n = Has.Count.EqualTo(n)
 
-let be = id
+    let be = id
 
-let Null = NullConstraint()
+    let sameAs x = SameAsConstraint(x)
 
-let Empty = EmptyConstraint()
+    let throw = Throws.TypeOf
 
-let EmptyString = EmptyStringConstraint()
+    let greaterThan x = GreaterThanConstraint(x)
 
-let NullOrEmptyString = NullOrEmptyStringConstraint()
+    let greaterThanOrEqualTo x = GreaterThanOrEqualConstraint(x)
 
-let True = TrueConstraint()
+    let lessThan x = LessThanConstraint(x)
 
-let False = FalseConstraint()
+    let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
 
-let sameAs x = SameAsConstraint(x)
+    let shouldFail (f : unit -> unit) =
+        TestDelegate(f) |> should throw typeof<AssertionException>
 
-let throw = Throws.TypeOf
+    let endWith (s:string) = EndsWithConstraint s
 
-let greaterThan x = GreaterThanConstraint(x)
+    let startWith (s:string) = StartsWithConstraint s
 
-let greaterThanOrEqualTo x = GreaterThanOrEqualConstraint(x)
+    let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
-let lessThan x = LessThanConstraint(x)
+    let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
 
-let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
+    let not' x = NotConstraint(x)
 
-let shouldFail (f : unit -> unit) =
-    TestDelegate(f) |> should throw typeof<AssertionException>
-
-let endWith (s:string) = EndsWithConstraint s
-
-let startWith (s:string) = StartsWithConstraint s
-
-let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
-
-let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
-
-let NaN = NaNConstraint()
-
-let unique = UniqueItemsConstraint()
-
-let not' x = NotConstraint(x)
-
-module FsUnitDepricated = 
-    let not x = not' x
+    /// Deprecated operators. These will be removed in a future version of FsUnit.
+    module FsUnitDepricated =
+        [<System.Obsolete>]
+        let not x = not' x
 
