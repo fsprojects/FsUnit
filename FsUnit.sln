@@ -19,6 +19,13 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTestUnit", "src\Fs
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs30Unit.MsTest.Test", "tests\FsUnit.MsTest.Test\Fs30Unit.MsTest.Test.fsproj", "{EEDD7886-D39F-4F4C-AD9A-13D98510A164}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A61D7458-5FB0-49AC-ADC8-1896EA316CE6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
