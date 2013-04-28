@@ -261,7 +261,7 @@ fork this repository, then implement lots of cool stuff, and finally send a pull
 
 A few things to keep in mind:
 
-* Going forward, FsUnit will aim to support as much functionality as possible across all support testing frameworks.
+* Going forward, FsUnit will aim to support as much functionality as possible across all supported testing frameworks.
 
 * Development environments need to be setup to run tests for MbUnit, xUnit.NET and NUnit. A product like Resharper can make this easier.
 
@@ -270,6 +270,7 @@ A few things to keep in mind:
 Release Notes
 =======
 
+* 1.2.1.0 - Includes new features for generic assertions and containment check. Currently, this feature is only supported for the NUnit implementation. Thanks to jack-pappas for the contributions. 
 * 1.1.0.0 - Pulls in the latest versions for xUnit.NET and NUnit. Replaces the "not" keyword with "not'" and adds the FsUnitDepricated module for backward compatibility. Adds MsTest support for VS11 only.
 * 1.0.1.3 - Includes new assertions for NUnit such as NaN, instanceOfType, and unique.
 * 1.0.0.4 - Added added support for xUnit.NET and MbUnit and a new assertion.
