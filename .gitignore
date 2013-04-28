@@ -1,17 +1,84 @@
-bin/
+###############################################################################
+# General (non-project-specific) patterns
+###############################################################################
+
+# OS junk files
+*.DS_Store
+[Tt]humbs.db
+
+# Temp Files
+*~                                                  # UNIX
+~$*                                                 # Microsoft Office
+
+# Bindings for other source-control systems.
+.hg
+.svn
+
+# NuGet
+!.nuget/*
+[Pp]ackages/*
+![Pp]ackages/repositories.config
+
+# .NET / Visual Studio (Folders)
+ipch/
 obj/
-*.suo
-*.user
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+
+# .NET / Visual Studio (Files)
+*_i.c
+*_p.c
+*.aps
+*.bak
+*.[Cc]ache
+*.exe
+*.gpState
+*.ilk
 *.log
-
-*.cache 
+*.lib
+*.ncb
+*.[Oo]bj
+*.opensdf
+*.pch
+*.pdb
+*.res
+*.resources
+*.sbr
+*.sdf
 *.sln.cache
-TestResult.xml
-src/GlobalInfo.cs
-_ReSharper.*/
-*resharper.user
-build/
-pkg/
+*.suo
+*.tlb
+*.tlh
+*.user
+*.vspscc
+*.vssscc
+Ankh.NoLoad
 
+# Visual Studio (Project Upgrade)
+Backup/
+_UpgradeReport_Files/
+UpgradeLog.htm
+UpgradeLog.XML
+
+# Test Results
+[Tt]est[Rr]esult*
 TestResults/
-.hg/
+TestResult.xml
+
+# 3rd-party Tools
+_ReSharper*/
+*.nvuser
+*.resharper
+*resharper.user
+
+# Build Output
+pkg
+[Bb]uild
+
+
+###############################################################################
+# Project-specific patterns
+###############################################################################
+
+## Add any project-specific patterns here, as needed.
