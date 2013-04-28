@@ -69,3 +69,10 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                                    | :? seq<_> as s -> s |> Seq.exists(fun i -> i = x)
                                    | _ -> false)
 
+let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
+                          fun c -> match c with
+                                   | :? list<_> as l -> l |> List.exists f
+                                   | :? array<_> as a -> a |> Array.exists f
+                                   | :? seq<_> as s -> s |> Seq.exists f
+                                   | _ -> false)
+
