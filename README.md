@@ -1,4 +1,2 @@
-FsUnit has a new home!
-=======
-
-You can now find FsUnit at https://github.com/fsharp/fsunit.
+FsUnit makes unit-testing with F# more enjoyable. 
+It adds a special syntax to your favorite .NET testing framework.
