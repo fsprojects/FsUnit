@@ -57,3 +57,7 @@ type ``equal Tests`` ()=
      ``should pass when negated and Equals returns false`` ()=
         anObj |> should not (equal (new NeverEqual()))
 
+    [<TestMethod>] member test.
+     ``None should equal None`` ()=
+        None |> should equal None
+

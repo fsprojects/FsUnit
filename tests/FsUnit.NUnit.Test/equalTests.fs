@@ -65,3 +65,7 @@ type ``equal Tests`` ()=
     [<Test>] member test.
      ``should fail when negated and Equals returns true`` ()=
         shouldFail (fun () -> anObj |> should not (equal (new AlwaysEqual())))
+
+    [<Test>] member test.
+     ``None should equal None`` ()=
+        None |> should equal None
