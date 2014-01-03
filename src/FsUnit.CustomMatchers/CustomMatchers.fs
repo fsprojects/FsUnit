@@ -5,7 +5,7 @@ open System.Collections
 open NHamcrest
 open NHamcrest.Core
 
-let equal x = CustomMatcher<obj>(sprintf "Equals %s" (x.ToString()), fun a -> a = x)
+let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
 //TODO: Look into a better way of doing this.
 let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()), 

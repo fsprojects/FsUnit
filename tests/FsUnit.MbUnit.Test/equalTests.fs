@@ -72,3 +72,8 @@ type ``equal Tests`` ()=
     [<Test>] member test.
      ``should pass when comparing two arrays that do not have the same values`` ()=
         [|1|] |> should not (equal [|2|])
+
+    [<Test>] member test.
+     ``None should equal None`` ()=
+        None |> should equal None
+
