@@ -1,4 +1,7 @@
 @echo off
 cls
-"packages\FAKE.1.58.10\tools\FAKE.exe" "build.fsx" %*
+if not exist packages\FAKE\tools\Fake.exe ( 
+	".nuget\NuGet.exe" "install" "FAKE" "-OutputDirectory" "packages" "-ExcludeVersion" "-Prerelease"
+)
+"packages\FAKE\tools\Fake.exe" "build.fsx" %*
 pause

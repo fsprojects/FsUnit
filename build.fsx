@@ -1,4 +1,4 @@
-#r "./packages/FAKE.1.58.10/tools/FakeLib.dll"
+#r "./packages/FAKE/tools/FakeLib.dll"
 
 open Fake 
 open System.IO
@@ -37,12 +37,12 @@ let xunitTestReferences = !! @".\tests\FsUnit.xUnit.Test\*.*proj"
 let testNUnitAssemblies = !! (testNUnitDir + @"\*.Test.dll")
 let testMbUnitAssemblies = !! (testMbUnitDir + @"\*.Test.dll")
 let testxUnitAssemblies = !! (testXunitDir + @"\*.Test.dll") 
-let nunitPath = @".\packages\NUnit.2.6.2\tools"
+let nunitPath = @".\packages\NUnit.Runners.2.6.2\tools"
 let nunitOutput = testNUnitDir + @"TestResults.xml"
 let mbUnitPath = @".\packages\mbunit.3.3.454.0\tools\bin\gallio.echo.exe"
-let xunitPath = @".\packages\xunit.1.9.0.1566\tools\xunit.console.clr4"
- 
-// Targets
+let xunitPath = @".\packages\xunit.runners.1.9.2\tools\xunit.console.clr4"
+
+//" Targets
 Target? Clean <-
   fun _ ->
     CleanDir buildNUnitDir
@@ -51,7 +51,8 @@ Target? Clean <-
     CleanDir testNUnitDir
     CleanDir testMbUnitDir
     CleanDir testXunitDir
- 
+    RestorePackages()
+
 Target? BuildApp <-
   fun _ ->    
     let buildIt framework =
@@ -64,7 +65,7 @@ Target? BuildApp <-
             ["TargetFrameworkVersion", frameworkVersion; "DefineConstants", getVersionConstant]
 
         let buildDirectory dir = 
-            sprintf @"%s%s\" dir getVersionConstant
+            sprintf @"%s%s\" dir getVersionConstant //"
         
         [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMatchersReferences);
          (buildDirectory(buildMbUnitDir), appMbUnitReferences); (buildDirectory(buildXunitDir), appXunitReferences)]
@@ -79,7 +80,7 @@ Target? BuildApp <-
          (buildDirectory(buildXunitDir), "FsUnit.Xunit.xml", nugetXunitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetXunitLibDir)]
         |> Seq.iter (fun (bDir, filename, nuDir) ->  
-            XCopy (bDir + filename) (nuDir + getVersionConstant + @"\" + filename))
+            XCopy (bDir + filename) (nuDir + getVersionConstant + @"\" + filename)) //"
 
     ["v4.0"; "v2.0"] |> Seq.iter(fun v -> buildIt v)
  
