@@ -2,9 +2,17 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>FsUnit.xUnit.Sample</id>
-    <version>1.1.1.2</version>
+    <version>1.2.2.1</version>
     <dependencies>
-      <dependency id="xunit" version="1.9.0.1565" />
+      <group targetFramework="net20">
+        <dependency id="xunit" version="[1.9.0.1565, 3.0)" />
+      </group>  
+      <group targetFramework="net40">
+        <dependency id="xunit" version="[1.9.0.1565, 3.0)" />
+      </group>  
+      <group targetFramework="net45">
+        <dependency id="xunit" version="[1.9.0.1565, 3.0)" />
+      </group>
     </dependencies>
     <authors>Ray Vernagus and Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -17,8 +25,8 @@
   </metadata>
   <files>
 	  <file src="Content\*.pp" target="Content" />
-	  <file src="Lib\NET20\*.*" target="Lib\Net20" />
-	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
+	  <file src="Lib\NET20\*.*" target="Lib\net20" />
+	  <file src="Lib\NET40\*.*" target="Lib\net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>
 </package>
