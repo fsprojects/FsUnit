@@ -9,9 +9,9 @@ let equal x = CustomMatcher<obj>(sprintf "Equals %s" (x.ToString()), fun a -> a 
 
 //TODO: Look into a better way of doing this.
 let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()), 
-                                                     fun a -> let actualParsed, actual = Double.TryParse(string a)
-                                                              let expectedParsed, expect = Double.TryParse(string x)
-                                                              let toleranceParsed, tol = Double.TryParse(string t)
+                                                     fun a -> let actualParsed, actual = Double.TryParse(string a, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
+                                                              let expectedParsed, expect = Double.TryParse(string x, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
+                                                              let toleranceParsed, tol = Double.TryParse(string t, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
                                                               if actualParsed && expectedParsed && toleranceParsed then
                                                                   abs(actual - expect) <= tol
                                                               else false )
