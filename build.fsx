@@ -1,3 +1,4 @@
+#I "./packages/FAKE/tools/"
 #r "./packages/FAKE/tools/FakeLib.dll"
 
 open Fake 
@@ -14,33 +15,33 @@ let mail = "dmohl@yahoo.com"
 let homepage = "http://fsunit.codeplex.com/"
 
 // directories
-let buildNUnitDir = @".\build\FsUnit.NUnit\"
-let buildMbUnitDir = @".\build\FsUnit.MbUnit\"
-let buildXunitDir = @".\build\FsUnit.xUnit\"
-let packagesDir = @".\packages\"
-let testNUnitDir = @".\tests\FsUnit.NUnit.Test\bin\Release\"
-let testMbUnitDir = @".\tests\FsUnit.MbUnit.Test\bin\Release\"
-let testXunitDir = @".\tests\FsUnit.xUnit.Test\bin\Release\"
-let deployDir = @".\deploy\"
-let nugetNUnitLibDir = @".\NuGet\FsUnit.NUnit\Lib\"
-let nugetMbUnitLibDir = @".\NuGet\FsUnit.MbUnit\Lib\"
-let nugetXunitLibDir = @".\NuGet\FsUnit.Xunit\Lib\"
+let buildNUnitDir = @"./build/FsUnit.NUnit/"
+let buildMbUnitDir = @"./build/FsUnit.MbUnit/"
+let buildXunitDir = @"./build/FsUnit.xUnit/"
+let packagesDir = @"./packages/"
+let testNUnitDir = @"./tests/FsUnit.NUnit.Test/bin/Release/"
+let testMbUnitDir = @"./tests/FsUnit.MbUnit.Test/bin/Release/"
+let testXunitDir = @"./tests/FsUnit.xUnit.Test/bin/Release/"
+let deployDir = @"./deploy/"
+let nugetNUnitLibDir = @"./NuGet/FsUnit.NUnit/Lib/"
+let nugetMbUnitLibDir = @"./NuGet/FsUnit.MbUnit/Lib/"
+let nugetXunitLibDir = @"./NuGet/FsUnit.Xunit/Lib/"
 let targetPlatformDir = getTargetPlatformDir "4.0.30319"
 
-let appNUnitReferences  = !! @".\src\FsUnit.NUnit\*.*proj" 
-let appMbUnitReferences  = !! @".\src\FsUnit.MbUnit\*.*proj"
-let appXunitReferences  = !! @".\src\FsUnit.xUnit\*.*proj" 
-let appMatchersReferences  = !! @".\src\FsUnit.CustomMatchers\fsunit*.*proj" 
-let nunitTestReferences = !! @".\tests\FsUnit.NUnit.Test\*.*proj"
-let mbUnitTestReferences = !! @".\tests\FsUnit.MbUnit.Test\*.*proj"
-let xunitTestReferences = !! @".\tests\FsUnit.xUnit.Test\*.*proj"
-let testNUnitAssemblies = !! (testNUnitDir + @"\*.Test.dll")
-let testMbUnitAssemblies = !! (testMbUnitDir + @"\*.Test.dll")
-let testxUnitAssemblies = !! (testXunitDir + @"\*.Test.dll") 
-let nunitPath = @".\packages\NUnit.Runners.2.6.2\tools"
+let appNUnitReferences  = !! @"./src/FsUnit.NUnit/*.*proj" 
+let appMbUnitReferences  = !! @"./src/FsUnit.MbUnit/*.*proj"
+let appXunitReferences  = !! @"./src/FsUnit.xUnit/*.*proj" 
+let appMatchersReferences  = !! @"./src/FsUnit.CustomMatchers/fsunit*.*proj" 
+let nunitTestReferences = !! @"./tests/FsUnit.NUnit.Test/*.*proj"
+let mbUnitTestReferences = !! @"./tests/FsUnit.MbUnit.Test/*.*proj"
+let xunitTestReferences = !! @"./tests/FsUnit.xUnit.Test/*.*proj"
+let testNUnitAssemblies = !! (testNUnitDir + @"/*.Test.dll")
+let testMbUnitAssemblies = !! (testMbUnitDir + @"/*.Test.dll")
+let testxUnitAssemblies = !! (testXunitDir + @"/*.Test.dll") 
+let nunitPath = @"./packages/NUnit.Runners.2.6.3/tools"
 let nunitOutput = testNUnitDir + @"TestResults.xml"
-let mbUnitPath = @".\packages\mbunit.3.3.454.0\tools\bin\gallio.echo.exe"
-let xunitPath = @".\packages\xunit.runners.1.9.2\tools\xunit.console.clr4"
+let mbUnitPath = @"./packages/GallioBundle.3.4.14.0/bin/gallio.echo.exe"
+let xunitPath = @"./packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
 
 //" Targets
 Target? Clean <-
@@ -65,7 +66,7 @@ Target? BuildApp <-
             ["TargetFrameworkVersion", frameworkVersion; "DefineConstants", getVersionConstant]
 
         let buildDirectory dir = 
-            sprintf @"%s%s\" dir getVersionConstant //"
+            sprintf @"%s%s/" dir getVersionConstant //"
         
         [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMatchersReferences);
          (buildDirectory(buildMbUnitDir), appMbUnitReferences); (buildDirectory(buildXunitDir), appXunitReferences)]
@@ -74,13 +75,13 @@ Target? BuildApp <-
         
         [(buildDirectory(buildNUnitDir), "FsUnit.NUnit.dll", nugetNUnitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.dll", nugetMbUnitLibDir);
-         (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.xml", nugetMbUnitLibDir);
+         (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.XML", nugetMbUnitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetMbUnitLibDir);
          (buildDirectory(buildXunitDir), "FsUnit.Xunit.dll", nugetXunitLibDir);
-         (buildDirectory(buildXunitDir), "FsUnit.Xunit.xml", nugetXunitLibDir);
+         (buildDirectory(buildXunitDir), "FsUnit.Xunit.XML", nugetXunitLibDir);
          (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetXunitLibDir)]
         |> Seq.iter (fun (bDir, filename, nuDir) ->  
-            XCopy (bDir + filename) (nuDir + getVersionConstant + @"\" + filename)) //"
+            CopyFile (nuDir + getVersionConstant + @"/" + filename) (bDir + filename))
 
     ["v4.0"; "v2.0"] |> Seq.iter(fun v -> buildIt v)
  
@@ -95,9 +96,9 @@ Target? BuildTest <-
   
 Target? Test <-
    fun _ ->
-     testNUnitAssemblies |> NUnit (fun p -> {p with ToolPath = nunitPath; DisableShadowCopy = true; OutputFile = nunitOutput})
+     
      testxUnitAssemblies |> xUnit (fun p -> {p with ToolPath = xunitPath})
-     testMbUnitAssemblies |> xUnit (fun p -> {p with ToolPath = mbUnitPath})
+     testNUnitAssemblies |> NUnit (fun p -> {p with ToolPath = nunitPath; DisableShadowCopy = true; OutputFile = nunitOutput; })
 
 Target? Default <-
   fun _ -> trace ""
