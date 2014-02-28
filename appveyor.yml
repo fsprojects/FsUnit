@@ -1,0 +1,9 @@
+os: Windows Server 2012
+
+environment:
+  EnableNuGetPackageRestore: true
+  
+build_script:
+  - .\build.bat
+
+test: off
