@@ -109,7 +109,7 @@ anObj |> should not' (be sameAs otherObj)
 
 [1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
 ```
-Depricated Functions
+Deprecated Functions
 =======
 
 Prior to version 1.1.0.0, FsUnit implemented a function named `not` that overwrote the F# operator of the same name. This is not ideal, 
