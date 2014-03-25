@@ -24,8 +24,8 @@
 	<tags>F# fsharp xUnit FsUnit</tags>
   </metadata>
   <files>
-	  <file src="Lib\NET20\*.*" target="Lib\net20" />
-	  <file src="Lib\NET40\*.*" target="Lib\net40" />
+	  <file src="Lib\Net20\*.*" target="Lib\net20" />
+	  <file src="Lib\Net40\*.*" target="Lib\net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>
 </package>

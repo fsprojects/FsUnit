@@ -13,7 +13,7 @@
 	<tags>F# fsharp MsTest FsUnit</tags>
   </metadata>
   <files>
-	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
+	  <file src="Lib\Net40\*.*" target="Lib\Net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>
 </package>
