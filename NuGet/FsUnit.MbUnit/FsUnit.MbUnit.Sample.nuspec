@@ -17,8 +17,8 @@
   </metadata>
   <files>
 	  <file src="Content\*.pp" target="Content" />
-	  <file src="Lib\NET20\*.*" target="Lib\Net20" />
-	  <file src="Lib\NET40\*.*" target="Lib\Net40" />
+	  <file src="Lib\Net20\*.*" target="Lib\Net20" />
+	  <file src="Lib\Net40\*.*" target="Lib\Net40" />
 	  <file src="Tools\*.*" target="tools" />
   </files>
 </package>
