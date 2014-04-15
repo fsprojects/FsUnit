@@ -67,6 +67,7 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                                    | :? list<_> as l -> l |> List.exists(fun i -> i = x)
                                    | :? array<_> as a -> a |> Array.exists(fun i -> i = x)
                                    | :? seq<_> as s -> s |> Seq.exists(fun i -> i = x)
+                                   | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = x)
                                    | _ -> false)
 
 let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
@@ -74,5 +75,6 @@ let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
                                    | :? list<_> as l -> l |> List.exists f
                                    | :? array<_> as a -> a |> Array.exists f
                                    | :? seq<_> as s -> s |> Seq.exists f
+                                   | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.exists f
                                    | _ -> false)
 
