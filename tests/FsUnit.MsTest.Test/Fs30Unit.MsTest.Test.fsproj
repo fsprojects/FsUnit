@@ -54,6 +54,7 @@
     <Compile Include="equalWithinTests.fs" />
     <Compile Include="haveCountTests.fs" />
     <Compile Include="haveLengthTests.fs" />
+    <Compile Include="matchListTests.fs" />
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />

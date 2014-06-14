@@ -51,6 +51,8 @@ let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
 let contain expected = CustomMatchers.contain expected
 
+let matchList = CustomMatchers.matchList
+
 module FsUnitDepricated = 
     let not x = not' x
 
