@@ -4,7 +4,7 @@ open System.Runtime.CompilerServices
 
 [<assembly: AssemblyTitle("FsUnit.CustomMatchers")>]
 [<assembly: AssemblyProduct("FsUnit.CustomMatchers")>]
-[<assembly: AssemblyVersion("1.3.0.0")>]
+[<assembly: AssemblyVersion("1.3.0.1")>]
 [<assembly: InternalsVisibleTo("FsUnit.MbUnit.Test")>]
 [<assembly: InternalsVisibleTo("FsUnit.Xunit.Test")>]
 do()
