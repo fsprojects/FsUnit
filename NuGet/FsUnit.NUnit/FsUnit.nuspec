@@ -2,9 +2,9 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>FsUnit</id>
-    <version>1.2.1.0</version>
+    <version>1.3.0.0</version>
     <dependencies>
-      <dependency id="NUnit" version="2.6.2" />
+      <dependency id="NUnit" version="2.6.3" />
     </dependencies>
     <authors>Ray Vernagus and Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -83,7 +83,7 @@ Target? BuildApp <-
         |> Seq.iter (fun (bDir, filename, nuDir) ->  
             CopyFile (nuDir + getVersionConstant + @"/" + filename) (bDir + filename))
 
-    ["v4.0"; "v2.0"] |> Seq.iter(fun v -> buildIt v)
+    ["v2.0"] |> Seq.iter(fun v -> buildIt v)
  
 Target? BuildTest <-
   fun _ ->
