@@ -17,24 +17,24 @@ let homepage = "http://fsunit.codeplex.com/"
 // directories
 let buildNUnitDir = @"./build/FsUnit.NUnit/"
 let buildMbUnitDir = @"./build/FsUnit.MbUnit/"
-let buildXunitDir = @"./build/FsUnit.xUnit/"
+let buildXunitDir = @"./build/FsUnit.Xunit/"
 let packagesDir = @"./packages/"
 let testNUnitDir = @"./tests/FsUnit.NUnit.Test/bin/Release/"
 let testMbUnitDir = @"./tests/FsUnit.MbUnit.Test/bin/Release/"
-let testXunitDir = @"./tests/FsUnit.xUnit.Test/bin/Release/"
+let testXunitDir = @"./tests/FsUnit.Xunit.Test/bin/Release/"
 let deployDir = @"./deploy/"
-let nugetNUnitLibDir = @"./NuGet/FsUnit.NUnit/Lib/"
-let nugetMbUnitLibDir = @"./NuGet/FsUnit.MbUnit/Lib/"
-let nugetXunitLibDir = @"./NuGet/FsUnit.Xunit/Lib/"
+let nugetNUnitLibDir = @"./NuGet/FsUnit.NUnit/lib/"
+let nugetMbUnitLibDir = @"./NuGet/FsUnit.MbUnit/lib/"
+let nugetXunitLibDir = @"./NuGet/FsUnit.Xunit/lib/"
 let targetPlatformDir = getTargetPlatformDir "4.0.30319"
 
 let appNUnitReferences  = !! @"./src/FsUnit.NUnit/*.*proj" 
 let appMbUnitReferences  = !! @"./src/FsUnit.MbUnit/*.*proj"
-let appXunitReferences  = !! @"./src/FsUnit.xUnit/*.*proj" 
+let appXunitReferences  = !! @"./src/FsUnit.Xunit/*.*proj" 
 let appMatchersReferences  = !! @"./src/FsUnit.CustomMatchers/fsunit*.*proj" 
 let nunitTestReferences = !! @"./tests/FsUnit.NUnit.Test/*.*proj"
 let mbUnitTestReferences = !! @"./tests/FsUnit.MbUnit.Test/*.*proj"
-let xunitTestReferences = !! @"./tests/FsUnit.xUnit.Test/*.*proj"
+let xunitTestReferences = !! @"./tests/FsUnit.Xunit.Test/*.*proj"
 let testNUnitAssemblies = !! (testNUnitDir + @"/*.Test.dll")
 let testMbUnitAssemblies = !! (testMbUnitDir + @"/*.Test.dll")
 let testxUnitAssemblies = !! (testXunitDir + @"/*.Test.dll") 
@@ -61,7 +61,7 @@ Target? BuildApp <-
         let frameworkVersion = getBuildParamOrDefault "frameworkVersion" framework
         let getVersionConstant = 
             let v = ("[^\\d]" >=> "") (frameworkVersion)
-            "NET" + v.Substring(0,2)
+            "net" + v.Substring(0,2)
         let frameworkParams = 
             ["TargetFrameworkVersion", frameworkVersion; "DefineConstants", getVersionConstant]
 

@@ -16,10 +16,10 @@ md c:\nuget\FsUnit\
 c:\nuget\nuget.exe pack .\FsUnit.NUnit\FsUnit.Sample.nuspec
 md c:\nuget\FsUnit.Sample\
 
-c:\nuget\nuget.exe pack .\FsUnit.xUnit\FsUnit.xUnit.nuspec
-md c:\nuget\FsUnit.xUnit\
+c:\nuget\nuget.exe pack .\FsUnit.Xunit\FsUnit.Xunit.nuspec
+md c:\nuget\FsUnit.Xunit\
 
-c:\nuget\nuget.exe pack .\FsUnit.xUnit\FsUnit.xUnit.Sample.nuspec
-md c:\nuget\FsUnit.xUnit.Sample\
+c:\nuget\nuget.exe pack .\FsUnit.Xunit\FsUnit.Xunit.Sample.nuspec
+md c:\nuget\FsUnit.Xunit.Sample\
 
 pause
