@@ -122,7 +122,7 @@ Visual Studio 11 Support
 =======
 
 Visual Studio 11 support is available for all 4 of the targetted testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
-FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.xUnit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
+FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.Xunit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
 in order to use these libraries in VS11. After installing one of these packages, add an `App.config` file to the project (if one doesn't already exist).
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
 Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to 
@@ -134,7 +134,7 @@ NuGet
 NuGet packages are available for each of the supported testing frameworks:
 
 * The package with ID FsUnit supports NUnit. It is the original.
-* The package with ID FsUnit.xUnit supports xUnit.NET.
+* The package with ID FsUnit.Xunit supports Xunit.NET.
 * The package with ID FsUnit.MbUnit supports MbUnit.
 * The packager with ID Fs30Unit.MsTest supports MsTest in VS11. 
 	
