@@ -53,6 +53,8 @@ let contain expected = CustomMatchers.contain expected
 
 let matchList = CustomMatchers.matchList
 
+let choice = CustomMatchers.choice
+
 module FsUnitDepricated = 
     let not x = not' x
 

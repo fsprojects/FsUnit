@@ -50,6 +50,7 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
+    <Compile Include="beChoice.fs" />
     <Compile Include="beEmptyStringTests.fs" />
     <Compile Include="beEmptyTests.fs" />
     <Compile Include="beFalseTests.fs" />

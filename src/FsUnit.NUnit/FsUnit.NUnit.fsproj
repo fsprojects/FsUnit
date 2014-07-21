@@ -64,6 +64,11 @@
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" Condition="'$(TargetFrameworkVersion)'!='v3.5'" />
+    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
+      <Name>FsUnit.CustomMatchers</Name>
+      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

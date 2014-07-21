@@ -97,6 +97,8 @@ anObj |> should not' (be sameAs otherObj)
 
 1 |> should not' (be ofExactType<obj>)
 
+Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
+
 [] |> should be Empty // NUnit only
 
 [1] |> should not' (be Empty) // NUnit only
