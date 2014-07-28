@@ -49,6 +49,8 @@ module TopLevelOperators =
 
     let throw = Throws.TypeOf
 
+    let throwWithMessage (m:string) (t:System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
+
     let greaterThan x = GreaterThanConstraint(x)
 
     let greaterThanOrEqualTo x = GreaterThanOrEqualConstraint(x)
