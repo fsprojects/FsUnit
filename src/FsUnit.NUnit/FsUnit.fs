@@ -2,9 +2,19 @@
 
 namespace FsUnit
 
+open System
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
+type ChoiceConstraint(n) =
+  inherit Constraint() with
+    override this.WriteDescriptionTo(writer: MessageWriter): unit =
+      writer.WritePredicate("is choice")
+      writer.WriteExpectedValue(sprintf "%d" n)
+    override this.Matches(actual: obj) =
+      match actual with
+        | null -> raise (new ArgumentException("The actual value must be a non-null choice"))
+        | o -> (new CustomMatchers.ChoiceDiscriminator(n)).check(o)
 
 //
 [<AutoOpen>]
@@ -70,10 +80,11 @@ module TopLevelOperators =
 
     let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
 
+    let choice n = ChoiceConstraint(n)
+
     let not' x = NotConstraint(x)
 
     /// Deprecated operators. These will be removed in a future version of FsUnit.
     module FsUnitDepricated =
         [<System.Obsolete>]
         let not x = not' x
-

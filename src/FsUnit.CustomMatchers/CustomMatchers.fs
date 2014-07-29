@@ -81,6 +81,7 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                                    | _ -> false)
 
 let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
+                          
                           fun c -> match c with
                                    | :? list<_> as l -> l |> List.exists f
                                    | :? array<_> as a -> a |> Array.exists f
@@ -93,3 +94,57 @@ let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.To
                                     | :? list<_> as ys' -> List.sort xs = List.sort ys'
                                     | :? _ -> false) 
 
+type ChoiceDiscriminator(n : int) =
+  member this.check(c : Choice<'a, 'b>): bool =
+    match c with
+      | Choice1Of2(_) -> n = 1
+      | Choice2Of2(_) -> n = 2
+  member this.check(c : Choice<'a, 'b, 'c>): bool =
+    match c with
+      | Choice1Of3(_) -> n = 1
+      | Choice2Of3(_) -> n = 2
+      | Choice3Of3(_) -> n = 3
+  member this.check(c : Choice<'a, 'b, 'c, 'd>): bool =
+    match c with
+      | Choice1Of4(_) -> n = 1
+      | Choice2Of4(_) -> n = 2
+      | Choice3Of4(_) -> n = 3
+      | Choice4Of4(_) -> n = 4
+  member this.check(c : Choice<'a, 'b, 'c, 'd, 'e>): bool =
+    match c with
+      | Choice1Of5(_) -> n = 1
+      | Choice2Of5(_) -> n = 2
+      | Choice3Of5(_) -> n = 3
+      | Choice4Of5(_) -> n = 4
+      | Choice5Of5(_) -> n = 5
+  member this.check(c : Choice<'a, 'b, 'c, 'd, 'e, 'f>): bool =
+    match c with
+      | Choice1Of6(_) -> n = 1
+      | Choice2Of6(_) -> n = 2
+      | Choice3Of6(_) -> n = 3
+      | Choice4Of6(_) -> n = 4
+      | Choice5Of6(_) -> n = 5
+      | Choice6Of6(_) -> n = 6
+  member this.check(c : Choice<'a, 'b, 'c, 'd, 'e, 'f, 'g>): bool =
+    match c with
+      | Choice1Of7(_) -> n = 1
+      | Choice2Of7(_) -> n = 2
+      | Choice3Of7(_) -> n = 3
+      | Choice4Of7(_) -> n = 4
+      | Choice5Of7(_) -> n = 5
+      | Choice6Of7(_) -> n = 6
+      | Choice7Of7(_) -> n = 7
+  member this.check(c : obj): bool =
+    let cType = c.GetType()
+    let cArgs = cType.GetGenericArguments()
+    let cArgCount = Seq.length cArgs
+    try 
+      this.GetType().GetMethods()
+      |> Seq.filter (fun m -> m.Name = "check"
+                              && Seq.length (m.GetGenericArguments()) = cArgCount)
+      |> Seq.exists (fun m -> m.MakeGenericMethod(cArgs).Invoke(this, [| c |]) :?> bool)
+    with
+      | _ -> false
+
+let choice n = CustomMatcher<obj>(sprintf "The choice %d" n,
+                                    fun x -> (new ChoiceDiscriminator(n)).check(x))

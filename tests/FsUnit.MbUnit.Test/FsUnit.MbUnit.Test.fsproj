@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="equalTests.fs" />
     <Compile Include="containTests.fs" />
+    <Compile Include="beChoice.fs" />
     <Compile Include="beEmptyStringTests.fs" />
     <Compile Include="beEmptyTests.fs" />
     <Compile Include="beFalseTests.fs" />

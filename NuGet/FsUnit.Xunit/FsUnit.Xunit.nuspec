@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>FsUnit.xUnit</id>
+    <id>FsUnit.Xunit</id>
     <version>1.3.0.1</version>
     <dependencies>
       <group targetFramework="net20">
@@ -24,8 +24,8 @@
 	<tags>F# fsharp xUnit FsUnit</tags>
   </metadata>
   <files>
-	  <file src="Lib\Net20\*.*" target="Lib\net20" />
-	  <file src="Lib\Net40\*.*" target="Lib\net40" />
-	  <file src="Tools\*.*" target="tools" />
+	  <file src="lib\net20\*.*" target="lib\net20" />
+	  <file src="lib\net40\*.*" target="lib\net40" />
+	  <file src="tools\*.*" target="tools" />
   </files>
 </package>
