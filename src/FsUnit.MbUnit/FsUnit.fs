@@ -21,6 +21,8 @@ let not' (expected:obj) = CustomMatchers.not' expected
 
 let throw (t:Type) = CustomMatchers.throw t
 
+let throwWithMessage (m:string) (t:Type) = CustomMatchers.throwWithMessage m t
+
 let be = CustomMatchers.be
 
 let Null = CustomMatchers.Null

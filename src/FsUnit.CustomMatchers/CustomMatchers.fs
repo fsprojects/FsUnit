@@ -30,6 +30,16 @@ let throw (t:Type) = CustomMatcher<obj>(string t,
                                       | ex -> if ex.GetType() = t then true else false
                                   | _ -> false )
 
+let throwWithMessage (m:string) (t:Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, 
+                         fun f -> match f with
+                                  | :? (unit -> unit) as testFunc -> 
+                                      try
+                                        testFunc() 
+                                        false
+                                      with
+                                      | ex -> if ex.GetType() = t && ex.Message = m then true else false
+                                  | _ -> false )
+
 let be = id
 
 let Null = Is.Null()
