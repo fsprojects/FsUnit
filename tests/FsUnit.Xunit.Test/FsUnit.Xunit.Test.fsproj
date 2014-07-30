@@ -52,6 +52,8 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
+    <Compile Include="beAscendingTests.fs" />
+    <Compile Include="beDescendingTests.fs" />
     <Compile Include="equalTests.fs" />
     <Compile Include="containTests.fs" />
     <Compile Include="beChoice.fs" />

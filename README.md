@@ -51,11 +51,11 @@ A Collection instance has a certain count (NUnit only):
 ```fsharp
 aCollection |> should haveCount 4
 ```
-```fsharp
 A function should throw a certain type of exception:
-```
 ```fsharp
 (fun () -> failwith "BOOM!" |> ignore) |> should throw typeof<System.Exception>
+
+(fun () -> failwith "BOOM!" |> ignore) |> should (throwWithMessage "BOOM!") typeof<System.Exception>
 ```
 A number of assertions can be created using the `be` keyword:
 ```fsharp
@@ -110,6 +110,14 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 2.0 |> should not' (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
 
 [1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
+
+[1;2;3] |> should be ascending
+
+[1;3;2] |> should not' (be ascending)
+
+[3;2;1] |> should be descending
+
+[3;1;2] |> should not' (be descending)
 ```
 Deprecated Functions
 =======
