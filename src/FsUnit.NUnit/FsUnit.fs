@@ -82,6 +82,10 @@ module TopLevelOperators =
 
     let choice n = ChoiceConstraint(n)
 
+    let ascending = Is.Ordered
+
+    let descending = Is.Ordered.Descending
+
     let not' x = NotConstraint(x)
 
     /// Deprecated operators. These will be removed in a future version of FsUnit.

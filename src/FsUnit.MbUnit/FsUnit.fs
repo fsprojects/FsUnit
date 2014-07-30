@@ -57,6 +57,10 @@ let matchList = CustomMatchers.matchList
 
 let choice = CustomMatchers.choice
 
+let ascending = CustomMatchers.ascending
+
+let descending = CustomMatchers.descending
+
 module FsUnitDepricated = 
     let not x = not' x
 

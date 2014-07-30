@@ -31,14 +31,14 @@ let throw (t:Type) = CustomMatcher<obj>(string t,
                                   | _ -> false )
 
 let throwWithMessage (m:string) (t:Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, 
-                         fun f -> match f with
-                                  | :? (unit -> unit) as testFunc -> 
-                                      try
-                                        testFunc() 
-                                        false
-                                      with
-                                      | ex -> if ex.GetType() = t && ex.Message = m then true else false
-                                  | _ -> false )
+                                                fun f -> match f with
+                                                         | :? (unit -> unit) as testFunc -> 
+                                                             try
+                                                               testFunc() 
+                                                               false
+                                                             with
+                                                             | ex -> if ex.GetType() = t && ex.Message = m then true else false
+                                                         | _ -> false )
 
 let be = id
 
@@ -93,6 +93,23 @@ let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.To
                           fun ys -> match ys with
                                     | :? list<_> as ys' -> List.sort xs = List.sort ys'
                                     | :? _ -> false) 
+
+let private makeOrderedMatcher description comparer =
+    CustomMatcher<obj>(description,
+        fun c -> match c with
+                 | :? list<IComparable> as l -> l = List.sortWith comparer l
+                 | :? array<IComparable> as a -> a = Array.sortWith comparer a
+                 | :? seq<IComparable> as s ->
+                         let a = s |> Seq.toArray
+                         a = (a |> Array.sortWith comparer)
+                 | :? System.Collections.IEnumerable as e ->
+                         let a = e |> Seq.cast |> Seq.toArray
+                         a = (a |> Array.sortWith comparer)
+                 | _ -> false)
+    
+let ascending = makeOrderedMatcher "Ascending" compare
+
+let descending = makeOrderedMatcher "Descending" (fun a b -> -(compare a b))
 
 type ChoiceDiscriminator(n : int) =
   member this.check(c : Choice<'a, 'b>): bool =
