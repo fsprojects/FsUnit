@@ -2,7 +2,7 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDepricated
+open FsUnitDeprecated
 
 type ``match List tests`` ()=
     [<TestMethod>] member test.

@@ -1,7 +1,7 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 type AlwaysEqual() =
     override this.Equals(other) = true

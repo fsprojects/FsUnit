@@ -3,7 +3,7 @@ open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDepricated
+open FsUnitDeprecated
 
 exception TestException
 [<TestClass>]

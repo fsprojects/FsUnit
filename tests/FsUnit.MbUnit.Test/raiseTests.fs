@@ -3,7 +3,7 @@ open System
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDepricated
+open FsUnitDeprecated
 
 exception TestException
 

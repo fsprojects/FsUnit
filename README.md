@@ -124,7 +124,7 @@ Deprecated Functions
 
 Prior to version 1.1.0.0, FsUnit implemented a function named `not` that overwrote the F# operator of the same name. This is not ideal, 
 so as of version 1.1.0.0 the FsUnit function has been renamed to `not'` (not + single-quote). If you need or want the previous function, it 
-can be made available by opening the FsUnitDepricated module. 
+can be made available by opening the FsUnitDeprecated module. 
 
 Visual Studio 11 Support
 =======

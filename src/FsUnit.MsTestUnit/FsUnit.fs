@@ -70,7 +70,7 @@ let ascending = CustomMatchers.ascending
 
 let descending = CustomMatchers.descending
 
-module FsUnitDepricated =
+module FsUnitDeprecated =
     let not x = not' x 
 
 // haveLength, haveCount, Empty, and shouldFail are not implemented for MbUnit, xUnit, or MsTest 
