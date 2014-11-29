@@ -288,3 +288,9 @@ Release Notes
 * 0.9.1.1 - Added several new assertions.
 * 0.9.0.0 - Ray Vernagus built this version and several before it with NUnit as the targeted testing framework.
 
+Maintainer(s)
+============
+
+- [@dmohl](https://github.com/dmohl)
+
+The default maintainer account for projects under "fsprojects" is [@fsgit](https://github.com/fsgit) - F# Community Project Incubation Space (repo management)
