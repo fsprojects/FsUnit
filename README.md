@@ -1,3 +1,6 @@
+[![Issue Stats](http://issuestats.com/github/fsprojects/FsUnit/badge/issue)](http://issuestats.com/github/fsprojects/FsUnit)
+[![Issue Stats](http://issuestats.com/github/fsprojects/FsUnit/badge/pr)](http://issuestats.com/github/fsprojects/FsUnit)
+
 FsUnit
 =======
 
@@ -141,10 +144,10 @@ NuGet
 
 NuGet packages are available for each of the supported testing frameworks:
 
-* The package with ID FsUnit supports NUnit. It is the original.
-* The package with ID FsUnit.Xunit supports Xunit.NET.
-* The package with ID FsUnit.MbUnit supports MbUnit.
-* The packager with ID Fs30Unit.MsTest supports MsTest in VS11. 
+* The package with ID FsUnit supports NUnit. It is the original. [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.svg?style=flat)](https://www.nuget.org/packages/FsUnit/)
+* The package with ID FsUnit.Xunit supports Xunit.NET. [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.Xunit.svg?style=flat)](https://www.nuget.org/packages/FsUnit.Xunit/)
+* The package with ID FsUnit.MbUnit supports MbUnit. [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.MbUnit.svg?style=flat)](https://www.nuget.org/packages/FsUnit.MbUnit/)
+* The packager with ID Fs30Unit.MsTest supports MsTest in VS11. [![NuGet Status](http://img.shields.io/nuget/v/Fs30Unit.MsTest.svg?style=flat)](https://www.nuget.org/packages/Fs30Unit.MsTest/)
 	
 Examples
 =======
