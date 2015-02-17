@@ -41,7 +41,7 @@ let testxUnitAssemblies = !! (testXunitDir + @"/*.Test.dll")
 let nunitPath = @"./packages/NUnit.Runners.2.6.3/tools"
 let nunitOutput = testNUnitDir + @"TestResults.xml"
 let mbUnitPath = @"./packages/GallioBundle.3.4.14.0/bin/gallio.echo.exe"
-let xunitPath = @"./packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
+let xunitPath = @"./packages/xunit.runners.2.0.0-rc1-build2826/tools/xunit.console.exe"
 
 //" Targets
 Target? Clean <-
@@ -55,35 +55,24 @@ Target? Clean <-
     RestorePackages()
 
 Target? BuildApp <-
-  fun _ ->    
-    let buildIt framework =
-        let target = getBuildParamOrDefault framework "All"
-        let frameworkVersion = getBuildParamOrDefault "frameworkVersion" framework
-        let getVersionConstant = 
-            let v = ("[^\\d]" >=> "") (frameworkVersion)
-            "net" + v.Substring(0,2)
-        let frameworkParams = 
-            ["TargetFrameworkVersion", frameworkVersion; "DefineConstants", getVersionConstant]
-
-        let buildDirectory dir = 
-            sprintf @"%s%s/" dir getVersionConstant //"
+  fun _ ->
+    let buildDirectory dir = 
+        sprintf @"%s/" dir //"
         
-        [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMatchersReferences);
-         (buildDirectory(buildMbUnitDir), appMbUnitReferences); (buildDirectory(buildXunitDir), appXunitReferences)]
-        |> Seq.iter (fun (bDir, appRefs) -> MSBuild bDir "Rebuild" (["Configuration","Release"] @ frameworkParams) appRefs
-                                            |> Log "AppBuild-Output: " )
+    [(buildDirectory(buildNUnitDir), appNUnitReferences); (buildDirectory(buildMbUnitDir), appMatchersReferences);
+        (buildDirectory(buildMbUnitDir), appMbUnitReferences); (buildDirectory(buildXunitDir), appXunitReferences)]
+    |> Seq.iter (fun (bDir, appRefs) -> MSBuild bDir "Rebuild" (["Configuration","Release"]) appRefs
+                                        |> Log "AppBuild-Output: " )
         
-        [(buildDirectory(buildNUnitDir), "FsUnit.NUnit.dll", nugetNUnitLibDir);
-         (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.dll", nugetMbUnitLibDir);
-         (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.XML", nugetMbUnitLibDir);
-         (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetMbUnitLibDir);
-         (buildDirectory(buildXunitDir), "FsUnit.Xunit.dll", nugetXunitLibDir);
-         (buildDirectory(buildXunitDir), "FsUnit.Xunit.XML", nugetXunitLibDir);
-         (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetXunitLibDir)]
-        |> Seq.iter (fun (bDir, filename, nuDir) ->  
-            CopyFile (nuDir + getVersionConstant + @"/" + filename) (bDir + filename))
-
-    ["v2.0"] |> Seq.iter(fun v -> buildIt v)
+    [(buildDirectory(buildNUnitDir), "FsUnit.NUnit.dll", nugetNUnitLibDir);
+        (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.dll", nugetMbUnitLibDir);
+        (buildDirectory(buildMbUnitDir), "FsUnit.MbUnit.XML", nugetMbUnitLibDir);
+        (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetMbUnitLibDir);
+        (buildDirectory(buildXunitDir), "FsUnit.Xunit.dll", nugetXunitLibDir);
+        (buildDirectory(buildXunitDir), "FsUnit.Xunit.XML", nugetXunitLibDir);
+        (buildDirectory(buildMbUnitDir), "FsUnit.CustomMatchers.dll", nugetXunitLibDir)]
+    |> Seq.iter (fun (bDir, filename, nuDir) ->  
+        CopyFile (nuDir + @"/" + filename) (bDir + filename))
  
 Target? BuildTest <-
   fun _ ->

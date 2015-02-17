@@ -1,15 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A61D7458-5FB0-49AC-ADC8-1896EA316CE6}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.NUnit", "src\FsUnit.NUnit\FsUnit.NUnit.fsproj", "{3890DC0F-5225-4ADF-9B9E-F6A482046A9E}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.NUnit.Test", "tests\FsUnit.NUnit.Test\FsUnit.NUnit.Test.fsproj", "{025096F3-20FB-40F2-8CAA-34EFDA450E87}"
@@ -27,6 +20,11 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTestUnit", "src\FsUnit.MsTestUnit\FsUnit.MsTestUnit.fsproj", "{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs30Unit.MsTest.Test", "tests\FsUnit.MsTest.Test\Fs30Unit.MsTest.Test.fsproj", "{EEDD7886-D39F-4F4C-AD9A-13D98510A164}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{73E2AD39-4D80-4A04-BD53-F0BD39FD8054}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
