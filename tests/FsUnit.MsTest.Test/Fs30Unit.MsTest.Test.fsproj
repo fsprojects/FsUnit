@@ -75,6 +75,7 @@
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
     <None Include="App.config" />
+    <None Include="paket.references" />
     <None Include="MSTest.runsettings" />
   </ItemGroup>
   <ItemGroup>
@@ -83,10 +84,6 @@
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="mscorlib" />
-    <Reference Include="NHamcrest">
-      <HintPath>..\..\packages\NHamcrest.1.2.1\lib\NHamcrest.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -101,7 +98,6 @@
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -109,4 +105,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="NHamcrest">
+      <HintPath>..\..\packages\NHamcrest\lib\NHamcrest.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
 </Project>

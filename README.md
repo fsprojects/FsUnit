@@ -1,6 +1,9 @@
 [![Issue Stats](http://issuestats.com/github/fsprojects/FsUnit/badge/issue)](http://issuestats.com/github/fsprojects/FsUnit)
 [![Issue Stats](http://issuestats.com/github/fsprojects/FsUnit/badge/pr)](http://issuestats.com/github/fsprojects/FsUnit)
 
+[![Travis build status](https://travis-ci.org/fsprojects/FsUnit.png)](https://travis-ci.org/fsprojects/FsUnit)
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/h0ikrnvnuuk6vn5j?svg=true)](https://ci.appveyor.com/project/sergey-tihon/fsunit)
+
 FsUnit
 =======
 

@@ -76,30 +76,13 @@
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
     <Compile Include="equalWithinTests.fs" />
-    <None Include="packages.config" />
+    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Gallio">
-      <HintPath>..\..\packages\mbunit.3.3.454.0\lib\net40\Gallio.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Gallio35">
-      <HintPath>..\..\packages\mbunit.3.3.454.0\lib\net35\Gallio35.dll</HintPath>
-    </Reference>
-    <Reference Include="MbUnit">
-      <HintPath>..\..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MbUnit35">
-      <HintPath>..\..\packages\mbunit.3.3.454.0\lib\net35\MbUnit35.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="NHamcrest, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31c3ea0b6fcf8c4a">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -115,7 +98,6 @@
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
 	<Target Name="BeforeBuild">
@@ -123,4 +105,61 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Gallio">
+          <HintPath>..\..\packages\mbunit\lib\net35\Gallio.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Gallio35">
+          <HintPath>..\..\packages\mbunit\lib\net35\Gallio35.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="MbUnit">
+          <HintPath>..\..\packages\mbunit\lib\net35\MbUnit.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="MbUnit35">
+          <HintPath>..\..\packages\mbunit\lib\net35\MbUnit35.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
+      <ItemGroup>
+        <Reference Include="Gallio">
+          <HintPath>..\..\packages\mbunit\lib\net40\Gallio.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Gallio40">
+          <HintPath>..\..\packages\mbunit\lib\net40\Gallio40.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="MbUnit">
+          <HintPath>..\..\packages\mbunit\lib\net40\MbUnit.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="MbUnit40">
+          <HintPath>..\..\packages\mbunit\lib\net40\MbUnit40.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="NHamcrest">
+      <HintPath>..\..\packages\NHamcrest\lib\NHamcrest.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
 </Project>
