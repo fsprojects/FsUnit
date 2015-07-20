@@ -7,6 +7,8 @@ nuget FAKE
 nuget SourceLink.Fake
 
 nuget FSharp.Core
+nuget Microsoft.VisualStudio.QualityTools.UnitTestFramework
+
 nuget NHamcrest 1.2.1
 nuget xunit 1.9.0.1566
 nuget xunit.runners 1.9.2
