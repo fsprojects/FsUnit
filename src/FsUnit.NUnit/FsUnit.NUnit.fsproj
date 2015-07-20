@@ -61,7 +61,7 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" Condition="'$(TargetFrameworkVersion)'!='v3.5'" />
     <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
