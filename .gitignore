@@ -89,6 +89,7 @@ docs/output/
 
 # Temp folder used for publishing docs
 temp/
+.vs/
 
 # Test results produced by build
 TestResults.xml

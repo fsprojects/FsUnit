@@ -23,10 +23,10 @@ NUGET
     Octokit (0.14.0)
       Microsoft.Net.Http
     SourceLink.Fake (1.0.0)
-    xunit (1.9.0.1566)
+    xunit (1.9.2)
     xunit.runners (1.9.2)
 GITHUB
   remote: fsharp/FAKE
   specs:
-    modules/Octokit/Octokit.fsx (67584fb9db30af11f16d9c1e7d36e1ca244a6f9c)
+    modules/Octokit/Octokit.fsx (3bde7566d4514ce83e88d376141ee848847ae6e9)
       Octokit
