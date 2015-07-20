@@ -52,10 +52,11 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
-    <None Include="paket.references" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="FsUnit.fs" />
     <Compile Include="GenericAssert.fs" />
+    <None Include="paket.references" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -63,11 +64,6 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.Numerics" Condition="'$(TargetFrameworkVersion)'!='v3.5'" />
-    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
-      <Name>FsUnit.CustomMatchers</Name>
-      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
@@ -76,6 +72,13 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
+  <ItemGroup>
+    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
+      <Name>FsUnit.CustomMatchers</Name>
+      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
