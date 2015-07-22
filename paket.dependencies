@@ -12,6 +12,6 @@ nuget Microsoft.VisualStudio.QualityTools.UnitTestFramework
 nuget NHamcrest 1.2.1
 nuget xunit 1.9.2
 nuget xunit.runners 1.9.2
-nuget mbunit 3.3.454.0
+nuget mbunit 3.4.14
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
