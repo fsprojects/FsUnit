@@ -1,0 +1,27 @@
+﻿type file
+id
+	FsUnit.xUnit.Sample
+owners
+    Ray Vernagus and Daniel Mohl
+authors
+    Ray Vernagus and Daniel Mohl
+projectUrl
+    http://github.com/fsprojects/FsUnit
+iconUrl
+    https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/fsprojects/FsUnit/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    F# fsharp xUnit FsUnit
+summary
+    The goals of FsUnit are to make unit-testing feel more functional while leverage existing testing frameworks.
+description
+    FsUnit is a set of extensions that add special testing syntax to xUnit.
+dependencies
+	FsUnit.xUnit
+files
+	../../bin/FsUnit.Xunit/*.pp ==> content

@@ -56,6 +56,10 @@
     <Compile Include="FsUnit.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
+    <None Include="FsUnitSample.fs.pp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample.paket.template" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
