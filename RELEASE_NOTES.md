@@ -1,4 +1,4 @@
-### 1.3.1.0-beta - Unreleased
+### 1.3.1.0 - Unreleased
 * Migration to Paket
 * Bump NUnit version up to 2.6.4
 * Bump xUnit version up to 1.9.2
