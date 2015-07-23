@@ -24,4 +24,4 @@ description
 dependencies
 	Fs30Unit.MsTest
 files
-	../../bin/FsUnit.MsTestUnit/*.pp ==> content
+	../../bin/FsUnit.MsTest/*.pp ==> content

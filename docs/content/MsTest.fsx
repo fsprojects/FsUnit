@@ -4,16 +4,9 @@
 #I "../../bin"
 
 (**
-Introducing your project
+FsUnit for MsTest
 ========================
 
-Say more
+// TODO:
 
-*)
-#r "FsUnit.dll"
-open FsUnit
-
-Library.hello 0
-(**
-Some more info
 *)

@@ -11,7 +11,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.Xunit", "src\FsUnit.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.CustomMatchers", "src\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj", "{3C6A91DC-A865-497B-A304-3E9AA3E119CB}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTestUnit", "src\FsUnit.MsTestUnit\FsUnit.MsTestUnit.fsproj", "{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTest", "src\FsUnit.MsTestUnit\FsUnit.MsTest.fsproj", "{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{39AB5EC7-DEE0-4F89-8163-2E94898164BF}"
 	ProjectSection(SolutionItems) = preProject
@@ -34,7 +34,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{0BEF7A55-F158-4691-886C-1AF2FE12DD7C}"
 	ProjectSection(SolutionItems) = preProject
 		docs\content\index.fsx = docs\content\index.fsx
-		docs\content\tutorial.fsx = docs\content\tutorial.fsx
+		docs\content\MbUnit.fsx = docs\content\MbUnit.fsx
+		docs\content\MsTest.fsx = docs\content\MsTest.fsx
+		docs\content\NUnit.fsx = docs\content\NUnit.fsx
+		docs\content\xUnit.fsx = docs\content\xUnit.fsx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{80F685C3-137A-4515-A1F1-37CB5F798DA6}"

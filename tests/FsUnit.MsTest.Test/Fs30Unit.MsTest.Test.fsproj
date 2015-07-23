@@ -79,6 +79,11 @@
     <None Include="MSTest.runsettings" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\FsUnit.MsTestUnit\FsUnit.MsTest.fsproj">
+      <Name>FsUnit.MsTest</Name>
+      <Project>{e9d287a5-74a5-4b0e-b200-7e6777e7af79}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
       <HintPath>..\..\packages\Microsoft.VisualStudio.QualityTools.UnitTestFramework\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
     </Reference>
@@ -89,11 +94,6 @@
     <ProjectReference Include="..\..\src\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
       <Name>FsUnit.CustomMatchers</Name>
       <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\FsUnit.MsTestUnit\FsUnit.MsTestUnit.fsproj">
-      <Name>FsUnit.MsTestUnit</Name>
-      <Project>{e9d287a5-74a5-4b0e-b200-7e6777e7af79}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

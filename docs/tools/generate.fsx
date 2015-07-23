@@ -18,10 +18,10 @@ let githubLink = "http://github.com/fsprojects/FsUnit"
 // Specify more information about your project
 let info =
   [ "project-name", "FsUnit"
-    "project-author", "Dan Mohl"
+    "project-author", "Ray Vernagus and Daniel Mohl"
     "project-summary", "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
     "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/FsUnit" ]
+    "project-nuget", "https://www.nuget.org/packages?q=FsUnit" ]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below

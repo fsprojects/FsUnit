@@ -1,8 +1,9 @@
 ### 1.3.1.0 - Unreleased
-* Migration to Paket
 * Bump NUnit version up to 2.6.4
 * Bump xUnit version up to 1.9.2
 * Bump MbUnit version up to 3.4.14
+* Migration to Paket
+* Readme and samples converted to FsUnit site
 
 ### 1.3.0.1 - June 29 2014
 
