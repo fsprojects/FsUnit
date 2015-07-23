@@ -4,6 +4,7 @@ open FsUnit.MsTest
 open NHamcrest.Core
 open FsUnitDepricated
 
+[<TestClass>]
 type ``match List tests`` ()=
     [<TestMethod>] member test.
      ``Empty list should match itself`` () =

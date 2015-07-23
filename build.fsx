@@ -2,7 +2,10 @@
 // FAKE build script
 // --------------------------------------------------------------------------------------
 
-#r @"packages/FAKE/tools/FakeLib.dll"
+#I @"packages/FAKE/tools/"
+#I @"packages/mbunit/lib/net35/"
+#r "FakeLib.dll"
+#r "Fake.Gallio.dll"
 open Fake
 open Fake.Git
 open Fake.AssemblyInfoFile
@@ -33,21 +36,8 @@ let project = "FsUnit"
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
 let summary = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
 
-// Longer description of the project
-// (used as a description for NuGet package; line breaks are automatically cleaned up)
-let description = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework. FsUnit currently supports NUnit, MbUnit, xUnit, and MsTest (VS11 only)."
-
-// List of author names (for NuGet package)
-let authors = [ "Dan Mohl" ]
-
-// Tags for your project (for NuGet package)
-let tags = "NUnit XUnit MSTest MbUnit"
-
 // File system information 
 let solutionFile  = "FsUnit.sln"
-
-// Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -134,14 +124,38 @@ Target "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
-Target "RunTests" (fun _ ->
-    !! testAssemblies
+Target "NUnit" (fun _ ->
+    !! "tests/**/bin/Release/*NUnit.Test.dll"
     |> NUnit (fun p ->
         { p with
             DisableShadowCopy = true
             TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
+            OutputFile = "NUnit.xml" })
 )
+
+Target "xUnit" (fun _ ->
+    !! "tests/**/bin/Release/*Xunit.Test.dll"
+    |> Fake.Testing.XUnit.xUnit (fun p ->
+        {p with 
+            TimeOut = TimeSpan.FromMinutes 20.
+            HtmlOutputPath = Some "xunit.html"})
+)
+
+Target "MbUnit" (fun _ ->
+    !! "tests/**/bin/Release/*MbUnit.Test.dll"
+    |> Fake.Gallio.Run (fun p -> 
+        { p with
+            RunTimeLimit = Some <| TimeSpan.FromMinutes 20. })
+)
+
+Target "MsTest" (fun _ ->
+    !! "tests/**/bin/Release/*MsTest.Test.dll"
+    |> Fake.MSTest.MSTest (fun p -> 
+        { p with
+            TimeOut = TimeSpan.FromMinutes 20. })
+)
+
+Target "RunTests" DoNothing
 
 #if MONO
 #else
@@ -328,6 +342,11 @@ Target "All" DoNothing
   ==> "GenerateDocs"
   ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
+
+"Build" ==> "NUnit"  ==> "RunTests"
+"Build" ==> "xUnit"  ==> "RunTests"
+"Build" ==> "MbUnit" ==> "RunTests"
+"Build" ==> "MsTest" ==> "RunTests"
 
 "All" 
 #if MONO
