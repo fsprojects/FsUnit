@@ -1,4 +1,4 @@
-### 1.3.1.0 - Unreleased
+### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4
 * Bump xUnit version up to 1.9.2
 * Bump MbUnit version up to 3.4.14
