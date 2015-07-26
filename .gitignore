@@ -106,3 +106,5 @@ paket-files
 docs/content/license.md
 docs/content/release-notes.md
 .fake
+FsUnit.Xunit.Test.dll.xunit.html
+NUnit.xml

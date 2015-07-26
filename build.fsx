@@ -138,12 +138,13 @@ Target "xUnit" (fun _ ->
     |> Fake.Testing.XUnit.xUnit (fun p ->
         {p with 
             TimeOut = TimeSpan.FromMinutes 20.
+            ExcludeTraits = [("Category", "ShouldFail")]
             HtmlOutputPath = Some "xunit.html"})
 )
 
 Target "MbUnit" (fun _ ->
     !! "tests/**/bin/Release/*MbUnit.Test.dll"
-    |> Fake.Gallio.Run (fun p -> 
+    |> Fake.Gallio.Run (fun p ->
         { p with
             RunTimeLimit = Some <| TimeSpan.FromMinutes 20. })
 )
@@ -337,7 +338,7 @@ Target "All" DoNothing
   ==> "AssemblyInfo"
   ==> "Build"
   ==> "CopyBinaries"
-  //==> "RunTests"
+  ==> "RunTests"
   ==> "GenerateReferenceDocs"
   ==> "GenerateDocs"
   ==> "All"
@@ -345,8 +346,8 @@ Target "All" DoNothing
 
 "Build" ==> "NUnit"  ==> "RunTests"
 "Build" ==> "xUnit"  ==> "RunTests"
-"Build" ==> "MbUnit" ==> "RunTests"
-"Build" ==> "MsTest" ==> "RunTests"
+"Build" ==> "MbUnit" //==> "RunTests"
+"Build" =?> ("MsTest",isLocalBuild) //==> "RunTests"
 
 "All" 
 #if MONO
