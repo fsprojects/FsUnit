@@ -77,8 +77,34 @@ pkg
 [Bb]uild
 
 
-###############################################################################
-# Project-specific patterns
-###############################################################################
+# ===================================================
+# Exclude F# project specific directories and files
+# ===================================================
 
-## Add any project-specific patterns here, as needed.
+# NuGet Packages Directory
+packages/
+
+# Generated documentation folder
+docs/output/
+
+# Temp folder used for publishing docs
+temp/
+.vs/
+.fake/
+
+# Test results produced by build
+TestResults.xml
+
+# Nuget outputs
+nuget/*.nupkg
+release.cmd
+release.sh
+localpackages/
+paket-files
+*.orig
+.paket/paket.exe
+docs/content/license.md
+docs/content/release-notes.md
+.fake
+FsUnit.Xunit.Test.dll.xunit.html
+NUnit.xml

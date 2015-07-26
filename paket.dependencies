@@ -1,0 +1,17 @@
+source https://nuget.org/api/v2
+
+nuget FSharp.Formatting
+nuget NUnit 2.6.4
+nuget NUnit.Runners 2.6.4
+nuget FAKE
+nuget SourceLink.Fake
+
+nuget FSharp.Core 3.1.2.5
+nuget Microsoft.VisualStudio.QualityTools.UnitTestFramework
+
+nuget NHamcrest 1.2.1
+nuget xunit 1.9.2
+nuget xunit.runners 1.9.2
+nuget mbunit 3.4.14
+
+github fsharp/FAKE modules/Octokit/Octokit.fsx

@@ -4,6 +4,7 @@ open FsUnit.MsTest
 open NHamcrest.Core
 open FsUnitDepricated
 
+[<TestClass>]
 type ``be Empty tests`` ()=
     [<TestMethod>] member test.
      ``empty List should be Empty`` ()=
