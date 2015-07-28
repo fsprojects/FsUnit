@@ -1,4 +1,5 @@
 ﻿FSharp.Core
 NHamcrest
 xunit
-xunit.runners
+xunit.runner.console
+xunit.runner.visualstudio
