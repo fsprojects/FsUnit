@@ -16,6 +16,17 @@ type ChoiceConstraint(n) =
         | null -> raise (new ArgumentException("The actual value must be a non-null choice"))
         | o -> (new CustomMatchers.ChoiceDiscriminator(n)).check(o)
 
+/// F#-friendly formatting for otherwise the same equals behavior (%A instead of .ToString())
+type EqualsConstraint(x:obj) =
+  inherit EqualConstraint(x) with
+    override this.WriteActualValueTo(writer: MessageWriter): unit =
+      writer.WriteActualValue(sprintf "%A" this.actual)
+    override this.WriteDescriptionTo(writer: MessageWriter): unit =
+      writer.WritePredicate("equals")
+      writer.WriteExpectedValue(sprintf "%A" x)
+    override this.WriteMessageTo(writer: MessageWriter): unit =
+      writer.WriteMessageLine(sprintf "Expected: %A, but was %A" x this.actual)
+
 //
 [<AutoOpen>]
 module TopLevelOperators =
@@ -43,7 +54,7 @@ module TopLevelOperators =
             | _ -> y
         Assert.That(y, c)
     
-    let equal x = EqualConstraint(x)
+    let equal x = EqualsConstraint(x)
 
     let equalWithin tolerance x = equal(x).Within tolerance
 
