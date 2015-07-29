@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FsUnit.MbUnit.Test</RootNamespace>
     <AssemblyName>FsUnit.MbUnit.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <Name>FsUnit.MbUnit.Test</Name>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
@@ -84,11 +84,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
-      <Name>FsUnit.CustomMatchers</Name>
-      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
-      <Private>True</Private>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\FsUnit.MbUnit\FsUnit.MbUnit.fsproj">
       <Name>FsUnit.MbUnit</Name>
       <Project>{600090ef-5c83-4e0c-b341-f2c909fe45d7}</Project>

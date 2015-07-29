@@ -345,7 +345,8 @@ Target "All" DoNothing
   =?> ("ReleaseDocs",isLocalBuild)
 
 "Build" ==> "NUnit"  ==> "RunTests"
-"Build" ==> "xUnit"  ==> "RunTests"
+//XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
+"Build" =?> ("xUnit", not isMono)  ==> "RunTests"
 "Build" ==> "MbUnit" //==> "RunTests"
 "Build" =?> ("MsTest",isLocalBuild) //==> "RunTests"
 

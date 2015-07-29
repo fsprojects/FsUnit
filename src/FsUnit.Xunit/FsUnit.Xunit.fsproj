@@ -53,6 +53,7 @@
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="CustomMatchers.fs" />
     <Compile Include="FsUnit.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
@@ -66,11 +67,6 @@
     <Reference Include="System.Numerics" Condition="'$(TargetFrameworkVersion)'!='v3.5'" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
-      <Name>FsUnit.CustomMatchers</Name>
-      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.

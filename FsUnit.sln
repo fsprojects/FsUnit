@@ -9,8 +9,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MbUnit", "src\FsUnit
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.Xunit", "src\FsUnit.Xunit\FsUnit.Xunit.fsproj", "{F2CC41FD-6B5A-487B-A2C8-F301ADD68D22}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.CustomMatchers", "src\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj", "{3C6A91DC-A865-497B-A304-3E9AA3E119CB}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTest", "src\FsUnit.MsTestUnit\FsUnit.MsTest.fsproj", "{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{39AB5EC7-DEE0-4F89-8163-2E94898164BF}"
@@ -72,10 +70,6 @@ Global
 		{F2CC41FD-6B5A-487B-A2C8-F301ADD68D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2CC41FD-6B5A-487B-A2C8-F301ADD68D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2CC41FD-6B5A-487B-A2C8-F301ADD68D22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C6A91DC-A865-497B-A304-3E9AA3E119CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C6A91DC-A865-497B-A304-3E9AA3E119CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C6A91DC-A865-497B-A304-3E9AA3E119CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C6A91DC-A865-497B-A304-3E9AA3E119CB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9D287A5-74A5-4B0E-B200-7E6777E7AF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
