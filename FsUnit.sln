@@ -35,6 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{0BEF
 		docs\content\MbUnit.fsx = docs\content\MbUnit.fsx
 		docs\content\MsTest.fsx = docs\content\MsTest.fsx
 		docs\content\NUnit.fsx = docs\content\NUnit.fsx
+		docs\content\operators.md = docs\content\operators.md
 		docs\content\xUnit.fsx = docs\content\xUnit.fsx
 	EndProjectSection
 EndProject
