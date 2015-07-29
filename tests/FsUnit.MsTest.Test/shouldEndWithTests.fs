@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``should endWith tests`` ()=
@@ -13,8 +12,8 @@ type ``should endWith tests`` ()=
     [<TestMethod>] member test.
      ``ships should end with ps`` ()=
         "ships" |> should endWith "ps"
-        
+
     [<TestMethod>] member test.
      ``ships should not end with ss`` ()=
-        "ships" |> should not (endWith "ss")
+        "ships" |> should not' (endWith "ss")
 

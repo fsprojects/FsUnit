@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``match List tests`` ()=
@@ -24,5 +23,4 @@ type ``match List tests`` ()=
 
     [<TestMethod>] member test.
      ``Lists with different lengths doesn't match`` () =
-        ["something","is","missed"] |> should not (matchList ["something", "is", "missed", "here"])
-        
+        ["something","is","missed"] |> should not' (matchList ["something", "is", "missed", "here"])

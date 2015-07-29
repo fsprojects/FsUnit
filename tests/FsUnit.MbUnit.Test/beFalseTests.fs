@@ -2,7 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``be False tests`` ()=
@@ -12,11 +11,11 @@ type ``be False tests`` ()=
 
     [<Test>] member test.
      ``true should fail to be False`` ()=
-        true |> should not (be False)
+        true |> should not' (be False)
 
     [<Test>] member test.
      ``true should not be False`` ()=
-        true |> should not (be False)
+        true |> should not' (be False)
 
     [<Test>] member test.
      ``false should fail to not be False`` ()=

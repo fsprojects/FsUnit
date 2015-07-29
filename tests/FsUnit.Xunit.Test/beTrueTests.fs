@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be True tests`` ()=
     [<Fact>] member test.
@@ -11,11 +10,11 @@ type ``be True tests`` ()=
 
     [<Fact>] member test.
      ``false should fail to be True`` ()=
-        false |> should not (be True)
+        false |> should not' (be True)
 
     [<Fact>] member test.
      ``false should not be True`` ()=
-        false |> should not (be True)
+        false |> should not' (be True)
 
     [<Fact>] member test.
      ``true should fail to not be True`` ()=

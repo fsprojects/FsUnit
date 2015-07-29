@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``should haveSubstring tests`` ()=
@@ -15,5 +14,5 @@ type ``should haveSubstring tests`` ()=
 
     [<Test>] member test.
      ``ships should not contain haps`` ()=
-        "ships" |> should not (haveSubstring "haps")
+        "ships" |> should not' (haveSubstring "haps")
 

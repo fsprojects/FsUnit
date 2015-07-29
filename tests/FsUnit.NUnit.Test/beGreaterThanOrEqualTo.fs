@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``be greaterThanOrEqualTo tests`` ()=
@@ -15,11 +14,11 @@ type ``be greaterThanOrEqualTo tests`` ()=
 
     [<Test>] member test.
      ``9 should not be greater than 10`` ()=
-        9 |> should not (be greaterThanOrEqualTo 10)
+        9 |> should not' (be greaterThanOrEqualTo 10)
 
     [<Test>] member test.
      ``9.1 should not be greater than 9.2`` ()=
-        9.1 |> should not (be greaterThanOrEqualTo 9.2)
+        9.1 |> should not' (be greaterThanOrEqualTo 9.2)
 
     [<Test>] member test.
      ``9.2 should be equal to 9.2`` ()=

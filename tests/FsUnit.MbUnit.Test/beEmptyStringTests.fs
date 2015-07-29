@@ -2,8 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
-
 [<TestFixture>]
 type ``be EmptyString tests`` ()=
     [<Test>] member test.
@@ -12,11 +10,11 @@ type ``be EmptyString tests`` ()=
 
     [<Test>] member test.
      ``non-empty string should fail to be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
-        
+        "a string" |> should not' (be EmptyString)
+
     [<Test>] member test.
      ``non-empty string should not be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
+        "a string" |> should not' (be EmptyString)
 
     [<Test>] member test.
      ``empty string should fail to not be EmptyString`` ()=

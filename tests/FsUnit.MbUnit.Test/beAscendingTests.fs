@@ -2,7 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be ascending tests`` ()=
     [<Test>] member test.

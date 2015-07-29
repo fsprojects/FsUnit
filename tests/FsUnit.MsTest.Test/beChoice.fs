@@ -110,4 +110,4 @@ type ``be choice tests`` ()=
     [<TestMethod>] member test.
      ``Choice6Of7 should not be the seventh choice`` ()=
         Choice<int,int,int,int,int,int,int>.Choice6Of7(1) |> should not' (be choice 7)
-     
+

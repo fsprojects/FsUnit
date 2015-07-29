@@ -15,11 +15,11 @@ type ``be lessThanOrEqualTo tests`` ()=
 
     [<Fact>] member test.
      ``10 should not be less than 9`` ()=
-        10 |> should not (be lessThanOrEqualTo 9)
+        10 |> should not' (be lessThanOrEqualTo 9)
 
     [<Fact>] member test.
      ``9.2 should not be less than 9.1`` ()=
-        9.2 |> should not (be lessThanOrEqualTo 9.1)
+        9.2 |> should not' (be lessThanOrEqualTo 9.1)
 
     [<Fact>] member test.
      ``9.1 should be less than or equal to 9.1`` ()=

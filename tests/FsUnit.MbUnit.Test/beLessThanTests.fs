@@ -2,8 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
-
 [<TestFixture>]
 type ``be lessThan tests`` ()=
     [<Test>] member test.
@@ -16,12 +14,12 @@ type ``be lessThan tests`` ()=
 
     [<Test>] member test.
      ``10 should not be less than 9`` ()=
-        10 |> should not (be lessThan 9)
+        10 |> should not' (be lessThan 9)
 
     [<Test>] member test.
      ``9.2 should not be less than 9.1`` ()=
-        9.2 |> should not (be lessThan 9.1)
+        9.2 |> should not' (be lessThan 9.1)
 
     [<Test>] member test.
      ``9.1 should not be less than 9.1`` ()=
-        9.1 |> should not (be lessThan 9.1)
+        9.1 |> should not' (be lessThan 9.1)

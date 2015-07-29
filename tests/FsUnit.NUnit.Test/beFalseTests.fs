@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``be False tests`` ()=
@@ -15,8 +14,8 @@ type ``be False tests`` ()=
 
     [<Test>] member test.
      ``true should not be False`` ()=
-        true |> should not (be False)
+        true |> should not' (be False)
 
     [<Test>] member test.
      ``false should fail to not be False`` ()=
-        shouldFail (fun () -> false |> should not (be False))
+        shouldFail (fun () -> false |> should not' (be False))

@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``be SameAs tests`` ()=
@@ -15,11 +14,11 @@ type ``be SameAs tests`` ()=
 
     [<TestMethod>] member test.
      ``an object should fail to be same as different object`` ()=
-        anObj |> should not (be (sameAs otherObj))
-        
+        anObj |> should not' (be (sameAs otherObj))
+
     [<TestMethod>] member test.
      ``an object should not be same as different object`` ()=
-        anObj |> should not (be sameAs otherObj)
+        anObj |> should not' (be sameAs otherObj)
 
     [<TestMethod>] member test.
      ``an object should fail to not be same as itself`` ()=

@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``be EmptyString tests`` ()=
@@ -12,11 +11,11 @@ type ``be EmptyString tests`` ()=
 
     [<TestMethod>] member test.
      ``non-empty string should fail to be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
-        
+        "a string" |> should not' (be EmptyString)
+
     [<TestMethod>] member test.
      ``non-empty string should not be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
+        "a string" |> should not' (be EmptyString)
 
     [<TestMethod>] member test.
      ``empty string should fail to not be EmptyString`` ()=

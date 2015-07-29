@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``should endWith tests`` ()=
     [<Fact>] member test.
@@ -12,8 +11,8 @@ type ``should endWith tests`` ()=
     [<Fact>] member test.
      ``ships should end with ps`` ()=
         "ships" |> should endWith "ps"
-        
+
     [<Fact>] member test.
      ``ships should not end with ss`` ()=
-        "ships" |> should not (endWith "ss")
+        "ships" |> should not' (endWith "ss")
 

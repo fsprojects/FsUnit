@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be Empty tests`` ()=
     [<Fact>] member test.
@@ -11,7 +10,7 @@ type ``be Empty tests`` ()=
 
     [<Fact>] member test.
      ``non-empty List should not be Empty`` ()=
-        [1].IsEmpty |> should not (be True)
+        [1].IsEmpty |> should not' (be True)
 
     [<Fact>] member test.
      ``empty Array should be Empty`` ()=
@@ -19,13 +18,13 @@ type ``be Empty tests`` ()=
 
     [<Fact>] member test.
      ``non-empty Array should not be Empty`` ()=
-        [|1|] |> Array.isEmpty |> should not (be True)
+        [|1|] |> Array.isEmpty |> should not' (be True)
 
     [<Fact>] member test.
      ``empty Seq should be Empty`` ()=
         Seq.empty |> Seq.isEmpty |> should be True
-        
+
     [<Fact>] member test.
      ``non-empty Seq should not be Empty`` ()=
-        seq { yield 1 }  |> Seq.isEmpty |> should not (be True)
+        seq { yield 1 }  |> Seq.isEmpty |> should not' (be True)
 

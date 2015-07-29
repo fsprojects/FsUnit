@@ -2,7 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``should endWith tests`` ()=
@@ -13,8 +12,8 @@ type ``should endWith tests`` ()=
     [<Test>] member test.
      ``ships should end with ps`` ()=
         "ships" |> should endWith "ps"
-        
+
     [<Test>] member test.
      ``ships should not end with ss`` ()=
-        "ships" |> should not (endWith "ss")
+        "ships" |> should not' (endWith "ss")
 

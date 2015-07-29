@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``have Count tests`` ()=
@@ -9,7 +8,7 @@ type ``have Count tests`` ()=
     let singleItemList = new System.Collections.Generic.List<int>()
     do singleItemList.Add(1)
 
-    // Collection   
+    // Collection
     [<Test>] member test.
      ``Collection with 1 item should have Count 1`` ()=
         singleItemList |> should haveCount 1
@@ -20,9 +19,8 @@ type ``have Count tests`` ()=
 
     [<Test>] member test.
      ``empty Collection should not have Count 1`` ()=
-        emptyList |> should not (haveCount 1)
+        emptyList |> should not' (haveCount 1)
 
     [<Test>] member test.
      ``Collection with 1 item should fail to not have Count 1`` ()=
-        shouldFail (fun () -> singleItemList |> should not (haveCount 1))
-        
+        shouldFail (fun () -> singleItemList |> should not' (haveCount 1))

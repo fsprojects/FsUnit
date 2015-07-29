@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``should startWith tests`` ()=
@@ -12,8 +11,8 @@ type ``should startWith tests`` ()=
     [<Test>] member test.
      ``ships should start with ps`` ()=
         "ships" |> should startWith "sh"
-        
+
     [<Test>] member test.
      ``ships should not start with ss`` ()=
-        "ships" |> should not (startWith "ss")
+        "ships" |> should not' (startWith "ss")
 

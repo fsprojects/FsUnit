@@ -2,7 +2,6 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``match List tests`` ()=
@@ -24,5 +23,4 @@ type ``match List tests`` ()=
 
     [<Test>] member test.
      ``Lists with different lengths doesn't match`` () =
-        ["something","is","missed"] |> should not (matchList ["something", "is", "missed", "here"])
-        
+        ["something","is","missed"] |> should not' (matchList ["something", "is", "missed", "here"])
