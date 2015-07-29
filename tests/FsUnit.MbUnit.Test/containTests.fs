@@ -1,7 +1,7 @@
 ﻿namespace FsUnit.Test
 open MbUnit.Framework
 open FsUnit.MbUnit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 [<TestFixture>]
 type ``contain tests`` ()=

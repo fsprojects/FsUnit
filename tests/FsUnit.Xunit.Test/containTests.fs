@@ -1,7 +1,7 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 type ``contain tests`` ()=
     [<Fact>] member test.

@@ -1,7 +1,7 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 [<TestFixture>]
 type ``be Null tests`` ()=

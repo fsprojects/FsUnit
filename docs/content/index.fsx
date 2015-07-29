@@ -1,5 +1,5 @@
 (*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/FsUnit.NUnit/"
 #r "NUnit.Framework.dll"
@@ -128,9 +128,9 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 Deprecated Functions
 --------------------
 
-Prior to version 1.1.0.0, FsUnit implemented a function named `not` that overwrote the F# operator of the same name. This is not ideal, 
-so as of version 1.1.0.0 the FsUnit function has been renamed to `not'` (not + single-quote). If you need or want the previous function, it 
-can be made available by opening the FsUnitDepricated module. 
+Prior to version 1.1.0.0, FsUnit implemented a function named `not` that overwrote the F# operator of the same name. This is not ideal,
+so as of version 1.1.0.0 the FsUnit function has been renamed to `not'` (not + single-quote). If you need or want the previous function, it
+can be made available by opening the FsUnitDeprecated module.
 
 Visual Studio 11 Support
 ------------------------
@@ -139,15 +139,15 @@ Visual Studio 11 support is available for all 4 of the targetted testing framewo
 FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.Xunit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
 in order to use these libraries in VS11. After installing one of these packages, add an `App.config` file to the project (if one doesn't already exist).
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
-Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to 
+Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to
 FSharp.Core version 4.3.0.0. More information about this command can be found at http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference.
 
- 
+
 Contributing
 ------------
 
-The project is hosted on [GitHub][gh] where you can [report issues][issues], fork 
-the project and submit pull requests. If you're adding a new public API, please also 
+The project is hosted on [GitHub][gh] where you can [report issues][issues], fork
+the project and submit pull requests. If you're adding a new public API, please also
 consider adding [samples][content] that can be turned into a documentation. You might
 also want to read the [library design notes][readme] to understand how it works.
 

@@ -70,6 +70,7 @@
     <Compile Include="shouldFailTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="shouldHaveSubstringTests.fs" />
     <Compile Include="beOfExactTypeTests.fs" />
     <Compile Include="beGreaterThanOrEqualTo.fs" />
     <Compile Include="beLessThanOrEqualToTests.fs" />

@@ -2,7 +2,7 @@
 open MbUnit.Framework
 open FsUnit.MbUnit
 open NHamcrest.Core
-open FsUnitDepricated
+open FsUnitDeprecated
 
 type AlwaysEqual() =
     override this.Equals(other) = true

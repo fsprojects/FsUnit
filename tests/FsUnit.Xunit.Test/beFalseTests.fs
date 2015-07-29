@@ -2,7 +2,7 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDepricated
+open FsUnitDeprecated
 
 type ``be False tests`` ()=
     [<Fact>] member test.

@@ -1,7 +1,7 @@
 ﻿namespace FsUnit.Test
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open FsUnitDepricated
+open FsUnitDeprecated
 
 [<TestClass>]
 type ``contain tests`` ()=

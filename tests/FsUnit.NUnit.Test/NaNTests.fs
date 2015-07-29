@@ -2,7 +2,7 @@
 open NUnit.Framework
 open FsUnit
 open System
-open FsUnitDepricated
+open FsUnitDeprecated
 
 [<TestFixture>]
 type ``Not a Number tests`` ()=

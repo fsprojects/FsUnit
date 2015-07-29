@@ -76,6 +76,8 @@ module TopLevelOperators =
 
     let startWith (s:string) = StartsWithConstraint s
 
+    let haveSubstring (s:string) = SubstringConstraint s
+
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
     let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
@@ -89,6 +91,6 @@ module TopLevelOperators =
     let not' x = NotConstraint(x)
 
     /// Deprecated operators. These will be removed in a future version of FsUnit.
-    module FsUnitDepricated =
+    module FsUnitDeprecated =
         [<System.Obsolete>]
         let not x = not' x

@@ -2,7 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 (* Thanks to erdoll for this suggestion: http://fsunit.codeplex.com/discussions/269320 *)
 

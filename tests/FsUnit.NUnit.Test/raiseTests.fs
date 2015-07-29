@@ -2,7 +2,7 @@
 open System
 open NUnit.Framework
 open FsUnit
-open FsUnitDepricated
+open FsUnitDeprecated
 
 exception TestException
 
