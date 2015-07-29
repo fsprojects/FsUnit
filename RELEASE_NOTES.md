@@ -1,5 +1,8 @@
 ### 1.4.0.0-beta - Unreleased
 * Migration to xUnit 2.0
+* FsUnitDepricated module renamed to FsUnitDeprecated https://github.com/fsprojects/FsUnit/pull/46
+* Enable substring checks with NUnit https://github.com/fsprojects/FsUnit/pull/45
+* Fixed assertion message for NUnit equal constraint - https://github.com/fsprojects/FsUnit/pull/60
 
 ### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4
