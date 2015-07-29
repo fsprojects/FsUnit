@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be SameAs tests`` ()=
     let anObj = new obj()
@@ -14,11 +13,11 @@ type ``be SameAs tests`` ()=
 
     [<Fact>] member test.
      ``an object should fail to be same as different object`` ()=
-        anObj |> should not (be (sameAs otherObj))
-        
+        anObj |> should not' (be (sameAs otherObj))
+
     [<Fact>] member test.
      ``an object should not be same as different object`` ()=
-        anObj |> should not (be sameAs otherObj)
+        anObj |> should not' (be sameAs otherObj)
 
     [<Fact>] member test.
      ``an object should fail to not be same as itself`` ()=

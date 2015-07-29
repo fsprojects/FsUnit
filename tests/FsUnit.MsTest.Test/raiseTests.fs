@@ -3,7 +3,6 @@ open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 exception TestException
 [<TestClass>]
@@ -14,11 +13,11 @@ type ``raise tests`` ()=
 
     [<TestMethod>] member test.
      ``should fail when exception is not thrown`` ()=
-        (fun () -> ()) |> should not (throw typeof<Exception>)
-        
+        (fun () -> ()) |> should not' (throw typeof<Exception>)
+
     [<TestMethod>] member test.
      ``should pass when negated and exception is not thrown`` ()=
-        (fun () ->()) |> should not (throw typeof<Exception>)
+        (fun () ->()) |> should not' (throw typeof<Exception>)
 
     [<TestMethod>] member test.
      ``should fail when negated and exception is thrown`` ()=
@@ -26,7 +25,7 @@ type ``raise tests`` ()=
 
     [<TestMethod>] member test.
      ``should fail when exception thrown is not the type expected`` ()=
-            (fun () -> raise TestException |> ignore) |> should not (throw typeof<ApplicationException>)
+            (fun () -> raise TestException |> ignore) |> should not' (throw typeof<ApplicationException>)
 
     [<TestMethod>] member test.
      ``should pass when exception of expected type with expected message is thrown`` ()=
@@ -45,13 +44,13 @@ type ``raise tests`` ()=
     [<TestMethod; Ignore>] member test.
      ``should fail when negated and exception of expected type with expected message is thrown`` ()=
             let msg = "BOOM!" in
-            (fun () -> raise (ApplicationException msg) |> ignore) |> should not ((throwWithMessage msg) typeof<ApplicationException>)
+            (fun () -> raise (ApplicationException msg) |> ignore) |> should not' ((throwWithMessage msg) typeof<ApplicationException>)
 
     [<TestMethod>] member test.
      ``should pass when negated and exception of expected type with unexpected message is thrown`` ()=
-            (fun () -> raise (ApplicationException "BOOM!") |> ignore) |> should not ((throwWithMessage "CRASH!") typeof<ApplicationException>)
+            (fun () -> raise (ApplicationException "BOOM!") |> ignore) |> should not' ((throwWithMessage "CRASH!") typeof<ApplicationException>)
 
     [<TestMethod>] member test.
      ``should pass when negated and exception of unexpected type with expected message is thrown`` ()=
             let msg = "BOOM!" in
-            (fun () -> raise (ApplicationException msg) |> ignore) |> should not ((throwWithMessage msg) typeof<ArgumentException>)
+            (fun () -> raise (ApplicationException msg) |> ignore) |> should not' ((throwWithMessage msg) typeof<ArgumentException>)

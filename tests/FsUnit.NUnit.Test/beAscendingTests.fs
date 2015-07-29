@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``be ascending tests`` ()=

@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``be True tests`` ()=
@@ -12,11 +11,11 @@ type ``be True tests`` ()=
 
     [<TestMethod>] member test.
      ``false should fail to be True`` ()=
-        false |> should not (be True)
+        false |> should not' (be True)
 
     [<TestMethod>] member test.
      ``false should not be True`` ()=
-        false |> should not (be True)
+        false |> should not' (be True)
 
     [<TestMethod>] member test.
      ``true should fail to not be True`` ()=

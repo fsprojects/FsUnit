@@ -2,13 +2,12 @@
 open NUnit.Framework
 open FsUnit
 open System
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``Not a Number tests`` ()=
     [<Test>] member test.
      ``Number 1 should be a number`` ()=
-        1 |> should not (be NaN)
+        1 |> should not' (be NaN)
 
     [<Test>] member test.
      ``NaN should not be a number`` ()=
@@ -16,11 +15,10 @@ type ``Not a Number tests`` ()=
 
     [<Test>] member test.
      ``float number 2.0 should be a number`` ()=
-        2.0 |> should not (be NaN)
+        2.0 |> should not' (be NaN)
 
     [<Test>] member test.
      ``float number 2.0 should fail to not be a number`` ()=
         shouldFail(fun () -> 2.0 |> should be NaN)
-    
-   
-    
+
+

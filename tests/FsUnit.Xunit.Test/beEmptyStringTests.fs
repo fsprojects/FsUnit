@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be EmptyString tests`` ()=
     [<Fact>] member test.
@@ -11,11 +10,11 @@ type ``be EmptyString tests`` ()=
 
     [<Fact>] member test.
      ``non-empty string should fail to be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
-        
+        "a string" |> should not' (be EmptyString)
+
     [<Fact>] member test.
      ``non-empty string should not be EmptyString`` ()=
-        "a string" |> should not (be EmptyString)
+        "a string" |> should not' (be EmptyString)
 
     [<Fact>] member test.
      ``empty string should fail to not be EmptyString`` ()=

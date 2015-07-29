@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be lessThan tests`` ()=
     [<Fact>] member test.
@@ -15,12 +14,12 @@ type ``be lessThan tests`` ()=
 
     [<Fact>] member test.
      ``10 should not be less than 9`` ()=
-        10 |> should not (be lessThan 9)
+        10 |> should not' (be lessThan 9)
 
     [<Fact>] member test.
      ``9.2 should not be less than 9.1`` ()=
-        9.2 |> should not (be lessThan 9.1)
+        9.2 |> should not' (be lessThan 9.1)
 
     [<Fact>] member test.
      ``9.1 should not be less than 9.1`` ()=
-        9.1 |> should not (be lessThan 9.1)
+        9.1 |> should not' (be lessThan 9.1)

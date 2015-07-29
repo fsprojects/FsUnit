@@ -2,7 +2,6 @@
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
-open FsUnitDeprecated
 
 [<TestClass>]
 type ``should startWith tests`` ()=
@@ -13,8 +12,8 @@ type ``should startWith tests`` ()=
     [<TestMethod>] member test.
      ``ships should start with ps`` ()=
         "ships" |> should startWith "sh"
-        
+
     [<TestMethod>] member test.
      ``ships should not start with ss`` ()=
-        "ships" |> should not (startWith "ss")
+        "ships" |> should not' (startWith "ss")
 

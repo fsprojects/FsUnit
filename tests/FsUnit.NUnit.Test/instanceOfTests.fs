@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
-open FsUnitDeprecated
 
 [<TestFixture>]
 type ``Instance Of tests`` ()=
@@ -27,4 +26,4 @@ type ``Instance Of tests`` ()=
 
     [<Test>] member test.
      ``string should not be instance of type int`` ()=
-        "test" |> should not (be instanceOfType<int>)
+        "test" |> should not' (be instanceOfType<int>)
