@@ -25,4 +25,5 @@ dependencies
 	NUnit 2.6.4
 files
 	../../bin/FsUnit.NUnit/FsUnit.* ==> lib
+	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib
 	../../src/install.ps1 ==> tools

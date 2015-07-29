@@ -16,14 +16,14 @@ requireLicenseAcceptance
 copyright
     Copyright 2015
 tags
-    F# fsharp xUnit FsUnit
+    F# fsharp xUnit xUnit2 FsUnit
 summary
     The goals of FsUnit are to make unit-testing feel more functional while leverage existing testing frameworks.
 description
-    FsUnit is a set of extensions that add special testing syntax to xUnit.
+    FsUnit is a set of extensions that add special testing syntax to xUnit 2.
 dependencies
-	xunit 1.9.2
+	xunit 2.0.0
 files
-	../../bin/FsUnit.Xunit/FsUnit.* ==> lib
-	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib
+	../../bin/FsUnit.Xunit/FsUnit.* ==> lib/net45
+	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib/net45
 	../../src/install.ps1 ==> tools

@@ -1,3 +1,6 @@
+### 1.4.0.0-beta - Unreleased
+* Migration to xUnit 2.0
+
 ### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4
 * Bump xUnit version up to 1.9.2

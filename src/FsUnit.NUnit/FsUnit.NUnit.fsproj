@@ -53,6 +53,9 @@
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="..\FsUnit.Xunit\CustomMatchers.fs">
+      <Link>CustomMatchers.fs</Link>
+    </Compile>
     <Compile Include="FsUnit.fs" />
     <Compile Include="GenericAssert.fs" />
     <None Include="paket.references" />
@@ -73,13 +76,6 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
-  <ItemGroup>
-    <ProjectReference Include="..\FsUnit.CustomMatchers\FsUnit.CustomMatchers.fsproj">
-      <Name>FsUnit.CustomMatchers</Name>
-      <Project>{3c6a91dc-a865-497b-a304-3e9aa3e119cb}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5')">
       <ItemGroup>
@@ -136,6 +132,13 @@
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <Reference Include="NHamcrest">
+      <HintPath>..\..\packages\NHamcrest\lib\NHamcrest.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>

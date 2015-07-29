@@ -1,10 +1,10 @@
 NUGET
   remote: https://nuget.org/api/v2
   specs:
-    FAKE (4.0.1)
+    FAKE (4.0.2)
     FSharp.Compiler.Service (1.3.1.0)
-    FSharp.Core (3.1.2.5)
-    FSharp.Formatting (2.9.10)
+    FSharp.Core (4.0.0.1)
+    FSharp.Formatting (2.10.0)
       FSharp.Compiler.Service (>= 0.0.87)
       FSharpVSPowerTools.Core (1.8.0)
     FSharpVSPowerTools.Core (1.8.0)
@@ -23,10 +23,19 @@ NUGET
     Octokit (0.14.0)
       Microsoft.Net.Http
     SourceLink.Fake (1.0.0)
-    xunit (1.9.2)
-    xunit.runners (1.9.2)
+    xunit (2.0.0)
+      xunit.assert (2.0.0)
+      xunit.core (2.0.0)
+    xunit.abstractions (2.0.0)
+    xunit.assert (2.0.0)
+    xunit.core (2.0.0)
+      xunit.extensibility.core (2.0.0)
+    xunit.extensibility.core (2.0.0)
+      xunit.abstractions (2.0.0)
+    xunit.runner.console (2.0.0)
+    xunit.runner.visualstudio (2.0.1)
 GITHUB
   remote: fsharp/FAKE
   specs:
-    modules/Octokit/Octokit.fsx (8e9dd3709bc851bc9474a2ab9024c3d5a698beec)
+    modules/Octokit/Octokit.fsx (69ef5a5ccc1ece211a241fa43781b53d49e58475)
       Octokit
