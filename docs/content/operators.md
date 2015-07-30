@@ -25,7 +25,7 @@ Operators comparison across frameworks
 | `greaterThanOrEqualTo` | +     | +     | +      | +      |
 | `lessThan`             | +     | +     | +      | +      |
 | `lessThanOrEqualTo`    | +     | +     | +      | +      |
-| `shouldFail`           | +     |       |        |        |
+| `shouldFail`           | +     | +     | +      | +      |
 | `endWith`              | +     | +     | +      | +      |
 | `startWith`            | +     | +     | +      | +      |
 | `haveSubstring`        | +     | +     | +      | +      |

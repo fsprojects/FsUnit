@@ -1,6 +1,8 @@
 ﻿namespace FsUnit.Test
-open NUnit.Framework
-open FsUnit
+open System
+open MbUnit.Framework
+open FsUnit.MbUnit
+open NHamcrest.Core
 
 [<TestFixture>]
 type ``shouldFail tests`` ()=
@@ -19,9 +21,9 @@ type ``shouldFail tests`` ()=
     [<Test>] member test.
      ``shouldFaild should throw an exception`` ()=
         (fun () -> shouldFail id)
-        |> should throw typeof<NUnit.Framework.AssertionException>
+        |> should throw typeof<Exception> // ???
 
     [<Test>] member test.
      ``shouldFaild should not throw an exception when fail`` ()=
         (fun () -> shouldFail (fun () -> [] |> should contain 1))
-        |> should not' (throw typeof<NUnit.Framework.AssertionException>)
+        |> should not' (throw typeof<Exception>) // ???

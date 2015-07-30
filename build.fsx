@@ -138,7 +138,6 @@ Target "xUnit" (fun _ ->
     |> Fake.Testing.XUnit2.xUnit2 (fun p ->
         {p with
             TimeOut = TimeSpan.FromMinutes 20.
-            ExcludeTraits = [("Category", "ShouldFail")]
             HtmlOutputPath = Some "xunit.html"})
 )
 
