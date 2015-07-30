@@ -75,6 +75,7 @@
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="shouldHaveSubstringTests.fs" />
     <None Include="App.config" />
     <None Include="paket.references" />
     <None Include="MSTest.runsettings" />

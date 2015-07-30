@@ -62,6 +62,8 @@ let endWith (expected:string) = CustomMatchers.endWith expected
 
 let startWith (expected:string) = CustomMatchers.startWith expected
 
+let haveSubstring (expected:string) = CustomMatchers.haveSubstring expected
+
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
 let contain expected = CustomMatchers.contain expected
