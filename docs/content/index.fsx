@@ -54,6 +54,8 @@ A string does or does not start with or end with a specified substring:
 "ships" |> should not' (startWith "ss")
 "ships" |> should endWith "ps"
 "ships" |> should not' (endWith "ss")
+"ships" |> should haveSubstring "hip"
+"ships" |> should not' (haveSubstring "pip")
 
 (**
 A List, Seq, or Array instance contains or does not contain a value:

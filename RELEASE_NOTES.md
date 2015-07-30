@@ -1,4 +1,4 @@
-### 1.4.0.0-beta - Unreleased
+### 1.4.0.0-beta2 - Unreleased
 * Migration to xUnit 2.0
 * FsUnitDepricated module renamed to FsUnitDeprecated https://github.com/fsprojects/FsUnit/pull/46
 * Enable substring checks https://github.com/fsprojects/FsUnit/pull/45
