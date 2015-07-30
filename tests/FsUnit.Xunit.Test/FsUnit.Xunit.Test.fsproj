@@ -75,6 +75,7 @@
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />
     <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="shouldHaveSubstringTests.fs" />
     <Compile Include="equalWithinTests.fs" />
     <None Include="paket.references" />
   </ItemGroup>

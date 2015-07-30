@@ -49,6 +49,8 @@ let endWith (expected:string) = CustomMatchers.endWith expected
 
 let startWith (expected:string) = CustomMatchers.startWith expected
 
+let haveSubstring (expected:string) = CustomMatchers.haveSubstring expected
+
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
 let contain expected = CustomMatchers.contain expected
@@ -61,7 +63,7 @@ let ascending = CustomMatchers.ascending
 
 let descending = CustomMatchers.descending
 
-module FsUnitDeprecated = 
+module FsUnitDeprecated =
     let not x = not' x
 
 // haveLength, haveCount, Empty, and shouldFail are not implemented for MbUnit and xUnit

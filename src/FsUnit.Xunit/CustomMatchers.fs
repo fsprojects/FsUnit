@@ -8,7 +8,7 @@ open NHamcrest.Core
 let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
 //TODO: Look into a better way of doing this.
-let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()), 
+let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()),
                                                      fun a -> let actualParsed, actual = Double.TryParse(string a, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
                                                               let expectedParsed, expect = Double.TryParse(string x, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
                                                               let toleranceParsed, tol = Double.TryParse(string t, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
@@ -20,21 +20,21 @@ let not' (x:obj) = match box x with
                    | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
                    |  x -> Is.Not<obj>(CustomMatcher<obj>(sprintf "Equals %s" (x.ToString()), fun a -> a = x) :> IMatcher<obj>)
 
-let throw (t:Type) = CustomMatcher<obj>(string t, 
+let throw (t:Type) = CustomMatcher<obj>(string t,
                          fun f -> match f with
-                                  | :? (unit -> unit) as testFunc -> 
+                                  | :? (unit -> unit) as testFunc ->
                                       try
-                                        testFunc() 
+                                        testFunc()
                                         false
                                       with
                                       | ex -> if ex.GetType() = t then true else false
                                   | _ -> false )
 
-let throwWithMessage (m:string) (t:Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, 
+let throwWithMessage (m:string) (t:Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m,
                                                 fun f -> match f with
-                                                         | :? (unit -> unit) as testFunc -> 
+                                                         | :? (unit -> unit) as testFunc ->
                                                              try
-                                                               testFunc() 
+                                                               testFunc()
                                                                false
                                                              with
                                                              | ex -> if ex.GetType() = t && ex.Message = m then true else false
@@ -54,25 +54,27 @@ let False = CustomMatcher<obj>("False", fun b -> unbox b = false)
 
 let sameAs x = Is.SameAs<obj>(x)
 
-let greaterThan (x:obj) = CustomMatcher<obj>(string x, 
+let greaterThan (x:obj) = CustomMatcher<obj>(string x,
                                      fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) > 0)
 
-let greaterThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x, 
+let greaterThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x,
                                               fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) >= 0)
 
-let lessThan (x:obj) = CustomMatcher<obj>(string x, 
+let lessThan (x:obj) = CustomMatcher<obj>(string x,
                                     fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) < 0)
 
-let lessThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x, 
+let lessThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x,
                                            fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) <= 0)
 
 let endWith (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).EndsWith x)
 
 let startWith (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).StartsWith x)
 
+let haveSubstring (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).Contains x)
+
 let ofExactType<'a> = CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> (unbox x).GetType() = typeof<'a>)
 
-let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()), 
+let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                           fun c -> match c with
                                    | :? list<_> as l -> l |> List.exists(fun i -> i = x)
                                    | :? array<_> as a -> a |> Array.exists(fun i -> i = x)
@@ -81,7 +83,7 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                                    | _ -> false)
 
 let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
-                          
+
                           fun c -> match c with
                                    | :? list<_> as l -> l |> List.exists f
                                    | :? array<_> as a -> a |> Array.exists f
@@ -89,10 +91,10 @@ let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
                                    | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.exists f
                                    | _ -> false)
 
-let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.ToString()), 
+let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.ToString()),
                           fun ys -> match ys with
                                     | :? list<_> as ys' -> List.sort xs = List.sort ys'
-                                    | :? _ -> false) 
+                                    | :? _ -> false)
 
 let private makeOrderedMatcher description comparer =
     CustomMatcher<obj>(description,
@@ -106,7 +108,7 @@ let private makeOrderedMatcher description comparer =
                          let a = e |> Seq.cast |> Seq.toArray
                          a = (a |> Array.sortWith comparer)
                  | _ -> false)
-    
+
 let ascending = makeOrderedMatcher "Ascending" compare
 
 let descending = makeOrderedMatcher "Descending" (fun a b -> -(compare a b))
@@ -155,7 +157,7 @@ type ChoiceDiscriminator(n : int) =
     let cType = c.GetType()
     let cArgs = cType.GetGenericArguments()
     let cArgCount = Seq.length cArgs
-    try 
+    try
       this.GetType().GetMethods()
       |> Seq.filter (fun m -> m.Name = "check"
                               && Seq.length (m.GetGenericArguments()) = cArgCount)

@@ -28,7 +28,7 @@ Operators comparison across frameworks
 | `shouldFail`           | +     |       |        |        |
 | `endWith`              | +     | +     | +      | +      |
 | `startWith`            | +     | +     | +      | +      |
-| `haveSubstring`        | +     |       |        |        |
+| `haveSubstring`        | +     | +     | +      | +      |
 | `ofExactType`          | +     | +     | +      | +      |
 | `instanceOfType`       | +     |       |        |        |
 | `choice`               | +     | +     | +      | +      |
