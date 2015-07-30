@@ -22,6 +22,17 @@ let inline should (f : 'a -> ^b) x (y : obj) =
         | _ -> y
     Assert.That(y, c)
 
+let inline shouldFail (f:unit->unit) =
+    let failed =
+        try
+            f()
+            false
+        with
+        | _ -> true
+    if not failed then
+        raise (new AssertFailedException("Method should fail"))
+
+
 let equal expected = CustomMatchers.equal expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected

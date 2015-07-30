@@ -1,27 +1,26 @@
 ﻿namespace FsUnit.Test
-open NUnit.Framework
-open FsUnit
+open Xunit
+open FsUnit.Xunit
 
-[<TestFixture>]
 type ``shouldFail tests`` ()=
-    [<Test>] member test.
+    [<Fact>] member test.
      ``empty List should fail to contain item`` ()=
         shouldFail (fun () -> [] |> should contain 1)
 
-    [<Test>] member test.
+    [<Fact>] member test.
      ``non-null should fail to be  Null`` ()=
         shouldFail (fun () -> "something" |> should be Null)
 
-    [<Test>] member test.
+    [<Fact>] member test.
      ``shouldFail should fail when everything is OK`` ()=
         shouldFail (fun () -> shouldFail id)
 
-    [<Test>] member test.
+    [<Fact>] member test.
      ``shouldFaild should throw an exception`` ()=
         (fun () -> shouldFail id)
-        |> should throw typeof<NUnit.Framework.AssertionException>
+        |> should throw typeof<MatchException>
 
-    [<Test>] member test.
+    [<Fact>] member test.
      ``shouldFaild should not throw an exception when fail`` ()=
         (fun () -> shouldFail (fun () -> [] |> should contain 1))
-        |> should not' (throw typeof<NUnit.Framework.AssertionException>)
+        |> should not' (throw typeof<MatchException>)

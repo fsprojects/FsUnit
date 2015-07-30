@@ -32,19 +32,22 @@ type ``raise tests`` ()=
             let msg = "BOOM!" in
             (fun () -> raise (ApplicationException msg) |> ignore) |> should (throwWithMessage msg) typeof<ApplicationException>
 
-    [<TestMethod; Ignore>] member test.
+    [<TestMethod>] member test.
      ``should fail when exception of expected type with unexpected message is thrown`` ()=
-            (fun () -> raise (ApplicationException "BOOM!") |> ignore) |> should (throwWithMessage "CRASH!") typeof<ApplicationException>
+        shouldFail (fun () ->
+            (fun () -> raise (ApplicationException "BOOM!") |> ignore) |> should (throwWithMessage "CRASH!") typeof<ApplicationException>)
 
-    [<TestMethod; Ignore>] member test.
+    [<TestMethod>] member test.
      ``should fail when exception of unexpected type with expected message is thrown`` ()=
+        shouldFail (fun () ->
             let msg = "BOOM!" in
-            (fun () -> raise (ApplicationException msg) |> ignore) |> should (throwWithMessage msg) typeof<ArgumentException>
+            (fun () -> raise (ApplicationException msg) |> ignore) |> should (throwWithMessage msg) typeof<ArgumentException>)
 
-    [<TestMethod; Ignore>] member test.
+    [<TestMethod>] member test.
      ``should fail when negated and exception of expected type with expected message is thrown`` ()=
+        shouldFail (fun () ->
             let msg = "BOOM!" in
-            (fun () -> raise (ApplicationException msg) |> ignore) |> should not' ((throwWithMessage msg) typeof<ApplicationException>)
+            (fun () -> raise (ApplicationException msg) |> ignore) |> should not' ((throwWithMessage msg) typeof<ApplicationException>))
 
     [<TestMethod>] member test.
      ``should pass when negated and exception of expected type with unexpected message is thrown`` ()=

@@ -80,6 +80,11 @@ A function should throw a certain type of exception:
 (fun () -> failwith "BOOM!" |> ignore) |> should (throwWithMessage "BOOM!") typeof<System.Exception>
 
 (**
+A function should fail
+*)
+shouldFail (fun () -> 5/0 |> ignore)
+
+(**
 A number of assertions can be created using the `be` keyword:
 *)
 
