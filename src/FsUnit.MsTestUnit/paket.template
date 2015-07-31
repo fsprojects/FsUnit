@@ -22,6 +22,6 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to MsTest.
 files
-	../../bin/FsUnit.MsTest/FsUnit.* ==> lib
-	../../bin/FsUnit.MsTest/NHamcrest.* ==> lib
+	../../bin/FsUnit.MsTest/FsUnit.* ==> lib/net40
+	../../bin/FsUnit.MsTest/NHamcrest.* ==> lib/net40
 	../../src/install.ps1 ==> tools

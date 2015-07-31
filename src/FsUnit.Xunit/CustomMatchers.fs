@@ -74,6 +74,8 @@ let haveSubstring (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).
 
 let ofExactType<'a> = CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> (unbox x).GetType() = typeof<'a>)
 
+let instanceOfType<'a> = CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> typeof<'a>.IsInstanceOfType(x))
+
 let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                           fun c -> match c with
                                    | :? list<_> as l -> l |> List.exists(fun i -> i = x)

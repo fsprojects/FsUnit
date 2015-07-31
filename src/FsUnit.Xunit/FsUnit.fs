@@ -77,6 +77,8 @@ let haveSubstring (expected:string) = CustomMatchers.haveSubstring expected
 
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
+let instanceOfType<'a> = CustomMatchers.instanceOfType<'a>
+
 let contain expected = CustomMatchers.contain expected
 
 let matchList = CustomMatchers.matchList
