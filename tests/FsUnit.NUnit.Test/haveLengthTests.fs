@@ -38,3 +38,8 @@ type ``haveLength tests`` ()=
      ``Array with 1 item should fail to not have Length 1`` ()=
         shouldFail (fun () -> [|1|] |> should not' (haveLength 1))
 
+    // Seq
+    [<Test>] member test.
+     ``Seq with 1 item should fail to have Length 1`` ()=
+        (fun () -> seq {yield 1;} |> should haveLength 1)
+        |> should throw typeof<System.ArgumentException>

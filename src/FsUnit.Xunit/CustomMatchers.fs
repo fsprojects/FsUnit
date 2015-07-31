@@ -4,6 +4,7 @@ open System
 open System.Collections
 open NHamcrest
 open NHamcrest.Core
+open System.Reflection
 
 let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
@@ -98,6 +99,17 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()),
                                    | :? seq<_> as s -> s |> Seq.exists(fun i -> i = x)
                                    | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = x)
                                    | _ -> false)
+
+let private (?) (this : 'Source) (name : string) : 'Result =
+    let bindingFlags = BindingFlags.Public ||| BindingFlags.NonPublic ||| BindingFlags.Instance ||| BindingFlags.GetProperty
+    let property = this.GetType().GetProperty(name, bindingFlags)
+    if (property = null) then
+        raise (ArgumentException(sprintf "Property %s was not found" name, "name"))
+    property.GetValue(this, null) :?> 'Result
+
+let haveLength n = CustomMatcher<obj>(sprintf "Have Length %d" n, fun x -> x?Length = n)
+
+let haveCount n = CustomMatcher<obj>(sprintf "Have Count %d" n, fun x -> x?Count = n)
 
 let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
 

@@ -85,6 +85,10 @@ let instanceOfType<'a> = CustomMatchers.instanceOfType<'a>
 
 let contain expected = CustomMatchers.contain expected
 
+let haveLength n = CustomMatchers.haveLength n
+
+let haveCount n = CustomMatchers.haveCount n
+
 let matchList = CustomMatchers.matchList
 
 let choice = CustomMatchers.choice

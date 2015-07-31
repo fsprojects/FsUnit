@@ -1,40 +1,44 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 type ``haveLength tests`` ()=
     // F# List
     [<Fact>] member test.
      ``List with 1 item should have Length 1`` ()=
-        [1].Length |> should equal 1
+        [1] |> should haveLength 1
 
     [<Fact>] member test.
      ``empty List should fail to have Length 1`` ()=
-        [].Length |> should not' (equal 1)
+        shouldFail (fun () -> [] |> should haveLength 1)
 
     [<Fact>] member test.
      ``empty List should not have Length 1`` ()=
-        [].Length |> should not' (equal 1)
+        [] |> should not' (haveLength 1)
 
     [<Fact>] member test.
      ``List with 1 item should fail to not have Length 1`` ()=
-        [1].Length |> should equal 1
+        shouldFail (fun () -> [1] |> should not' (haveLength 1))
 
     // Array
     [<Fact>] member test.
      ``Array with 1 item should have Length 1`` ()=
-        [|1|].Length |> should equal 1
+        [|1|] |> should haveLength 1
 
     [<Fact>] member test.
      ``empty Array should fail to have Length 1`` ()=
-        [||].Length |> should not' (equal 1)
+        shouldFail (fun () -> [||] |> should haveLength 1)
 
     [<Fact>] member test.
      ``empty Array should not have Length 1`` ()=
-        [||].Length |> should not' (equal 1)
+        [||] |> should not' (haveLength 1)
 
     [<Fact>] member test.
      ``Array with 1 item should fail to not have Length 1`` ()=
-        [|1|].Length |> should equal 1
+        shouldFail (fun () -> [|1|] |> should not' (haveLength 1))
 
+    // Seq
+    [<Fact>] member test.
+     ``Seq with 1 item should fail to have Length 1`` ()=
+        (fun () -> seq {yield 1;} |> should haveLength 1)
+        |> should throw typeof<System.ArgumentException>
