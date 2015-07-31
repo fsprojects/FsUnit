@@ -64,12 +64,12 @@ A List, Seq, or Array instance contains or does not contain a value:
 [] |> should not' (contain 1)
 
 (**
-A List or Array instance has a certain length (`NUnit` only):
+A List or Array instance has a certain length:
 *)
 anArray |> should haveLength 4
 
 (**
-A Collection instance has a certain count (`NUnit` only):
+A Collection instance has a certain count:
 *)
 aCollection |> should haveCount 4
 
