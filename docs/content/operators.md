@@ -4,7 +4,7 @@ Operators comparison across frameworks
 | Operator               | NUnit | xUnit | MSTest | MbUnit |
 |------------------------|:-----:|:-----:|:------:|:------:|
 | `Null`                 | +     | +     | +      | +      |
-| `Empty`                | +     |       |        |        |
+| `Empty`                | +     | +     | +      | +      |
 | `EmptyString`          | +     | +     | +      | +      |
 | `NullOrEmptyString`    | +     | +     | +      | +      |
 | `True`                 | +     | +     | +      | +      |
