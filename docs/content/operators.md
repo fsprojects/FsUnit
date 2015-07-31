@@ -9,7 +9,7 @@ Operators comparison across frameworks
 | `NullOrEmptyString`    | +     | +     | +      | +      |
 | `True`                 | +     | +     | +      | +      |
 | `False`                | +     | +     | +      | +      |
-| `NaN`                  | +     |       |        |        |
+| `NaN`                  | +     | +     | +      | +      |
 | `unique`               | +     |       |        |        |
 | `should`               | +     | +     | +      | +      |
 | `equal`                | +     | +     | +      | +      |

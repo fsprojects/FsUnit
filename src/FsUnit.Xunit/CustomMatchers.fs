@@ -61,6 +61,12 @@ let True = CustomMatcher<obj>("True", fun b -> unbox b = true)
 
 let False = CustomMatcher<obj>("False", fun b -> unbox b = false)
 
+let NaN = CustomMatcher<obj>("NaN", fun x ->
+    match x with
+    | :? single as s -> System.Single.IsNaN(s)
+    | :? double as d -> System.Double.IsNaN(d)
+    | _ -> false)
+
 let sameAs x = Is.SameAs<obj>(x)
 
 let greaterThan (x:obj) = CustomMatcher<obj>(string x,

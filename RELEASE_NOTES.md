@@ -1,11 +1,12 @@
-### 1.4.0.0-beta2 - Unreleased
+### 1.4.0.0-beta3 - Unreleased
 * Migration to xUnit 2.0
 * FsUnitDepricated module renamed to FsUnitDeprecated https://github.com/fsprojects/FsUnit/pull/46
 * Enable substring checks https://github.com/fsprojects/FsUnit/pull/45
 * Fixed assertion message for NUnit equal constraint - https://github.com/fsprojects/FsUnit/pull/60
 * Added support of `shouldFail` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/64
 * Added support of `instanceOfType` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/65
-* Added support of `Empty` operator for xUnit, MsTest and MbUnit -
+* Added support of `Empty` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/66
+* Added support of `NaN` operator for xUnit, MsTest and MbUnit -
 
 ### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4

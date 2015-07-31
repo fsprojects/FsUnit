@@ -61,6 +61,8 @@ let True = CustomMatchers.True
 
 let False = CustomMatchers.False
 
+let NaN = CustomMatchers.NaN
+
 let sameAs expected = CustomMatchers.sameAs expected
 
 let greaterThan (expected:obj) = CustomMatchers.greaterThan expected

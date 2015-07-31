@@ -79,6 +79,7 @@
     <Compile Include="shouldHaveSubstringTests.fs" />
     <Compile Include="equalWithinTests.fs" />
     <Compile Include="instanceOfTests.fs" />
+    <Compile Include="NaNTests.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
