@@ -15,8 +15,8 @@ Operators comparison across frameworks
 | `equal`                | +     | +     | +      | +      |
 | `equalWithin`          | +     | +     | +      | +      |
 | `contain`              | +     | +     | +      | +      |
-| `haveLength`           | +     |       |        |        |
-| `haveCount`            | +     |       |        |        |
+| `haveLength`           | +     | +     | +      | +      |
+| `haveCount`            | +     | +     | +      | +      |
 | `be`                   | +     | +     | +      | +      |
 | `sameAs`               | +     | +     | +      | +      |
 | `throw`                | +     | +     | +      | +      |

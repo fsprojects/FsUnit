@@ -24,3 +24,9 @@ type ``have Count tests`` ()=
     [<Test>] member test.
      ``Collection with 1 item should fail to not have Count 1`` ()=
         shouldFail (fun () -> singleItemList |> should not' (haveCount 1))
+
+    // Seq
+    [<Test>] member test.
+     ``Seq with 1 item should fail to have Count 1`` ()=
+        (fun () -> seq {yield 1;} |> should haveCount 1)
+        |> should throw typeof<System.ArgumentException>

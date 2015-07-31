@@ -64,12 +64,12 @@ A List, Seq, or Array instance contains or does not contain a value:
 [] |> should not' (contain 1)
 
 (**
-A List or Array instance has a certain length (`NUnit` only):
+A List or Array instance has a certain length:
 *)
 anArray |> should haveLength 4
 
 (**
-A Collection instance has a certain count (`NUnit` only):
+A Collection instance has a certain count:
 *)
 aCollection |> should haveCount 4
 
@@ -115,13 +115,13 @@ anObj |> should not' (be sameAs otherObj)
 
 Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 
-[] |> should be Empty // NUnit only
-[1] |> should not' (be Empty) // NUnit only
+[] |> should be Empty
+[1] |> should not' (be Empty)
 
-"test" |> should be instanceOfType<string> // Currently, NUnit only and requires version 1.0.1.0+
-"test" |> should not' (be instanceOfType<int>) // Currently, NUnit only and requires version 1.0.1.0+
+"test" |> should be instanceOfType<string>
+"test" |> should not' (be instanceOfType<int>)
 
-2.0 |> should not' (be NaN) // Currently, NUnit only and requires version 1.0.1.0+
+2.0 |> should not' (be NaN)
 
 [1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
 
