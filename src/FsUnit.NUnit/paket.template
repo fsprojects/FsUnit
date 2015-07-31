@@ -24,6 +24,6 @@ description
 dependencies
 	NUnit 2.6.4
 files
-	../../bin/FsUnit.NUnit/FsUnit.* ==> lib
-	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib
+	../../bin/FsUnit.NUnit/FsUnit.* ==> lib/net20
+	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib/net20
 	../../src/install.ps1 ==> tools

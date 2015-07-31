@@ -30,7 +30,7 @@ Operators comparison across frameworks
 | `startWith`            | +     | +     | +      | +      |
 | `haveSubstring`        | +     | +     | +      | +      |
 | `ofExactType`          | +     | +     | +      | +      |
-| `instanceOfType`       | +     |       |        |        |
+| `instanceOfType`       | +     | +     | +      | +      |
 | `choice`               | +     | +     | +      | +      |
 | `ascending`            | +     | +     | +      | +      |
 | `descending`           | +     | +     | +      | +      |
