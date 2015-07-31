@@ -47,6 +47,8 @@ let be = CustomMatchers.be
 
 let Null = CustomMatchers.Null
 
+let Empty = CustomMatchers.Empty
+
 let EmptyString = CustomMatchers.EmptyString
 
 let NullOrEmptyString = CustomMatchers.NullOrEmptyString

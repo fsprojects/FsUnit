@@ -4,7 +4,8 @@
 * Enable substring checks https://github.com/fsprojects/FsUnit/pull/45
 * Fixed assertion message for NUnit equal constraint - https://github.com/fsprojects/FsUnit/pull/60
 * Added support of `shouldFail` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/64
-* Added support of `instanceOfType` operator for xUnit, MsTest and MbUnit -
+* Added support of `instanceOfType` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/65
+* Added support of `Empty` operator for xUnit, MsTest and MbUnit -
 
 ### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4

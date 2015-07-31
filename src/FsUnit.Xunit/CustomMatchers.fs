@@ -44,6 +44,15 @@ let be = id
 
 let Null = Is.Null()
 
+let Empty = CustomMatcher<obj>("A non empty", fun o ->
+                match o with
+                | :? string as s    -> s.Trim() = ""
+                | :? list<_> as l   -> List.isEmpty l
+                | :? array<_> as a  -> Array.isEmpty a
+                | :? seq<_> as s    -> Seq.isEmpty s
+                | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.isEmpty
+                | _ -> false)
+
 let EmptyString = CustomMatcher<obj>("A non empty string", fun s -> (string s).Trim() = "")
 
 let NullOrEmptyString = CustomMatcher<obj>("A not empty or not null string", fun s -> String.IsNullOrEmpty(unbox s))
