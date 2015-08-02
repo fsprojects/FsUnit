@@ -10,7 +10,7 @@ Operators comparison across frameworks
 | `True`                 | +     | +     | +      | +      |
 | `False`                | +     | +     | +      | +      |
 | `NaN`                  | +     | +     | +      | +      |
-| `unique`               | +     |       |        |        |
+| `unique`               | +     | +     | +      | +      |
 | `should`               | +     | +     | +      | +      |
 | `equal`                | +     | +     | +      | +      |
 | `equalWithin`          | +     | +     | +      | +      |
