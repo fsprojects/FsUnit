@@ -68,6 +68,17 @@ let NaN = CustomMatcher<obj>("NaN", fun x ->
     | :? double as d -> System.Double.IsNaN(d)
     | _ -> false)
 
+let unique = CustomMatcher<obj>("All items unique", fun (x:obj) ->
+    let isAllItemsUnique x =
+        let y = Seq.distinct x
+        Seq.length x = Seq.length y
+    match x with
+    | :? list<_> as l   -> l |> isAllItemsUnique
+    | :? array<_> as a  -> a |> isAllItemsUnique
+    | :? seq<_> as s    -> s |> isAllItemsUnique
+    | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> isAllItemsUnique
+    | _ -> false)
+
 let sameAs x = Is.SameAs<obj>(x)
 
 let greaterThan (x:obj) = CustomMatcher<obj>(string x,

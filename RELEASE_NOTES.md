@@ -7,7 +7,8 @@
 * Added support of `instanceOfType` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/65
 * Added support of `Empty` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/66
 * Added support of `NaN` operator for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/67
-* Added support of `haveLength` and `haveCount` operators for xUnit, MsTest and MbUnit -
+* Added support of `haveLength` and `haveCount` operators for xUnit, MsTest and MbUnit - https://github.com/fsprojects/FsUnit/pull/68
+* Added support of `unique` operator for xUnit, MsTest and MbUnit -
 
 ### 1.3.1.0 - 26 July 2015
 * Bump NUnit version up to 2.6.4

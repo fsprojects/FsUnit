@@ -59,6 +59,8 @@ let False = CustomMatchers.False
 
 let NaN = CustomMatchers.NaN
 
+let unique = CustomMatchers.unique
+
 let sameAs expected = CustomMatchers.sameAs expected
 
 let greaterThan (expected:obj) = CustomMatchers.greaterThan expected
