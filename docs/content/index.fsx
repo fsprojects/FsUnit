@@ -147,7 +147,7 @@ FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.Xunit target F# 2.0 as well as F# 3.
 in order to use these libraries in VS11. After installing one of these packages, add an `App.config` file to the project (if one doesn't already exist).
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
 Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to
-FSharp.Core version 4.3.0.0. More information about this command can be found at http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference.
+FSharp.Core version 4.3.0.0. More information about this command can be found in the [NuGet documentation](http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference).
 
 
 Contributing
