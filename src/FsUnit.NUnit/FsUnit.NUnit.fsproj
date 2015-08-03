@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FsUnit.NUnit</RootNamespace>
     <AssemblyName>FsUnit.NUnit</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>FsUnit.NUnit</Name>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
