@@ -1,6 +1,7 @@
-### 1.4.0.0-beta3 - Unreleased
+### 1.4.0.0-beta4 - Unreleased
 * Migration to xUnit 2.0
 * FsUnit.NUnit compiled for net45
+* Target FsUnit to FSharp.Core 3.1.2.5
 * FsUnitDepricated module renamed to FsUnitDeprecated https://github.com/fsprojects/FsUnit/pull/46
 * Enable substring checks https://github.com/fsprojects/FsUnit/pull/45
 * Fixed assertion message for NUnit equal constraint - https://github.com/fsprojects/FsUnit/pull/60
