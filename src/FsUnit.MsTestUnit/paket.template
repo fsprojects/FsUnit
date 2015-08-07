@@ -21,6 +21,8 @@ summary
     The goals of FsUnit are to make unit-testing feel more functional while leverage existing testing frameworks.
 description
     FsUnit is a set of extensions that add special testing syntax to MsTest.
+dependencies
+    FSharp.Core >= 3.1.2.5
 files
 	../../bin/FsUnit.MsTest/FsUnit.* ==> lib/net40
 	../../bin/FsUnit.MsTest/NHamcrest.* ==> lib/net40
