@@ -6,16 +6,6 @@ open System
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
-type ChoiceConstraint(n) =
-  inherit Constraint() with
-    override this.WriteDescriptionTo(writer: MessageWriter): unit =
-      writer.WritePredicate("is choice")
-      writer.WriteExpectedValue(sprintf "%d" n)
-    override this.Matches(actual: obj) =
-      match actual with
-        | null -> raise (new ArgumentException("The actual value must be a non-null choice"))
-        | o -> (new CustomMatchers.ChoiceDiscriminator(n)).check(o)
-
 /// F#-friendly formatting for otherwise the same equals behavior (%A instead of .ToString())
 type EqualsConstraint(x:obj) =
   inherit EqualConstraint(x) with
@@ -92,8 +82,6 @@ module TopLevelOperators =
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
     let instanceOfType<'a> = InstanceOfTypeConstraint(typeof<'a>)
-
-    let choice n = ChoiceConstraint(n)
 
     let ascending = Is.Ordered
 
