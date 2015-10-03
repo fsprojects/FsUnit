@@ -1,5 +1,5 @@
-### 1.4.0.0-beta4 - Unreleased
-* Migration to xUnit 2.0
+### 1.4.0.0-beta5 - Unreleased
+* Migration to xUnit 2.1
 * FsUnit.NUnit compiled for net45
 * Target FsUnit to FSharp.Core 3.1.2.5
 * FsUnitDepricated module renamed to FsUnitDeprecated https://github.com/fsprojects/FsUnit/pull/46
