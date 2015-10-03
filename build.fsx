@@ -347,7 +347,8 @@ Target "All" DoNothing
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" =?> ("xUnit", not isMono)  ==> "RunTests"
 "Build" ==> "MbUnit" //==> "RunTests"
-"Build" =?> ("MsTest",isLocalBuild) //==> "RunTests"
+// MSTest is not supported on mono platform
+"Build" =?> ("MsTest", not isMono) ==> "RunTests"
 
 "All"
 #if MONO
