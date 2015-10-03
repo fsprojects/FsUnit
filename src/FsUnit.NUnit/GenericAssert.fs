@@ -146,7 +146,7 @@ type Assert =
         (expected : 'T, actual : 'T, message : string, [<ParamArray>] args : obj[]) : unit =
         let sameConstraint = Is.SameAs expected
         Assert.That (actual, sameConstraint, message, args)
-    
+
     /// <summary>
     /// Asserts that an object is contained in a list.
     /// </summary>
@@ -301,7 +301,7 @@ type Assert =
     static member LessOrEqual<'T when 'T : comparison>
         (arg1 : 'T, arg2 : 'T, message : string, [<ParamArray>] args : obj[]) : unit =
         Assert.That (arg1, Is.LessThanOrEqualTo arg2, message, args)
-    
+
     /// <summary>
     /// Verifies that the object that is passed in is not equal to 'null'.
     /// If the object is 'null', then an NUnit.Framework.AssertException is thrown.
@@ -357,7 +357,7 @@ type Assert =
     static member Null<'T when 'T : not struct>
         (arg : 'T, message : string, [<ParamArray>] args : obj[]) : unit =
         Assert.That (arg, Is.Null, message, args)
-    
+
 
 
 

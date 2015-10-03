@@ -53,11 +53,12 @@
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="FsUnit.fs" />
+    <Compile Include="GenericAssert.fs" />
     <Compile Include="..\FsUnit.Xunit\CustomMatchers.fs">
       <Link>CustomMatchers.fs</Link>
     </Compile>
-    <Compile Include="FsUnit.fs" />
-    <Compile Include="GenericAssert.fs" />
+    <Compile Include="FsUnit.Extra.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
     <None Include="FsUnitSample.fs.pp">
