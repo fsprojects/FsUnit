@@ -1,5 +1,5 @@
 (*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/FsUnit.Xunit/"
 #r "FsUnit.Xunit.dll"
@@ -30,14 +30,14 @@ module ``Project Euler - Problem 1`` =
     open Xunit
     open FsUnit.Xunit
 
-    let GetSumOfMultiplesOf3And5 max =  
-        seq{3..max-1} |> Seq.fold(fun acc number ->  
-                            (if (number % 3 = 0 || number % 5 = 0) then   
-                                acc + number else acc)) 0 
+    let GetSumOfMultiplesOf3And5 max =
+        seq{3..max-1} |> Seq.fold(fun acc number ->
+                            (if (number % 3 = 0 || number % 5 = 0) then
+                                acc + number else acc)) 0
 
     [<Fact>]
-    let ``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23`` () =  
-        GetSumOfMultiplesOf3And5(10) |> should equal 23 
+    let ``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23`` () =
+        GetSumOfMultiplesOf3And5(10) |> should equal 23
 
 (**
 LightBulb
@@ -67,11 +67,11 @@ module ``LightBulb Tests`` =
 
     type ``Given a LightBulb that has had its state set to false`` ()=
         let lightBulb = new LightBulb(false)
-    
+
         [<Fact>] member x.
          ``when I ask whether it is On it answers false.`` ()=
                 lightBulb.On |> should be False
-    
+
         [<Fact>] member x.
          ``when I convert it to a string it becomes "Off".`` ()=
                 string lightBulb |> should equal "Off"
@@ -106,7 +106,7 @@ module ``BowlingGame A game of bowling`` =
             | Other(score)            -> current_score + score
         scoreBowls' 1 bowls 0
 
-    [<Fact>] 
+    [<Fact>]
     let ``with simple scores should get the expected score.`` () =
         scoreBowls [1;2;3] |> should equal 6
 
@@ -130,7 +130,7 @@ module ``BowlingGame A game of bowling`` =
     let ``with a strike in the last frame should get the expected score (strike in last frame).`` () =
         scoreBowls ([for i in 1..18 -> 0] @ [10;10;1]) |> should equal 21
 
-    [<Fact>] 
+    [<Fact>]
     let ``with double strikes should add the score of the first strike to the score of the second.`` () =
         scoreBowls [10;10;1] |> should equal 33
 
