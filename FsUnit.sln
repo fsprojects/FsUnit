@@ -31,11 +31,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{81E4BC81
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{0BEF7A55-F158-4691-886C-1AF2FE12DD7C}"
 	ProjectSection(SolutionItems) = preProject
+		docs\content\FsCheck.fsx = docs\content\FsCheck.fsx
 		docs\content\index.fsx = docs\content\index.fsx
 		docs\content\MbUnit.fsx = docs\content\MbUnit.fsx
 		docs\content\MsTest.fsx = docs\content\MsTest.fsx
 		docs\content\NUnit.fsx = docs\content\NUnit.fsx
 		docs\content\operators.md = docs\content\operators.md
+		docs\content\Paket.fsx = docs\content\Paket.fsx
 		docs\content\xUnit.fsx = docs\content\xUnit.fsx
 	EndProjectSection
 EndProject
