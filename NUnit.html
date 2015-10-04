@@ -24,6 +24,8 @@
     <div class="container">
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
+          <li><a href="https://fscheck.github.io/FsCheck/">FsCheck</a></li>
+          <li><a href="https://github.com/fsprojects/Foq">Foq</a></li>
           <li><a href="http://fsharp.org">fsharp.org</a></li>
           <li><a href="http://github.com/fsprojects/FsUnit">github page</a></li>
         </ul>
@@ -288,7 +290,7 @@
 <div class="tip" id="fs11">Multiple items<br />type TestAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; TestAttribute<br />&#160;&#160;member Description : string with get, set<br /><br />Full name: NUnit.Framework.TestAttribute<br /><br />--------------------<br />TestAttribute() : unit</div>
 <div class="tip" id="fs12">val ( When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23 ) : unit -&gt; unit<br /><br />Full name: NUnit.Project Euler - Problem 1.( When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23 )</div>
 <div class="tip" id="fs13">val should : f:(&#39;a -&gt; #Constraints.Constraint) -&gt; x:&#39;a -&gt; y:obj -&gt; unit<br /><br />Full name: FsUnit.TopLevelOperators.should</div>
-<div class="tip" id="fs14">val equal : x:&#39;a -&gt; Constraints.EqualConstraint<br /><br />Full name: FsUnit.TopLevelOperators.equal</div>
+<div class="tip" id="fs14">val equal : x:&#39;a -&gt; EqualsConstraint<br /><br />Full name: FsUnit.TopLevelOperators.equal</div>
 <div class="tip" id="fs15">namespace NUnit</div>
 <div class="tip" id="fs16">Multiple items<br />type LightBulb =<br />&#160;&#160;new : state:bool -&gt; LightBulb<br />&#160;&#160;override ToString : unit -&gt; string<br />&#160;&#160;member On : bool<br /><br />Full name: NUnit.LightBulb Tests.LightBulb<br /><br />--------------------<br />new : state:bool -&gt; LightBulb</div>
 <div class="tip" id="fs17">val state : bool</div>
@@ -296,7 +298,7 @@
 <div class="tip" id="fs19">member LightBulb.On : bool<br /><br />Full name: NUnit.LightBulb Tests.LightBulb.On</div>
 <div class="tip" id="fs20">override LightBulb.ToString : unit -&gt; string<br /><br />Full name: NUnit.LightBulb Tests.LightBulb.ToString</div>
 <div class="tip" id="fs21">property LightBulb.On: bool</div>
-<div class="tip" id="fs22">Multiple items<br />type TestFixtureAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; TestFixtureAttribute + 1 overload<br />&#160;&#160;member Arguments : obj[]<br />&#160;&#160;member Categories : IList<br />&#160;&#160;member Category : string with get, set<br />&#160;&#160;member Description : string with get, set<br />&#160;&#160;member Ignore : bool with get, set<br />&#160;&#160;member IgnoreReason : string with get, set<br />&#160;&#160;member TypeArgs : Type[] with get, set<br /><br />Full name: NUnit.Framework.TestFixtureAttribute<br /><br />--------------------<br />TestFixtureAttribute() : unit<br />TestFixtureAttribute(params arguments: obj []) : unit</div>
+<div class="tip" id="fs22">Multiple items<br />type TestFixtureAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; TestFixtureAttribute + 1 overload<br />&#160;&#160;member Arguments : obj[]<br />&#160;&#160;member Categories : IList<br />&#160;&#160;member Category : string with get, set<br />&#160;&#160;member Description : string with get, set<br />&#160;&#160;member Ignore : bool with get, set<br />&#160;&#160;member IgnoreReason : string with get, set<br />&#160;&#160;member TypeArgs : Type[] with get, set<br /><br />Full name: NUnit.Framework.TestFixtureAttribute<br /><br />--------------------<br />TestFixtureAttribute() : unit<br />TestFixtureAttribute([&lt;System.ParamArray&gt;] arguments: obj []) : unit</div>
 <div class="tip" id="fs23">val lightBulb : LightBulb</div>
 <div class="tip" id="fs24">val x : Given a LightBulb that has had its state set to true</div>
 <div class="tip" id="fs25">member Given a LightBulb that has had its state set to true.( when I ask whether it is On it answers true. ) : unit -&gt; unit<br /><br />Full name: NUnit.LightBulb Tests.Given a LightBulb that has had its state set to true.( when I ask whether it is On it answers true. )</div>
@@ -340,7 +342,7 @@
 
         </div>
         <div class="span3">
-          <img src="/FsUnit/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <img src="/FsUnit/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">FsUnit</li>
             <li><a href="/FsUnit/index.html">Home page</a></li>
@@ -349,15 +351,19 @@
             <li><a href="http://github.com/fsprojects/FsUnit">Source Code on GitHub</a></li>
             <li><a href="/FsUnit/license.html">License</a></li>
             <li><a href="/FsUnit/release-notes.html">Release Notes</a></li>
-            
+
             <li class="nav-header">Getting started</li>
             <li><a href="/FsUnit/NUnit.html">NUnit</a></li>
             <li><a href="/FsUnit/xUnit.html">xUnit</a></li>
             <li><a href="/FsUnit/MbUnit.html">MbUnit</a></li>
             <li><a href="/FsUnit/MsTest.html">MsTest</a></li>
+            <li class="divider"></li>
+            <li><a href="/FsUnit/Paket.html">Paket</a></li>
+            <li><a href="/FsUnit/FsCheck.html">FsCheck</a></li>
 
 
             <li class="nav-header">Documentation</li>
+            <li><a href="/FsUnit/operators.html">Operators</a></li>
             <li><a href="/FsUnit/reference/index.html">API Reference</a></li>
           </ul>
         </div>
