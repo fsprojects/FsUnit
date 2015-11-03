@@ -1,4 +1,4 @@
-### 1.4.0.0-beta5 - Unreleased
+### 1.4.0.0 - 03 November 2015
 * Migration to xUnit 2.1
 * FsUnit.NUnit compiled for net45
 * Target FsUnit to FSharp.Core 3.1.2.5
