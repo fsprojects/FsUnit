@@ -30,8 +30,7 @@ let equal expected = CustomMatchers.equal expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
 
-let not' (expected:obj) =
-    if box expected = null then CustomMatchers.not' (IsNull()) else (CustomMatchers.not' expected)
+let not' (expected:obj) = CustomMatchers.not' expected
 
 let throw (t:Type) = CustomMatchers.throw t
 
