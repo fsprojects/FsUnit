@@ -24,7 +24,10 @@ let inline should (f : 'a -> ^b) x (y : obj) =
         match y with
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
-    Assert.That(y, c)
+    if box c = null then
+        Assert.That(y, IsNull())
+    else 
+        Assert.That(y, c)
 
 let inline shouldFail (f:unit->unit) =
     let failed =
@@ -41,7 +44,8 @@ let equal expected = CustomMatchers.equal expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
 
-let not' (expected:obj) = CustomMatchers.not' expected
+let not' (expected:obj) = 
+    if box expected = null then CustomMatchers.not' (IsNull()) else (CustomMatchers.not' expected)
 
 let throw (t:Type) = CustomMatchers.throw t
 
