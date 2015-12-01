@@ -18,6 +18,7 @@ let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a toleranc
                                                               else false )
 
 let not' (x:obj) = match box x with
+                   | null -> Is.Not<obj>(Is.Null())
                    | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
                    |  x -> Is.Not<obj>(CustomMatcher<obj>(sprintf "Equals %s" (x.ToString()), fun a -> a = x) :> IMatcher<obj>)
 
