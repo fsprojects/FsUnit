@@ -42,7 +42,10 @@ module TopLevelOperators =
             match y with
             | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
             | _ -> y
-        Assert.That(y, c)
+        if box c = null then
+            Assert.That(y, Is.Null)
+        else 
+            Assert.That(y, c)
 
     let equal x = EqualsConstraint(x)
 
@@ -87,7 +90,8 @@ module TopLevelOperators =
 
     let descending = Is.Ordered.Descending
 
-    let not' x = NotConstraint(x)
+    let not' x =
+        if box x = null then NotConstraint(Null) else NotConstraint(x)
 
     /// Deprecated operators. These will be removed in a future version of FsUnit.
     module FsUnitDeprecated =

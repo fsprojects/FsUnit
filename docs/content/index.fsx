@@ -96,8 +96,10 @@ false |> should not' (be True)
 
 null |> should be NullOrEmptyString
 null |> should be Null
+null |> should be null
 
 anObj |> should not' (be Null)
+anObj |> should not' (be null)
 anObj |> should be (sameAs anObj)
 anObj |> should not' (be sameAs otherObj)
 
