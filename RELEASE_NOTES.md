@@ -1,3 +1,6 @@
+### 1.4.1.0 - 07 December 2015
+* Fixed `should be null` - https://github.com/fsprojects/FsUnit/issues/52
+
 ### 1.4.0.0 - 03 November 2015
 * Migration to xUnit 2.1
 * FsUnit.NUnit compiled for net45
