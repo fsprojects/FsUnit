@@ -14,7 +14,7 @@ type EqualsConstraint(x:obj) =
     override this.WriteDescriptionTo(writer: MessageWriter): unit =
       writer.WritePredicate("equals")
       writer.WriteExpectedValue(sprintf "%A" x)
-    override this.WriteMessageTo(writer: MessageWriter): unit =
+    override this.WriteMessage(writer: MessageWriter): unit =
       writer.WriteMessageLine(sprintf "Expected: %A, but was %A" x this.actual)
 
 //
@@ -26,7 +26,7 @@ module TopLevelOperators =
 
     let EmptyString = EmptyStringConstraint()
 
-    let NullOrEmptyString = NullOrEmptyStringConstraint()
+    let NullOrEmptyString = OrConstraint(NullConstraint(), EmptyConstraint())
 
     let True = TrueConstraint()
 
@@ -44,7 +44,7 @@ module TopLevelOperators =
             | _ -> y
         if box c = null then
             Assert.That(y, Is.Null)
-        else 
+        else
             Assert.That(y, c)
 
     let equal x = EqualsConstraint(x)
