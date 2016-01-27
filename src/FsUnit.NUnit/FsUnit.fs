@@ -6,11 +6,6 @@ open System
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
-/// F#-friendly formatting for otherwise the same equals behavior (%A instead of .ToString())
-type EqualsConstraint(x:obj) =
-  inherit EqualConstraint(x) with
-    override __.Description with get () = sprintf "equals %A" x
-
 //
 [<AutoOpen>]
 module TopLevelOperators =
@@ -41,7 +36,7 @@ module TopLevelOperators =
         else
             Assert.That(y, c)
 
-    let equal x = EqualsConstraint(x)
+    let equal x = EqualConstraint(x)
 
     let equalWithin tolerance x = equal(x).Within tolerance
 
