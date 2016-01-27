@@ -22,7 +22,7 @@ Example of `paket.dependencies` file:
 
     group Test
         source https://nuget.org/api/v2
-        nuget NUnit.Runners
+        nuget NUnit.Console
         nuget NUnit
 
 Notice that this scenario works only with `NUnit`. File `src/FsUnit.NUnit/FsUnit.fs` contains dependency-free

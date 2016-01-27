@@ -78,11 +78,3 @@ module TopLevelOperators =
     let ascending = Is.Ordered
 
     let descending = Is.Ordered.Descending
-
-    let not' x =
-        if box x = null then NotConstraint(Null) else NotConstraint(x)
-
-    /// Deprecated operators. These will be removed in a future version of FsUnit.
-    module FsUnitDeprecated =
-        [<System.Obsolete>]
-        let not x = not' x

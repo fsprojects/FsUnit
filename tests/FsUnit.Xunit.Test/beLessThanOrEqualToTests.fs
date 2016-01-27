@@ -1,8 +1,6 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
-open FsUnitDeprecated
 
 type ``be lessThanOrEqualTo tests`` ()=
     [<Fact>] member test.

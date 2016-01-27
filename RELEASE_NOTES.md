@@ -1,3 +1,7 @@
+### 2.0.0 - January 27, 2016
+* Added support of `NUnit 3` - https://github.com/fsprojects/FsUnit/pull/83
+* Dropped support of obsolete `not` operator
+
 ### 1.4.1.0 - 07 December 2015
 * Fixed `should be null` - https://github.com/fsprojects/FsUnit/issues/52
 
