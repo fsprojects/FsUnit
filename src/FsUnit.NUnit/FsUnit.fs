@@ -9,13 +9,7 @@ open NUnit.Framework.Constraints
 /// F#-friendly formatting for otherwise the same equals behavior (%A instead of .ToString())
 type EqualsConstraint(x:obj) =
   inherit EqualConstraint(x) with
-    override this.WriteActualValueTo(writer: MessageWriter): unit =
-      writer.WriteActualValue(sprintf "%A" this.actual)
-    override this.WriteDescriptionTo(writer: MessageWriter): unit =
-      writer.WritePredicate("equals")
-      writer.WriteExpectedValue(sprintf "%A" x)
-    override this.WriteMessage(writer: MessageWriter): unit =
-      writer.WriteMessageLine(sprintf "Expected: %A, but was %A" x this.actual)
+    override __.Description with get () = sprintf "equals %A" x
 
 //
 [<AutoOpen>]

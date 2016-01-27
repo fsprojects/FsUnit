@@ -5,13 +5,14 @@ open NUnit.Framework.Constraints
 
 type ChoiceConstraint(n) =
   inherit Constraint() with
-    override this.WriteDescriptionTo(writer: MessageWriter): unit =
-      writer.WritePredicate("is choice")
-      writer.WriteExpectedValue(sprintf "%d" n)
-    override this.Matches(actual: obj) =
-      match actual with
+    override __.Description with get () = sprintf "is choice %d" n
+    
+    override this.ApplyTo(actual : 'TActual) : ConstraintResult =        
+        match box actual with // Forced to box to match C# constraint on 'TActual
         | null -> raise (new ArgumentException("The actual value must be a non-null choice"))
-        | o -> (new CustomMatchers.ChoiceDiscriminator(n)).check(o)
+        | o    -> let actualType = actual.GetType()
+                  let isSuccess = (new CustomMatchers.ChoiceDiscriminator(n)).check(o)
+                  ConstraintResult(this, actualType, isSuccess) 
 
 [<AutoOpen>]
 module TopLevelOperatorsExtra =
