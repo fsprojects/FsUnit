@@ -6,17 +6,6 @@ open System
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
-/// F#-friendly formatting for otherwise the same equals behavior (%A instead of .ToString())
-type EqualsConstraint(x:obj) =
-  inherit EqualConstraint(x) with
-    override this.WriteActualValueTo(writer: MessageWriter): unit =
-      writer.WriteActualValue(sprintf "%A" this.actual)
-    override this.WriteDescriptionTo(writer: MessageWriter): unit =
-      writer.WritePredicate("equals")
-      writer.WriteExpectedValue(sprintf "%A" x)
-    override this.WriteMessageTo(writer: MessageWriter): unit =
-      writer.WriteMessageLine(sprintf "Expected: %A, but was %A" x this.actual)
-
 //
 [<AutoOpen>]
 module TopLevelOperators =
@@ -26,7 +15,7 @@ module TopLevelOperators =
 
     let EmptyString = EmptyStringConstraint()
 
-    let NullOrEmptyString = NullOrEmptyStringConstraint()
+    let NullOrEmptyString = OrConstraint(NullConstraint(), EmptyConstraint())
 
     let True = TrueConstraint()
 
@@ -44,10 +33,10 @@ module TopLevelOperators =
             | _ -> y
         if box c = null then
             Assert.That(y, Is.Null)
-        else 
+        else
             Assert.That(y, c)
 
-    let equal x = EqualsConstraint(x)
+    let equal x = EqualConstraint(x)
 
     let equalWithin tolerance x = equal(x).Within tolerance
 
