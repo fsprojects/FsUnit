@@ -15,6 +15,7 @@ file and [NUnit](https://www.nuget.org/packages/NUnit/) package.
 
 Example of `paket.dependencies` file:
 
+    [lang=paket]
     source https://nuget.org/api/v2
 
     nuget FSharp.Core
@@ -31,6 +32,7 @@ reference to `NUnit.Runners` to be able to run tests from build script.
 
 Example of `paket.reference` file for test projects:
 
+    [lang=paket]
     File:FsUnit.fs
     group Test
         NUnit
