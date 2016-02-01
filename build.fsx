@@ -337,9 +337,9 @@ Target "All" DoNothing
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
+  ==> "All"
   ==> "GenerateReferenceDocs"
   ==> "GenerateDocs"
-  ==> "All"
   =?> ("ReleaseDocs",isLocalBuild)
 
 "Build" ==> "NUnit"  ==> "RunTests"
