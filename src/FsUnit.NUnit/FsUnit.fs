@@ -2,7 +2,7 @@
 
 namespace FsUnit
 
-open System
+open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
 
@@ -25,6 +25,7 @@ module TopLevelOperators =
 
     let unique = UniqueItemsConstraint()
 
+    [<DebuggerNonUserCode>]
     let should (f : 'a -> #Constraint) x (y : obj) =
         let c = f x
         let y =
