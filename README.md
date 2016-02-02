@@ -8,7 +8,7 @@ FsUnit
 =======
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-FsUnit currently supports NUnit, MbUnit, xUnit, and MsTest (VS11 only).
+FsUnit currently supports NUnit, MbUnit, xUnit, and MsTest.
 
 The goals of FsUnit are:
 
@@ -34,5 +34,6 @@ Maintainer(s)
 ============
 
 - [@dmohl](https://github.com/dmohl)
+- [@sergey-tihon](https://github.com/sergey-tihon)
 
 The default maintainer account for projects under "fsprojects" is [@fsprojectsgit](https://github.com/fsprojectsgit) - F# Community Project Incubation Space (repo management)
