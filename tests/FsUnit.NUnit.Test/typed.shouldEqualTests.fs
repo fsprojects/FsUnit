@@ -68,3 +68,8 @@ type ``shouldEqual Tests`` ()=
     [<Test>] member test.
      ``None should equal None`` ()=
         None |> shouldEqual None
+
+    [<Test>] member this.
+     ``structural equality`` () =
+        let actualList: char list = [] in
+        [(actualList, "")] |> shouldEqual [([], "")]
