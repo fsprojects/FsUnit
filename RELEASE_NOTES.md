@@ -1,4 +1,4 @@
-### 2.0.0 - January 27, 2016
+### 2.0.0 - February 8, 2016
 * Added support of `NUnit 3` - https://github.com/fsprojects/FsUnit/pull/83
 * Dropped support of obsolete `not` operator
 
