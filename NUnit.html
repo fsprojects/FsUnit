@@ -36,7 +36,6 @@
         <div class="span9" id="main">
           
 <h1><a name="FsUnit-for-NUnit" class="anchor" href="#FsUnit-for-NUnit">FsUnit for NUnit</a></h1>
-
 <div class="row">
   <div class="span1"></div>
   <div class="span6">
@@ -49,9 +48,7 @@
   </div>
   <div class="span1"></div>
 </div>
-
 <h2><a name="Euler-Problem-1" class="anchor" href="#Euler-Problem-1">Euler - Problem 1</a></h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -69,20 +66,18 @@
     <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">NUnit</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Framework</span>
     <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">FsUnit</span>
 
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="f">GetSumOfMultiplesOf3And5</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">max</span> <span class="o">=</span>  
-        <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">seq</span>{<span class="n">3..</span><span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="i">max</span><span class="o">-</span><span class="n">1</span>} <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="f">fold</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">acc</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="i">number</span> <span class="k">-&gt;</span>  
-                            (<span class="k">if</span> (<span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">number</span> <span class="o">%</span> <span class="n">3</span> <span class="o">=</span> <span class="n">0</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">number</span> <span class="o">%</span> <span class="n">5</span> <span class="o">=</span> <span class="n">0</span>) <span class="k">then</span>   
-                                <span onmouseout="hideTip(event, 'fs9', 14)" onmouseover="showTip(event, 'fs9', 14)" class="i">acc</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs10', 15)" onmouseover="showTip(event, 'fs10', 15)" class="i">number</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="i">acc</span>)) <span class="n">0</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="f">GetSumOfMultiplesOf3And5</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">max</span> <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">seq</span>{<span class="n">3..</span><span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="i">max</span><span class="o">-</span><span class="n">1</span>} <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="f">fold</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">acc</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="i">number</span> <span class="k">-&gt;</span>
+                            (<span class="k">if</span> (<span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">number</span> <span class="o">%</span> <span class="n">3</span> <span class="o">=</span> <span class="n">0</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">number</span> <span class="o">%</span> <span class="n">5</span> <span class="o">=</span> <span class="n">0</span>) <span class="k">then</span>
+                                <span onmouseout="hideTip(event, 'fs9', 14)" onmouseover="showTip(event, 'fs9', 14)" class="i">acc</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs10', 15)" onmouseover="showTip(event, 'fs10', 15)" class="i">number</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="i">acc</span>)) <span class="n">0</span>
 
     [&lt;<span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="t">Test</span>&gt;]
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="f">``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23``</span> () <span class="o">=</span>  
-        <span onmouseout="hideTip(event, 'fs4', 19)" onmouseover="showTip(event, 'fs4', 19)" class="f">GetSumOfMultiplesOf3And5</span>(<span class="n">10</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="f">equal</span> <span class="n">23</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="f">``When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23``</span> () <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs4', 19)" onmouseover="showTip(event, 'fs4', 19)" class="f">GetSumOfMultiplesOf3And5</span>(<span class="n">10</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="f">equal</span> <span class="n">23</span>
 </code></pre></td>
 </tr>
 </table>
-
 <h2><a name="LightBulb" class="anchor" href="#LightBulb">LightBulb</a></h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -129,7 +124,7 @@
             | <span class="k">true</span>  <span class="k">-&gt;</span> <span class="s">&quot;On&quot;</span>
             | <span class="k">false</span> <span class="k">-&gt;</span> <span class="s">&quot;Off&quot;</span>
 
-    [&lt;<span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="t">TestFixture</span>&gt;] 
+    [&lt;<span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="t">TestFixture</span>&gt;]
     <span class="k">type</span> <span class="t">``Given a LightBulb that has had its state set to true``</span> ()<span class="o">=</span>
         <span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="i">lightBulb</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs16', 36)" onmouseover="showTip(event, 'fs16', 36)" class="t">LightBulb</span>(<span class="k">true</span>)
 
@@ -144,22 +139,19 @@
     [&lt;<span onmouseout="hideTip(event, 'fs22', 52)" onmouseover="showTip(event, 'fs22', 52)" class="t">TestFixture</span>&gt;]
     <span class="k">type</span> <span class="t">``Given a LightBulb that has had its state set to false``</span> ()<span class="o">=</span>
         <span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 53)" onmouseover="showTip(event, 'fs23', 53)" class="i">lightBulb</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs16', 54)" onmouseover="showTip(event, 'fs16', 54)" class="t">LightBulb</span>(<span class="k">false</span>)
-    
+
         [&lt;<span onmouseout="hideTip(event, 'fs11', 55)" onmouseover="showTip(event, 'fs11', 55)" class="t">Test</span>&gt;] <span class="k">member</span> <span onmouseout="hideTip(event, 'fs30', 56)" onmouseover="showTip(event, 'fs30', 56)" class="i">x</span><span class="o">.</span>
          <span onmouseout="hideTip(event, 'fs31', 57)" onmouseover="showTip(event, 'fs31', 57)" class="f">``when I ask whether it is On it answers false.``</span> ()<span class="o">=</span>
                 <span onmouseout="hideTip(event, 'fs23', 58)" onmouseover="showTip(event, 'fs23', 58)" class="i">lightBulb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 59)" onmouseover="showTip(event, 'fs21', 59)" class="i">On</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 60)" onmouseover="showTip(event, 'fs13', 60)" class="f">should</span> <span onmouseout="hideTip(event, 'fs26', 61)" onmouseover="showTip(event, 'fs26', 61)" class="f">be</span> <span onmouseout="hideTip(event, 'fs32', 62)" onmouseover="showTip(event, 'fs32', 62)" class="i">False</span>
-    
+
         [&lt;<span onmouseout="hideTip(event, 'fs11', 63)" onmouseover="showTip(event, 'fs11', 63)" class="t">Test</span>&gt;] <span class="k">member</span> <span onmouseout="hideTip(event, 'fs30', 64)" onmouseover="showTip(event, 'fs30', 64)" class="i">x</span><span class="o">.</span>
          <span onmouseout="hideTip(event, 'fs33', 65)" onmouseover="showTip(event, 'fs33', 65)" class="f">``when I convert it to a string it becomes &quot;Off&quot;.``</span> ()<span class="o">=</span>
                 <span onmouseout="hideTip(event, 'fs29', 66)" onmouseover="showTip(event, 'fs29', 66)" class="f">string</span> <span onmouseout="hideTip(event, 'fs23', 67)" onmouseover="showTip(event, 'fs23', 67)" class="i">lightBulb</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 68)" onmouseover="showTip(event, 'fs13', 68)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 69)" onmouseover="showTip(event, 'fs14', 69)" class="f">equal</span> <span class="s">&quot;Off&quot;</span>
 </code></pre></td>
 </tr>
 </table>
-
 <h2><a name="BowlingGame" class="anchor" href="#BowlingGame">BowlingGame</a></h2>
-
 <p>Thanks to <code>Keith Nicholas</code> and <code>Julian</code> from hubFS for <a href="http://cs.hubfs.net/forums/thread/3938.aspx">this example</a>!</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -240,7 +232,7 @@
             | <span onmouseout="hideTip(event, 'fs53', 144)" onmouseover="showTip(event, 'fs53', 144)" class="p">Other</span>(<span onmouseout="hideTip(event, 'fs49', 145)" onmouseover="showTip(event, 'fs49', 145)" class="i">score</span>)            <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs46', 146)" onmouseover="showTip(event, 'fs46', 146)" class="i">current_score</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs49', 147)" onmouseover="showTip(event, 'fs49', 147)" class="i">score</span>
         <span onmouseout="hideTip(event, 'fs45', 148)" onmouseover="showTip(event, 'fs45', 148)" class="f">scoreBowls&#39;</span> <span class="n">1</span> <span onmouseout="hideTip(event, 'fs44', 149)" onmouseover="showTip(event, 'fs44', 149)" class="i">bowls</span> <span class="n">0</span>
 
-    [&lt;<span onmouseout="hideTip(event, 'fs11', 150)" onmouseover="showTip(event, 'fs11', 150)" class="t">Test</span>&gt;] 
+    [&lt;<span onmouseout="hideTip(event, 'fs11', 150)" onmouseover="showTip(event, 'fs11', 150)" class="t">Test</span>&gt;]
     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs54', 151)" onmouseover="showTip(event, 'fs54', 151)" class="f">``with simple scores should get the expected score.``</span> () <span class="o">=</span>
         <span onmouseout="hideTip(event, 'fs43', 152)" onmouseover="showTip(event, 'fs43', 152)" class="f">scoreBowls</span> [<span class="n">1</span>;<span class="n">2</span>;<span class="n">3</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 153)" onmouseover="showTip(event, 'fs13', 153)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 154)" onmouseover="showTip(event, 'fs14', 154)" class="f">equal</span> <span class="n">6</span>
 
@@ -264,7 +256,7 @@
     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs60', 178)" onmouseover="showTip(event, 'fs60', 178)" class="f">``with a strike in the last frame should get the expected score (strike in last frame).``</span> () <span class="o">=</span>
         <span onmouseout="hideTip(event, 'fs43', 179)" onmouseover="showTip(event, 'fs43', 179)" class="f">scoreBowls</span> ([<span class="k">for</span> <span onmouseout="hideTip(event, 'fs58', 180)" onmouseover="showTip(event, 'fs58', 180)" class="i">i</span> <span class="k">in</span> <span class="n">1..</span><span class="n">18</span> <span class="k">-&gt;</span> <span class="n">0</span>] <span class="o">@</span> [<span class="n">10</span>;<span class="n">10</span>;<span class="n">1</span>]) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 181)" onmouseover="showTip(event, 'fs13', 181)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 182)" onmouseover="showTip(event, 'fs14', 182)" class="f">equal</span> <span class="n">21</span>
 
-    [&lt;<span onmouseout="hideTip(event, 'fs11', 183)" onmouseover="showTip(event, 'fs11', 183)" class="t">Test</span>&gt;] 
+    [&lt;<span onmouseout="hideTip(event, 'fs11', 183)" onmouseover="showTip(event, 'fs11', 183)" class="t">Test</span>&gt;]
     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 184)" onmouseover="showTip(event, 'fs61', 184)" class="f">``with double strikes should add the score of the first strike to the score of the second.``</span> () <span class="o">=</span>
         <span onmouseout="hideTip(event, 'fs43', 185)" onmouseover="showTip(event, 'fs43', 185)" class="f">scoreBowls</span> [<span class="n">10</span>;<span class="n">10</span>;<span class="n">1</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 186)" onmouseover="showTip(event, 'fs13', 186)" class="f">should</span> <span onmouseout="hideTip(event, 'fs14', 187)" onmouseover="showTip(event, 'fs14', 187)" class="f">equal</span> <span class="n">33</span>
 
@@ -274,7 +266,6 @@
 </code></pre></td>
 </tr>
 </table>
-
 <p>Note: NUnit can also be utilized without specifying a type as in the examples for MbUnit and xUnit</p>
 
 <div class="tip" id="fs1">module NUnit</div>
@@ -287,10 +278,10 @@
 <div class="tip" id="fs8">val fold : folder:(&#39;State -&gt; &#39;T -&gt; &#39;State) -&gt; state:&#39;State -&gt; source:seq&lt;&#39;T&gt; -&gt; &#39;State<br /><br />Full name: Microsoft.FSharp.Collections.Seq.fold</div>
 <div class="tip" id="fs9">val acc : int</div>
 <div class="tip" id="fs10">val number : int</div>
-<div class="tip" id="fs11">Multiple items<br />type TestAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; TestAttribute<br />&#160;&#160;member Description : string with get, set<br /><br />Full name: NUnit.Framework.TestAttribute<br /><br />--------------------<br />TestAttribute() : unit</div>
+<div class="tip" id="fs11">Multiple items<br />type TestAttribute =<br />&#160;&#160;inherit NUnitAttribute<br />&#160;&#160;new : unit -&gt; TestAttribute<br />&#160;&#160;member ApplyToTest : test:Test -&gt; unit<br />&#160;&#160;member Author : string with get, set<br />&#160;&#160;member BuildFrom : method:IMethodInfo * suite:Test -&gt; TestMethod<br />&#160;&#160;member Description : string with get, set<br />&#160;&#160;member ExpectedResult : obj with get, set<br />&#160;&#160;member HasExpectedResult : bool with get, set<br />&#160;&#160;member TestOf : Type with get, set<br /><br />Full name: NUnit.Framework.TestAttribute<br /><br />--------------------<br />TestAttribute() : unit</div>
 <div class="tip" id="fs12">val ( When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23 ) : unit -&gt; unit<br /><br />Full name: NUnit.Project Euler - Problem 1.( When getting sum of multiples of 3 and 5 to a max number of 10 it should return a sum of 23 )</div>
 <div class="tip" id="fs13">val should : f:(&#39;a -&gt; #Constraints.Constraint) -&gt; x:&#39;a -&gt; y:obj -&gt; unit<br /><br />Full name: FsUnit.TopLevelOperators.should</div>
-<div class="tip" id="fs14">val equal : x:&#39;a -&gt; EqualsConstraint<br /><br />Full name: FsUnit.TopLevelOperators.equal</div>
+<div class="tip" id="fs14">val equal : x:&#39;a -&gt; Constraints.EqualConstraint<br /><br />Full name: FsUnit.TopLevelOperators.equal</div>
 <div class="tip" id="fs15">namespace NUnit</div>
 <div class="tip" id="fs16">Multiple items<br />type LightBulb =<br />&#160;&#160;new : state:bool -&gt; LightBulb<br />&#160;&#160;override ToString : unit -&gt; string<br />&#160;&#160;member On : bool<br /><br />Full name: NUnit.LightBulb Tests.LightBulb<br /><br />--------------------<br />new : state:bool -&gt; LightBulb</div>
 <div class="tip" id="fs17">val state : bool</div>
@@ -298,7 +289,7 @@
 <div class="tip" id="fs19">member LightBulb.On : bool<br /><br />Full name: NUnit.LightBulb Tests.LightBulb.On</div>
 <div class="tip" id="fs20">override LightBulb.ToString : unit -&gt; string<br /><br />Full name: NUnit.LightBulb Tests.LightBulb.ToString</div>
 <div class="tip" id="fs21">property LightBulb.On: bool</div>
-<div class="tip" id="fs22">Multiple items<br />type TestFixtureAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; TestFixtureAttribute + 1 overload<br />&#160;&#160;member Arguments : obj[]<br />&#160;&#160;member Categories : IList<br />&#160;&#160;member Category : string with get, set<br />&#160;&#160;member Description : string with get, set<br />&#160;&#160;member Ignore : bool with get, set<br />&#160;&#160;member IgnoreReason : string with get, set<br />&#160;&#160;member TypeArgs : Type[] with get, set<br /><br />Full name: NUnit.Framework.TestFixtureAttribute<br /><br />--------------------<br />TestFixtureAttribute() : unit<br />TestFixtureAttribute([&lt;System.ParamArray&gt;] arguments: obj []) : unit</div>
+<div class="tip" id="fs22">Multiple items<br />type TestFixtureAttribute =<br />&#160;&#160;inherit NUnitAttribute<br />&#160;&#160;new : unit -&gt; TestFixtureAttribute + 1 overload<br />&#160;&#160;member Arguments : obj[] with get, set<br />&#160;&#160;member Author : string with get, set<br />&#160;&#160;member BuildFrom : typeInfo:ITypeInfo -&gt; IEnumerable&lt;TestSuite&gt;<br />&#160;&#160;member Category : string with get, set<br />&#160;&#160;member Description : string with get, set<br />&#160;&#160;member Explicit : bool with get, set<br />&#160;&#160;member Ignore : string with get, set<br />&#160;&#160;member IgnoreReason : string with get, set<br />&#160;&#160;member Properties : IPropertyBag with get, set<br />&#160;&#160;...<br /><br />Full name: NUnit.Framework.TestFixtureAttribute<br /><br />--------------------<br />TestFixtureAttribute() : unit<br />TestFixtureAttribute([&lt;System.ParamArray&gt;] arguments: obj []) : unit</div>
 <div class="tip" id="fs23">val lightBulb : LightBulb</div>
 <div class="tip" id="fs24">val x : Given a LightBulb that has had its state set to true</div>
 <div class="tip" id="fs25">member Given a LightBulb that has had its state set to true.( when I ask whether it is On it answers true. ) : unit -&gt; unit<br /><br />Full name: NUnit.LightBulb Tests.Given a LightBulb that has had its state set to true.( when I ask whether it is On it answers true. )</div>

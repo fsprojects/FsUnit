@@ -36,15 +36,11 @@
         <div class="span9" id="main">
           
 <h1><a name="Lightweight-FsUnit-with-Paket" class="anchor" href="#Lightweight-FsUnit-with-Paket">Lightweight FsUnit with Paket</a></h1>
-
 <p>FsUnit supports lightweight usage scenario with <a href="http://fsprojects.github.io/Paket/">Paket</a> and NUnit.</p>
-
 <p>In the case when you do not want to add dependency on <a href="https://www.nuget.org/packages/FsUnit/">FsUnit</a>
 package to your project, you can add reference to <a href="https://github.com/fsprojects/FsUnit/blob/master/src/FsUnit.NUnit/FsUnit.fs">FsUnit.fs</a>
 file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
-
 <p>Example of <code>paket.dependencies</code> file:</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -55,38 +51,29 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 <span class="l">8: </span>
 <span class="l">9: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">source</span> <span class="i">https</span><span class="o">:</span><span class="c">//nuget.org/api/v2</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://nuget.org/api/v2
 
-<span class="i">nuget</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Core</span>
-<span class="i">github</span> <span class="i">fsprojects</span><span class="o">/</span><span class="i">FsUnit</span> <span class="i">src</span><span class="o">/</span><span class="i">FsUnit</span><span class="o">.</span><span class="i">NUnit</span><span class="o">/</span><span class="i">FsUnit</span><span class="o">.</span><span class="i">fs</span>
+<span class="k">nuget </span>FSharp.Core
+<span class="k">github </span>fsprojects/FsUnit src/FsUnit.NUnit/FsUnit.fs
 
-<span class="i">group</span> <span class="i">Test</span>
-    <span class="i">source</span> <span class="i">https</span><span class="o">:</span><span class="c">//nuget.org/api/v2</span>
-    <span class="i">nuget</span> <span class="i">NUnit</span><span class="o">.</span><span class="i">Runners</span>
-    <span class="i">nuget</span> <span class="i">NUnit</span>
-</code></pre></td>
-</tr>
-</table>
-
+<span class="k">group</span> Test
+    <span class="k">source</span> https://nuget.org/api/v2
+    <span class="k">nuget </span>NUnit.Console
+    <span class="k">nuget </span>NUnit
+</code></pre></td></tr></table>
 <p>Notice that this scenario works only with <code>NUnit</code>. File <code>src/FsUnit.NUnit/FsUnit.fs</code> contains dependency-free
 subset of <code>FsUnit</code> operators. In order to write tests you need to add reference to <code>NUnit</code> package and
 reference to <code>NUnit.Runners</code> to be able to run tests from build script.</p>
-
 <p>Example of <code>paket.reference</code> file for test projects:</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">File</span><span class="o">:</span><span class="i">FsUnit</span><span class="o">.</span><span class="i">fs</span>
-<span class="i">group</span> <span class="i">Test</span>
-    <span class="i">NUnit</span>
-</code></pre></td>
-</tr>
-</table>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">File</span>:FsUnit.fs
+<span class="k">group</span> Test
+    NUnit
+</code></pre></td></tr></table>
 
-<div class="tip" id="fs1">namespace Microsoft.FSharp</div>
-<div class="tip" id="fs2">namespace Microsoft.FSharp.Core</div>
 
         </div>
         <div class="span3">
