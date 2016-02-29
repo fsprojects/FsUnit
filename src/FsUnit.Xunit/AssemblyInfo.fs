@@ -1,9 +1,12 @@
-﻿namespace global
+﻿namespace System
 open System.Reflection
-open System.Runtime.CompilerServices
 
-[<assembly: AssemblyTitle("FsUnit.Xunit")>]
-[<assembly: AssemblyProduct("FsUnit.Xunit")>]
-[<assembly: AssemblyVersion("1.3.0.1")>]
-[<assembly: InternalsVisibleTo("FsUnit.Xunit.Test")>]
-do()
+[<assembly: AssemblyTitleAttribute("FsUnit.Xunit")>]
+[<assembly: AssemblyProductAttribute("FsUnit")>]
+[<assembly: AssemblyDescriptionAttribute("FsUnit is a set of libraries that makes unit-testing with F# more enjoyable.")>]
+[<assembly: AssemblyVersionAttribute("2.0.0")>]
+[<assembly: AssemblyFileVersionAttribute("2.0.0")>]
+do ()
+
+module internal AssemblyVersionInformation =
+    let [<Literal>] Version = "2.0.0"

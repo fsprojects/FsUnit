@@ -144,6 +144,22 @@ Build the project and then run the command "Add-BindingRedirect projectname" (wh
 Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to
 FSharp.Core version 4.3.0.0. More information about this command can be found in the [NuGet documentation](http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference).
 
+Test Projects Targeting Higher F# Runtimes
+------------------------------------------
+
+If you build your test project with a target F# runtime greater than the targeted runtime of the FsUnit assembly, you may find FsUnit operators failing at runtime, in which case you need to add a binding redirect to the App.config file.
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+      <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+          <dependentAssembly>
+            <assemblyIdentity name="FSharp.Core" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+            <bindingRedirect oldVersion="0.0.0.0-999.999.999.999" newVersion="4.4.0.0" />
+          </dependentAssembly>
+        </assemblyBinding>
+      </runtime>
+    </configuration>
 
 Contributing
 ------------
