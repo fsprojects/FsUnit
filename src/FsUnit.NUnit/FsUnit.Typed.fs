@@ -7,11 +7,11 @@ open System.Collections.Generic
 module Typed =
     [<DebuggerStepThrough>]
     let shouldEqual (expected : 'a) (actual : 'a) =
-        Assert.IsTrue(expected.Equals(actual), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.IsTrue((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected : 'a) (actual : 'a) =
-        Assert.IsFalse(expected.Equals(actual), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.IsFalse((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x : 'a) (y : 'a seq) =
