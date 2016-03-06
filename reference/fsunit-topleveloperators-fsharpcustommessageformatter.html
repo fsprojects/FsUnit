@@ -2,10 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Lightweight FsUnit with Paket
-</title>
+    <title>FSharpCustomMessageFormatter - FsUnit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."/>
+    <meta name="description" content=""/>
     <meta name="author" content="Ray Vernagus and Daniel Mohl"/>
 
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
@@ -35,45 +34,43 @@
       <div class="row">
         <div class="span9" id="main">
           
-<h1><a name="Lightweight-FsUnit-with-Paket" class="anchor" href="#Lightweight-FsUnit-with-Paket">Lightweight FsUnit with Paket</a></h1>
-<p>FsUnit supports lightweight usage scenario with <a href="http://fsprojects.github.io/Paket/">Paket</a> and NUnit.</p>
-<p>In the case when you do not want to add dependency on <a href="https://www.nuget.org/packages/FsUnit/">FsUnit</a>
-package to your project, you can add reference to <a href="https://github.com/fsprojects/FsUnit/blob/master/src/FsUnit.NUnit/FsUnit.fs">FsUnit.fs</a>
-file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
-<p>Example of <code>paket.dependencies</code> file:</p>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-<span class="l">9: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://nuget.org/api/v2
 
-<span class="k">nuget </span>FSharp.Core
-<span class="k">github </span>fsprojects/FsUnit src/FsUnit.NUnit/FsUnit.fs
 
-<span class="k">group</span> Test
-    <span class="k">source</span> https://nuget.org/api/v2
-    <span class="k">nuget </span>NUnit.Console
-    <span class="k">nuget </span>NUnit
-</code></pre></td></tr></table>
-<p>Notice that this scenario works only with <code>NUnit</code>. File <code>src/FsUnit.NUnit/FsUnit.fs</code> contains dependency-free
-subset of <code>FsUnit</code> operators. In order to write tests you need to add reference to <code>NUnit</code> package and
-reference to <code>NUnit.Console</code> to be able to run tests from build script.</p>
-<p>Example of <code>paket.reference</code> file for test projects:</p>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">File</span>:FsUnit.fs
-<span class="k">group</span> Test
-    NUnit
-</code></pre></td></tr></table>
 
+<h1>FSharpCustomMessageFormatter</h1>
+<p>
+  <span>Namespace: FsUnit</span><br />
+  <span>Parent Module: <a href="fsunit-topleveloperators.html">TopLevelOperators</a></span>
+</p>
+<div class="xmldoc">
+</div>
+  <h3>Constructors</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Constructor</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '286', 286)" onmouseover="showTip(event, '286', 286)">
+            new()
+          </code>
+          <div class="tip" id="286">
+            <strong>Signature:</strong> unit -&gt; FSharpCustomMessageFormatter<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnit.fs#L14-14" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+              <p>CompiledName: <code>.ctor</code></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
         </div>
         <div class="span3">

@@ -232,6 +232,34 @@ in order to use these libraries in VS11. After installing one of these packages,
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
 Package Manager Console. This command will update the <code>App.config</code> to include binding redirects from previous version of <code>FSharp.Core</code> to
 FSharp.Core version 4.3.0.0. More information about this command can be found in the <a href="http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference">NuGet documentation</a>.</p>
+<h2><a name="Test-Projects-Targeting-Higher-F-Runtimes" class="anchor" href="#Test-Projects-Targeting-Higher-F-Runtimes">Test Projects Targeting Higher F# Runtimes</a></h2>
+<p>If you build your test project with a target F# runtime greater than the targeted runtime of the FsUnit assembly, you may find FsUnit operators failing at runtime, in which case you need to add a binding redirect to the App.config file.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="o">&lt;?</span><span class="i">xml</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="i">encoding</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="o">?&gt;</span>
+<span class="o">&lt;</span><span class="i">configuration</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="i">runtime</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="i">assemblyBinding</span> <span class="i">xmlns</span><span class="o">=</span><span class="s">&quot;urn:schemas-microsoft-com:asm.v1&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="i">dependentAssembly</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="i">assemblyIdentity</span> <span class="i">name</span><span class="o">=</span><span class="s">&quot;FSharp.Core&quot;</span> <span class="i">publicKeyToken</span><span class="o">=</span><span class="s">&quot;b03f5f7f11d50a3a&quot;</span> <span class="i">culture</span><span class="o">=</span><span class="s">&quot;neutral&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="i">bindingRedirect</span> <span class="i">oldVersion</span><span class="o">=</span><span class="s">&quot;0.0.0.0-999.999.999.999&quot;</span> <span class="i">newVersion</span><span class="o">=</span><span class="s">&quot;4.4.0.0&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="i">dependentAssembly</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="i">assemblyBinding</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="i">runtime</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="i">configuration</span><span class="o">&gt;</span>
+</code></pre></td>
+</tr>
+</table>
 <h2><a name="Contributing" class="anchor" href="#Contributing">Contributing</a></h2>
 <p>The project is hosted on <a href="https://github.com/fsprojects/FsUnit">GitHub</a> where you can <a href="https://github.com/fsprojects/FsUnit/issues">report issues</a>, fork
 the project and submit pull requests. If you're adding a new public API, please also
