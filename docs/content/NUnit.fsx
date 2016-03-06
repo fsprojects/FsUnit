@@ -22,6 +22,18 @@ FsUnit for NUnit
   <div class="span1"></div>
 </div>
 
+If you reference `FsUnit` from `NuGet` and want to use pretty-printed F# value types in error messages,
+you have to add following piece of code to your assembly:
+
+*)
+
+open FsUnit
+
+type InitMsgUtils() =
+    inherit FSharpCustomMessageFormatter()
+
+(**
+
 Euler - Problem 1
 -----------------
 *)
