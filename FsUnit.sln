@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.NUnit", "src\FsUnit.NUnit\FsUnit.NUnit.fsproj", "{3890DC0F-5225-4ADF-9B9E-F6A482046A9E}"
 EndProject
@@ -32,6 +32,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{0BEF7A55-F158-4691-886C-1AF2FE12DD7C}"
 	ProjectSection(SolutionItems) = preProject
 		docs\content\FsCheck.fsx = docs\content\FsCheck.fsx
+		docs\content\FsUnit.Typed.fsx = docs\content\FsUnit.Typed.fsx
 		docs\content\index.fsx = docs\content\index.fsx
 		docs\content\MbUnit.fsx = docs\content\MbUnit.fsx
 		docs\content\MsTest.fsx = docs\content\MsTest.fsx
