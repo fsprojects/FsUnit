@@ -9,6 +9,12 @@ open NUnit.Framework.Constraints
 //
 [<AutoOpen>]
 module TopLevelOperators =
+
+    [<SetUpFixture>]
+    type FSharpCustomMessageFormatter() =
+      do TestContext.AddFormatter(
+           ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
+
     let Null = NullConstraint()
 
     let Empty = EmptyConstraint()

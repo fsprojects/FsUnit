@@ -1,3 +1,7 @@
+### 2.1.0 - March 7, 2016
+* Added support of `NUnit 3.2`
+* Added pretty-print for F# value types - https://github.com/fsprojects/FsUnit/pull/89
+
 ### 2.0.0 - February 8, 2016
 * Added support of `NUnit 3` - https://github.com/fsprojects/FsUnit/pull/83
 * Dropped support of obsolete `not` operator
