@@ -28,7 +28,7 @@ Example of `paket.dependencies` file:
 
 Notice that this scenario works only with `NUnit`. File `src/FsUnit.NUnit/FsUnit.fs` contains dependency-free
 subset of `FsUnit` operators. In order to write tests you need to add reference to `NUnit` package and
-reference to `NUnit.Runners` to be able to run tests from build script.
+reference to `NUnit.Console` to be able to run tests from build script.
 
 Example of `paket.reference` file for test projects:
 
