@@ -1,14 +1,14 @@
 NUGET
   remote: https://www.nuget.org/api/v2
   specs:
-    FAKE (4.17.1)
-    FSharp.Compiler.Service (1.4.2.3)
+    FAKE (4.21.4)
+    FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)
-    FSharp.Formatting (2.13.5)
-      FSharp.Compiler.Service (>= 1.4.2 < 1.5.0)
-      FSharpVSPowerTools.Core (>= 2.2.0 < 2.3.0)
-    FSharpVSPowerTools.Core (2.2.0)
-      FSharp.Compiler.Service (>= 1.4.2.0)
+    FSharp.Formatting (2.14.0)
+      FSharp.Compiler.Service (>= 2.0.0.3 < 2.1.0)
+      FSharpVSPowerTools.Core (>= 2.3.0 < 2.4.0)
+    FSharpVSPowerTools.Core (2.3.0)
+      FSharp.Compiler.Service (>= 2.0.0.3)
     mbunit (3.4.14)
     Microsoft.Bcl (1.1.10)
       Microsoft.Bcl.Build (>= 1.0.14)
@@ -18,9 +18,19 @@ NUGET
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.VisualStudio.QualityTools.UnitTestFramework (11.0.50727.1)
     NHamcrest (1.2.1)
-    NUnit (3.0.1)
-    NUnit.Console (3.0.1)
-    Octokit (0.17.0)
+    NUnit (3.2.0)
+    NUnit.Console (3.2.0)
+      NUnit.ConsoleRunner (3.2.0)
+      NUnit.Extension.NUnitProjectLoader (3.2.0)
+      NUnit.Extension.NUnitV2Driver (3.2.0)
+      NUnit.Extension.NUnitV2ResultWriter (3.2.0)
+      NUnit.Extension.VSProjectLoader (3.2.0)
+    NUnit.ConsoleRunner (3.2.0)
+    NUnit.Extension.NUnitProjectLoader (3.2.0)
+    NUnit.Extension.NUnitV2Driver (3.2.0)
+    NUnit.Extension.NUnitV2ResultWriter (3.2.0)
+    NUnit.Extension.VSProjectLoader (3.2.0)
+    Octokit (0.18.0)
       Microsoft.Net.Http
     SourceLink.Fake (1.1.0)
     System.Collections (4.0.10) - framework: dnxcore50
@@ -191,5 +201,5 @@ NUGET
 GITHUB
   remote: fsharp/FAKE
   specs:
-    modules/Octokit/Octokit.fsx (e537d90b050d02cc287cb64e18b72a8b7e984805)
+    modules/Octokit/Octokit.fsx (e71048b08b7aefebb3adeaa4518915510d55785c)
       Octokit
