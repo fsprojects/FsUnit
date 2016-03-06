@@ -129,6 +129,7 @@ Target "NUnit" (fun _ ->
     !! "tests/**/bin/Release/*NUnit.Test.dll"
     |> NUnit3 (fun p ->
         { p with
+            Labels = LabelsLevel.All
             TimeOut = TimeSpan.FromMinutes 20.})
 )
 
