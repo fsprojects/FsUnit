@@ -6,10 +6,12 @@ open System.Collections.Generic
 
 module Typed =
     [<DebuggerStepThrough>]
-    let shouldEqual (expected : 'a) (actual : 'a) = Assert.AreEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+    let shouldEqual (expected : 'a) (actual : 'a) =
+        Assert.IsTrue(expected.Equals(actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
-    let shouldNotEqual (expected : 'a) (actual : 'a) = Assert.AreNotEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+    let shouldNotEqual (expected : 'a) (actual : 'a) =
+        Assert.IsFalse(expected.Equals(actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x : 'a) (y : 'a seq) =
@@ -27,10 +29,12 @@ module Typed =
         if Seq.exists ((=) x) y then failwithf "Seq %A should not contain %A" y x
 
     [<DebuggerStepThrough>]
-    let shouldBeSmallerThan (x : 'a) (y : 'a) = Assert.GreaterOrEqual(x, y, sprintf "Expected: %A\nActual: %A" x y)
+    let shouldBeSmallerThan (x : 'a) (y : 'a) =
+        Assert.GreaterOrEqual(x, y, sprintf "Expected: %A\nActual: %A" x y)
 
     [<DebuggerStepThrough>]
-    let shouldBeGreaterThan (x : 'a) (y : 'a) = Assert.Greater(y, x, sprintf "Expected: %A\nActual: %A" x y)
+    let shouldBeGreaterThan (x : 'a) (y : 'a) =
+        Assert.Greater(y, x, sprintf "Expected: %A\nActual: %A" x y)
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn> (f : unit -> unit) =
