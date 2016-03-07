@@ -6,24 +6,28 @@
 #r "FsUnit.NUnit.dll"
 
 (**
-What is FsUnit.Typed?
+What is FsUnitTyped?
 ===============
 
-**FsUnit.Typed** is a strongly typed subset of FsUnit operators that makes
-unit-testing with `FsUnit` even more safe and enjoyable (Available only for `NUnit 3`).
+**FsUnitTyped** is a statically typed set of FsUnit operators that makes
+unit-testing with `FsUnit` even more safe and enjoyable (Available only for `NUnit`).
 
-FsUnit.Typed from NuGet
+No more untyped constrains and tests like
+
+    1 |> should equal "1"
+
+FsUnitTyped from NuGet
 -----------------------
 
 The `FsUnit.Typed` is part of `FsUnit` package for NUnit and can be [installed from NuGet](https://nuget.org/packages/FsUnit).
 
-FsUnit.Typed with Paket
+FsUnitTyped with Paket
 -----------------------
 
-`FsUnit.Typed` supports lightweight usage scenario with [Paket](http://fsprojects.github.io/Paket/).
+`FsUnitTyped` supports lightweight usage scenario with [Paket](http://fsprojects.github.io/Paket/).
 
 In the case when you do not want to add dependency on [FsUnit](https://www.nuget.org/packages/FsUnit/)
-package to your project, you can add reference to [FsUnit.Typed.fs](https://github.com/fsprojects/FsUnit/blob/master/src/FsUnit.NUnit/FsUnit.Typed.fs)
+package to your project, you can add reference to [FsUnitTyped.fs](https://github.com/fsprojects/FsUnit/blob/master/src/FsUnit.NUnit/FsUnit.Typed.fs)
 file and [NUnit](https://www.nuget.org/packages/NUnit/) package.
 
 Example of `paket.dependencies` file:
@@ -32,7 +36,7 @@ Example of `paket.dependencies` file:
     source https://nuget.org/api/v2
 
     nuget FSharp.Core
-    github fsprojects/FsUnit src/FsUnit.NUnit/FsUnit.Typed.fs
+    github fsprojects/FsUnit src/FsUnit.NUnit/FsUnitTyped.fs
 
     group Test
         source https://nuget.org/api/v2
@@ -42,18 +46,18 @@ Example of `paket.dependencies` file:
 Example of `paket.reference` file for test projects:
 
     [lang=paket]
-    File:FsUnit.Typed.fs
+    File:FsUnitTyped.fs
     group Test
         NUnit
 
 Syntax
 -------
 
-With FsUnit.Typed, you can write unit tests like this:
+With FsUnitTyped, you can write unit tests like this:
 *)
 
 open NUnit.Framework
-open FsUnit.Typed
+open FsUnitTyped
 
 (**
 One object equals or does not equal another:

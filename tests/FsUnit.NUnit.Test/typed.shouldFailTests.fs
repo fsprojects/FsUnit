@@ -1,6 +1,6 @@
 ﻿namespace FsUnit.Typed.Test
 open NUnit.Framework
-open FsUnit.Typed
+open FsUnitTyped
 
 [<TestFixture>]
 type ``shouldFail tests`` ()=

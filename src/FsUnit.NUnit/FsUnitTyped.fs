@@ -1,10 +1,11 @@
-﻿namespace FsUnit
+﻿namespace FsUnitTyped
 
 open System.Diagnostics
 open NUnit.Framework
 open System.Collections.Generic
 
-module Typed =
+[<AutoOpen>]
+module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldEqual (expected : 'a) (actual : 'a) =
         Assert.IsTrue((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)

@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="FsUnit.fs" />
-    <Compile Include="FsUnit.Typed.fs" />
+    <Compile Include="FsUnitTyped.fs" />
     <Compile Include="GenericAssert.fs" />
     <Compile Include="..\FsUnit.Xunit\CustomMatchers.fs">
       <Link>CustomMatchers.fs</Link>
