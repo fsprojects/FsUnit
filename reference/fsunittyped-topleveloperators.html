@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>ChoiceDiscriminator - FsUnit</title>
+    <title>TopLevelOperators - FsUnit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content="Ray Vernagus and Daniel Mohl"/>
@@ -37,58 +37,105 @@
 
 
 
-<h1>ChoiceDiscriminator</h1>
+<h1>TopLevelOperators</h1>
 <p>
-  <span>Namespace: FsUnit</span><br />
-  <span>Parent Module: <a href="fsunit-custommatchers-1.html">CustomMatchers</a></span>
+  <span>Namespace: FsUnitTyped</span><br />
 </p>
 <div class="xmldoc">
 </div>
-  <h3>Constructors</h3>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
+      <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '288', 288)" onmouseover="showTip(event, '288', 288)">
-            new(n)
+          <code onmouseout="hideTip(event, '262', 262)" onmouseover="showTip(event, '262', 262)">
+            shouldBeEmpty list
           </code>
-          <div class="tip" id="288">
-            <strong>Signature:</strong> n:int -&gt; ChoiceDiscriminator<br />
+          <div class="tip" id="262">
+            <strong>Signature:</strong> list:seq&lt;&#39;a&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L25-25" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '263', 263)" onmouseover="showTip(event, '263', 263)">
+            shouldBeGreaterThan x y
+          </code>
+          <div class="tip" id="263">
+            <strong>Signature:</strong> x:&#39;a -&gt; y:&#39;a -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L37-37" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '264', 264)" onmouseover="showTip(event, '264', 264)">
+            shouldBeSmallerThan x y
+          </code>
+          <div class="tip" id="264">
+            <strong>Signature:</strong> x:&#39;a -&gt; y:&#39;a -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L33-33" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '265', 265)" onmouseover="showTip(event, '265', 265)">
+            shouldContain x y
+          </code>
+          <div class="tip" id="265">
+            <strong>Signature:</strong> x:&#39;a -&gt; y:seq&lt;&#39;a&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L18-18" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '266', 266)" onmouseover="showTip(event, '266', 266)">
+            shouldContainText x y
+          </code>
+          <div class="tip" id="266">
+            <strong>Signature:</strong> x:string -&gt; y:string -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L157-157" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-              <p>CompiledName: <code>.ctor</code></p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Instance members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '289', 289)" onmouseover="showTip(event, '289', 289)">
-            check(c)
-          </code>
-          <div class="tip" id="289">
-            <strong>Signature:</strong> c:obj -&gt; bool<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L197-197" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L54-54" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -98,15 +145,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '290', 290)" onmouseover="showTip(event, '290', 290)">
-            check(c)
+          <code onmouseout="hideTip(event, '267', 267)" onmouseover="showTip(event, '267', 267)">
+            shouldEqual expected actual
           </code>
-          <div class="tip" id="290">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;e,&#39;f,&#39;g&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b, 'c, 'd, 'e, 'f, 'g          </div>
+          <div class="tip" id="267">
+            <strong>Signature:</strong> expected:&#39;a -&gt; actual:&#39;a -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L188-188" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L10-10" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -116,15 +163,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '291', 291)" onmouseover="showTip(event, '291', 291)">
-            check(c)
+          <code onmouseout="hideTip(event, '268', 268)" onmouseover="showTip(event, '268', 268)">
+            shouldFail f
           </code>
-          <div class="tip" id="291">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;e,&#39;f&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b, 'c, 'd, 'e, 'f          </div>
+          <div class="tip" id="268">
+            <strong>Signature:</strong> f:(unit -&gt; unit) -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'exn          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L180-180" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L41-41" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -134,15 +181,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '292', 292)" onmouseover="showTip(event, '292', 292)">
-            check(c)
+          <code onmouseout="hideTip(event, '269', 269)" onmouseover="showTip(event, '269', 269)">
+            shouldHaveLength expected list
           </code>
-          <div class="tip" id="292">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;e&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b, 'c, 'd, 'e          </div>
+          <div class="tip" id="269">
+            <strong>Signature:</strong> expected:int -&gt; list:seq&lt;&#39;?7500&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> '?7500          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L173-173" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L59-59" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -152,15 +199,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '293', 293)" onmouseover="showTip(event, '293', 293)">
-            check(c)
+          <code onmouseout="hideTip(event, '270', 270)" onmouseover="showTip(event, '270', 270)">
+            shouldNotContain x y
           </code>
-          <div class="tip" id="293">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b,&#39;c,&#39;d&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b, 'c, 'd          </div>
+          <div class="tip" id="270">
+            <strong>Signature:</strong> x:&#39;a -&gt; y:seq&lt;&#39;a&gt; -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L167-167" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L29-29" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -170,33 +217,15 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '294', 294)" onmouseover="showTip(event, '294', 294)">
-            check(c)
+          <code onmouseout="hideTip(event, '271', 271)" onmouseover="showTip(event, '271', 271)">
+            shouldNotEqual expected actual
           </code>
-          <div class="tip" id="294">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b,&#39;c&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b, 'c          </div>
+          <div class="tip" id="271">
+            <strong>Signature:</strong> expected:&#39;a -&gt; actual:&#39;a -&gt; unit<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L162-162" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '295', 295)" onmouseover="showTip(event, '295', 295)">
-            check(c)
-          </code>
-          <div class="tip" id="295">
-            <strong>Signature:</strong> c:Choice&lt;&#39;a,&#39;b&gt; -&gt; bool<br />
-                          <strong>Type parameters:</strong> 'a, 'b          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.Xunit/CustomMatchers.fs#L158-158" class="github-link">
+            <a href="http://github.com/fsprojects/FsUnit/tree/master/src/FsUnit.NUnit/FsUnitTyped.fs#L14-14" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
