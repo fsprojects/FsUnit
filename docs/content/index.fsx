@@ -19,10 +19,10 @@ The goals of FsUnit are:
 
 NuGet packages are available for each of the supported testing frameworks:
 
-* [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.svg?style=flat) - NUnit](https://www.nuget.org/packages/FsUnit/)
-* [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.Xunit.svg?style=flat) - xUnit](https://www.nuget.org/packages/FsUnit.Xunit/)
-* [![NuGet Status](http://img.shields.io/nuget/v/FsUnit.MbUnit.svg?style=flat) - MbUnit](https://www.nuget.org/packages/FsUnit.MbUnit/)
-* [![NuGet Status](http://img.shields.io/nuget/v/Fs30Unit.MsTest.svg?style=flat) - MsTest](https://www.nuget.org/packages/Fs30Unit.MsTest/)
+* [![NuGet Status](https://buildstats.info/nuget/FsUnit) - NUnit](https://www.nuget.org/packages/FsUnit/)
+* [![NuGet Status](https://buildstats.info/nuget/FsUnit.Xunit) - xUnit](https://www.nuget.org/packages/FsUnit.Xunit/)
+* [![NuGet Status](https://buildstats.info/nuget/FsUnit.MbUnit) - MbUnit](https://www.nuget.org/packages/FsUnit.MbUnit/)
+* [![NuGet Status](https://buildstats.info/nuget/Fs30Unit.MsTest) - MsTest](https://www.nuget.org/packages/Fs30Unit.MsTest/)
 
 
 Syntax
