@@ -9,6 +9,18 @@ type ``match List tests`` ()=
         ([] : List<int>) |> should matchList ([] : List<int>)
 
     [<Fact>] member test.
+     ``Empty obj list should match itself`` () =
+        [] |> should matchList []
+
+    [<Fact>] member test.
+     ``List with elements should not match empty list`` () =
+        [1] |> should not' (matchList [])
+
+    [<Fact>] member test.
+     ``Empty list should not match list with elements`` () =
+        [] |> should not' (matchList ["abc"])
+
+    [<Fact>] member test.
      ``Single element list should match itself`` () =
         [1] |> should matchList [1]
 
@@ -23,3 +35,7 @@ type ``match List tests`` ()=
     [<Fact>] member test.
      ``Lists with different lengths doesn't match`` () =
         ["something","is","missed"] |> should not' (matchList ["something", "is", "missed", "here"])
+
+    [<Fact>] member test.
+     ``Comparing scalar to list should not match`` () =
+        47 |> should not' (matchList [47])

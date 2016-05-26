@@ -135,6 +135,7 @@ let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
 let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.ToString()),
                           fun ys -> match ys with
                                     | :? list<_> as ys' -> List.sort xs = List.sort ys'
+                                    | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.isEmpty && xs |> Seq.isEmpty
                                     | :? _ -> false)
 
 let private makeOrderedMatcher description comparer =
