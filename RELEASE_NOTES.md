@@ -4,6 +4,7 @@
 * Fixed: Structural equality fail - https://github.com/fsprojects/FsUnit/issues/78
 * Fixed: Statically typed equality test - https://github.com/fsprojects/FsUnit/issues/21
 * Fixed: Simplify "should throw" - https://github.com/fsprojects/FsUnit/issues/20
+* Fixed: matchList can match empty obj lists - https://github.com/fsprojects/FsUnit/pull/90
 
 ### 2.1.0 - March 7, 2016
 * Added support of `NUnit 3.2`

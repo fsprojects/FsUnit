@@ -73,3 +73,11 @@ type ``shouldEqual Tests`` ()=
      ``structural equality`` () =
         let actualList: char list = [] in
         [(actualList, "")] |> shouldEqual [([], "")]
+
+    [<Test>] member test.
+     ``Empty obj list should match itself`` () =
+        [] |> shouldEqual []
+
+    [<Test>] member test.
+     ``List with elements should not match empty list`` () =
+        [1] |> shouldNotEqual []
