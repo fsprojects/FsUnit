@@ -10,6 +10,18 @@ type ``match List tests`` ()=
         ([] : List<int>) |> should matchList ([] : List<int>)
 
     [<TestMethod>] member test.
+     ``Empty obj list should match itself`` () =
+        [] |> should matchList []
+
+    [<TestMethod>] member test.
+     ``List with elements should not match empty list`` () =
+        [1] |> should not' (matchList [])
+
+    [<TestMethod>] member test.
+     ``Empty list should not match list with elements`` () =
+        [] |> should not' (matchList ["abc"])
+
+    [<TestMethod>] member test.
      ``Single element list should match itself`` () =
         [1] |> should matchList [1]
 
@@ -24,3 +36,7 @@ type ``match List tests`` ()=
     [<TestMethod>] member test.
      ``Lists with different lengths doesn't match`` () =
         ["something","is","missed"] |> should not' (matchList ["something", "is", "missed", "here"])
+
+    [<TestMethod>] member test.
+     ``Comparing scalar to list should not match`` () =
+        47 |> should not' (matchList [47])
