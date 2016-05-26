@@ -1,4 +1,5 @@
-### 2.2.0-beta1 - March 7, 2016
+### 2.2.0 - March 26, 2016
+* Added support of `NUnit 3.2.1`
 * Added FsUnitTyped with statically typed operators - https://github.com/fsprojects/FsUnit/pull/85
 * Fixed: Structural equality fail - https://github.com/fsprojects/FsUnit/issues/78
 * Fixed: Statically typed equality test - https://github.com/fsprojects/FsUnit/issues/21
