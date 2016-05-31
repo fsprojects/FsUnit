@@ -110,3 +110,20 @@ FsUnit.Xunit.Test.dll.xunit.html
 NUnit.xml
 docs/tools/FSharp.Formatting.svclog
 xunit.html
+
+# VIM
+
+.DS_Store
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+# corecli lock
+project.lock.json
