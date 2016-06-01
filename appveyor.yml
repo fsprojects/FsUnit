@@ -25,8 +25,8 @@ build_script:
   - ps: dotnet --info
   - ps: dotnet restore
   - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.Xunit
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.NUnit
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.MsTestUnit
+    #- ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.NUnit
+    #- ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.MsTestUnit
 
 test: off
 
