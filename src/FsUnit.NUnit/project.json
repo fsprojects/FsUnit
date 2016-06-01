@@ -15,7 +15,8 @@
     }
   },
   "dependencies": {
-    "NUnit":"3.2.1"
+    "NUnit":"3.2.1",
+    "NHamcrest":"1.3.0-*"
   },
   "tools": {
     "dotnet-compile-fsc": {
@@ -28,6 +29,19 @@
     }
   },
   "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime":"",
+        "System.Reflection":""
+      },
+      "imports": [
+        "portable-net451+win81+wp81+wpa81"
+      ],
+      "dependencies": {
+        "Fsharp.Core":"4.0.0.1",
+      }
+    },
+
     "netcoreapp1.0": {
       "imports": [
         "portable-net451+win81",
@@ -38,8 +52,7 @@
         "Microsoft.NETCore.App": {
           "type": "platform",
           "version": "1.0.0-rc2-3002702"
-        },
-        "NHamcrest":"1.3.0-*"
+        }
       }
     }
   }
