@@ -38,7 +38,7 @@
         "portable-net451+win81+wp81+wpa81"
       ],
       "dependencies": {
-        "Fsharp.Core":"4.0.0.1",
+        "FSharp.Core":"4.0.0.1",
       }
     },
 

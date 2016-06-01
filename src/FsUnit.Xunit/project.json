@@ -32,10 +32,10 @@
         "System.Reflection":""
       },
       "imports": [
-        "portable-net451+win81+wp81+wpa81"
+        "portable-net451+win81"
       ],
       "dependencies": {
-        "Fsharp.Core":"4.0.0.1",
+        "FSharp.Core":"4.0.0.1",
       }
     },
     "netcoreapp1.0": {
