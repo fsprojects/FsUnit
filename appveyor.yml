@@ -22,11 +22,11 @@ build_script:
   # Turn off fsx build
   # - cmd: build.cmd
   - ps: .\scripts\show-dotnet-info.ps1
-  - ps: dotnet --info
-  - ps: dotnet restore
-  - ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.Xunit
-    #- ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.NUnit
-    #- ps: dotnet pack --version-suffix "b$env:PADDED_BUILD_NUMBER" -c Release -o artifacts src/FsUnit.MsTestUnit
+  - dotnet --info
+  - dotnet restore
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.Xunit
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.NUnit
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.MsTestUnit
 
 test: off
 
