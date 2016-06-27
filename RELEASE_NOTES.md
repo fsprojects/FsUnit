@@ -1,3 +1,6 @@
+### 2.3.0 - June 27, 2016
+* Added support of `NUnit 3.4`
+
 ### 2.2.0 - March 26, 2016
 * Added support of `NUnit 3.2.1`
 * Added FsUnitTyped with statically typed operators - https://github.com/fsprojects/FsUnit/pull/85

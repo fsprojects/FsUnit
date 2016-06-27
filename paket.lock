@@ -1,10 +1,9 @@
 NUGET
   remote: https://www.nuget.org/api/v2
-  specs:
-    FAKE (4.27)
+    FAKE (4.29.2)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)
-    FSharp.Formatting (2.14.2)
+    FSharp.Formatting (2.14.4)
       FSharp.Compiler.Service (2.0.0.6)
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
     FSharpVSPowerTools.Core (2.3)
@@ -18,19 +17,21 @@ NUGET
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.VisualStudio.QualityTools.UnitTestFramework (11.0.50727.1)
     NHamcrest (1.2.1)
-    NUnit (3.2.1)
-    NUnit.Console (3.2.1)
-      NUnit.ConsoleRunner (3.2.1)
-      NUnit.Extension.NUnitProjectLoader (3.2.1)
-      NUnit.Extension.NUnitV2Driver (3.2.1)
-      NUnit.Extension.NUnitV2ResultWriter (3.2.1)
-      NUnit.Extension.VSProjectLoader (3.2.1)
-    NUnit.ConsoleRunner (3.2.1)
-    NUnit.Extension.NUnitProjectLoader (3.2.1)
-    NUnit.Extension.NUnitV2Driver (3.2.1)
-    NUnit.Extension.NUnitV2ResultWriter (3.2.1)
-    NUnit.Extension.VSProjectLoader (3.2.1)
-    Octokit (0.19)
+    NUnit (3.4)
+    NUnit.Console (3.4)
+      NUnit.ConsoleRunner (3.4)
+      NUnit.Extension.NUnitProjectLoader (3.4)
+      NUnit.Extension.NUnitV2Driver (3.4)
+      NUnit.Extension.NUnitV2ResultWriter (3.4)
+      NUnit.Extension.TeamCityEventListener (1.0)
+      NUnit.Extension.VSProjectLoader (3.4)
+    NUnit.ConsoleRunner (3.4)
+    NUnit.Extension.NUnitProjectLoader (3.4)
+    NUnit.Extension.NUnitV2Driver (3.4)
+    NUnit.Extension.NUnitV2ResultWriter (3.4)
+    NUnit.Extension.TeamCityEventListener (1.0)
+    NUnit.Extension.VSProjectLoader (3.4)
+    Octokit (0.20)
       Microsoft.Net.Http  - framework: net10, net11, net20, net30, net35, net40, net40-full
     SourceLink.Fake (1.1)
     System.Collections (4.0.10) - framework: dnxcore50
@@ -200,6 +201,5 @@ NUGET
     xunit.runner.visualstudio (2.1)
 GITHUB
   remote: fsharp/FAKE
-  specs:
-    modules/Octokit/Octokit.fsx (8c077f35f8cd0350485109ddd1810dafe9885d1a)
+    modules/Octokit/Octokit.fsx (c063bf415dac7f7d4df4c37fe76badce76cae3c3)
       Octokit
