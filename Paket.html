@@ -53,13 +53,13 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://nuget.org/api/v2
 
-<span class="k">nuget </span>FSharp.Core
-<span class="k">github </span>fsprojects/FsUnit src/FsUnit.NUnit/FsUnit.fs
+<span class="k">nuget</span> FSharp.Core
+<span class="k">github</span> fsprojects/FsUnit src/FsUnit.NUnit/FsUnit.fs
 
 <span class="k">group</span> Test
     <span class="k">source</span> https://nuget.org/api/v2
-    <span class="k">nuget </span>NUnit.Console
-    <span class="k">nuget </span>NUnit
+    <span class="k">nuget</span> NUnit.Console
+    <span class="k">nuget</span> NUnit
 </code></pre></td></tr></table>
 <p>Notice that this scenario works only with <code>NUnit</code>. File <code>src/FsUnit.NUnit/FsUnit.fs</code> contains dependency-free
 subset of <code>FsUnit</code> operators. In order to write tests you need to add reference to <code>NUnit</code> package and
@@ -69,7 +69,7 @@ reference to <code>NUnit.Console</code> to be able to run tests from build scrip
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">File</span>:FsUnit.fs
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket">File:FsUnit.fs
 <span class="k">group</span> Test
     NUnit
 </code></pre></td></tr></table>

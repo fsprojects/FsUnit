@@ -65,20 +65,20 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://nuget.org/api/v2
 
-<span class="k">nuget </span>FSharp.Core
-<span class="k">github </span>fsprojects/FsUnit src/FsUnit.NUnit/FsUnitTyped.fs
+<span class="k">nuget</span> FSharp.Core
+<span class="k">github</span> fsprojects/FsUnit src/FsUnit.NUnit/FsUnitTyped.fs
 
 <span class="k">group</span> Test
     <span class="k">source</span> https://nuget.org/api/v2
-    <span class="k">nuget </span>NUnit.Console
-    <span class="k">nuget </span>NUnit
+    <span class="k">nuget</span> NUnit.Console
+    <span class="k">nuget</span> NUnit
 </code></pre></td></tr></table>
 <p>Example of <code>paket.reference</code> file for test projects:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">File</span>:FsUnitTyped.fs
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket">File:FsUnitTyped.fs
 <span class="k">group</span> Test
     NUnit
 </code></pre></td></tr></table>
