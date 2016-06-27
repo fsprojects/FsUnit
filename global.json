@@ -1,0 +1,7 @@
+{
+  "projects": [
+    "src/FsUnit.XUnit",
+    "src/FsUnit.NUnit",
+    "src/FsUnit.MsTestUnit"
+  ]
+}

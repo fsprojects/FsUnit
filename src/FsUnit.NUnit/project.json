@@ -1,0 +1,59 @@
+{
+  "version": "2.3.0-*",
+  "buildOptions": {
+    "emitEntryPoint": false,
+    "compilerName": "fsc",
+    "compile": {
+      "includeFiles": [
+        "AssemblyInfo.fs", 
+        "../FsUnit.Xunit/CustomMatchers.fs",
+        "FsUnit.Extra.fs",
+        "FsUnit.fs",
+        "FsUnitTyped.fs",
+        "GenericAssert.fs"
+      ]
+    }
+  },
+  "dependencies": {
+    "NUnit":"3.2.1",
+    "NHamcrest":"1.3.0-*"
+  },
+  "tools": {
+    "dotnet-compile-fsc": {
+      "version": "1.0.0-*",
+      "imports": [
+        "dnxcore50",
+        "portable-net45+win81",
+        "netstandard1.3"
+      ]
+    }
+  },
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime":"",
+        "System.Reflection":""
+      },
+      "imports": [
+        "portable-net451+win81+wp81+wpa81"
+      ],
+      "dependencies": {
+        "FSharp.Core":"4.0.0.1",
+      }
+    },
+
+    "netcoreapp1.0": {
+      "imports": [
+        "portable-net451+win81",
+        "dnxcore50"
+      ],
+      "dependencies": {
+        "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160509",
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0-rc2-3002702"
+        }
+      }
+    }
+  }
+}

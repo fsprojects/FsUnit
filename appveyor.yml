@@ -1,9 +1,50 @@
+platform: Any CPU
+
+environment:
+  matrix:
+    - CLI_VERSION: Latest
+
 init:
   - git config --global core.autocrlf input
+  - ps: $env:PADDED_BUILD_NUMBER = ([int]$env:APPVEYOR_BUILD_NUMBER).toString("0000000")
+
+install:
+  - ps: .\scripts\show-dotnet-info.ps1
+  # Download install script to install .NET cli in .dotnet dir
+  - ps: mkdir -Force ".\scripts\obtain" | Out-Null
+  - ps: Invoke-WebRequest "https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.ps1" -OutFile ".\scripts\obtain\install.ps1"
+  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetcli"
+  - ps: '& .\scripts\obtain\install.ps1 -Channel "preview" -version "$env:CLI_VERSION" -InstallDir "$env:DOTNET_INSTALL_DIR" -NoPath'
+  # add dotnet to PATH
+  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+
 build_script:
-  - cmd: build.cmd
+  # Turn off fsx build
+  # - cmd: build.cmd
+  - ps: .\scripts\show-dotnet-info.ps1
+  - dotnet --info
+  - dotnet restore
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.Xunit
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.NUnit
+  - dotnet pack --version-suffix "b%PADDED_BUILD_NUMBER%" -c Release -o artifacts src/FsUnit.MsTestUnit
+
 test: off
-version: 0.0.1.{build}
+
+version: 2.3.0-b{build}
+
 artifacts:
   - path: bin
     name: bin
+  - path: artifacts/*.nupkg
+    name: nuget
+
+deploy:
+  provider: NuGet
+  server: https://www.myget.org/F/fsunit/api/v2/package
+  api_key:
+    secure: b5oBmcZl3AXKVJ/lzr6SFRUqgUXK8V8rGmFTiIFp70UMZmuOzyJa6x/l0UTIaElq
+  skip_symbols: false
+  artifact: nuget
+  symbol_server: https://www.myget.org/F/fsunit/api/v2/package
+
+
