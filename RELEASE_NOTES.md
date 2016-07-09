@@ -1,3 +1,6 @@
+### 2.3.1 - July 9, 2016
+* Added support of `NUnit 3.4.1`
+
 ### 2.3.0 - June 27, 2016
 * Added support of `NUnit 3.4`
 
