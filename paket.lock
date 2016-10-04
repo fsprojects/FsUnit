@@ -1,7 +1,7 @@
 FRAMEWORK: >= NET35
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.29.2)
+    FAKE (4.40.1)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)
     FSharp.Formatting (2.14.4)
@@ -18,7 +18,7 @@ NUGET
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.VisualStudio.QualityTools.UnitTestFramework (11.0.50727.1)
     NHamcrest (1.2.1)
-    NUnit (3.4.1)
+    NUnit (3.5)
     NUnit.Console (3.4.1)
       NUnit.ConsoleRunner (>= 3.4.1)
       NUnit.Extension.NUnitProjectLoader (>= 3.4.1)
@@ -32,7 +32,7 @@ NUGET
     NUnit.Extension.NUnitV2ResultWriter (3.4.1)
     NUnit.Extension.TeamCityEventListener (1.0.1)
     NUnit.Extension.VSProjectLoader (3.4.1)
-    Octokit (0.20)
+    Octokit (0.22)
       Microsoft.Net.Http  - framework: net35, net40, net40-full
     SourceLink.Fake (1.1)
     xunit (2.1)
@@ -51,5 +51,5 @@ NUGET
     xunit.runner.visualstudio (2.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (c56456abac6b744c3bb95b217687db19fd19b367)
+    modules/Octokit/Octokit.fsx (d071e770b2edfe6c9c7242003b2939ad9d0e33a5)
       Octokit (>= 0.20)
