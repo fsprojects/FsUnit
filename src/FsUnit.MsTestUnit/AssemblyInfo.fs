@@ -10,5 +10,8 @@ open System.Reflection
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] Version = "2.3.2"
-    let [<Literal>] InformationalVersion = "2.3.2"
+    let [<Literal>] AssemblyTitle = "FsUnit.MsTest"
+    let [<Literal>] AssemblyProduct = "FsUnit"
+    let [<Literal>] AssemblyDescription = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
+    let [<Literal>] AssemblyVersion = "2.3.2"
+    let [<Literal>] AssemblyFileVersion = "2.3.2"
