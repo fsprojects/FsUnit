@@ -84,6 +84,7 @@ Target "AssemblyInfo" (fun _ ->
         )
 
     !! "src/**/*.??proj"
+    |> Seq.filter (fun x -> not <| x.Contains(".netstandard"))
     |> Seq.map getProjectDetails
     |> Seq.iter (fun (projFileName, projectName, folderName, attributes) ->
         match projFileName with
@@ -329,6 +330,18 @@ Target "Release" (fun _ ->
 Target "BuildPackage" DoNothing
 
 // --------------------------------------------------------------------------------------
+// Build netcore expecto library
+
+let netcoreDir = "src/FsUnit.NUnit.netstandard"
+
+Target "DotnetBuild" (fun _ ->
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = netcoreDir }) "--info"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = netcoreDir })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = netcoreDir }) ["FsUnit.NUnit.netstandard.fsproj"]
+)
+
+
+// --------------------------------------------------------------------------------------
 // Run all targets by default. Invoke 'build <Target>' to override
 
 Target "All" DoNothing
@@ -349,6 +362,8 @@ Target "All" DoNothing
 "Build" ==> "MbUnit" //==> "RunTests"
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
+
+"DotnetBuild" ==> "CopyBinaries"
 
 "All"
 #if MONO
