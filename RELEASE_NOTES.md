@@ -1,3 +1,7 @@
+### 2.4.0-alpha-1 - Jan 20, 2017
+* Support Unit 3.6
+* Compiled for .NET Standard 1.6
+
 ### 2.3.2 - Oct 4, 2016
 * Added support of `NUnit 3.5`
 

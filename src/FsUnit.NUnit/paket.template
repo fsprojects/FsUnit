@@ -14,7 +14,7 @@ licenseUrl
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2016
+    Copyright 2017
 tags
     F# fsharp NUnit FsUnit
 summary
@@ -22,9 +22,8 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to NUnit.
 dependencies
-    NUnit 3.5
-    FSharp.Core >= 3.1.2.5
+    NUnit 3.6
+    FSharp.Core >= 4.0.1.7-alpha
 files
-	../../bin/FsUnit.NUnit/FsUnit.* ==> lib/net45
-	../../bin/FsUnit.Xunit/NHamcrest.* ==> lib/net45
-	../../src/install.ps1 ==> tools
+	../../bin/FsUnit.NUnit/netstandard1.6/FsUnit.NUnit.dll ==> lib/netstandard1.6
+    ../../bin/FsUnit.NUnit/FsUnit.NUnit.dll ==> lib/net45

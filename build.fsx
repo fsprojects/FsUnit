@@ -332,12 +332,16 @@ Target "BuildPackage" DoNothing
 // --------------------------------------------------------------------------------------
 // Build netcore expecto library
 
-let netcoreDir = "src/FsUnit.NUnit.netstandard"
+Target "BuildNUnit" (fun _ ->
+    let nunitDir = "src/FsUnit.NUnit"
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir }) "--info"
 
-Target "DotnetBuild" (fun _ ->
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = netcoreDir }) "--info"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = netcoreDir })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = netcoreDir }) ["FsUnit.NUnit.netstandard.fsproj"]
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) ["FsUnit.NUnit.fsproj"]
+
+    let nunitTestsDir = "tests/FsUnit.NUnit.Test"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir }) ["FsUnit.NUnit.Test.fsproj"]
 )
 
 
@@ -363,7 +367,7 @@ Target "All" DoNothing
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
 
-"DotnetBuild" ==> "CopyBinaries"
+"BuildNUnit" ==> "CopyBinaries"
 
 "All"
 #if MONO
