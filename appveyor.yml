@@ -1,3 +1,17 @@
+os: Visual Studio 2015
+
+install:
+   # .NET Core SDK binaries
+   ## 1) from direct url
+   - ps: $url = "https://go.microsoft.com/fwlink/?linkid=841686" # rc4 build 004771
+   # Download .NET Core SDK and add to PATH
+   - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
+   - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
+   - ps: $tempFile = [System.IO.Path]::GetTempFileName()
+   - ps: (New-Object System.Net.WebClient).DownloadFile($url, $tempFile)
+   - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFile, $env:DOTNET_INSTALL_DIR)
+   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+
 init:
   - git config --global core.autocrlf input
 build_script:
