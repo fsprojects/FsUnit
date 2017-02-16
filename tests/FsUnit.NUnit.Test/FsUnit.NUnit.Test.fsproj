@@ -1,10 +1,8 @@
-<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" ToolsVersion="15.0">
-
+<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" >
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <Version>2.4.0-alpha</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="init.fs" />
     <Compile Include="beAscendingTests.fs" />
@@ -44,14 +42,10 @@
     <Compile Include="typed.haveLengthTests.fs" />
     <Compile Include="typed.shouldContainText.fs" />
     <None Include="paket.references" />
-    <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161205" />
-    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-beta-*">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="FSharp.Core" Version="4.1.*" />
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
     <PackageReference Include="NUnit" Version="3.6.0" />
     <PackageReference Include="System.Runtime" Version="4.3.0" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
@@ -62,11 +56,4 @@
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-compile-fsc">
-      <Version>1.0.0-preview2-020000</Version>
-    </DotNetCliToolReference>
-  </ItemGroup>
-
 </Project>

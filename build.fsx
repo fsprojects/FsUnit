@@ -127,7 +127,7 @@ Target "Build" (fun _ ->
 // Run the unit tests using test runner
 
 Target "NUnit" (fun _ ->
-    !! "tests/**/bin/Release/*NUnit.Test.dll"
+    !! "tests/**/bin/Release/**/*NUnit.Test.dll"
     |> NUnit3 (fun p ->
         { p with
             Labels = LabelsLevel.All
@@ -337,11 +337,11 @@ Target "BuildNUnit" (fun _ ->
     DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir }) "--info"
 
     DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) ["FsUnit.NUnit.fsproj"]
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) //["FsUnit.NUnit.fsproj"]
 
     let nunitTestsDir = "tests/FsUnit.NUnit.Test"
     DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir }) ["FsUnit.NUnit.Test.fsproj"]
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir }) //["FsUnit.NUnit.Test.fsproj"]
 )
 
 
