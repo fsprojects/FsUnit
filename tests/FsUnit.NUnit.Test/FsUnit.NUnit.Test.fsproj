@@ -49,10 +49,6 @@
     <PackageReference Include="System.Runtime" Version="4.3.0" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
-    <ProjectReference Include="..\..\src\FsUnit.NUnit\FsUnit.NUnit.fsproj">
-      <Name>FsUnit.NUnit</Name>
-      <Project>{3890dc0f-5225-4adf-9b9e-f6a482046a9e}</Project>
-      <Private>True</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\..\src\FsUnit.NUnit\FsUnit.NUnit.fsproj" />
   </ItemGroup>
 </Project>
