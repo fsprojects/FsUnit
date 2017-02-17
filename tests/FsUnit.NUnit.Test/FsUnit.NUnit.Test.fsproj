@@ -1,5 +1,6 @@
 <Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" >
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
@@ -40,12 +41,14 @@
     <Compile Include="typed.shouldFailTests.fs" />
     <Compile Include="typed.haveLengthTests.fs" />
     <Compile Include="typed.shouldContainText.fs" />
+    <Compile Include="main.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FSharp.Core" Version="4.1.*" />
     <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
     <PackageReference Include="NUnit" Version="3.6.0" />
+    <PackageReference Include="NUnitLite" Version="3.6.0" />
     <PackageReference Include="System.Runtime" Version="4.3.0" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
