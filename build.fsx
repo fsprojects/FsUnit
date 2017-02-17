@@ -126,10 +126,6 @@ Target "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
-Target "NUnit" (fun _ ->
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = "tests/FsUnit.NUnit.Test" }) "run"
-)
-
 Target "xUnit" (fun _ ->
     !! "tests/**/bin/Release/*Xunit.Test.dll"
     |> Fake.Testing.XUnit2.xUnit2 (fun p ->
@@ -328,16 +324,18 @@ Target "BuildPackage" DoNothing
 // --------------------------------------------------------------------------------------
 // Build netcore expecto library
 
-Target "BuildNUnit" (fun _ ->
-    let nunitDir = "src/FsUnit.NUnit"
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir }) "--info"
+Target "NUnit" (fun _ ->
+    //let nunitDir = "src/FsUnit.NUnit"
+    //DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir }) "--info"
 
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) //["FsUnit.NUnit.fsproj"]
+    //DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir })
+    //DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) //["FsUnit.NUnit.fsproj"]
 
     let nunitTestsDir = "tests/FsUnit.NUnit.Test"
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir }) "--info"
     DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir })
     DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir }) //["FsUnit.NUnit.Test.fsproj"]
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir }) "run"
 )
 
 
@@ -348,7 +346,6 @@ Target "All" DoNothing
 
 "Clean"
   ==> "AssemblyInfo"
-  ==> "BuildNUnit"
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
@@ -357,7 +354,7 @@ Target "All" DoNothing
   ==> "GenerateDocs"
   =?> ("ReleaseDocs",isLocalBuild)
 
-"BuildNUnit" ==> "NUnit"  ==> "RunTests"
+"AssemblyInfo" ==> "NUnit"  ==> "RunTests"
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" ==> "xUnit"  ==> "RunTests"
 "Build" ==> "MbUnit" //==> "RunTests"
