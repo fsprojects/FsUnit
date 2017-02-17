@@ -348,6 +348,7 @@ Target "All" DoNothing
 
 "Clean"
   ==> "AssemblyInfo"
+  ==> "BuildNUnit"
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
@@ -356,14 +357,12 @@ Target "All" DoNothing
   ==> "GenerateDocs"
   =?> ("ReleaseDocs",isLocalBuild)
 
-"Build" ==> "NUnit"  ==> "RunTests"
+"BuildNUnit" ==> "NUnit"  ==> "RunTests"
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" ==> "xUnit"  ==> "RunTests"
 "Build" ==> "MbUnit" //==> "RunTests"
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
-
-"BuildNUnit" ==> "CopyBinaries"
 
 "All"
 #if MONO
