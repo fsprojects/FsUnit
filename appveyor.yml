@@ -3,7 +3,10 @@ os: Visual Studio 2015
 install:
    # .NET Core SDK binaries
    ## 1) from direct url
-   - ps: $url = "https://go.microsoft.com/fwlink/?linkid=841686" # rc4 build 004771
+   - ps: $url = "https://go.microsoft.com/fwlink/?linkid=841683" # rc4 build 004771
+   ## 2) from url based on version, for example using an env var CLI_VERSION that can be a
+   ##    a specific version `1.0.0-preview2-003121` or `Latest` (for latest dev version)
+   ##- ps: $url = "https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/$($env:CLI_VERSION)/dotnet-dev-win-x64.$($env:CLI_VERSION.ToLower()).zip"
    # Download .NET Core SDK and add to PATH
    - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
    - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
