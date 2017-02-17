@@ -127,11 +127,7 @@ Target "Build" (fun _ ->
 // Run the unit tests using test runner
 
 Target "NUnit" (fun _ ->
-    !! "tests/**/bin/Release/**/*NUnit.Test.dll"
-    |> NUnit3 (fun p ->
-        { p with
-            Labels = LabelsLevel.All
-            TimeOut = TimeSpan.FromMinutes 20.})
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = "tests/FsUnit.NUnit.Test" }) "run"
 )
 
 Target "xUnit" (fun _ ->
