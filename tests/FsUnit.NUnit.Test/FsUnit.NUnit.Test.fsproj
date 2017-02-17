@@ -1,7 +1,6 @@
 <Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" >
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
-    <Version>2.4.0-alpha</Version>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="init.fs" />
