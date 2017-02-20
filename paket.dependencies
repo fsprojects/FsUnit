@@ -2,12 +2,12 @@ source https://nuget.org/api/v2
 framework: >= net35
 
 nuget FSharp.Formatting
-nuget NUnit
+nuget NUnit >= 3.6.0
 nuget NUnit.Console
 nuget FAKE
 nuget SourceLink.Fake
 
-nuget FSharp.Core 3.1.2.5
+nuget FSharp.Core >= 3.1.2.5
 nuget Microsoft.VisualStudio.QualityTools.UnitTestFramework
 
 nuget NHamcrest

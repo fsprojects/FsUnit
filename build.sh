@@ -21,8 +21,6 @@ function run() {
   fi
 }
 
-run .paket/paket.bootstrapper.exe prerelease
-
 if [[ "$OS" != "Windows_NT" ]] &&
        [ ! -e ~/.config/.mono/certs ]
 then
@@ -31,7 +29,5 @@ fi
 
 run .paket/paket.exe restore
 
-[ ! -e build.fsx ] && run .paket/paket.exe update
-[ ! -e build.fsx ] && run packages/FAKE/tools/FAKE.exe init.fsx
 run packages/FAKE/tools/FAKE.exe "$@" $FSIARGS build.fsx
 

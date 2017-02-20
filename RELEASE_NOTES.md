@@ -1,4 +1,4 @@
-### 3.0.0-alpha-1 - Feb 20, 2017
+### 3.0.0-beta1 - Feb 20, 2017
 * Support NUnit 3.6
 * Compiled for .NET Standard 1.6
 * Removed `choice n` combinator from `NUnit`

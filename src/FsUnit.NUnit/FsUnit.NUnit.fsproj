@@ -57,7 +57,7 @@
     <Compile Include="FsUnitTyped.fs" />
     <Compile Include="GenericAssert.fs" />
     <None Include="paket.references" />
-    <None Include="paket.template" />
+    <None Include="FsUnit.NUnit.fsproj.paket.template" />
     <None Include="FsUnitSample.fs.pp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

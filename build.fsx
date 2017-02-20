@@ -107,7 +107,7 @@ Target "CopyBinaries" (fun _ ->
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"]
+    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"]
 )
 
 Target "CleanDocs" (fun _ ->
@@ -334,17 +334,29 @@ Target "BuildPackage" DoNothing
 // Build netcore expecto library
 
 Target "NUnitCore" (fun _ ->
-    let nunitDir, nunitProj = "src/FsUnit.NUnit", "FsUnit.NUnit.netstandard.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir})
-        (sprintf "pack \"%s\" /p:Version=%s" nunitProj (release.NugetVersion))
-
+    // Build all and execute unit tests
     let nunitTestsDir, nunitTestsProj = "tests/FsUnit.NUnit.Test", "FsUnit.NUnit.Test.netcoreapp.fsproj"
     DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
     DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
     DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir })
         (sprintf "run --project %s" nunitTestsProj)
+)
+
+Target "NuGetNUnitCore" (fun _ ->
+    // Rebuild project and pack (create NuGet package)
+    let nunitDir, nunitProj = "src/FsUnit.NUnit", "FsUnit.NUnit.netstandard.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir})
+        (sprintf "pack \"%s\" /p:Version=%s --configuration Release" nunitProj (release.NugetVersion))
+
+    // Restore dotnet-mergenupkg and merge two packages
+    let toolsDir = "tools/"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = toolsDir})
+
+    let nupkg = sprintf "FsUnit.%s.nupkg" release.NugetVersion
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = toolsDir})
+        (sprintf "mergenupkg --source \"./../bin/%s\" --other \"./../src/FsUnit.NUnit/bin/Release/%s\" --framework netstandard1.6" nupkg nupkg)
 )
 
 
@@ -379,6 +391,7 @@ Target "All" DoNothing
   =?> ("SourceLink", Pdbstr.tryFind().IsSome )
 #endif
   ==> "NuGet"
+  ==> "NuGetNUnitCore"
   ==> "BuildPackage"
 
 "CleanDocs"
