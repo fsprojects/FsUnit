@@ -8,11 +8,13 @@ open System.Collections.Generic
 module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldEqual (expected : 'a) (actual : 'a) =
-        Assert.IsTrue((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.AreEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        //Assert.IsTrue((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected : 'a) (actual : 'a) =
-        Assert.IsFalse((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.AreNotEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        //Assert.IsFalse((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x : 'a) (y : 'a seq) =
@@ -39,21 +41,30 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn> (f : unit -> unit) =
-        let succeeded = ref false
-        try
-            f()
-            succeeded := true
-        with
-        | exn ->
-            if exn :? 'exn then () else
-            failwithf "Exception was not of type %s" <| typeof<'exn>.ToString()
-        if !succeeded then
-            failwith "Operation did not fail."
+        Assert.Throws(
+            Is.InstanceOf<'exn>(),
+            TestDelegate(f))
+        |> ignore
+        //let succeeded = ref false
+        //try
+        //    f()
+        //    succeeded := true
+        //with
+        //| exn ->
+        //    if exn :? 'exn then () else
+        //    failwithf "Exception was not of type %s" <| typeof<'exn>.ToString()
+        //if !succeeded then
+        //    failwith "Operation did not fail."
 
     [<DebuggerStepThrough>]
     let shouldContainText (x : string) (y : string) =
         if y.Contains(x) |> not then
             failwithf "\"%s\" is not a substring of \"%s\"" x y
+
+    [<DebuggerStepThrough>]
+    let shouldNotContainText (x : string) (y : string) =
+        if y.Contains(x) then
+            failwithf "\"%s\" is a substring of \"%s\"" x y
 
     [<DebuggerStepThrough>]
     let shouldHaveLength expected list =
