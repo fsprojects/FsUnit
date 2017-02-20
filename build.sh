@@ -21,7 +21,7 @@ function run() {
   fi
 }
 
-run .paket/paket.bootstrapper.exe
+run .paket/paket.bootstrapper.exe prerelease
 
 if [[ "$OS" != "Windows_NT" ]] &&
        [ ! -e ~/.config/.mono/certs ]

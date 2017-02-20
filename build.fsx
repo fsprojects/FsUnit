@@ -126,6 +126,15 @@ Target "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
+Target "NUnit" (fun _ ->
+     !! "tests/**/bin/Release/*NUnit.Test.dll"
+     |> NUnit3 (fun p ->
+         { p with
+             Labels = LabelsLevel.All
+             TimeOut = TimeSpan.FromMinutes 20.})
+ )
+
+
 Target "xUnit" (fun _ ->
     !! "tests/**/bin/Release/*Xunit.Test.dll"
     |> Fake.Testing.XUnit2.xUnit2 (fun p ->
@@ -324,18 +333,18 @@ Target "BuildPackage" DoNothing
 // --------------------------------------------------------------------------------------
 // Build netcore expecto library
 
-Target "NUnit" (fun _ ->
-    //let nunitDir = "src/FsUnit.NUnit"
-    //DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir }) "--info"
+Target "NUnitCore" (fun _ ->
+    let nunitDir, nunitProj = "src/FsUnit.NUnit", "FsUnit.NUnit.netstandard.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir})
+        (sprintf "pack \"%s\" /p:Version=%s" nunitProj (release.NugetVersion))
 
-    //DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir })
-    //DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir }) //["FsUnit.NUnit.fsproj"]
-
-    let nunitTestsDir = "tests/FsUnit.NUnit.Test"
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir }) "--info"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir }) //["FsUnit.NUnit.Test.fsproj"]
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir }) "run"
+    let nunitTestsDir, nunitTestsProj = "tests/FsUnit.NUnit.Test", "FsUnit.NUnit.Test.netcoreapp.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir })
+        (sprintf "run --project %s" nunitTestsProj)
 )
 
 
@@ -354,12 +363,15 @@ Target "All" DoNothing
   ==> "GenerateDocs"
   =?> ("ReleaseDocs",isLocalBuild)
 
-"AssemblyInfo" ==> "NUnit"  ==> "RunTests"
+"Build" ==> "NUnit"  ==> "RunTests"
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" ==> "xUnit"  ==> "RunTests"
 "Build" ==> "MbUnit" //==> "RunTests"
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
+
+// .NET Standard and .NET Core support
+"AssemblyInfo" ==> "NUnitCore"  ==> "RunTests"
 
 "All"
 #if MONO

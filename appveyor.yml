@@ -1,19 +1,20 @@
 os: Visual Studio 2015
 
+environment:
+  matrix:
+    - CLI_VERSION: 1.0.0-rc4-004771
+
 install:
-   # .NET Core SDK binaries
-   ## 1) from direct url
-   - ps: $url = "https://go.microsoft.com/fwlink/?linkid=841683" # rc4 build 004771
-   ## 2) from url based on version, for example using an env var CLI_VERSION that can be a
-   ##    a specific version `1.0.0-preview2-003121` or `Latest` (for latest dev version)
-   ##- ps: $url = "https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/$($env:CLI_VERSION)/dotnet-dev-win-x64.$($env:CLI_VERSION.ToLower()).zip"
-   # Download .NET Core SDK and add to PATH
-   - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
-   - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
-   - ps: $tempFile = [System.IO.Path]::GetTempFileName()
-   - ps: (New-Object System.Net.WebClient).DownloadFile($url, $tempFile)
-   - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFile, $env:DOTNET_INSTALL_DIR)
-   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+  # .NET Core SDK binaries
+  - ps: $url = "https://dotnetcli.azureedge.net/dotnet/Sdk/$($env:CLI_VERSION)/dotnet-dev-win-x64.$($env:CLI_VERSION.ToLower()).zip"
+  # Download .NET Core SDK and add to PATH
+  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
+  - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
+  - ps: $tempFile = [System.IO.Path]::GetTempFileName()
+  - ps: (New-Object System.Net.WebClient).DownloadFile($url, $tempFile)
+  - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFile, $env:DOTNET_INSTALL_DIR)
+  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+  - dotnet --info
 
 init:
   - git config --global core.autocrlf input
