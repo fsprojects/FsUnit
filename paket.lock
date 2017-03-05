@@ -1,7 +1,7 @@
 FRAMEWORK: >= NET35
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.50)
+    FAKE (4.52)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)
     FSharp.Formatting (2.14.4)
@@ -110,5 +110,5 @@ NUGET
     xunit.runner.visualstudio (2.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (e842705560e95dd75dd2c6a78fb1ae62db545297)
+    modules/Octokit/Octokit.fsx (fed01fd06a3838b924aca6d3db0ab89813dea2eb)
       Octokit (>= 0.20)
