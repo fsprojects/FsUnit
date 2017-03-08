@@ -4,8 +4,6 @@
     <TargetFramework>netcoreapp1.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
     <DotNetCliToolReference Include="dotnet-mergenupkg" Version="1.0.*" />
   </ItemGroup>
 </Project>
