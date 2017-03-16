@@ -54,4 +54,5 @@
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
     <ProjectReference Include="../../src/FsUnit.NUnit/FsUnit.NUnit.netstandard.fsproj" />
   </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
