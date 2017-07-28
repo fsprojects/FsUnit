@@ -371,6 +371,7 @@ Target "NuGetNetCore" (fun _ ->
     //NUnit
     buildPackage "src/FsUnit.NUnit" "FsUnit.NUnit.netstandard.fsproj" "FsUnit.%s.nupkg"
 
+    //xUnit
     buildPackage "src/FsUnit.Xunit" "FsUnit.Xunit.netstandard.fsproj" "FsUnit.xUnit.%s.nupkg"
 )
 
