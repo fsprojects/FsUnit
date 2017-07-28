@@ -107,7 +107,7 @@ Target "CopyBinaries" (fun _ ->
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"]
+    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"; "src/FsUnit.Xunit/bin/"]
 )
 
 Target "CleanDocs" (fun _ ->
@@ -331,7 +331,7 @@ Target "Release" (fun _ ->
 Target "BuildPackage" DoNothing
 
 // --------------------------------------------------------------------------------------
-// Build netcore expecto library
+// Build netcore NUnit
 
 Target "NUnitCore" (fun _ ->
     // Build all and execute unit tests
@@ -342,23 +342,37 @@ Target "NUnitCore" (fun _ ->
         (sprintf "run --project %s" nunitTestsProj)
 )
 
-Target "NuGetNUnitCore" (fun _ ->
-    // Rebuild project and pack (create NuGet package)
-    let nunitDir, nunitProj = "src/FsUnit.NUnit", "FsUnit.NUnit.netstandard.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitDir; Project = nunitProj })
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitDir})
-        (sprintf "pack \"%s\" /p:Version=%s --configuration Release" nunitProj (release.NugetVersion))
+// --------------------------------------------------------------------------------------
+// Build netcore Xunit
 
-    // Restore dotnet-mergenupkg and merge two packages
-    let toolsDir = "tools/"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = toolsDir})
-
-    let nupkg = sprintf "FsUnit.%s.nupkg" release.NugetVersion
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = toolsDir})
-        (sprintf "mergenupkg --source \"./../bin/%s\" --other \"./../src/FsUnit.NUnit/bin/Release/%s\" --framework netstandard1.6" nupkg nupkg)
+Target "xUnitCore" (fun _ ->
+    // Build all and execute unit tests
+    let xunitTestsDir, xunitTestsProj = "tests/FsUnit.Xunit.Test", "FsUnit.Xunit.Test.netcoreapp.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
+    DotNetCli.Test       (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
 )
 
+Target "NuGetNetCore" (fun _ ->
+    let toolsDir = "tools/"
+
+    let buildPackage projectDir projectFile packageNameTemplate =
+        DotNetCli.Restore    (fun c -> { c with WorkingDir = projectDir; Project = projectFile })
+        DotNetCli.Build      (fun c -> { c with WorkingDir = projectDir; Project = projectFile })
+        DotNetCli.RunCommand (fun c -> { c with WorkingDir = projectDir })
+            (sprintf "pack \"%s\" /p:Version=%s --configuration Release" projectFile (release.NugetVersion))
+
+        let nupkg = sprintf packageNameTemplate release.NugetVersion
+        DotNetCli.RunCommand (fun c -> { c with WorkingDir = toolsDir })
+            (sprintf "mergenupkg --source \"./../bin/%s\" --other \"./../%s/bin/Release/%s\" --framework netstandard1.6" nupkg projectDir nupkg)
+
+    DotNetCli.Restore (fun c -> { c with WorkingDir = toolsDir })
+  
+    //NUnit
+    buildPackage "src/FsUnit.NUnit" "FsUnit.NUnit.netstandard.fsproj" "FsUnit.%s.nupkg"
+
+    buildPackage "src/FsUnit.Xunit" "FsUnit.Xunit.netstandard.fsproj" "FsUnit.xUnit.%s.nupkg"
+)
 
 // --------------------------------------------------------------------------------------
 // Run all targets by default. Invoke 'build <Target>' to override
@@ -384,6 +398,7 @@ Target "All" DoNothing
 
 // .NET Standard and .NET Core support
 "AssemblyInfo" ==> "NUnitCore"  ==> "RunTests"
+"AssemblyInfo" ==> "xUnitCore"  ==> "RunTests"
 
 "All"
 #if MONO
@@ -391,7 +406,7 @@ Target "All" DoNothing
   =?> ("SourceLink", Pdbstr.tryFind().IsSome )
 #endif
   ==> "NuGet"
-  ==> "NuGetNUnitCore"
+  ==> "NuGetNetCore"
   ==> "BuildPackage"
 
 "CleanDocs"

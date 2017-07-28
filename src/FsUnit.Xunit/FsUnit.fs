@@ -25,7 +25,7 @@ let inline should (f : 'a -> ^b) x (y : obj) =
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
     if box c = null then
-        Assert.That(y, IsNull())
+        Assert.That(y, Is.Null())
     else
         Assert.That(y, c)
 

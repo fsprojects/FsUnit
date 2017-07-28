@@ -1,0 +1,45 @@
+<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="beAscendingTests.fs" />
+    <Compile Include="beDescendingTests.fs" />
+    <Compile Include="equalTests.fs" />
+    <Compile Include="containTests.fs" />
+    <Compile Include="beChoice.fs" />
+    <Compile Include="beEmptyStringTests.fs" />
+    <Compile Include="beEmptyTests.fs" />
+    <Compile Include="beFalseTests.fs" />
+    <Compile Include="beGreaterThanOrEqualTo.fs" />
+    <Compile Include="beGreaterThanTests.fs" />
+    <Compile Include="beLessThanOrEqualToTests.fs" />
+    <Compile Include="beLessThanTests.fs" />
+    <Compile Include="beNullOrEmptyStringTests.fs" />
+    <Compile Include="beNullTests.fs" />
+    <Compile Include="beOfExactTypeTests.fs" />
+    <Compile Include="beSameAsTests.fs" />
+    <Compile Include="beTrueTests.fs" />
+    <Compile Include="haveCountTests.fs" />
+    <Compile Include="haveLengthTests.fs" />
+    <Compile Include="matchListTests.fs" />
+    <Compile Include="raiseTests.fs" />
+    <Compile Include="shouldFailTests.fs" />
+    <Compile Include="shouldEndWithTests.fs" />
+    <Compile Include="shouldStartWithTests.fs" />
+    <Compile Include="shouldHaveSubstringTests.fs" />
+    <Compile Include="equalWithinTests.fs" />
+    <Compile Include="instanceOfTests.fs" />
+    <Compile Include="NaNTests.fs" />
+    <Compile Include="beUniqueTests.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.1.*" />
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <ProjectReference Include="../../src/FsUnit.Xunit/FsUnit.Xunit.netstandard.fsproj" />
+  </ItemGroup>
+</Project>

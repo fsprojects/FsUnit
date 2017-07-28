@@ -6,6 +6,9 @@ open NHamcrest.Core
 
 exception TestException
 
+type ApplicationException(msg : string) =
+    inherit Exception(msg)
+
 type ``raise tests`` ()=
     [<Fact>] member test.
      ``should pass when exception of expected type is thrown`` ()=
