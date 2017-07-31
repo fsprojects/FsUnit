@@ -1,7 +1,7 @@
-FRAMEWORK: >= NET35
+RESTRICTION: >= net35
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.52)
+    FAKE (4.63)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)
     FSharp.Formatting (2.14.4)
@@ -10,105 +10,46 @@ NUGET
     FSharpVSPowerTools.Core (2.3)
       FSharp.Compiler.Service (>= 2.0.0.3)
     mbunit (3.4.14)
-    Microsoft.Bcl (1.1.10) - framework: net35, net40, net40-full
+    Microsoft.Bcl (1.1.10) - restriction: && (>= net35) (< net45) (< portable-win81+wpa81)
       Microsoft.Bcl.Build (>= 1.0.14)
-    Microsoft.Bcl.Build (1.0.21) - import_targets: false
-    Microsoft.Net.Http (2.2.29) - framework: net35, net40, net40-full
+    Microsoft.Bcl.Build (1.0.21) - import_targets: false, restriction: && (>= net35) (< net45) (< portable-win81+wpa81)
+    Microsoft.Net.Http (2.2.29) - restriction: && (>= net35) (< net45) (< portable-win81+wpa81)
       Microsoft.Bcl (>= 1.1.10)
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.VisualStudio.QualityTools.UnitTestFramework (11.0.50727.1)
-    Microsoft.Win32.Primitives (4.3) - framework: >= net463
-    NETStandard.Library (1.6.1) - framework: >= net463
-      Microsoft.Win32.Primitives (>= 4.3) - framework: >= net46
-      System.AppContext (>= 4.3) - framework: >= net46
-      System.Collections.Concurrent (>= 4.3) - framework: >= net45
-      System.Console (>= 4.3) - framework: >= net46
-      System.Diagnostics.Tracing (>= 4.3) - framework: >= net45
-      System.Globalization.Calendars (>= 4.3) - framework: >= net46
-      System.IO.Compression (>= 4.3) - framework: >= net45
-      System.IO.Compression.ZipFile (>= 4.3) - framework: >= net46
-      System.IO.FileSystem (>= 4.3) - framework: >= net46
-      System.IO.FileSystem.Primitives (>= 4.3) - framework: >= net46
-      System.Net.Http (>= 4.3) - framework: >= net45
-      System.Net.Sockets (>= 4.3) - framework: >= net46
-      System.Runtime.Handles (>= 4.3) - framework: >= net46
-      System.Runtime.InteropServices (>= 4.3) - framework: >= net45
-      System.Runtime.InteropServices.RuntimeInformation (>= 4.3) - framework: >= net45
-      System.Runtime.Numerics (>= 4.3) - framework: >= net45
-      System.Security.Cryptography.Algorithms (>= 4.3) - framework: >= net46
-      System.Security.Cryptography.Encoding (>= 4.3) - framework: >= net46
-      System.Security.Cryptography.Primitives (>= 4.3) - framework: >= net46
-      System.Security.Cryptography.X509Certificates (>= 4.3) - framework: >= net46
-      System.Threading.Timer (>= 4.3) - framework: >= net451
     NHamcrest (1.2.1)
-    NUnit (3.6)
-      NETStandard.Library (>= 1.6) - framework: >= net463
-      System.Runtime.Loader (>= 4.0) - framework: >= net463
-    NUnit.Console (3.6)
-      NUnit.ConsoleRunner (>= 3.6)
+    NUnit (3.7.1)
+    NUnit.Console (3.7)
+      NUnit.ConsoleRunner (>= 3.7)
       NUnit.Extension.NUnitProjectLoader (>= 3.5)
       NUnit.Extension.NUnitV2Driver (>= 3.6)
       NUnit.Extension.NUnitV2ResultWriter (>= 3.5)
       NUnit.Extension.TeamCityEventListener (>= 1.0.2)
       NUnit.Extension.VSProjectLoader (>= 3.5)
-    NUnit.ConsoleRunner (3.6)
+    NUnit.ConsoleRunner (3.7)
     NUnit.Extension.NUnitProjectLoader (3.5)
     NUnit.Extension.NUnitV2Driver (3.6)
     NUnit.Extension.NUnitV2ResultWriter (3.5)
     NUnit.Extension.TeamCityEventListener (1.0.2)
     NUnit.Extension.VSProjectLoader (3.5)
     Octokit (0.24)
-      Microsoft.Net.Http  - framework: net35, net40, net40-full
+      Microsoft.Net.Http  - restriction: && (>= net35) (< net45) (< portable-win81+wpa81)
     SourceLink.Fake (1.1)
-    System.AppContext (4.3) - framework: >= net463
-    System.Collections.Concurrent (4.3) - framework: >= net463
-    System.Console (4.3) - framework: >= net463
-    System.Diagnostics.DiagnosticSource (4.3) - framework: >= net463
-    System.Diagnostics.Tracing (4.3) - framework: >= net463
-    System.Globalization.Calendars (4.3) - framework: >= net463
-    System.IO (4.3) - framework: >= net463
-    System.IO.Compression (4.3) - framework: >= net463
-    System.IO.Compression.ZipFile (4.3) - framework: >= net463
-    System.IO.FileSystem (4.3) - framework: >= net463
-      System.IO.FileSystem.Primitives (>= 4.3) - framework: >= net46
-    System.IO.FileSystem.Primitives (4.3)
-    System.Net.Http (4.3) - framework: >= net463
-      System.Diagnostics.DiagnosticSource (>= 4.3) - framework: >= net46
-      System.Security.Cryptography.X509Certificates (>= 4.3) - framework: >= net46
-    System.Net.Sockets (4.3) - framework: >= net463
-    System.Runtime (4.3)
-    System.Runtime.Handles (4.3) - framework: >= net463
-    System.Runtime.InteropServices (4.3) - framework: >= net463
-      System.Runtime (>= 4.3) - framework: >= net462
-    System.Runtime.InteropServices.RuntimeInformation (4.3) - framework: >= net463
-    System.Runtime.Loader (4.3) - framework: >= net463
-    System.Runtime.Numerics (4.3) - framework: >= net463
-    System.Security.Cryptography.Algorithms (4.3)
-      System.IO (>= 4.3) - framework: >= net463
-      System.Runtime (>= 4.3) - framework: >= net463
-      System.Security.Cryptography.Encoding (>= 4.3) - framework: >= net463
-      System.Security.Cryptography.Primitives (>= 4.3) - framework: net46, net461, >= net463
-    System.Security.Cryptography.Encoding (4.3)
-    System.Security.Cryptography.Primitives (4.3)
-    System.Security.Cryptography.X509Certificates (4.3)
-      System.Security.Cryptography.Algorithms (>= 4.3) - framework: >= net46
-      System.Security.Cryptography.Encoding (>= 4.3) - framework: >= net46
-    System.Threading.Timer (4.3) - framework: >= net463
     xunit (2.1)
       xunit.assert (2.1)
       xunit.core (2.1)
-    xunit.abstractions (2.0) - framework: >= net45
+    xunit.abstractions (2.0) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= portable-net45+win8+wp8+wpa81))
     xunit.assert (2.1)
     xunit.core (2.1)
-      xunit.extensibility.core (2.1) - framework: >= net45
-      xunit.extensibility.execution (2.1) - framework: >= net45
-    xunit.extensibility.core (2.1) - framework: >= net45
+      xunit.extensibility.core (2.1) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= portable-net45+win8+wp8+wpa81))
+      xunit.extensibility.execution (2.1) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= portable-net45+win8+wp8+wpa81))
+    xunit.extensibility.core (2.1) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= portable-net45+win8+wp8+wpa81))
       xunit.abstractions (2.0)
-    xunit.extensibility.execution (2.1) - framework: >= net45
-      xunit.extensibility.core (2.1) - framework: >= net45
+    xunit.extensibility.execution (2.1) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= portable-net45+win8+wp8+wpa81))
+      xunit.extensibility.core (2.1) - restriction: || (&& (>= net35) (>= dnx451)) (&& (>= net35) (>= dnxcore50)) (&& (>= net35) (>= monoandroid)) (&& (>= net35) (>= monotouch)) (&& (>= net35) (>= xamarinios)) (&& (>= net35) (>= win8)) (&& (>= net35) (>= wp8)) (&& (>= net35) (>= wpa81)) (>= net45)
     xunit.runner.console (2.1)
     xunit.runner.visualstudio (2.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (fed01fd06a3838b924aca6d3db0ab89813dea2eb)
+    modules/Octokit/Octokit.fsx (291f58cc70aba6dd871cf18e66d2d88357e4f208)
       Octokit (>= 0.20)
