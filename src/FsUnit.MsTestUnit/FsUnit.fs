@@ -5,14 +5,19 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open NHamcrest
 open NHamcrest.Core
 
-type Assert with
-    static member That<'a> (actual, matcher:IMatcher<'a>) =
-        if not (matcher.Matches(actual)) then
+let inline private assertThat(actual, matcher:IMatcher<'a>) =
+    if not (matcher.Matches(actual)) then
             let description = new StringDescription()
             matcher.DescribeTo(description)
             let mismatchDescription = new StringDescription()
             matcher.DescribeMismatch(actual, mismatchDescription)
             raise (new AssertFailedException(sprintf "%s %s" (description.ToString()) (mismatchDescription.ToString())))
+
+#if !NETSTANDARD1_6
+type Assert with
+    static member That<'a> (actual, matcher:IMatcher<'a>) = 
+        assertThat(actual, matcher)
+#endif
 
 let inline should (f : 'a -> ^b) x (y : obj) =
     let c = f x
@@ -21,9 +26,10 @@ let inline should (f : 'a -> ^b) x (y : obj) =
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
     if box c = null then
-        Assert.That(y, IsNull())
+        assertThat(y, Is.Null())
     else
-        Assert.That(y, c)
+        assertThat(y, c)
+
 
 let inline shouldFail (f:unit->unit) =
     let failed =

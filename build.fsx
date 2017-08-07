@@ -107,7 +107,7 @@ Target "CopyBinaries" (fun _ ->
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"; "src/FsUnit.Xunit/bin/"]
+    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"; "src/FsUnit.Xunit/bin/"; "src/FsUnit.MsTestUnit/bin/"]
 )
 
 Target "CleanDocs" (fun _ ->
@@ -335,11 +335,11 @@ Target "BuildPackage" DoNothing
 
 Target "NUnitCore" (fun _ ->
     // Build all and execute unit tests
-    let nunitTestsDir, nunitTestsProj = "tests/FsUnit.NUnit.Test", "FsUnit.NUnit.Test.netcoreapp.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = nunitTestsDir; Project = nunitTestsProj })
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = nunitTestsDir })
-        (sprintf "run --project %s" nunitTestsProj)
+    let testsDir, testsProj = "tests/FsUnit.NUnit.Test", "FsUnit.NUnit.Test.netcoreapp.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.RunCommand (fun c -> { c with WorkingDir = testsDir })
+        (sprintf "run --project %s" testsProj)
 )
 
 // --------------------------------------------------------------------------------------
@@ -347,10 +347,21 @@ Target "NUnitCore" (fun _ ->
 
 Target "xUnitCore" (fun _ ->
     // Build all and execute unit tests
-    let xunitTestsDir, xunitTestsProj = "tests/FsUnit.Xunit.Test", "FsUnit.Xunit.Test.netcoreapp.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
-    DotNetCli.Test       (fun c -> { c with WorkingDir = xunitTestsDir; Project = xunitTestsProj })
+    let testsDir, testsProj = "tests/FsUnit.Xunit.Test", "FsUnit.Xunit.Test.netcoreapp.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+)
+
+// --------------------------------------------------------------------------------------
+// Build netcore MSTest
+
+Target "MSTestCore" (fun _ ->
+    // Build all and execute unit tests
+    let testsDir, testsProj = "tests/FsUnit.MsTest.Test", "Fs30Unit.MsTest.Test.netcoreapp.fsproj"
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
 )
 
 Target "NuGetNetCore" (fun _ ->
@@ -373,6 +384,9 @@ Target "NuGetNetCore" (fun _ ->
 
     //xUnit
     buildPackage "src/FsUnit.Xunit" "FsUnit.Xunit.netstandard.fsproj" "FsUnit.xUnit.%s.nupkg"
+
+    //MSTest
+    buildPackage "src/FsUnit.MsTestUnit" "FsUnit.MsTest.netstandard.fsproj" "Fs30Unit.MsTest.%s.nupkg"
 )
 
 // --------------------------------------------------------------------------------------
@@ -400,6 +414,7 @@ Target "All" DoNothing
 // .NET Standard and .NET Core support
 "AssemblyInfo" ==> "NUnitCore"  ==> "RunTests"
 "AssemblyInfo" ==> "xUnitCore"  ==> "RunTests"
+"AssemblyInfo" ==> "MSTestCore"  ==> "RunTests"
 
 "All"
 #if MONO

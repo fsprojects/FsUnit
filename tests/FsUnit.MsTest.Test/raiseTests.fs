@@ -5,6 +5,10 @@ open FsUnit.MsTest
 open NHamcrest.Core
 
 exception TestException
+
+type ApplicationException(msg : string) =
+    inherit Exception(msg)
+
 [<TestClass>]
 type ``raise tests`` ()=
     [<TestMethod>] member test.
