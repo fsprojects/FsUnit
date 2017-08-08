@@ -1,6 +1,5 @@
 <Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
@@ -42,17 +41,15 @@
     <Compile Include="typed.shouldFailTests.fs" />
     <Compile Include="typed.haveLengthTests.fs" />
     <Compile Include="typed.shouldContainText.fs" />
-    <Compile Include="main.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FSharp.Core" Version="4.1.*" />
     <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
     <PackageReference Include="NUnit" Version="3.7.1" />
-    <PackageReference Include="NUnitLite" Version="3.7.1" />
-    <PackageReference Include="System.Runtime" Version="4.3.0" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
-    <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <packagereference Include="NUnit3TestAdapter" Version="3.8.0"></packagereference>
     <ProjectReference Include="../../src/FsUnit.NUnit/FsUnit.NUnit.netstandard.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />

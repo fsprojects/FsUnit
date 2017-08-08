@@ -3,8 +3,5 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-mergenupkg" Version="1.0.*" />
-  </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

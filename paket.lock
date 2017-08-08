@@ -1,6 +1,7 @@
 RESTRICTION: >= net35
 NUGET
   remote: https://www.nuget.org/api/v2
+    dotnet-mergenupkg (1.0.1) - clitool: true
     FAKE (4.63)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (3.1.2.5)

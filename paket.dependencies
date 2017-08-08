@@ -18,3 +18,4 @@ nuget mbunit 3.4.14
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
 
+clitool dotnet-mergenupkg >= 1.0.1

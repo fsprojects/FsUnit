@@ -331,37 +331,24 @@ Target "Release" (fun _ ->
 Target "BuildPackage" DoNothing
 
 // --------------------------------------------------------------------------------------
-// Build netcore NUnit
+// Build netcore libraries
+
+let buildNetCoreLibrary testsDir testsProj =
+    // Build all and execute unit tests
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
 
 Target "NUnitCore" (fun _ ->
-    // Build all and execute unit tests
-    let testsDir, testsProj = "tests/FsUnit.NUnit.Test", "FsUnit.NUnit.Test.netcoreapp.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.RunCommand (fun c -> { c with WorkingDir = testsDir })
-        (sprintf "run --project %s" testsProj)
+    buildNetCoreLibrary "tests/FsUnit.NUnit.Test" "FsUnit.NUnit.Test.netcoreapp.fsproj"    
 )
-
-// --------------------------------------------------------------------------------------
-// Build netcore Xunit
 
 Target "xUnitCore" (fun _ ->
-    // Build all and execute unit tests
-    let testsDir, testsProj = "tests/FsUnit.Xunit.Test", "FsUnit.Xunit.Test.netcoreapp.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    buildNetCoreLibrary "tests/FsUnit.Xunit.Test" "FsUnit.Xunit.Test.netcoreapp.fsproj"    
 )
 
-// --------------------------------------------------------------------------------------
-// Build netcore MSTest
-
 Target "MSTestCore" (fun _ ->
-    // Build all and execute unit tests
-    let testsDir, testsProj = "tests/FsUnit.MsTest.Test", "Fs30Unit.MsTest.Test.netcoreapp.fsproj"
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
+    buildNetCoreLibrary "tests/FsUnit.MsTest.Test" "Fs30Unit.MsTest.Test.netcoreapp.fsproj"
 )
 
 Target "NuGetNetCore" (fun _ ->
