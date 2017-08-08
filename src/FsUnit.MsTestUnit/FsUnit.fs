@@ -13,7 +13,11 @@ let inline private assertThat(actual, matcher:IMatcher<'a>) =
             matcher.DescribeMismatch(actual, mismatchDescription)
             raise (new AssertFailedException(sprintf "%s %s" (description.ToString()) (mismatchDescription.ToString())))
 
-#if !NETSTANDARD1_6
+#if NETSTANDARD1_6
+type Assert with
+    static member That'<'a> (actual, matcher:IMatcher<'a>) = 
+        assertThat(actual, matcher)
+#else
 type Assert with
     static member That<'a> (actual, matcher:IMatcher<'a>) = 
         assertThat(actual, matcher)
