@@ -1,0 +1,7 @@
+group netcore
+
+FSharp.Core
+FSharp.NET.Sdk
+NHamcrest
+MSTest.TestFramework
+System.Reflection.TypeExtensions

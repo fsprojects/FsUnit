@@ -19,3 +19,20 @@ nuget mbunit 3.4.14
 github fsharp/FAKE modules/Octokit/Octokit.fsx
 
 clitool dotnet-mergenupkg >= 1.0.1
+
+group netcore
+    source http://nuget.org/api/v2
+    framework: netstandard1.6, netcoreapp1.1
+
+    nuget FSharp.Core ~> 4.1
+    nuget FSharp.NET.Sdk ~> 1.0
+    nuget NHamcrest
+    nuget xunit
+    nuget System.Reflection.TypeExtensions
+    nuget Microsoft.NET.Test.Sdk
+    nuget xunit.runner.visualstudio
+    nuget MSTest.TestAdapter
+    nuget MSTest.TestFramework
+    nuget NUnit
+    nuget System.Collections.NonGeneric
+    nuget NUnit3TestAdapter

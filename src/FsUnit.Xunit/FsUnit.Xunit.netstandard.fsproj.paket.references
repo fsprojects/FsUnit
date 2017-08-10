@@ -1,0 +1,7 @@
+﻿group netcore
+
+FSharp.Core
+FSharp.NET.Sdk
+NHamcrest
+xunit
+System.Reflection.TypeExtensions

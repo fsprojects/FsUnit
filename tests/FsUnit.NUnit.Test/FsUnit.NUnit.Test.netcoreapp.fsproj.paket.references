@@ -1,0 +1,8 @@
+group netcore
+
+FSharp.Core
+FSharp.NET.Sdk
+Microsoft.NET.Test.Sdk
+NUnit
+System.Collections.NonGeneric
+NUnit3TestAdapter
