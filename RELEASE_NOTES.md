@@ -1,6 +1,9 @@
-### 3.0.0 - Mar 5, 2017
+### 3.1.0-beta1 - Oct 30, 2017
+* Multi-target .NET Core 2.0 projects
+
+### 3.0.0 - Aug 11, 2017
 * Support NUnit 3.6
-* Compiled for .NET Standard 1.6
+* Compiled for .NET Standard 1.6 (NUnit, xUnit, MSTest)
 * Removed `choice n` combinator from `FsUnit.NUnit`
 
 ### 2.3.2 - Oct 4, 2016

@@ -1,2 +1,3 @@
-FSharp.Core
-NUnit
+group netcore2
+  FSharp.Core
+  NUnit

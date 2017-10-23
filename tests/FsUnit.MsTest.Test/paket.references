@@ -1,3 +1,6 @@
-﻿FSharp.Core
-Microsoft.VisualStudio.QualityTools.UnitTestFramework
-NHamcrest
+group netcore2
+
+FSharp.Core
+Microsoft.NET.Test.Sdk
+MSTest.TestAdapter
+MSTest.TestFramework

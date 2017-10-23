@@ -1,2 +1,7 @@
-FSharp.Core
-NUnit
+group netcore2
+
+  FSharp.Core
+  Microsoft.NET.Test.Sdk
+  NUnit
+  NUnit3TestAdapter
+  System.Collections.NonGeneric

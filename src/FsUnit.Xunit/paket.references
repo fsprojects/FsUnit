@@ -1,3 +1,5 @@
-﻿FSharp.Core
-NHamcrest
-xunit
+﻿group netcore2
+
+  FSharp.Core
+  NHamcrest
+  xunit

@@ -107,7 +107,16 @@ Target "CopyBinaries" (fun _ ->
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"; "src/FsUnit.NUnit/bin/"; "src/FsUnit.Xunit/bin/"; "src/FsUnit.MsTestUnit/bin/"]
+    CleanDirs 
+        [
+        "bin"; "temp"; 
+        "src/FsUnit.NUnit/bin/";
+        "src/FsUnit.NUnit/obj/";
+        "src/FsUnit.Xunit/bin/";
+        "src/FsUnit.Xunit/obj/";
+        "src/FsUnit.MsTestUnit/bin/"
+        "src/FsUnit.MsTestUnit/obj/"
+        ]
 )
 
 Target "CleanDocs" (fun _ ->
@@ -118,29 +127,21 @@ Target "CleanDocs" (fun _ ->
 // Build library & test project
 
 Target "Build" (fun _ ->
-    !! solutionFile
-    |> MSBuildRelease "" "Rebuild"
-    |> ignore
+    let rootFolder = "";
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = rootFolder })
+    DotNetCli.Build    (fun c -> { c with WorkingDir = rootFolder })
 )
 
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
 Target "NUnit" (fun _ ->
-     !! "tests/**/bin/Release/*NUnit.Test.dll"
-     |> NUnit3 (fun p ->
-         { p with
-             Labels = LabelsLevel.All
-             TimeOut = TimeSpan.FromMinutes 20.})
- )
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.NUnit.Test/"})
+)
 
 
 Target "xUnit" (fun _ ->
-    !! "tests/**/bin/Release/*Xunit.Test.dll"
-    |> Fake.Testing.XUnit2.xUnit2 (fun p ->
-        {p with
-            TimeOut = TimeSpan.FromMinutes 20.
-            HtmlOutputPath = Some "xunit.html"})
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.Xunit.Test/"})
 )
 
 Target "MbUnit" (fun _ ->
@@ -151,10 +152,7 @@ Target "MbUnit" (fun _ ->
 )
 
 Target "MsTest" (fun _ ->
-    !! "tests/**/bin/Release/*MsTest.Test.dll"
-    |> Fake.MSTest.MSTest (fun p ->
-        { p with
-            TimeOut = TimeSpan.FromMinutes 20. })
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.MsTest.Test/"})
 )
 
 Target "RunTests" DoNothing
@@ -331,52 +329,6 @@ Target "Release" (fun _ ->
 Target "BuildPackage" DoNothing
 
 // --------------------------------------------------------------------------------------
-// Build netcore libraries
-
-let buildNetCoreLibrary testsDir testsProj =
-    // Build all and execute unit tests
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Build      (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-    DotNetCli.Test       (fun c -> { c with WorkingDir = testsDir; Project = testsProj })
-
-Target "NUnitCore" (fun _ ->
-    buildNetCoreLibrary "tests/FsUnit.NUnit.Test" "FsUnit.NUnit.Test.netcoreapp.fsproj"    
-)
-
-Target "xUnitCore" (fun _ ->
-    buildNetCoreLibrary "tests/FsUnit.Xunit.Test" "FsUnit.Xunit.Test.netcoreapp.fsproj"    
-)
-
-Target "MSTestCore" (fun _ ->
-    buildNetCoreLibrary "tests/FsUnit.MsTest.Test" "Fs30Unit.MsTest.Test.netcoreapp.fsproj"
-)
-
-Target "NuGetNetCore" (fun _ ->
-    let toolsDir = "tools/"
-
-    let buildPackage projectDir projectFile packageNameTemplate =
-        DotNetCli.Restore    (fun c -> { c with WorkingDir = projectDir; Project = projectFile })
-        DotNetCli.Build      (fun c -> { c with WorkingDir = projectDir; Project = projectFile })
-        DotNetCli.RunCommand (fun c -> { c with WorkingDir = projectDir })
-            (sprintf "pack \"%s\" /p:Version=%s --configuration Release" projectFile (release.NugetVersion))
-
-        let nupkg = sprintf packageNameTemplate release.NugetVersion
-        DotNetCli.RunCommand (fun c -> { c with WorkingDir = toolsDir })
-            (sprintf "mergenupkg --source \"./../bin/%s\" --other \"./../%s/bin/Release/%s\" --framework netstandard1.6" nupkg projectDir nupkg)
-
-    DotNetCli.Restore (fun c -> { c with WorkingDir = toolsDir })
-  
-    //NUnit
-    buildPackage "src/FsUnit.NUnit" "FsUnit.NUnit.netstandard.fsproj" "FsUnit.%s.nupkg"
-
-    //xUnit
-    buildPackage "src/FsUnit.Xunit" "FsUnit.Xunit.netstandard.fsproj" "FsUnit.xUnit.%s.nupkg"
-
-    //MSTest
-    buildPackage "src/FsUnit.MsTestUnit" "FsUnit.MsTest.netstandard.fsproj" "Fs30Unit.MsTest.%s.nupkg"
-)
-
-// --------------------------------------------------------------------------------------
 // Run all targets by default. Invoke 'build <Target>' to override
 
 Target "All" DoNothing
@@ -394,14 +346,9 @@ Target "All" DoNothing
 "Build" ==> "NUnit"  ==> "RunTests"
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" ==> "xUnit"  ==> "RunTests"
-"Build" ==> "MbUnit" //==> "RunTests"
+//"Build" ==> "MbUnit" //==> "RunTests"
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
-
-// .NET Standard and .NET Core support
-"AssemblyInfo" ==> "NUnitCore"  ==> "RunTests"
-"AssemblyInfo" ==> "xUnitCore"  ==> "RunTests"
-"AssemblyInfo" ==> "MSTestCore"  ==> "RunTests"
 
 "All"
 #if MONO
@@ -409,7 +356,6 @@ Target "All" DoNothing
   // =?> ("SourceLink", Pdbstr.tryFind().IsSome )
 #endif
   ==> "NuGet"
-  ==> "NuGetNetCore"
   ==> "BuildPackage"
 
 "CleanDocs"
