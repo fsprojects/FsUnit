@@ -2,19 +2,7 @@ os: Visual Studio 2017
 
 environment:
   matrix:
-    - CLI_VERSION: 2.0.0
-
-install:
-  # .NET Core SDK binaries
-  - ps: $url = "https://dotnetcli.azureedge.net/dotnet/Sdk/$($env:CLI_VERSION)/dotnet-dev-win-x64.$($env:CLI_VERSION.ToLower()).zip"
-  # Download .NET Core SDK and add to PATH
-  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
-  - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
-  - ps: $tempFile = [System.IO.Path]::GetTempFileName()
-  - ps: (New-Object System.Net.WebClient).DownloadFile($url, $tempFile)
-  - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFile, $env:DOTNET_INSTALL_DIR)
-  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
-  - dotnet --info
+    - CLI_VERSION: 2.0.2
 
 init:
   - git config --global core.autocrlf input

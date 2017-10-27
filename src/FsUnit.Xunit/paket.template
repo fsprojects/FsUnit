@@ -27,8 +27,12 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    xunit ~> 2.3.0
-    NHamcrest ~> 2.0.1
-    FSharp.Core ~> 4.2.3
     framework: netstandard16
-        NETStandard.Library 1.6.1
+        NETStandard.Library >= 1.6.0
+        xunit ~> 2.3.0
+        NHamcrest ~> 2.0.1
+        FSharp.Core ~> 4.2.3
+    framework: net46
+        xunit ~> 2.3.0
+        NHamcrest ~> 2.0.1
+        FSharp.Core ~> 4.2.3

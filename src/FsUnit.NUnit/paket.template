@@ -27,7 +27,10 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    NUnit ~> 3.8.1
-    FSharp.Core ~> 4.2.3
     framework: netstandard16
-        NETStandard.Library 1.6.1
+        NETStandard.Library >= 1.6.0
+        NUnit ~> 3.8.1
+        FSharp.Core ~> 4.2.3
+    framework: net46
+        NUnit ~> 3.8.1
+        FSharp.Core ~> 4.2.3

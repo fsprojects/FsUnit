@@ -126,22 +126,30 @@ Target "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Build library & test project
 
+let mutable dotnetExePath = "dotnet"
+let dotnetcliVersion = "2.0.2"
+
+Target "InstallDotNetCore" (fun _ ->
+    dotnetExePath <- DotNetCli.InstallDotNetSDK dotnetcliVersion
+    Environment.SetEnvironmentVariable("DOTNET_EXE_PATH", dotnetExePath)
+)
+
 Target "Build" (fun _ ->
     let rootFolder = "";
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = rootFolder })
-    DotNetCli.Build    (fun c -> { c with WorkingDir = rootFolder })
+    DotNetCli.Restore    (fun c -> { c with WorkingDir = rootFolder; ToolPath = dotnetExePath })
+    DotNetCli.Build    (fun c -> { c with WorkingDir = rootFolder; ToolPath = dotnetExePath })
 )
 
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
 Target "NUnit" (fun _ ->
-    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.NUnit.Test/"})
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.NUnit.Test/"; ToolPath = dotnetExePath})
 )
 
 
 Target "xUnit" (fun _ ->
-    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.Xunit.Test/"})
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.Xunit.Test/"; ToolPath = dotnetExePath})
 )
 
 Target "MbUnit" (fun _ ->
@@ -152,7 +160,7 @@ Target "MbUnit" (fun _ ->
 )
 
 Target "MsTest" (fun _ ->
-    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.MsTest.Test/"})
+    DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.MsTest.Test/"; ToolPath = dotnetExePath})
 )
 
 Target "RunTests" DoNothing
@@ -335,6 +343,7 @@ Target "All" DoNothing
 
 "Clean"
   ==> "AssemblyInfo"
+  ==> "InstallDotNetCore"
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"

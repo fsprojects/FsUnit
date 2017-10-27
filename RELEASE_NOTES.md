@@ -1,4 +1,4 @@
-### 3.1.0-beta1 - Oct 30, 2017
+### 3.1.0-beta2 - Oct 30, 2017
 * Multi-target .NET Core 2.0 projects
 
 ### 3.0.0 - Aug 11, 2017

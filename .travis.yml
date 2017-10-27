@@ -5,22 +5,10 @@ matrix:
      - os: linux # Ubuntu 14.04
        dist: trusty
        sudo: required
-       dotnet: 1.0.0-preview2-003121
-       # Note that travis doesn't support dotnet cli rc4 via 'dotnet' yet,
-       # so we just use the old preview2 support to get things setup
-       # first, then manually add dotnet CLI RC4 during install.
-       env:
-         - CLI_VERSION=2.0.0
+       dotnet: 2.0.2
      - os: osx # OSX 10.11
        osx_image: xcode7.3
-       dotnet: 1.0.0-preview2-003121
-       env:
-         - CLI_VERSION=2.0.0
-
-install:
-  - export DOTNET_INSTALL_DIR="$PWD/.dotnetcli"
-  - curl -sSL https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.sh | bash /dev/stdin --version "$CLI_VERSION" --install-dir "$DOTNET_INSTALL_DIR"
-  - export PATH="$DOTNET_INSTALL_DIR:$PATH"
+       dotnet: 2.0.2
 
 script:
   - ./build.sh All

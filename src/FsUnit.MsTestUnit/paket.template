@@ -27,8 +27,12 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    MSTest.TestFramework ~> 1.2.0
-    NHamcrest ~> 2.0.1
-    FSharp.Core ~> 4.2.3
     framework: netstandard16
-        NETStandard.Library 1.6.1
+        NETStandard.Library >= 1.6.0
+        MSTest.TestFramework ~> 1.2.0
+        NHamcrest ~> 2.0.1
+        FSharp.Core ~> 4.2.3
+    framework: net46
+        MSTest.TestFramework ~> 1.2.0
+        NHamcrest ~> 2.0.1
+        FSharp.Core ~> 4.2.3
