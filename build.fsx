@@ -137,7 +137,7 @@ Target "InstallDotNetCore" (fun _ ->
 
 Target "Build" (fun _ ->
     let rootFolder = "";
-    DotNetCli.Restore    (fun c -> { c with WorkingDir = rootFolder; ToolPath = dotnetExePath })
+    //DotNetCli.Restore    (fun c -> { c with WorkingDir = rootFolder; ToolPath = dotnetExePath })
     DotNetCli.Build    (fun c -> { c with WorkingDir = rootFolder; ToolPath = dotnetExePath })
 )
 
