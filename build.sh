@@ -1,33 +1,21 @@
-#!/usr/bin/env bash
-
-set -eu
-set -o pipefail
-
-cd `dirname $0`
-
-FSIARGS=""
-OS=${OS:-"unknown"}
-if [[ "$OS" != "Windows_NT" ]]
+#!/bin/bash
+if test "$OS" = "Windows_NT"
 then
-  FSIARGS="--fsiargs -d:MONO"
-fi
-
-function run() {
-  if [[ "$OS" != "Windows_NT" ]]
-  then
-    mono "$@"
-  else
-    "$@"
+  # use .Net
+  .paket/paket.exe restore
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
   fi
-}
 
-if [[ "$OS" != "Windows_NT" ]] &&
-       [ ! -e ~/.config/.mono/certs ]
-then
-  mozroots --import --sync --quiet
+  packages/build/FAKE/tools/FAKE.exe $@ --fsiargs -d:MONO build.fsx
+else
+  # use mono
+  mono .paket/paket.exe restore
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
+  fi
+
+  mono packages/build/FAKE/tools/FAKE.exe $@ --fsiargs -d:MONO build.fsx
 fi
-
-run .paket/paket.exe restore
-
-run packages/FAKE/tools/FAKE.exe "$@" $FSIARGS build.fsx
-
