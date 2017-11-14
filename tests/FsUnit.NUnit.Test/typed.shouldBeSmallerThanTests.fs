@@ -9,5 +9,15 @@ type ``shouldBeSmallerThan tests`` ()=
         10 |> shouldBeSmallerThan 11
 
     [<Test>] member test.
+     ``10 should not be less than 10`` ()=
+        (fun () -> 10 |> shouldBeSmallerThan 10)
+        |> shouldFail<AssertionException>
+
+    [<Test>] member test.
      ``10.0 should be less than 10.1`` ()=
         10.0 |> shouldBeSmallerThan 10.1
+
+    [<Test>] member test.
+     ``10.0 should not be less than 10.0`` ()=
+        (fun () -> 10.0 |> shouldBeSmallerThan 10.0)
+        |> shouldFail<AssertionException>

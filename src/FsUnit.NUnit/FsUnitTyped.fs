@@ -33,7 +33,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x : 'a) (y : 'a) =
-        Assert.GreaterOrEqual(x, y, sprintf "Expected: %A\nActual: %A" x y)
+        Assert.Less(y, x, sprintf "Expected: %A\nActual: %A" x y)
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (x : 'a) (y : 'a) =
