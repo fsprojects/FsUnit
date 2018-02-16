@@ -14,7 +14,7 @@ licenseUrl
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2017
+    Copyright 2012-2018
 tags
     F# fsharp NUnit FsUnit
 summary
@@ -29,8 +29,8 @@ files
 dependencies
     framework: netstandard16
         NETStandard.Library >= 1.6.0
-        NUnit ~> 3.8.1
-        FSharp.Core ~> 4.2.3
+        NUnit ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION
     framework: net46
-        NUnit ~> 3.8.1
-        FSharp.Core ~> 4.2.3
+        NUnit ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION

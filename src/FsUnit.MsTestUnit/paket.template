@@ -14,7 +14,7 @@ licenseUrl
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2017
+    Copyright 2012-2018
 tags
     F# fsharp MsTest FsUnit
 summary
@@ -29,10 +29,10 @@ files
 dependencies
     framework: netstandard16
         NETStandard.Library >= 1.6.0
-        MSTest.TestFramework ~> 1.2.0
-        NHamcrest ~> 2.0.1
-        FSharp.Core ~> 4.2.3
+        MSTest.TestFramework ~> LOCKEDVERSION
+        NHamcrest ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION
     framework: net46
-        MSTest.TestFramework ~> 1.2.0
-        NHamcrest ~> 2.0.1
-        FSharp.Core ~> 4.2.3
+        MSTest.TestFramework ~> LOCKEDVERSION
+        NHamcrest ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION

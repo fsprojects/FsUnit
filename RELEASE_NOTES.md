@@ -1,5 +1,8 @@
-### 3.1.0-beta2 - Oct 30, 2017
+### 3.1.0 - Feb 16, 2018
 * Multi-target .NET Core 2.0 projects
+* Fixed "Change shouldBeSmallerThan to fail when passed 2 equal numbers" https://github.com/fsprojects/FsUnit/pull/112
+* Added slighly more meaningful messages to a few matchers https://github.com/fsprojects/FsUnit/pull/115
+* NuGet package allow to reference FSharp.Core 4.3.x https://github.com/fsprojects/FsUnit/issues/116
 
 ### 3.0.0 - Aug 11, 2017
 * Support NUnit 3.6
