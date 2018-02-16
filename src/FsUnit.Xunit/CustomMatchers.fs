@@ -82,16 +82,16 @@ let unique = CustomMatcher<obj>("All items unique", fun (x:obj) ->
 
 let sameAs x = Is.SameAs<obj>(x)
 
-let greaterThan (x:obj) = CustomMatcher<obj>(string x,
+let greaterThan (x:obj) = CustomMatcher<obj>(sprintf "Greater than %A" x,
                                      fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) > 0)
 
-let greaterThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x,
+let greaterThanOrEqualTo (x:obj) = CustomMatcher<obj>(sprintf "Greater than or equal to %A" x,
                                               fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) >= 0)
 
-let lessThan (x:obj) = CustomMatcher<obj>(string x,
+let lessThan (x:obj) = CustomMatcher<obj>(sprintf "Less than %A" x,
                                     fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) < 0)
 
-let lessThanOrEqualTo (x:obj) = CustomMatcher<obj>(string x,
+let lessThanOrEqualTo (x:obj) = CustomMatcher<obj>(sprintf "Less than or equal to %A" x,
                                            fun actual -> (unbox actual :> IComparable).CompareTo(unbox x) <= 0)
 
 let endWith (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).EndsWith x)
