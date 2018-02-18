@@ -1,3 +1,4 @@
 group netcore2
   FSharp.Core
+  NETStandard.Library
   NUnit
