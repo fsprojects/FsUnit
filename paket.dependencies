@@ -13,7 +13,7 @@ github fsharp/FAKE modules/Octokit/Octokit.fsx
 
 group netcore2
     source http://nuget.org/api/v2
-    framework: netstandard1.6, netcoreapp2.0, net46
+    framework: netstandard2.0, net46, netcoreapp2.0
 
     nuget FSharp.Core ~> 4.1
     nuget Microsoft.NET.Test.Sdk
