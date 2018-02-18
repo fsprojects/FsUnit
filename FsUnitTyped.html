@@ -87,8 +87,8 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">NUnit</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Framework</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">FsUnitTyped</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="i">NUnit</span><span class="o">.</span><span class="i">Framework</span>
+<span class="k">open</span> <span class="i">FsUnitTyped</span>
 </code></pre></td>
 </tr>
 </table>
@@ -96,8 +96,8 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="f">shouldEqual</span> <span class="n">1</span>
-<span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="f">shouldNotEqual</span> <span class="n">2</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="n">1</span> <span class="o">|&gt;</span> <span class="i">shouldEqual</span> <span class="n">1</span>
+<span class="n">1</span> <span class="o">|&gt;</span> <span class="i">shouldNotEqual</span> <span class="n">2</span>
 </code></pre></td>
 </tr>
 </table>
@@ -105,15 +105,15 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="n">11</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="f">shouldBeGreaterThan</span> <span class="n">10</span>
-<span class="n">10</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="f">shouldBeSmallerThan</span> <span class="n">11</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="n">11</span> <span class="o">|&gt;</span> <span class="i">shouldBeGreaterThan</span> <span class="n">10</span>
+<span class="n">10</span> <span class="o">|&gt;</span> <span class="i">shouldBeSmallerThan</span> <span class="n">11</span>
 </code></pre></td>
 </tr>
 </table>
 <p>A string contains specified substring:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="f">shouldContainText</span> <span class="s">&quot;hip&quot;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span class="i">shouldContainText</span> <span class="s">&quot;hip&quot;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -122,51 +122,34 @@ file and <a href="https://www.nuget.org/packages/NUnit/">NUnit</a> package.</p>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[<span class="n">1</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="f">shouldContain</span> <span class="n">1</span>
-[] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 10)" onmouseover="showTip(event, 'fs10', 10)" class="f">shouldNotContain</span> <span class="n">1</span>
-[] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 11)" onmouseover="showTip(event, 'fs11', 11)" class="f">shouldBeEmpty</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[<span class="n">1</span>] <span class="o">|&gt;</span> <span class="i">shouldContain</span> <span class="n">1</span>
+[] <span class="o">|&gt;</span> <span class="i">shouldNotContain</span> <span class="n">1</span>
+[] <span class="o">|&gt;</span> <span class="i">shouldBeEmpty</span>
 </code></pre></td>
 </tr>
 </table>
 <p>A List or Array instance has a certain length:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[|<span class="n">1</span>;<span class="n">2</span>;<span class="n">3</span>;<span class="n">4</span>|] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs12', 12)" onmouseover="showTip(event, 'fs12', 12)" class="f">shouldHaveLength</span> <span class="n">4</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[|<span class="n">1</span>;<span class="n">2</span>;<span class="n">3</span>;<span class="n">4</span>|] <span class="o">|&gt;</span> <span class="i">shouldHaveLength</span> <span class="n">4</span>
 </code></pre></td>
 </tr>
 </table>
 <p>A function should throw a certain type of exception:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 13)" onmouseover="showTip(event, 'fs13', 13)" class="f">failwith</span> <span class="s">&quot;BOOM!&quot;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 14)" onmouseover="showTip(event, 'fs14', 14)" class="f">shouldFail</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs15', 15)" onmouseover="showTip(event, 'fs15', 15)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 16)" onmouseover="showTip(event, 'fs16', 16)" class="t">Exception</span><span class="o">&gt;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">(<span class="k">fun</span> _ <span class="k">-&gt;</span> <span class="i">failwith</span> <span class="s">&quot;BOOM!&quot;</span>) <span class="o">|&gt;</span> <span class="i">shouldFail</span><span class="o">&lt;</span><span class="i">System</span><span class="o">.</span><span class="i">Exception</span><span class="o">&gt;</span>
 </code></pre></td>
 </tr>
 </table>
 <p>A function should fail</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="f">shouldFail</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span class="n">5</span><span class="o">/</span><span class="n">0</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs17', 18)" onmouseover="showTip(event, 'fs17', 18)" class="f">ignore</span>)
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">shouldFail</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span class="n">5</span><span class="o">/</span><span class="n">0</span> <span class="o">|&gt;</span> <span class="i">ignore</span>)
 </code></pre></td>
 </tr>
 </table>
 
-<div class="tip" id="fs1">namespace NUnit</div>
-<div class="tip" id="fs2">namespace NUnit.Framework</div>
-<div class="tip" id="fs3">namespace FsUnitTyped</div>
-<div class="tip" id="fs4">val shouldEqual : expected:&#39;a -&gt; actual:&#39;a -&gt; unit (requires equality)<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldEqual</div>
-<div class="tip" id="fs5">val shouldNotEqual : expected:&#39;a -&gt; actual:&#39;a -&gt; unit (requires equality)<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldNotEqual</div>
-<div class="tip" id="fs6">val shouldBeGreaterThan : x:&#39;a -&gt; y:&#39;a -&gt; unit (requires &#39;a :&gt; System.IComparable)<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldBeGreaterThan</div>
-<div class="tip" id="fs7">val shouldBeSmallerThan : x:&#39;a -&gt; y:&#39;a -&gt; unit (requires &#39;a :&gt; System.IComparable)<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldBeSmallerThan</div>
-<div class="tip" id="fs8">val shouldContainText : x:string -&gt; y:string -&gt; unit<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldContainText</div>
-<div class="tip" id="fs9">val shouldContain : x:&#39;a -&gt; y:seq&lt;&#39;a&gt; -&gt; unit<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldContain</div>
-<div class="tip" id="fs10">val shouldNotContain : x:&#39;a -&gt; y:seq&lt;&#39;a&gt; -&gt; unit (requires equality)<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldNotContain</div>
-<div class="tip" id="fs11">val shouldBeEmpty : list:seq&lt;&#39;a&gt; -&gt; unit<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldBeEmpty</div>
-<div class="tip" id="fs12">val shouldHaveLength : expected:int -&gt; list:seq&lt;&#39;a&gt; -&gt; unit<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldHaveLength</div>
-<div class="tip" id="fs13">val failwith : message:string -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.failwith</div>
-<div class="tip" id="fs14">val shouldFail&lt;&#39;exn (requires &#39;exn :&gt; exn)&gt; : f:(unit -&gt; unit) -&gt; unit<br /><br />Full name: FsUnitTyped.TopLevelOperators.shouldFail</div>
-<div class="tip" id="fs15">namespace System</div>
-<div class="tip" id="fs16">Multiple items<br />type Exception =<br />&#160;&#160;new : unit -&gt; Exception + 2 overloads<br />&#160;&#160;member Data : IDictionary<br />&#160;&#160;member GetBaseException : unit -&gt; Exception<br />&#160;&#160;member GetObjectData : info:SerializationInfo * context:StreamingContext -&gt; unit<br />&#160;&#160;member GetType : unit -&gt; Type<br />&#160;&#160;member HelpLink : string with get, set<br />&#160;&#160;member InnerException : Exception<br />&#160;&#160;member Message : string<br />&#160;&#160;member Source : string with get, set<br />&#160;&#160;member StackTrace : string<br />&#160;&#160;...<br /><br />Full name: System.Exception<br /><br />--------------------<br />System.Exception() : unit<br />System.Exception(message: string) : unit<br />System.Exception(message: string, innerException: exn) : unit</div>
-<div class="tip" id="fs17">val ignore : value:&#39;T -&gt; unit<br /><br />Full name: Microsoft.FSharp.Core.Operators.ignore</div>
 
         </div>
         <div class="span3">
