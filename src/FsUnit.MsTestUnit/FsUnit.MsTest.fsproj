@@ -20,7 +20,7 @@
     </None>
     <None Include="sample.paket.template" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard1.6' ">
+  <ItemGroup>
     <Reference Include="System.Runtime" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
