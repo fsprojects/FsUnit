@@ -1,6 +1,6 @@
 language: csharp
 dist: trusty
-dotnet: 2.0.3
+dotnet: 2.0.300
 
 matrix:
    include:

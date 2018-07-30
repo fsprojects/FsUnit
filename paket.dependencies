@@ -2,7 +2,7 @@ source https://nuget.org/api/v2
 framework: >= net35
 
 nuget FSharp.Formatting
-nuget FAKE
+nuget FAKE ~> 4.0
 nuget SourceLink.Fake
 
 nuget FSharp.Core >= 3.1.2.5

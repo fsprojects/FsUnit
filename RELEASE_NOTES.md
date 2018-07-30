@@ -1,3 +1,9 @@
+### 3.2.0 - Jul 30, 2018
+* xunit (2.4)
+* NUnit (3.10.1)
+* MSTest.TestFramework (1.3.2)
+* NETStandard.Library (2.0.3)
+
 ### 3.1.0 - Feb 16, 2018
 * Multi-target .NET Core 2.0 projects
 * Fixed "Change shouldBeSmallerThan to fail when passed 2 equal numbers" https://github.com/fsprojects/FsUnit/pull/112
