@@ -2,6 +2,7 @@
 
 namespace FsUnit
 
+open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
@@ -88,3 +89,5 @@ module TopLevelOperators =
 
     let not' x =
         if box x = null then NotConstraint(Null) else NotConstraint(x)
+
+    let inRange min max = RangeConstraint(min, max)

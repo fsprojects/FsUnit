@@ -209,3 +209,9 @@ type ChoiceDiscriminator(n : int) =
 
 let choice n = CustomMatcher<obj>(sprintf "The choice %d" n,
                                     fun x -> (new ChoiceDiscriminator(n)).check(x))
+
+let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min max,
+                                            fun actual ->
+                                                let unboxed = (unbox actual :> IComparable)
+                                                unboxed.CompareTo(unbox min) >= 0 &&
+                                                unboxed.CompareTo(unbox max) <= 0)
