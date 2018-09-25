@@ -10,6 +10,7 @@
     <Compile Include="beNullTests.fs" />
     <Compile Include="beEmptyTests.fs" />
     <Compile Include="beEmptyStringTests.fs" />
+    <Compile Include="beInRangeTests.fs" />
     <Compile Include="beNullOrEmptyStringTests.fs" />
     <Compile Include="beTrueTests.fs" />
     <Compile Include="beFalseTests.fs" />

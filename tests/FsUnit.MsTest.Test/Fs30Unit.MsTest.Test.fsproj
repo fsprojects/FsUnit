@@ -11,6 +11,7 @@
     <Compile Include="beFalseTests.fs" />
     <Compile Include="beGreaterThanOrEqualTo.fs" />
     <Compile Include="beGreaterThanTests.fs" />
+    <Compile Include="beInRangeTests.fs" />
     <Compile Include="beLessThanOrEqualToTests.fs" />
     <Compile Include="beLessThanTests.fs" />
     <Compile Include="beNullOrEmptyStringTests.fs" />

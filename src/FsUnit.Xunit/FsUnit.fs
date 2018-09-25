@@ -101,3 +101,5 @@ let choice = CustomMatchers.choice
 let ascending = CustomMatchers.ascending
 
 let descending = CustomMatchers.descending
+
+let inRange min max = CustomMatchers.inRange min max

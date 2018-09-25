@@ -15,11 +15,11 @@ let inline private assertThat(actual, matcher:IMatcher<'a>) =
 
 #if NETSTANDARD1_6
 type Assert with
-    static member That'<'a> (actual, matcher:IMatcher<'a>) = 
+    static member That'<'a> (actual, matcher:IMatcher<'a>) =
         assertThat(actual, matcher)
 #else
 type Assert with
-    static member That<'a> (actual, matcher:IMatcher<'a>) = 
+    static member That<'a> (actual, matcher:IMatcher<'a>) =
         assertThat(actual, matcher)
 #endif
 
@@ -107,3 +107,5 @@ let choice = CustomMatchers.choice
 let ascending = CustomMatchers.ascending
 
 let descending = CustomMatchers.descending
+
+let inRange min max = CustomMatchers.inRange min max
