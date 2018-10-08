@@ -109,3 +109,5 @@ FsUnit.Xunit.Test.dll.xunit.html
 NUnit.xml
 docs/tools/FSharp.Formatting.svclog
 xunit.html
+
+release.sh
