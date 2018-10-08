@@ -92,7 +92,7 @@ module ``LightBulb Tests`` =
 (**
 BowlingGame
 ---------
-Thanks to `Keith Nicholas` and `Julian` from hubFS for [this example](http://cs.hubfs.net/forums/thread/3938.aspx)!
+Thanks to `Keith Nicholas` and `Julian` from hubFS for this example!
 *)
 module ``BowlingGame A game of bowling`` =
     open NUnit.Framework
