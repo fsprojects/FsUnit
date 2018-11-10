@@ -36,3 +36,4 @@ Operators comparison across frameworks
 | `descending`           | +     | +     | +      | +      |
 | `not'`                 | +     | +     | +      | +      |
 | `matchList`            |       | +     | +      | +      |
+| `inRange`              | +     | +     | +      |        |

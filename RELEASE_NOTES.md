@@ -1,3 +1,6 @@
+### 3.4.0 - Nov 10, 2018
+* Added `inRange` operator
+
 ### 3.3.0 - Nov 9, 2018
 * NUnit (3.11)
 * xunit (2.4.1)
