@@ -1,3 +1,8 @@
+### 3.4.1 - Aug 18, 2018
+* xunit (2.4.1)
+* NUnit (3.12)
+* MSTest.TestFramework (1.4)
+
 ### 3.4.0 - Nov 10, 2018
 * Added `inRange` operator
 
