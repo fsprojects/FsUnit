@@ -1,4 +1,4 @@
-### 3.4.1 - Aug 18, 2018
+### 3.4.1 - Aug 18, 2019
 * xunit (2.4.1)
 * NUnit (3.12)
 * MSTest.TestFramework (1.4)
