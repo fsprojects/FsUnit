@@ -132,8 +132,8 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 [3;2;1] |> should be descending
 [3;1;2] |> should not' (be descending)
 
-myValue |> should be ofCase<@ MyUnion.Case1 @> // Currently, Xunit only
-myValue |> should be ofCase<@ MyUnion.Case1, MyUnion.Case2 @> // Currently, Xunit only
+myValue |> should be (ofCase<@ MyUnion.Case1 @>) // Currently, Xunit only
+myValue |> should be (ofCase<@ MyUnion.Case1, MyUnion.Case2 @>) // Currently, Xunit only
 
 (**
 
