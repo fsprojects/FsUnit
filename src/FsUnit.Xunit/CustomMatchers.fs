@@ -223,6 +223,9 @@ let ofCase (case: FSharp.Quotations.Expr) =
         // expression might be a function that results in the creation of a union case
         // (think parameterised cases that are data constructors)
         | Lambda (_, expr) | Let (_, _, expr) -> caseName expr
+        | NewTuple exprs ->
+            let names = exprs |> List.map caseName |> List.choose id
+            Some <| System.String.Join(", ", names)
         | NewUnionCase (uci, _) ->
             Some <| sprintf "%s.%s" uci.DeclaringType.FullName uci.Name
         | _ -> None
