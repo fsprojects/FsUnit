@@ -14,7 +14,7 @@ type ``ofCase tests`` ()=
         TestUnion.First |> should be (ofCase<@ TestUnion.First @>)
 
     [<Fact>] member test.
-     ``given a non-matching fails`` ()=
+     ``given a non-matching case fails the assertion`` ()=
         shouldFail (fun () -> TestUnion.Second |> should be (ofCase<@ TestUnion.First @>))
         
     [<Fact>] member test.
