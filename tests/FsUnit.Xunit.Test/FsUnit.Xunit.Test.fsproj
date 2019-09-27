@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
@@ -24,6 +24,7 @@
     <Compile Include="haveCountTests.fs" />
     <Compile Include="haveLengthTests.fs" />
     <Compile Include="matchListTests.fs" />
+    <Compile Include="ofCaseTests.fs" />
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldFailTests.fs" />
     <Compile Include="shouldEndWithTests.fs" />

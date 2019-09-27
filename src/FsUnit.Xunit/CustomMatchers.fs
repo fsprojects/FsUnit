@@ -5,6 +5,8 @@ open System.Collections
 open NHamcrest
 open NHamcrest.Core
 open System.Reflection
+open Microsoft.FSharp.Quotations.Patterns
+open Microsoft.FSharp.Reflection
 
 let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
@@ -215,3 +217,26 @@ let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min ma
                                                 let unboxed = (unbox actual :> IComparable)
                                                 unboxed.CompareTo(unbox min) >= 0 &&
                                                 unboxed.CompareTo(unbox max) <= 0)
+
+let ofCase (case: FSharp.Quotations.Expr) =
+    let rec caseName = function
+        // expression might be a function that results in the creation of a union case
+        // (think parameterised cases that are data constructors)
+        | Lambda (_, expr) | Let (_, _, expr) -> caseName expr
+        | NewUnionCase (uci, _) ->
+            Some <| sprintf "%s.%s" uci.DeclaringType.FullName uci.Name
+        | _ -> None
+        
+    let rec isCase = function
+        | Lambda (_, expr) | Let (_, _, expr) -> isCase expr
+        | NewTuple exprs -> 
+            let iucs = List.map isCase exprs
+            fun value -> List.exists ((|>) value) iucs
+        | NewUnionCase (uci, _) ->
+            let utr = FSharpValue.PreComputeUnionTagReader uci.DeclaringType
+            box >> utr >> (=) uci.Tag
+        | _ -> failwith "Expression is no union case."
+        
+    let expected = case |> caseName |> defaultArg <| "<The given type is not a union case and the matcher won't work.>"
+    let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> isCase case)
+    matcher
