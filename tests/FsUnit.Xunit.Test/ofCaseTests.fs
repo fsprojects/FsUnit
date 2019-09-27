@@ -3,7 +3,7 @@ open Xunit
 open FsUnit.Xunit
 open FsUnit.CustomMatchers
 
-type private TestUnion
+type TestUnion
     = First
     | Second
     | Third
