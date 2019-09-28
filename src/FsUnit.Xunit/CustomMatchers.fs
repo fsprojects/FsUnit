@@ -220,26 +220,23 @@ let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min ma
 
 let ofCase (case: FSharp.Quotations.Expr) =
     let rec caseName = function
-        // expression might be a function that results in the creation of a union case
-        // (think parameterised cases that are data constructors)
-        | Lambda (_, expr) | Let (_, _, expr) -> caseName expr
-        | NewTuple exprs ->
-            let names = exprs |> List.map caseName |> List.choose id
-            Some <| System.String.Join(", ", names)
         | NewUnionCase (uci, _) ->
             Some <| sprintf "%s.%s" uci.DeclaringType.FullName uci.Name
         | _ -> None
         
-    let rec isCase = function
-        | Lambda (_, expr) | Let (_, _, expr) -> isCase expr
-        | NewTuple exprs -> 
-            let iucs = List.map isCase exprs
-            fun value -> List.exists ((|>) value) iucs
-        | NewUnionCase (uci, _) ->
-            let utr = FSharpValue.PreComputeUnionTagReader uci.DeclaringType
-            box >> utr >> (=) uci.Tag
-        | _ -> failwith "Expression is no union case."
+    let rec isOfCase = function
+        | NewUnionCase (case, _) ->
+            // Returns a function that check wether the tag of the argument matches 
+            // the tag of the union given in the expression.
+            let readTag = FSharpValue.PreComputeUnionTagReader case.DeclaringType
+            let comparator = (=) case.Tag
+            (fun x -> 
+                if FSharpType.IsUnion(x.GetType()) then
+                    x :> obj |> (readTag >> comparator)
+                else
+                    false)
+        | _ -> failwith "Expression is not a union case." 
         
     let expected = case |> caseName |> defaultArg <| "<The given type is not a union case and the matcher won't work.>"
-    let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> isCase case)
+    let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> isOfCase case)
     matcher

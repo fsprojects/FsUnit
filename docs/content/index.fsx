@@ -132,8 +132,16 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 [3;2;1] |> should be descending
 [3;1;2] |> should not' (be descending)
 
-myValue |> should be (ofCase<@ MyUnion.Case1 @>) // Currently, Xunit only
-myValue |> should be (ofCase<@ MyUnion.Case1, MyUnion.Case2 @>) // Currently, Xunit only
+(**
+The ofCase operator is currently only available in Xunit. It allows you to check the case of a union.
+Supplying a non-union type as expression will result in an exception whereas supplying it as value will always return false. Note that the actual value of the case is NOT checked.
+*)
+type TestUnion = First | Second of int | Third of string
+
+First |> should be (ofCase<@ First @>) 
+Second 5 |> should be (ofCase<@ Second 10 @>)
+First |> shoud not' (be ofCase<@ Second 5 @>)
+5 |> ofCase<@ Second 5 @> |> should be False
 
 (**
 
