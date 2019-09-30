@@ -6,6 +6,7 @@ open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
+open CustomConstraints
 
 //
 [<AutoOpen>]
@@ -91,3 +92,5 @@ module TopLevelOperators =
         if box x = null then NotConstraint(Null) else NotConstraint(x)
 
     let inRange min max = RangeConstraint(min, max)
+
+    let ofCase case = OfSameCaseConstraint(case)

@@ -219,12 +219,38 @@ let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min ma
                                                 unboxed.CompareTo(unbox max) <= 0)
 
 let ofCase (case: FSharp.Quotations.Expr) =
+    /// <summary>
+    /// Takes an expression and returns the name of the union cases that are the result of this expression.
+    /// Note, not all ways an expression may result in an union case are covered in this function.
+    /// </summary>
     let rec caseName = function
-        | NewUnionCase (uci, _) ->
-            Some <| sprintf "%s.%s" uci.DeclaringType.FullName uci.Name
-        | _ -> None
-        
+        | Lambda (_, expr) | Let (_, _, expr) -> caseName expr
+        | NewUnionCase (case, _) ->
+            Some case.Name
+        | NewTuple expressions ->
+            expressions 
+            |> List.map caseName |> List.choose id
+            |> (fun x -> System.String.Join(", ", x))
+            |> Some
+        | _ -> None 
+
+    /// <summary>
+    /// Checks wether the given value is of the same case of a union type as the 
+    /// case defined by the given expression.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// type TestUnion = First | Second of int | Third of string
+    /// let thisIsTrue = First |> isCase <@ First @>
+    /// let thisIsTrue = Second 5 |> isCase <@ Second @>
+    /// let thisIsTrua = Third "myString" |> isCase <@ Second, Third @>
+    /// </code>
+    /// </example>
+    /// <exception cref="System.Exception">If the expression is not an union case or does not result in an union case.</exception>
+    /// <exception cref="System.Exception">If argument to check is not an union case or does not result in an union case.</exception>
+    /// <remarks>Note, not all ways an expression may result in an union case are covered in this function.</remarks>
     let rec isOfCase = function
+        | Lambda (_, expr) | Let (_, _, expr) -> isOfCase expr
         | NewUnionCase (case, _) ->
             // Returns a function that check wether the tag of the argument matches 
             // the tag of the union given in the expression.
@@ -234,8 +260,13 @@ let ofCase (case: FSharp.Quotations.Expr) =
                 if FSharpType.IsUnion(x.GetType()) then
                     x :> obj |> (readTag >> comparator)
                 else
-                    false)
-        | _ -> failwith "Expression is not a union case." 
+                    failwith "Value (not expression) is not a union case.")
+        | NewTuple expressions ->
+            // a tuple may contain several union cases so we can simply 
+            // map this functions over all expressions
+            let mappedExpressions = expressions |> List.map isOfCase
+            (fun x -> mappedExpressions |> List.exists (fun expression -> x |> expression))
+        | _ -> failwith "Expression (not value) is not a union case." 
         
     let expected = case |> caseName |> defaultArg <| "<The given type is not a union case and the matcher won't work.>"
     let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> isOfCase case)
