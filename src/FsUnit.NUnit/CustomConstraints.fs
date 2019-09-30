@@ -39,7 +39,7 @@ module CustomConstraints =
                 (fun x -> mappedExpressions |> List.exists (fun expression -> x |> expression))
             | _ -> failwith "Expression (not value) is not a union case." 
 
-        member _.Expected = expected
+        member this.Expected = expected
 
         override this.ApplyTo<'TActual> (actual: 'TActual) : ConstraintResult =
             do this.Description <- defaultArg (caseName this.Expected) "<The method only works on union types!>" 
