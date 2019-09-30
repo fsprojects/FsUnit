@@ -13,11 +13,11 @@ type ``ofCase tests`` ()=
 
     [<Test>] member test.
      ``Given a (parameterless) union case of matching case returns true`` ()=
-        Assert.That(First, OfSameCaseConstraint(<@ First @>))
+        First |> should be (ofCase<@ First @>)
 
     [<Test>] member test.
      ``Given a (parameterized) union case of matching case returns true`` () =
-        Assert.That(Second 5, OfSameCaseConstraint(<@ Second 1 @>))
+        Second 5 |> should be (ofCase<@ Second 1 @>)
 
     [<Test>] member test.
      ``Given a union case of non-matching case fails the assertion`` () =
