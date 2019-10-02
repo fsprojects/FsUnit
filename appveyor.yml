@@ -2,7 +2,7 @@ os: Visual Studio 2017
 
 environment:
   matrix:
-    - CLI_VERSION: 2.2.301
+    - CLI_VERSION: 3.0.100
 
 init:
   - git config --global core.autocrlf input
