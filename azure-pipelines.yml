@@ -11,10 +11,12 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- task: DotNetCoreInstaller@0
+- task: UseDotNet@2
+  displayName: 'Install .net core 3.0'
   inputs:
-    packageType: 'sdk' # Options: runtime, sdk
+    packageType: sdk
     version: '3.0.100'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 - bash: ./build.sh
   condition: or( eq( variables['Agent.OS'], 'Darwin' ), eq( variables['Agent.OS'], 'Linux' ))
   displayName: 'build.sh'
