@@ -7,7 +7,6 @@ nuget SourceLink.Fake
 
 nuget FSharp.Core >= 3.1.2.5
 nuget NHamcrest
-nuget mbunit 3.4.14
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
 

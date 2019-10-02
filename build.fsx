@@ -3,9 +3,7 @@
 // --------------------------------------------------------------------------------------
 
 #I @"packages/FAKE/tools/"
-#I @"packages/mbunit/lib/net35/"
 #r "FakeLib.dll"
-#r "Fake.Gallio.dll"
 open Fake
 open Fake.Git
 open Fake.AssemblyInfoFile
@@ -99,7 +97,6 @@ Target "AssemblyInfo" (fun _ ->
 // src folder to support multiple project outputs
 Target "CopyBinaries" (fun _ ->
     !! "src/**/*.??proj"
-    |>  Seq.filter (fun f -> not <| f.Contains(".MbUnit") )
     |>  Seq.map (fun f -> ((System.IO.Path.GetDirectoryName f) @@ "bin/Release", "bin" @@ (System.IO.Path.GetFileNameWithoutExtension f)))
     |>  Seq.iter (fun (fromDir, toDir) -> CopyDir toDir fromDir (fun _ -> true))
 )
@@ -151,13 +148,6 @@ Target "NUnit" (fun _ ->
 
 Target "xUnit" (fun _ ->
     DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.Xunit.Test/"; ToolPath = dotnetExePath})
-)
-
-Target "MbUnit" (fun _ ->
-    !! "tests/**/bin/Release/*MbUnit.Test.dll"
-    |> Fake.Gallio.Run (fun p ->
-        { p with
-            RunTimeLimit = Some <| TimeSpan.FromMinutes 20. })
 )
 
 Target "MsTest" (fun _ ->
@@ -356,7 +346,6 @@ Target "All" DoNothing
 "Build" ==> "NUnit"  ==> "RunTests"
 //XUnit2 console test runner does not work on Mono https://github.com/xunit/xunit/issues/158
 "Build" ==> "xUnit"  ==> "RunTests"
-//"Build" ==> "MbUnit" //==> "RunTests"
 // MSTest is not supported on mono platform
 "Build" =?> ("MsTest", not isMono) ==> "RunTests"
 

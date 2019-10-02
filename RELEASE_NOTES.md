@@ -1,5 +1,6 @@
 ### 3.5.0 - Oct 2, 2019
 * Added `ofCase` matcher - https://github.com/fsprojects/FsUnit/pull/134
+* Removed MbUnit from source code
 
 ### 3.4.1 - Aug 18, 2019
 * xunit (2.4.1)

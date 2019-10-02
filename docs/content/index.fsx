@@ -10,7 +10,7 @@ What is FsUnit?
 ===============
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-FsUnit currently supports NUnit, xUnit, MbUnit, and MsTest (VS11 only).
+FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).
 
 The goals of FsUnit are:
 
@@ -21,7 +21,6 @@ NuGet packages are available for each of the supported testing frameworks:
 
 * [![NuGet Status](https://buildstats.info/nuget/FsUnit) - NUnit](https://www.nuget.org/packages/FsUnit/)
 * [![NuGet Status](https://buildstats.info/nuget/FsUnit.Xunit) - xUnit](https://www.nuget.org/packages/FsUnit.Xunit/)
-* [![NuGet Status](https://buildstats.info/nuget/FsUnit.MbUnit) - MbUnit](https://www.nuget.org/packages/FsUnit.MbUnit/)
 * [![NuGet Status](https://buildstats.info/nuget/Fs30Unit.MsTest) - MsTest](https://www.nuget.org/packages/Fs30Unit.MsTest/)
 
 
@@ -133,7 +132,7 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 [3;1;2] |> should not' (be descending)
 
 (**
-The ofCase operator is currently not available in MbUnit. It allows you to check the case of a union.
+The ofCase operator allows you to check the case of a union.
 Supplying an expression that will result in a non-union type as well as supplying a non-union type as value argument will result in an exception detailing which parameter is wrong. Note that the actual value of the case is NOT checked, e.g. using `<@ MyCase 5 @>` as expression and `(MyCase 10)` as parameter will succeed. It is possible to check for more than one case by using a tuple of union cases.
 *)
 type TestUnion = First | Second of int | Third of string
@@ -151,7 +150,7 @@ Visual Studio 11 Support
 ------------------------
 
 Visual Studio 11 support is available for all 4 of the targetted testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
-FsUnit for NUnit, FsUnit.MbUnit, and FsUnit.Xunit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
+FsUnit for NUnit and FsUnit.Xunit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
 in order to use these libraries in VS11. After installing one of these packages, add an `App.config` file to the project (if one doesn't already exist).
 Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
 Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to

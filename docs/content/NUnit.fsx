@@ -151,5 +151,5 @@ module ``BowlingGame A game of bowling`` =
         scoreBowls [1;4;4;5;6;4;5;5;10;0;1;7;3;6;4;10;2;8;6] |> should equal 133
 
 (**
-Note: NUnit can also be utilized without specifying a type as in the examples for MbUnit and xUnit
+Note: NUnit can also be utilized without specifying a type as in the examples for xUnit
 *)
