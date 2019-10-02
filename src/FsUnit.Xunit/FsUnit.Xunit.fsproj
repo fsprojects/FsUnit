@@ -9,6 +9,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="..\Common.fs">
+      <Link>Common.fs</Link>
+    </Compile>
     <Compile Include="CustomMatchers.fs" />
     <Compile Include="FsUnit.fs" />
     <None Include="paket.references" />
