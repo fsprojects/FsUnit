@@ -109,3 +109,5 @@ let ascending = CustomMatchers.ascending
 let descending = CustomMatchers.descending
 
 let inRange min max = CustomMatchers.inRange min max
+
+let ofCase case = CustomMatchers.ofCase case

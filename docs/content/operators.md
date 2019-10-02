@@ -37,3 +37,4 @@ Operators comparison across frameworks
 | `not'`                 | +     | +     | +      | +      |
 | `matchList`            |       | +     | +      | +      |
 | `inRange`              | +     | +     | +      |        |
+| `ofCase`               | +     | +     | +      |        |

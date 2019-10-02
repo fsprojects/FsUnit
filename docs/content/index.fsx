@@ -133,6 +133,19 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 [3;1;2] |> should not' (be descending)
 
 (**
+The ofCase operator is currently not available in MbUnit. It allows you to check the case of a union.
+Supplying an expression that will result in a non-union type as well as supplying a non-union type as value argument will result in an exception detailing which parameter is wrong. Note that the actual value of the case is NOT checked, e.g. using `<@ MyCase 5 @>` as expression and `(MyCase 10)` as parameter will succeed. It is possible to check for more than one case by using a tuple of union cases.
+*)
+type TestUnion = First | Second of int | Third of string
+
+First |> should be (ofCase<@ First @>) 
+First |> should be (ofCase<@ First, Second @>) // checks if on the cases matches the given case
+Second 5 |> should be (ofCase<@ Second 10 @>) // note, the actual value is not checked!
+First |> shoud not' (be ofCase<@ Second 5 @>)
+5 |> ofCase<@ Second 5 @> // will throw an exception
+Second 5 |> ofCase<@ int @> // will throw an exception
+
+(**
 
 Visual Studio 11 Support
 ------------------------

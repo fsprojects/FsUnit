@@ -215,3 +215,8 @@ let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min ma
                                                 let unboxed = (unbox actual :> IComparable)
                                                 unboxed.CompareTo(unbox min) >= 0 &&
                                                 unboxed.CompareTo(unbox max) <= 0)
+
+let ofCase (case: FSharp.Quotations.Expr) =
+    let expected = case |> Common.caseName |> defaultArg <| "<The given type is not a union case and the matcher won't work.>"
+    let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> Common.isOfCase case)
+    matcher

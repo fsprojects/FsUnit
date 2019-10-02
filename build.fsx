@@ -75,7 +75,7 @@ Target "AssemblyInfo" (fun _ ->
           Attribute.Version release.AssemblyVersion
           Attribute.FileVersion release.AssemblyVersion ]
 
-    let getProjectDetails projectPath =
+    let getProjectDetails (projectPath:string) =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
         ( projectPath,
           projectName,
@@ -128,7 +128,7 @@ Target "CleanDocs" (fun _ ->
 // Build library & test project
 
 let mutable dotnetExePath = "dotnet"
-let dotnetcliVersion = "2.2.301"
+let dotnetcliVersion = "3.0.100"
 
 Target "InstallDotNetCore" (fun _ ->
     dotnetExePath <- DotNetCli.InstallDotNetSDK dotnetcliVersion
