@@ -1,9 +1,6 @@
 @echo off
 cls
 
-.paket\paket.exe restore
-if errorlevel 1 (
-  exit /b %errorlevel%
-)
-
-packages\FAKE\tools\FAKE.exe build.fsx %*
+dotnet tool restore
+dotnet paket restore
+dotnet fake run build.fsx %*

@@ -1,5 +1,4 @@
-group netcore2
-  FSharp.Core
-  NETStandard.Library
-  NHamcrest
-  MSTest.TestFramework
+FSharp.Core
+NETStandard.Library
+NHamcrest
+MSTest.TestFramework

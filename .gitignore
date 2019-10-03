@@ -101,6 +101,7 @@ release.cmd
 release.sh
 localpackages/
 paket-files
+.paket/
 *.orig
 docs/content/license.md
 docs/content/release-notes.md
