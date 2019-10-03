@@ -168,11 +168,15 @@ Target.create "RunTests" ignore
 // Build a NuGet package
 
 Target.create "NuGet" (fun _ ->
-    Paket.pack(fun p ->
-        { p with
-            OutputPath = "bin"
-            Version = release.NugetVersion
-            ReleaseNotes = String.toLines release.Notes})
+    // Paket.pack(fun p ->
+    //     { p with
+    //         OutputPath = "bin"
+    //         Version = release.NugetVersion
+    //         ReleaseNotes = String.toLines release.Notes})
+    DotNet.exec id "paket" 
+        (sprintf "pack bin --version %s --release-notes \"%s\"" 
+            release.NugetVersion  (String.toLines release.Notes) )
+    |> ignore
 )
 
 Target.create "PublishNuget" (fun _ ->
@@ -356,4 +360,4 @@ Target.create "All" ignore
 // "ReleaseDocs"
 //   ==> "Release"
 
-Target.runOrDefault "All"
+Target.runOrDefault "BuildPackage"
