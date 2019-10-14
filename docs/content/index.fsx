@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FsUnit.NUnit/"
+#I "../../bin/FsUnit.NUnit/net46/"
 #r "NUnit.Framework.dll"
 #r "FsUnit.NUnit.dll"
 
@@ -140,9 +140,9 @@ type TestUnion = First | Second of int | Third of string
 First |> should be (ofCase<@ First @>) 
 First |> should be (ofCase<@ First, Second @>) // checks if on the cases matches the given case
 Second 5 |> should be (ofCase<@ Second 10 @>) // note, the actual value is not checked!
-First |> shoud not' (be ofCase<@ Second 5 @>)
-5 |> ofCase<@ Second 5 @> // will throw an exception
-Second 5 |> ofCase<@ int @> // will throw an exception
+First |> should not' (be ofCase<@ Second 5 @>)
+5 |> should be (ofCase<@ Second 5 @>) // will throw an exception
+Second 5 |> should be (ofCase<@ int @>) // will throw an exception
 
 (**
 

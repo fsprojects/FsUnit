@@ -16,3 +16,13 @@ nuget xunit.runner.visualstudio
 // for MsTest
 nuget MSTest.TestFramework
 nuget MSTest.TestAdapter
+
+group docs
+    source https://nuget.org/api/v2
+    frameworks: netstandard2.0
+    generate_load_scripts: true
+
+    nuget FSharp.Core
+    nuget FSharp.Literate 
+    nuget FSharp.Compiler.Tools
+    nuget Giraffe
