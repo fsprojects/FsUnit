@@ -211,15 +211,14 @@ let processFile outdir path =
     |> write outfile
 
 
-let fileName = System.Environment.GetEnvironmentVariable("CHANGED_FILE")
-
-if System.IO.File.Exists fileName
-then
-    printfn "!!! %s" fileName
-    if fileName.StartsWith(Path.files) then printfn "\tcopy" // TODO:
-    elif fileName.StartsWith(Path.content) then processFile Path.output fileName
-    else printfn "\tignore"
-
-else
+let generateAll() =
     Directory.copyRecursive Path.files Path.output
     IO.Directory.EnumerateFiles Path.content |> Seq.iter (processFile Path.output)
+
+let fileName = System.Environment.GetEnvironmentVariable("CHANGED_FILE")
+if System.IO.File.Exists fileName
+then
+    if fileName.StartsWith(Path.files) then Directory.copyRecursive Path.files Path.output
+    elif fileName.StartsWith(Path.content) then processFile Path.output fileName
+    else generateAll()
+else generateAll() 
