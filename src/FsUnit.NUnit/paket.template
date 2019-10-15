@@ -28,9 +28,9 @@ files
 
 dependencies
     framework: netstandard20
-        NETStandard.Library >= LOCKEDVERSION-netcore2
-        NUnit ~> LOCKEDVERSION-netcore2
-        FSharp.Core >= LOCKEDVERSION-netcore2
+        NETStandard.Library >= LOCKEDVERSION
+        NUnit ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION
     framework: net46
-        NUnit ~> LOCKEDVERSION-netcore2
-        FSharp.Core >= LOCKEDVERSION-netcore2
+        NUnit ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION

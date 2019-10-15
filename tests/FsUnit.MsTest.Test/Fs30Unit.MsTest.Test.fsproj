@@ -36,7 +36,6 @@
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="NaNTests.fs" />
     <Compile Include="beUniqueTests.fs" />
-    <None Include="App.config" />
     <None Include="paket.references" />
     <None Include="MSTest.runsettings" />
   </ItemGroup>

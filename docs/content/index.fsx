@@ -1,9 +1,16 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FsUnit.NUnit/"
+#I "../../bin/FsUnit.NUnit/net46/"
 #r "NUnit.Framework.dll"
 #r "FsUnit.NUnit.dll"
+
+open FsUnit
+
+let anArray = []
+let aCollection = System.Collections.Generic.List<int>()
+let anObj = obj()
+let otherObj = obj()
 
 (**
 What is FsUnit?
@@ -114,8 +121,6 @@ anObj |> should not' (be sameAs otherObj)
 0.0 |> should be ofExactType<float>
 1 |> should not' (be ofExactType<obj>)
 
-Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
-
 [] |> should be Empty
 [1] |> should not' (be Empty)
 
@@ -124,7 +129,7 @@ Choice<int, string>.Choice1Of2(42) |> should be (choice 1)
 
 2.0 |> should not' (be NaN)
 
-[1;2;3] |> should be unique // Currently, NUnit only and requires version 1.0.1.0+
+[1;2;3] |> should be unique
 
 [1;2;3] |> should be ascending
 [1;3;2] |> should not' (be ascending)
@@ -140,21 +145,11 @@ type TestUnion = First | Second of int | Third of string
 First |> should be (ofCase<@ First @>) 
 First |> should be (ofCase<@ First, Second @>) // checks if on the cases matches the given case
 Second 5 |> should be (ofCase<@ Second 10 @>) // note, the actual value is not checked!
-First |> shoud not' (be ofCase<@ Second 5 @>)
-5 |> ofCase<@ Second 5 @> // will throw an exception
-Second 5 |> ofCase<@ int @> // will throw an exception
+First |> should not' (be ofCase<@ Second 5 @>)
+5 |> should be (ofCase<@ Second 5 @>) // will throw an exception
+Second 5 |> should be (ofCase<@ int @>) // will throw an exception
 
 (**
-
-Visual Studio 11 Support
-------------------------
-
-Visual Studio 11 support is available for all 4 of the targetted testing frameworks. FsUnit.MsTest is supported only in VS11 and no additional steps are required to use it.
-FsUnit for NUnit and FsUnit.Xunit target F# 2.0 as well as F# 3.0. Because of this, a few additional steps are required
-in order to use these libraries in VS11. After installing one of these packages, add an `App.config` file to the project (if one doesn't already exist).
-Build the project and then run the command "Add-BindingRedirect projectname" (where projectname is the name of your test project) in the NuGet
-Package Manager Console. This command will update the `App.config` to include binding redirects from previous version of `FSharp.Core` to
-FSharp.Core version 4.3.0.0. More information about this command can be found in the [NuGet documentation](http://docs.nuget.org/docs/reference/package-manager-console-powershell-reference).
 
 Test Projects Targeting Higher F# Runtimes
 ------------------------------------------

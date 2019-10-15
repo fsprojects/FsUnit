@@ -28,11 +28,11 @@ files
 
 dependencies
     framework: netstandard20
-        NETStandard.Library >= LOCKEDVERSION-netcore2
-        MSTest.TestFramework ~> LOCKEDVERSION-netcore2
-        NHamcrest ~> LOCKEDVERSION-netcore2
-        FSharp.Core >= LOCKEDVERSION-netcore2
+        NETStandard.Library >= LOCKEDVERSION
+        MSTest.TestFramework ~> LOCKEDVERSION
+        NHamcrest ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION
     framework: net46
-        MSTest.TestFramework ~> LOCKEDVERSION-netcore2
-        NHamcrest ~> LOCKEDVERSION-netcore2
-        FSharp.Core >= LOCKEDVERSION-netcore2
+        MSTest.TestFramework ~> LOCKEDVERSION
+        NHamcrest ~> LOCKEDVERSION
+        FSharp.Core >= LOCKEDVERSION

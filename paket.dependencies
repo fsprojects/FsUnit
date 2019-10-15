@@ -1,31 +1,28 @@
 source https://nuget.org/api/v2
-framework: >= net35
+framework: netstandard2.0, net46, netcoreapp3.0
 
-nuget FSharp.Formatting
-nuget FAKE ~> 4.0
-nuget SourceLink.Fake
+nuget FSharp.Core ~> 4.2.3
+nuget NETStandard.Library ~> 2.0.0
 
-nuget FSharp.Core >= 3.1.2.5
+nuget Microsoft.NET.Test.Sdk
+// For NUnit
+nuget NUnit
+nuget NUnit3TestAdapter
+nuget System.Collections.NonGeneric
+// For xUnit
 nuget NHamcrest
+nuget xunit
+nuget xunit.runner.visualstudio
+// for MsTest
+nuget MSTest.TestFramework
+nuget MSTest.TestAdapter
 
-github fsharp/FAKE modules/Octokit/Octokit.fsx
+group docs
+    source https://nuget.org/api/v2
+    frameworks: netstandard2.0
+    generate_load_scripts: true
 
-group netcore2
-    source http://nuget.org/api/v2
-    framework: netstandard2.0, net46, netcoreapp3.0
-
-    nuget FSharp.Core ~> 4.2.3
-    nuget NETStandard.Library ~> 2.0.0
-
-    nuget Microsoft.NET.Test.Sdk
-    // For NUnit
-    nuget NUnit
-    nuget NUnit3TestAdapter
-    nuget System.Collections.NonGeneric
-    // For xUnit
-    nuget NHamcrest
-    nuget xunit
-    nuget xunit.runner.visualstudio
-    // for MsTest
-    nuget MSTest.TestFramework
-    nuget MSTest.TestAdapter
+    nuget FSharp.Core
+    nuget FSharp.Literate 
+    nuget FSharp.Compiler.Tools
+    nuget Giraffe

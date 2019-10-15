@@ -31,7 +31,7 @@ Operators comparison across frameworks
 | `haveSubstring`        | +     | +     | +      |
 | `ofExactType`          | +     | +     | +      |
 | `instanceOfType`       | +     | +     | +      |
-| `choice`               | +     | +     | +      |
+| `choice`               |       | +     | +      |
 | `ascending`            | +     | +     | +      |
 | `descending`           | +     | +     | +      |
 | `not'`                 | +     | +     | +      |
