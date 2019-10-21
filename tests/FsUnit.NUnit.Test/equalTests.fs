@@ -30,7 +30,7 @@ type ``equal Tests`` ()=
         [1;2;3] |> should not' (equal [3;2;1])
 
     [<Test>] member test.
-     ``collection type should equivalent collection `` ()=
+     ``collection type should equivalent collection`` ()=
         [1..10] |> should equivalent [1..10]
 
     [<Test>] member test.
