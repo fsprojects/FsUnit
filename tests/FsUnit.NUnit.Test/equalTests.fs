@@ -27,7 +27,7 @@ type ``equal Tests`` ()=
 
     [<Test>] member test.
      ``collection type should not equal equivalent if is not in same order`` ()=
-        [1;2;3] |> should  not' (equal [3;2;1])
+        [1;2;3] |> should not' (equal [3;2;1])
 
     [<Test>] member test.
      ``collection type should equivalent collection `` ()=
@@ -35,7 +35,7 @@ type ``equal Tests`` ()=
 
     [<Test>] member test.
      ``collection type should equal equivalent independent of order`` ()=
-        [1;2;3] |> should  equivalent [3;2;1]
+        [1;2;3] |> should equivalent [3;2;1]
 
     [<Test>] member test.
      ``value type should fail to equal nonequivalent value`` ()=
