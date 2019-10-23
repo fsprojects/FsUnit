@@ -15,7 +15,7 @@ steps:
   displayName: 'Install .net core 3.0'
   inputs:
     packageType: sdk
-    version: '3.0.100'
+    useGlobalJson: true
     installationPath: $(Agent.ToolsDirectory)/dotnet
 - bash: ./build.sh
   condition: or( eq( variables['Agent.OS'], 'Darwin' ), eq( variables['Agent.OS'], 'Linux' ))
