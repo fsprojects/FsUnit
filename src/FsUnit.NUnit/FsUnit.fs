@@ -94,3 +94,5 @@ module TopLevelOperators =
     let inRange min max = RangeConstraint(min, max)
 
     let ofCase case = OfSameCaseConstraint(case)
+
+    let supersetOf x = CollectionSupersetConstraint(x)
