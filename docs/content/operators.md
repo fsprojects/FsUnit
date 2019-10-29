@@ -38,3 +38,4 @@ Operators comparison across frameworks
 | `matchList`            |       | +     | +      |
 | `inRange`              | +     | +     | +      |
 | `ofCase`               | +     | +     | +      |
+| `supersetOf`           | +     | +     | +      |
