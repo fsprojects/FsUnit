@@ -1,3 +1,6 @@
+### 3.6.0 - Oct 30, 2019
+* Added `supersetOf` operator - https://github.com/fsprojects/FsUnit/pull/141
+
 ### 3.5.0 - Oct 2, 2019
 * Added `ofCase` matcher - https://github.com/fsprojects/FsUnit/pull/134
 * Removed MbUnit from source code
