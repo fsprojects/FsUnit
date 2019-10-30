@@ -139,6 +139,9 @@ FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).</p>
 <span class="l">39: </span>
 <span class="l">40: </span>
 <span class="l">41: </span>
+<span class="l">42: </span>
+<span class="l">43: </span>
+<span class="l">44: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">true</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">be</span> <span class="id">True</span>
 <span class="k">false</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">not&#39;</span> <span class="pn">(</span><span class="id">be</span> <span class="id">True</span><span class="pn">)</span>
@@ -181,6 +184,9 @@ FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).</p>
 <span class="pn">[</span><span class="n">1</span><span class="pn">;</span><span class="n">3</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">not&#39;</span> <span class="pn">(</span><span class="id">be</span> <span class="id">ascending</span><span class="pn">)</span>
 <span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">be</span> <span class="id">descending</span>
 <span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">not&#39;</span> <span class="pn">(</span><span class="id">be</span> <span class="id">descending</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">be</span> <span class="pn">(</span><span class="id">supersetOf</span> <span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">6</span><span class="pn">;</span><span class="n">9</span><span class="pn">]</span><span class="pn">)</span>
+<span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">not&#39;</span> <span class="pn">(</span><span class="id">be</span> <span class="id">supersetOf</span> <span class="pn">[</span><span class="n">5</span><span class="pn">;</span><span class="n">11</span><span class="pn">;</span><span class="n">21</span><span class="pn">]</span><span class="pn">)</span>
 </code></pre></td>
 </tr>
 </table>
