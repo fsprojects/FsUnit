@@ -136,6 +136,9 @@ anObj |> should not' (be sameAs otherObj)
 [3;2;1] |> should be descending
 [3;1;2] |> should not' (be descending)
 
+[1..10] |> should be (supersetOf [3;6;9])
+[1..10] |> should not' (be supersetOf [5;11;21])
+
 (**
 The ofCase operator allows you to check the case of a union.
 Supplying an expression that will result in a non-union type as well as supplying a non-union type as value argument will result in an exception detailing which parameter is wrong. Note that the actual value of the case is NOT checked, e.g. using `<@ MyCase 5 @>` as expression and `(MyCase 10)` as parameter will succeed. It is possible to check for more than one case by using a tuple of union cases.
