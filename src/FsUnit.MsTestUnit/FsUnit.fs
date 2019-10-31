@@ -113,3 +113,5 @@ let inRange min max = CustomMatchers.inRange min max
 let ofCase case = CustomMatchers.ofCase case
 
 let supersetOf expected = CustomMatchers.supersetOf expected
+
+let subsetOf expected = CustomMatchers.subsetOf expected

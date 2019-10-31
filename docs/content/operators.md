@@ -39,3 +39,4 @@ Operators comparison across frameworks
 | `inRange`              | +     | +     | +      |
 | `ofCase`               | +     | +     | +      |
 | `supersetOf`           | +     | +     | +      |
+| `subsetOf`             | +     | +     | +      |
