@@ -34,6 +34,6 @@ type ``be subsetOf tests`` ()=
         [1..10] |> should be (subsetOf [1..10])
 
     [<TestMethod>] member test.
-     ``should fail on '1 to 10 should not be subset of 1 to 10'`` ()=
+     ``should fail on '1 to 11 should be subset of 1 to 10'`` ()=
         shouldFail (fun () -> 
-            [1..10] |> should not' (be subsetOf [1..10]))
+            [1..11] |> should be (subsetOf [1..10]))
