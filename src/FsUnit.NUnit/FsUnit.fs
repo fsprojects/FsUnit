@@ -96,3 +96,5 @@ module TopLevelOperators =
     let ofCase case = OfSameCaseConstraint(case)
 
     let supersetOf x = CollectionSupersetConstraint(x)
+
+    let subsetOf x = CollectionSubsetConstraint(x)

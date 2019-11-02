@@ -105,3 +105,5 @@ let descending = CustomMatchers.descending
 let inRange min max = CustomMatchers.inRange min max
 
 let supersetOf expected = CustomMatchers.supersetOf expected
+
+let subsetOf expected = CustomMatchers.subsetOf expected

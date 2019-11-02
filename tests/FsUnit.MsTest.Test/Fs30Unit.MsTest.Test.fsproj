@@ -21,7 +21,8 @@
     <Compile Include="beNullTests.fs" />
     <Compile Include="beOfExactTypeTests.fs" />
     <Compile Include="beSameAsTests.fs" />
-    <Compile Include="beSupersetOf.fs" />
+    <Compile Include="beSupersetOfTests.fs" />
+    <Compile Include="beSubsetOfTests.fs" />
     <Compile Include="beTrueTests.fs" />
     <Compile Include="containTests.fs" />
     <Compile Include="equalTests.fs" />

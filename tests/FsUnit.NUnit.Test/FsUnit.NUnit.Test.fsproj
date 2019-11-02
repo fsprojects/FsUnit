@@ -13,7 +13,8 @@
     <Compile Include="beEmptyStringTests.fs" />
     <Compile Include="beInRangeTests.fs" />
     <Compile Include="beNullOrEmptyStringTests.fs" />
-    <Compile Include="beSupersetOf.fs" />
+    <Compile Include="beSupersetOfTests.fs" />
+    <Compile Include="beSubsetOfTests.fs" />
     <Compile Include="beTrueTests.fs" />
     <Compile Include="beFalseTests.fs" />
     <Compile Include="beSameAsTests.fs" />

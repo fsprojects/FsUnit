@@ -33,6 +33,6 @@ type ``be supersetOf tests`` ()=
         [1..10] |> should be (supersetOf [1..10])
 
     [<Fact>] member test.
-     ``should fail on '1 to 10 should not be superset of 1 to 10'`` ()=
+     ``should fail on '1 to 10 should be superset of 1 to 11'`` ()=
         shouldFail (fun () -> 
-            [1..10] |> should not' (be supersetOf [1..10]))
+            [1..10] |> should be (supersetOf [1..11]))

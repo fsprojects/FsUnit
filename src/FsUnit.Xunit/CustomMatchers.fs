@@ -135,6 +135,9 @@ let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()),
 let supersetOf x = CustomMatcher<obj>(sprintf "Is superset of %A" x, 
                                 fun c -> Set.isSuperset (Set (unbox c)) (Set x))
 
+let subsetOf x = CustomMatcher<obj>(sprintf "Is subset of %A" x, 
+                                fun c -> Set.isSubset (Set (unbox c)) (Set x))
+
 let matchList xs = CustomMatcher<obj>(sprintf "All elements from list %s" (xs.ToString()),
                           fun ys -> match ys with
                                     | :? list<_> as ys' -> List.sort xs = List.sort ys'
