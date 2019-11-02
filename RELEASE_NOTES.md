@@ -1,3 +1,6 @@
+### 3.7.0 - Nov 2, 2019
+* Added `subsetOf` operator - https://github.com/fsprojects/FsUnit/pull/144
+
 ### 3.6.0 - Oct 30, 2019
 * Added `supersetOf` operator - https://github.com/fsprojects/FsUnit/pull/141
 
