@@ -139,8 +139,8 @@ anObj |> should not' (be sameAs otherObj)
 [1..10] |> should be (supersetOf [3;6;9])
 [1..10] |> should not' (be supersetOf [5;11;21])
 
-[3;6;9] |> should be (supersetOf [1..10])
-[5;11;21] |> should not' (be supersetOf [1..10])
+[3;6;9] |> should be (subsetOf [1..10])
+[5;11;21] |> should not' (be subsetOf [1..10])
 
 (**
 The ofCase operator allows you to check the case of a union.
