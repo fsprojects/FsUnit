@@ -25,6 +25,35 @@ type ``equal Tests`` ()=
         'f' |> should not' (equal 'F')
 
     [<TestMethod>] member test.
+     ``collection type should equal collection`` ()=
+        [1..10] |> should equal [1..10]
+        
+    [<TestMethod>] member test.
+     ``collection type should not equal equivalent if is not in same order`` ()=
+        [1;2;3] |> should not' (equal [3;2;1])
+                
+    [<TestMethod>] member test.
+     ``list should equivalent collection`` ()=
+        [1..10] |> should equivalent [1..10]
+        
+    [<TestMethod>] member test.
+     ``list should equal equivalent independent of order`` ()=
+        [1;2;3] |> should equivalent [3;2;1]
+
+    [<TestMethod>] member test.
+     ``sequence should equal equivalent independent of order`` ()=
+        {1..10} |> should equivalent {10..-1..1}
+
+    [<TestMethod>] member test.
+     ``collection should fail on '1 to 10 should not equivalent of 1 to 10'`` ()=
+        shouldFail (fun () -> 
+            [1..10] |> should not' (equivalent [1..10]))
+
+    [<TestMethod>] member test.
+     ``array should equal equivalent independent of order`` ()=
+        [|1;4;8|] |> should equivalent [|4;8;1|]
+
+    [<TestMethod>] member test.
      ``value type should not equal nonequivalent value`` ()=
         1 |> should not' (equal 2)
 

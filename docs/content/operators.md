@@ -13,6 +13,7 @@ Operators comparison across frameworks
 | `unique`               | +     | +     | +      |
 | `should`               | +     | +     | +      |
 | `equal`                | +     | +     | +      |
+| `equivalent`           | +     |       | +      |
 | `equalWithin`          | +     | +     | +      |
 | `contain`              | +     | +     | +      |
 | `haveLength`           | +     | +     | +      |

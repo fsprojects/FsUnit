@@ -8,6 +8,16 @@ open System.Reflection
 
 let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
+let equivalent f x = CustomMatcher<obj>(sprintf "Equivalent to %A" x, fun c -> 
+                                                                try 
+                                                                    let toCollection o = o |> Seq.cast |> Seq.toArray :> ICollection
+                                                                    match c with
+                                                                        | :? ICollection as i -> f (toCollection x) i
+                                                                        | :? System.Collections.IEnumerable as e -> f (toCollection x) (toCollection e)
+                                                                    true
+                                                                with
+                                                                | ex -> raise ex)
+
 //TODO: Look into a better way of doing this.
 let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()),
                                                      fun a -> let actualParsed, actual = Double.TryParse(string a, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))

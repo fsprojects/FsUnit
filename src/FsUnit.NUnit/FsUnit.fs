@@ -47,6 +47,8 @@ module TopLevelOperators =
 
     let equal x = EqualConstraint(x)
 
+    let equivalent x = CollectionEquivalentConstraint(x)
+
     let equalWithin tolerance x = equal(x).Within tolerance
 
     let contain x = ContainsConstraint(x)
