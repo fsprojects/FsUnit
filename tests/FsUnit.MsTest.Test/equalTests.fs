@@ -54,7 +54,7 @@ type ``equal Tests`` ()=
         [|1;4;8|] |> should equivalent [|4;8;1|]
 
     [<TestMethod>] member test.
-     ``equivalent should fail on ''`` ()=
+     ``equivalent should fail on '[1..10] |> should equivalent []'`` ()=
         shouldFail(fun () -> [1..10] |> should equivalent [])
 
     [<TestMethod>] member test.
