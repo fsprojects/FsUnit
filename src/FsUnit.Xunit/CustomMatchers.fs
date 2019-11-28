@@ -16,7 +16,7 @@ let equivalent f x = CustomMatcher<obj>(sprintf "Equivalent to %A" x, fun c ->
                                                                         | :? System.Collections.IEnumerable as e -> f (toCollection x) (toCollection e)
                                                                     true
                                                                 with
-                                                                | ex -> raise ex)
+                                                                | _ -> false)
 
 //TODO: Look into a better way of doing this.
 let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()),
