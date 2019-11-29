@@ -32,6 +32,15 @@ FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).</p>
 </code></pre></td>
 </tr>
 </table>
+<p>One collection is equivalent or is not equivalent to another (order doesn't matter):</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">[</span><span class="n">2</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">equivalent</span> <span class="pn">[</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span>
+<span class="pn">[</span><span class="n">2</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">]</span> <span class="o">|&gt;</span> <span class="id">should</span> <span class="id">not&#39;</span> <span class="pn">(</span><span class="id">equivalent</span> <span class="pn">[</span><span class="n">4</span><span class="pn">;</span><span class="n">8</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span><span class="pn">)</span>
+</code></pre></td>
+</tr>
+</table>
 <p>One numeric object equals or does not equal another, with a specified tolerance:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
