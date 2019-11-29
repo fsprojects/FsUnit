@@ -1,3 +1,6 @@
+### 3.8.0 - Nov 29, 2019
+* Added `equivalent` assertion for NUnit and MsTest - https://github.com/fsprojects/FsUnit/pull/145
+
 ### 3.7.0 - Nov 2, 2019
 * Added `subsetOf` operator - https://github.com/fsprojects/FsUnit/pull/144
 
