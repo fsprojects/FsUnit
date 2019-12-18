@@ -45,6 +45,7 @@
     <Compile Include="typed.shouldFailTests.fs" />
     <Compile Include="typed.haveLengthTests.fs" />
     <Compile Include="typed.shouldContainText.fs" />
+    <Compile Include="genericAssertTests.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>

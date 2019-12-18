@@ -1,4 +1,7 @@
 ﻿namespace FsUnit.Typed.Test
+
+open System.Collections.Immutable
+
 open NUnit.Framework
 open FsUnitTyped
 
@@ -16,6 +19,9 @@ type NeverEqual() =
 type ``shouldEqual Tests`` ()=
     let anObj = new obj()
     let otherObj = new obj()
+    let anImmutableArray = ImmutableArray.Create(1,2,3)
+    let equivalentImmutableArray = ImmutableArray.Create(1,2,3)
+    let otherImmutableArray = ImmutableArray.Create(1,2,4)
 
     [<Test>] member test.
      ``value type should equal equivalent value`` ()=
@@ -81,3 +87,12 @@ type ``shouldEqual Tests`` ()=
     [<Test>] member test.
      ``List with elements should not match empty list`` () =
         [1] |> shouldNotEqual []
+
+    [<Test>] member test.
+     ``structural value type should equal equivalent value`` () =
+        anImmutableArray |> shouldEqual equivalentImmutableArray
+
+    [<Test>] member test.
+     ``structural value type should not equal non-equivalent value`` () =
+        anImmutableArray |> shouldNotEqual otherImmutableArray
+

@@ -1,4 +1,5 @@
 ﻿namespace FsUnit.Test
+open System.Collections.Immutable
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 open NHamcrest.Core
@@ -15,6 +16,9 @@ type NeverEqual() =
 type ``equal Tests`` ()=
     let anObj = new obj()
     let otherObj = new obj()
+    let anImmutableArray = ImmutableArray.Create(1,2,3)
+    let equivalentImmutableArray = ImmutableArray.Create(1,2,3)
+    let otherImmutableArray = ImmutableArray.Create(1,2,4)
 
     [<TestMethod>] member test.
      ``value type should equal equivalent value`` ()=
@@ -27,15 +31,15 @@ type ``equal Tests`` ()=
     [<TestMethod>] member test.
      ``collection type should equal collection`` ()=
         [1..10] |> should equal [1..10]
-        
+
     [<TestMethod>] member test.
      ``collection type should not equal equivalent if is not in same order`` ()=
         [1;2;3] |> should not' (equal [3;2;1])
-                
+
     [<TestMethod>] member test.
      ``list should equivalent collection`` ()=
         [1..10] |> should equivalent [1..10]
-        
+
     [<TestMethod>] member test.
      ``list should equal equivalent independent of order`` ()=
         [1;2;3] |> should equivalent [3;2;1]
@@ -46,7 +50,7 @@ type ``equal Tests`` ()=
 
     [<TestMethod>] member test.
      ``collection should fail on '1 to 10 should not equivalent of 1 to 10'`` ()=
-        shouldFail (fun () -> 
+        shouldFail (fun () ->
             [1..10] |> should not' (equivalent [1..10]))
 
     [<TestMethod>] member test.
@@ -92,4 +96,12 @@ type ``equal Tests`` ()=
     [<TestMethod>] member test.
      ``None should equal None`` ()=
         None |> should equal None
+
+    [<TestMethod>] member test.
+     ``structural value type should equal equivalent value`` () =
+        anImmutableArray |> should equal equivalentImmutableArray
+
+    [<TestMethod>] member test.
+     ``structural value type should not equal non-equivalent value`` () =
+        anImmutableArray |> should not' (equal otherImmutableArray)
 
