@@ -1,4 +1,4 @@
-[![Build Status](https://sergeytihon.visualstudio.com/FsUnit/_apis/build/status/fsprojects.FsUnit?branchName=master)](https://sergeytihon.visualstudio.com/FsUnit/_build/latest?definitionId=3&branchName=master)
+[![Build Status](https://github.com/fsprojects/FsUnit/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/FsUnit/actions?query=branch%3Amaster)
 
 # FsUnit
 
