@@ -1,3 +1,6 @@
+### 3.8.1 - Apr 2, 2020
+* MSTest.TestFramework (2.1.1)
+
 ### 3.8.0 - Nov 29, 2019
 * Added `equivalent` assertion for NUnit and MsTest - https://github.com/fsprojects/FsUnit/pull/145
 
