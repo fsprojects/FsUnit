@@ -48,6 +48,14 @@ One object equals or does not equal another:
 1 |> should not' (equal 2)
 
 (**
+One collection is equivalent or is not equivalent to another (order doesn't matter):
+*)
+
+[2;4;6] |> should equivalent [4;6;2]
+[2;4;6] |> should not' (equivalent [4;8;2])
+
+
+(**
 One numeric object equals or does not equal another, with a specified tolerance:
 *)
 10.1 |> should (equalWithin 0.1) 10.11

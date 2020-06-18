@@ -1,3 +1,12 @@
+### 3.8.1 - Apr 2, 2020
+* MSTest.TestFramework (2.1.1)
+
+### 3.8.0 - Nov 29, 2019
+* Added `equivalent` assertion for NUnit and MsTest - https://github.com/fsprojects/FsUnit/pull/145
+
+### 3.7.0 - Nov 2, 2019
+* Added `subsetOf` operator - https://github.com/fsprojects/FsUnit/pull/144
+
 ### 3.6.0 - Oct 30, 2019
 * Added `supersetOf` operator - https://github.com/fsprojects/FsUnit/pull/141
 
