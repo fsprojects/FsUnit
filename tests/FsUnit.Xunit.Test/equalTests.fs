@@ -30,6 +30,14 @@ type ``equal Tests`` ()=
     [<Fact>] member test.
      ``value type should fail to not equal equivalent value`` ()=
         1 |> should equal 1
+        
+    [<Fact>] member test.
+     ``collection type should equal collection`` ()=
+        [1..10] |> should equal [1..10]
+
+    [<Fact>] member test.
+     ``collection type should not equal equivalent if is not in same order`` ()=
+        [1;2;3] |> should not' (equal [3;2;1])
 
     [<Fact>] member test.
      ``reference type should equal itself`` ()=

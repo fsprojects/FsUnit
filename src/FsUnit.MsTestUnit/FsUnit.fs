@@ -4,6 +4,7 @@ open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open NHamcrest
 open NHamcrest.Core
+open System.Collections
 
 let inline private assertThat(actual, matcher:IMatcher<'a>) =
     if not (matcher.Matches(actual)) then
@@ -45,6 +46,9 @@ let inline shouldFail (f:unit->unit) =
 
 
 let equal expected = CustomMatchers.equal expected
+
+let equivalent expected = 
+    CustomMatchers.equivalent (fun e a -> CollectionAssert.AreEquivalent(e, a)) expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
 
