@@ -92,4 +92,11 @@ type ``equal Tests`` ()=
     [<TestMethod>] member test.
      ``None should equal None`` ()=
         None |> should equal None
+        
+    [<TestMethod>] member test.
+     ``Ok "foo" should fail on equal Ok "bar" but message should be equal`` ()=
+        try
+            Ok "foo" |> should equal (Ok "bar")
+        with
+        | ex -> ex.Message |> should equal "Equals Ok \"bar\" was Ok \"foo\""
 

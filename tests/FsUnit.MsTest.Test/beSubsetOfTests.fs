@@ -18,7 +18,7 @@ type ``be subsetOf tests`` ()=
         {4..8} |> should be (subsetOf {1..10})
         
     [<TestMethod>] member test.
-     ``1 to 10 should be subset of 4. 1 and 7`` ()=
+     ``1 to 10 should be subset of 4, 1 and 7`` ()=
         [|1..10|] |> should be (supersetOf [|4;1;7|])
 
     [<TestMethod>] member test.
@@ -37,3 +37,10 @@ type ``be subsetOf tests`` ()=
      ``should fail on '1 to 11 should be subset of 1 to 10'`` ()=
         shouldFail (fun () -> 
             [1..11] |> should be (subsetOf [1..10]))
+
+    [<TestMethod>] member test.
+     ``11 should not be subset of 1 to 10 but message should be equal`` ()=
+        try
+            [11] |> should be (subsetOf [1..10])
+        with
+        | ex -> ex.Message |> should equal "Is subset of [1; 2; 3; 4; 5; 6; 7; 8; 9; 10] was [11]"

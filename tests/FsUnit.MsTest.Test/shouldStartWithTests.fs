@@ -17,3 +17,10 @@ type ``should startWith tests`` ()=
      ``ships should not start with ss`` ()=
         "ships" |> should not' (startWith "ss")
 
+    [<TestMethod>] member test.
+     ``ships should not start with ss but message should be equal`` ()=
+        try
+            "ships" |> should startWith "ss"
+        with
+        | ex -> ex.Message |> should equal "ss was \"ships\""
+

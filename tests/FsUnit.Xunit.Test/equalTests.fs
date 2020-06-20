@@ -82,3 +82,10 @@ type ``equal Tests`` ()=
     [<Fact>] member test.
      ``None should equal None`` ()=
         None |> should equal None
+
+    [<Fact>] member test.
+     ``Ok "foo" should fail on equal Ok "bar" but message should be equal`` ()=
+     (fun () -> Ok "foo" |> should equal (Ok "bar"))
+     |> fun f -> Assert.Throws<MatchException>(f)
+     |> fun e -> (e.Expected, e.Actual)
+     |> should equal ("Equals Ok \"bar\"", "Ok \"foo\"")

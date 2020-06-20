@@ -14,7 +14,7 @@ type Xunit.Assert with
         if not (matcher.Matches(actual)) then
             let description = new StringDescription()
             matcher.DescribeTo(description)
-            raise (new MatchException(description.ToString(), (sprintf "was %A" actual), null))
+            raise (new MatchException(description.ToString(), (sprintf "%A" actual), null))
 
 let inline should (f : 'a -> ^b) x (y : obj) =
     let c = f x

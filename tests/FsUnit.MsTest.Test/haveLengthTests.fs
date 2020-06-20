@@ -38,6 +38,13 @@ type ``haveLength tests`` ()=
      ``Array with 1 item should fail to not have Length 1`` ()=
         shouldFail (fun () -> [|1|] |> should not' (haveLength 1))
 
+    [<TestMethod>] member test.
+     ``Array with 1 item should fail to have Length 2 but message should be equal`` ()=
+        try
+            [|1|] |> should haveLength 2
+        with
+        | e -> e.Message |> should equal "Have Length 2 was [|1|]"
+
     // Seq
     [<TestMethod>] member test.
      ``Seq with 1 item should fail to have Length 1`` ()=
