@@ -40,10 +40,10 @@ type ``haveLength tests`` ()=
 
     [<TestMethod>] member test.
      ``Array with 1 item should fail to have Length 2 but message should be equal`` ()=
-        try
-            [|1|] |> should haveLength 2
-        with
-        | e -> e.Message |> should equal "Have Length 2 was [|1|]"
+         (fun () -> [|1|] |> should haveLength 2)
+         |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+         |> fun e -> e.Message
+         |> should equal ("Have Length 2 was [|1|]")
 
     // Seq
     [<TestMethod>] member test.

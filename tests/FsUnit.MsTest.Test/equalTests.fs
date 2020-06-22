@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open NHamcrest.Core
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -95,8 +94,8 @@ type ``equal Tests`` ()=
         
     [<TestMethod>] member test.
      ``Ok "foo" should fail on equal Ok "bar" but message should be equal`` ()=
-        try
-            Ok "foo" |> should equal (Ok "bar")
-        with
-        | ex -> ex.Message |> should equal "Equals Ok \"bar\" was Ok \"foo\""
+        (fun () -> Ok "foo" |> should equal (Ok "bar"))
+        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun e -> e.Message
+        |> should equal ("Equals Ok \"bar\" was Ok \"foo\"")
 
