@@ -40,7 +40,7 @@ type ``be subsetOf tests`` ()=
 
     [<TestMethod>] member test.
      ``11 should not be subset of 1 to 10 but message should be equal`` ()=
-        try
-            [11] |> should be (subsetOf [1..10])
-        with
-        | ex -> ex.Message |> should equal "Is subset of [1; 2; 3; 4; 5; 6; 7; 8; 9; 10] was [11]"
+        (fun () -> [11] |> should be (subsetOf [1..10]))
+        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun e -> e.Message
+        |> should equal ("Is subset of [1; 2; 3; 4; 5; 6; 7; 8; 9; 10] was [11]")

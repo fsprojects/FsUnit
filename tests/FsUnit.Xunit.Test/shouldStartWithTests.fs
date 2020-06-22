@@ -18,7 +18,7 @@ type ``should startWith tests`` ()=
 
     [<Fact>] member test.
      ``ships should not start with ss but messages should equal`` ()=
-      (fun _ -> "ships" |> should startWith "ss")
-      |> fun f -> Assert.Throws<MatchException>(f)
-      |> fun e -> (e.Expected, e.Actual)
-      |> should equal ("ss", "\"ships\"")
+        (fun _ -> "ships" |> should startWith "ss")
+        |> fun f -> Assert.Throws<MatchException>(f)
+        |> fun e -> (e.Expected, e.Actual)
+        |> should equal ("ss", "\"ships\"")
