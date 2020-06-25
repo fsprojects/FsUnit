@@ -1,4 +1,5 @@
-### 3.8.2 - Jun 25, 2020
+### 3.9.0 - Jun 25, 2020
+- Readable assertion messages on failure - https://github.com/fsprojects/FsUnit/pull/155
 - Dependencies update
 
 ### 3.8.1 - Apr 2, 2020
