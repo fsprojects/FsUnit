@@ -51,3 +51,7 @@ type ``be Empty tests`` ()=
     [<Test>] member test.
      ``empty Seq should fail to not be Empty`` ()=
         shouldFail (fun () -> Seq.empty |> should not' (be Empty))
+
+    [<Test>] member test.
+     ``string null should be Empty`` ()=
+        string null |> should be Empty

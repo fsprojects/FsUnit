@@ -1,6 +1,4 @@
-﻿// TODO : Add license header.
-
-namespace FsUnit
+﻿namespace FsUnit
 
 open System
 open System.Collections.Generic
@@ -153,7 +151,7 @@ type Assert =
     /// <param name="expected">The expected object.</param>
     /// <param name="actual">The list to be examined.</param>
     static member Contains<'T> (expected : 'T, actual : ICollection<'T>) : unit =
-        let containsConstraint = CollectionContainsConstraint (expected)
+        let containsConstraint = Has.Some.EqualTo (expected)
         Assert.That (actual, containsConstraint, null, null)
 
     /// <summary>
@@ -163,7 +161,7 @@ type Assert =
     /// <param name="actual">The list to be examined.</param>
     /// <param name="message">The message to display in case of failure.</param>
     static member Contains<'T> (expected : 'T, actual : ICollection<'T>, message : string) : unit =
-        let containsConstraint = CollectionContainsConstraint (expected)
+        let containsConstraint = Has.Some.EqualTo (expected)
         Assert.That (actual, containsConstraint, null, null)
 
     /// <summary>
@@ -175,7 +173,7 @@ type Assert =
     /// <param name="args">Array of objects to be used in formatting the message.</param>
     static member Contains<'T>
         (expected : 'T, actual : ICollection<'T>, message : string, [<ParamArray>] args : obj[]) : unit =
-        let containsConstraint = CollectionContainsConstraint (expected)
+        let containsConstraint = Has.Some.EqualTo (expected)
         Assert.That (actual, containsConstraint, null, null)
 
     /// <summary>
@@ -357,8 +355,3 @@ type Assert =
     static member Null<'T when 'T : not struct>
         (arg : 'T, message : string, [<ParamArray>] args : obj[]) : unit =
         Assert.That (arg, Is.Null, message, args)
-
-
-
-
-

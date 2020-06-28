@@ -52,3 +52,7 @@ type ``have unique items list tests`` ()=
     [<TestMethod>] member test.
      ``unique array should be considered unique`` ()=
         [|1;2|] |> should be unique
+
+    [<TestMethod>] member test.
+     ``string null should be unique`` ()=
+        string null |> should be unique

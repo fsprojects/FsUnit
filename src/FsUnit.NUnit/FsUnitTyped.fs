@@ -6,15 +6,14 @@ open System.Collections.Generic
 
 [<AutoOpen>]
 module TopLevelOperators =
+
     [<DebuggerStepThrough>]
     let shouldEqual (expected : 'a) (actual : 'a) =
         Assert.AreEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
-        //Assert.IsTrue((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected : 'a) (actual : 'a) =
         Assert.AreNotEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
-        //Assert.IsFalse((expected = actual), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x : 'a) (y : 'a seq) =
@@ -45,16 +44,6 @@ module TopLevelOperators =
             Is.InstanceOf<'exn>(),
             TestDelegate(f))
         |> ignore
-        //let succeeded = ref false
-        //try
-        //    f()
-        //    succeeded := true
-        //with
-        //| exn ->
-        //    if exn :? 'exn then () else
-        //    failwithf "Exception was not of type %s" <| typeof<'exn>.ToString()
-        //if !succeeded then
-        //    failwith "Operation did not fail."
 
     [<DebuggerStepThrough>]
     let shouldContainText (x : string) (y : string) =
