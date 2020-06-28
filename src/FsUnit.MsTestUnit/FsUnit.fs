@@ -10,9 +10,7 @@ let inline private assertThat(actual, matcher:IMatcher<'a>) =
     if not (matcher.Matches(actual)) then
             let description = new StringDescription()
             matcher.DescribeTo(description)
-            let mismatchDescription = new StringDescription()
-            matcher.DescribeMismatch(actual, mismatchDescription)
-            raise (new AssertFailedException(sprintf "%s %s" (description.ToString()) (mismatchDescription.ToString())))
+            raise (new AssertFailedException(sprintf "%s %s" (description.ToString()) (sprintf "was %A" actual)))
 
 #if NETSTANDARD1_6
 type Assert with
@@ -30,7 +28,7 @@ let inline should (f : 'a -> ^b) x (y : obj) =
         match y with
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
-    if box c = null then
+    if isNull (box c) then
         assertThat(y, Is.Null())
     else
         assertThat(y, c)

@@ -36,3 +36,10 @@ type ``be subsetOf tests`` ()=
      ``should fail on '1 to 11 should be subset of 1 to 10'`` ()=
         shouldFail (fun () -> 
             [1..11] |> should be (subsetOf [1..10]))
+
+    [<Fact>] member test.
+     ``11 should not be subset of 1 to 10 but messages should equal`` ()=
+        (fun _ -> [11] |> should be (subsetOf [1..10]))
+        |> fun f -> Assert.Throws<MatchException>(f)
+        |> fun e -> (e.Expected, e.Actual)
+        |> should equal ("Is subset of [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]", "[11]")
