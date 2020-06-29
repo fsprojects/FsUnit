@@ -5,7 +5,7 @@ module CustomConstraints =
     open NUnit.Framework.Constraints
     open Microsoft.FSharp.Reflection
 
-    type OfSameCaseConstraint (expected: FSharp.Quotations.Expr) =
+    type OfSameCaseConstraint (expected: Quotations.Expr) =
         inherit Constraint()
 
         member this.Expected = expected

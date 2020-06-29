@@ -16,7 +16,7 @@ type Xunit.Assert with
             matcher.DescribeTo(description)
             raise (MatchException(description.ToString(), (sprintf "%A" actual), null))
 
-let inline should (f : 'a -> ^b) x (y : obj) =
+let inline should (f: 'a -> ^b) x (y: obj) =
     let c = f x
     let y =
         match y with
@@ -27,7 +27,7 @@ let inline should (f : 'a -> ^b) x (y : obj) =
     else
         Assert.That(y, c)
 
-let inline shouldFail (f:unit->unit) =
+let inline shouldFail (f: unit -> unit) =
     let failed =
         try
             f()
@@ -40,13 +40,13 @@ let inline shouldFail (f:unit->unit) =
 
 let equal expected = CustomMatchers.equal expected
 
-let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
+let equalWithin (tolerance: obj) (expected: obj) = CustomMatchers.equalWithin tolerance expected
 
-let not' (expected:obj) = CustomMatchers.not' expected
+let not' (expected: obj) = CustomMatchers.not' expected
 
-let throw (t:Type) = CustomMatchers.throw t
+let throw (t: Type) = CustomMatchers.throw t
 
-let throwWithMessage (m:string) (t:Type) = CustomMatchers.throwWithMessage m t
+let throwWithMessage (m: string) (t: Type) = CustomMatchers.throwWithMessage m t
 
 let be = CustomMatchers.be
 
@@ -68,19 +68,19 @@ let unique = CustomMatchers.unique
 
 let sameAs expected = CustomMatchers.sameAs expected
 
-let greaterThan (expected:obj) = CustomMatchers.greaterThan expected
+let greaterThan (expected: obj) = CustomMatchers.greaterThan expected
 
-let greaterThanOrEqualTo (expected:obj) = CustomMatchers.greaterThanOrEqualTo expected
+let greaterThanOrEqualTo (expected: obj) = CustomMatchers.greaterThanOrEqualTo expected
 
-let lessThan (expected:obj) = CustomMatchers.lessThan expected
+let lessThan (expected: obj) = CustomMatchers.lessThan expected
 
-let lessThanOrEqualTo (expected:obj) = CustomMatchers.lessThanOrEqualTo expected
+let lessThanOrEqualTo (expected: obj) = CustomMatchers.lessThanOrEqualTo expected
 
-let endWith (expected:string) = CustomMatchers.endWith expected
+let endWith (expected: string) = CustomMatchers.endWith expected
 
-let startWith (expected:string) = CustomMatchers.startWith expected
+let startWith (expected: string) = CustomMatchers.startWith expected
 
-let haveSubstring (expected:string) = CustomMatchers.haveSubstring expected
+let haveSubstring (expected: string) = CustomMatchers.haveSubstring expected
 
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 

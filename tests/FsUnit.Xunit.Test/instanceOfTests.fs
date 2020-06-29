@@ -2,7 +2,6 @@
 open Xunit
 open FsUnit.Xunit
 
-
 type ``Instance Of tests`` ()=
     [<Fact>] member test.
      ``int should be instance of type Object`` ()=

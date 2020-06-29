@@ -1,5 +1,6 @@
 ﻿namespace FsUnit
 
+open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
@@ -30,7 +31,7 @@ module TopLevelOperators =
     let unique = UniqueItemsConstraint()
 
     [<DebuggerNonUserCode>]
-    let should (f : 'a -> #Constraint) x (y : obj) =
+    let should (f: 'a -> #Constraint) x (y: obj) =
         let c = f x
         let y =
             match y with
@@ -59,7 +60,7 @@ module TopLevelOperators =
 
     let throw = Throws.TypeOf
 
-    let throwWithMessage (m:string) (t:System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
+    let throwWithMessage (m: string) (t: Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
 
     let greaterThan x = GreaterThanConstraint(x)
 
@@ -69,14 +70,14 @@ module TopLevelOperators =
 
     let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
 
-    let shouldFail (f : unit -> unit) =
+    let shouldFail (f: unit -> unit) =
         TestDelegate(f) |> should throw typeof<AssertionException>
 
-    let endWith (s:string) = EndsWithConstraint s
+    let endWith (s: string) = EndsWithConstraint s
 
-    let startWith (s:string) = StartsWithConstraint s
+    let startWith (s: string) = StartsWithConstraint s
 
-    let haveSubstring (s:string) = SubstringConstraint s
+    let haveSubstring (s: string) = SubstringConstraint s
 
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 

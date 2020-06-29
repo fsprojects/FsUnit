@@ -11,7 +11,7 @@ type LightBulb(state) =
        | false -> "Off"
 
 type ``Given a LightBulb that has had its state set to true`` ()=
-   let lightBulb = new LightBulb(true)
+   let lightBulb = LightBulb(true)
 
    [<Fact>] member test.
     ``when I ask whether it is On it answers true.`` ()=

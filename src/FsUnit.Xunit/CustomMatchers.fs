@@ -7,8 +7,7 @@ open NHamcrest
 open NHamcrest.Core
 open System.Reflection
 
-let equal x = 
-    CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
+let equal x = CustomMatcher<obj>(sprintf "Equals %A" x, fun a -> a = x)
 
 let equivalent f x = CustomMatcher<obj>(sprintf "Equivalent to %A" x, fun c -> 
                 try 
@@ -20,7 +19,7 @@ let equivalent f x = CustomMatcher<obj>(sprintf "Equivalent to %A" x, fun c ->
                 | _ -> false)
 
 //TODO: Look into a better way of doing this.
-let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%A with a tolerance of %A" x t, fun a -> 
+let equalWithin (t: obj) (x: obj) = CustomMatcher<obj>(sprintf "%A with a tolerance of %A" x t, fun a -> 
                 let actualParsed, actual = Double.TryParse(string a, NumberStyles.Any, CultureInfo("en-US"))
                 let expectedParsed, expect = Double.TryParse(string x, NumberStyles.Any, CultureInfo("en-US"))
                 let toleranceParsed, tol = Double.TryParse(string t, NumberStyles.Any, CultureInfo("en-US"))
@@ -28,13 +27,13 @@ let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%A with a toleranc
                     abs(actual - expect) <= tol
                 else false )
 
-let not' (x:obj) = 
+let not' (x: obj) = 
                 match box x with
                 | null -> Is.Not<obj>(Is.Null())
                 | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
                 |  x -> Is.Not<obj>(CustomMatcher<obj>(sprintf "Equals %s" (x.ToString()), fun a -> a = x) :> IMatcher<obj>)
 
-let throw (t:Type) = CustomMatcher<obj>(string t, fun f -> 
+let throw (t: Type) = CustomMatcher<obj>(string t, fun f -> 
                 match f with
                 | :? (unit -> unit) as testFunc ->
                     try
@@ -44,7 +43,7 @@ let throw (t:Type) = CustomMatcher<obj>(string t, fun f ->
                     | ex -> if ex.GetType() = t then true else false
                 | _ -> false)
 
-let throwWithMessage (m:string) (t:Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, fun f -> 
+let throwWithMessage (m: string) (t: Type) = CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, fun f -> 
                 match f with
                 | :? (unit -> unit) as testFunc ->
                     try
@@ -77,7 +76,7 @@ let NaN = CustomMatcher<obj>("NaN", fun x ->
                 | :? double as d -> Double.IsNaN(d)
                 | _ -> false)
 
-let unique = CustomMatcher<obj>("All items unique", fun (x:obj) ->
+let unique = CustomMatcher<obj>("All items unique", fun (x: obj) ->
                 match x with
                 | :? IEnumerable as e -> 
                         let isAllItemsUnique x = let y = Seq.distinct x in Seq.length x = Seq.length y
@@ -86,23 +85,23 @@ let unique = CustomMatcher<obj>("All items unique", fun (x:obj) ->
 
 let sameAs x = Is.SameAs<obj>(x)
 
-let greaterThan (x:obj) = CustomMatcher<obj>(sprintf "Greater than %A" x, fun actual -> 
+let greaterThan (x: obj) = CustomMatcher<obj>(sprintf "Greater than %A" x, fun actual -> 
                 (unbox actual :> IComparable).CompareTo(unbox x) > 0)
 
-let greaterThanOrEqualTo (x:obj) = CustomMatcher<obj>(sprintf "Greater than or equal to %A" x, fun actual -> 
+let greaterThanOrEqualTo (x: obj) = CustomMatcher<obj>(sprintf "Greater than or equal to %A" x, fun actual -> 
                 (unbox actual :> IComparable).CompareTo(unbox x) >= 0)
 
-let lessThan (x:obj) = CustomMatcher<obj>(sprintf "Less than %A" x, fun actual -> 
+let lessThan (x: obj) = CustomMatcher<obj>(sprintf "Less than %A" x, fun actual -> 
                 (unbox actual :> IComparable).CompareTo(unbox x) < 0)
 
-let lessThanOrEqualTo (x:obj) = CustomMatcher<obj>(sprintf "Less than or equal to %A" x, fun actual -> 
+let lessThanOrEqualTo (x: obj) = CustomMatcher<obj>(sprintf "Less than or equal to %A" x, fun actual -> 
                 (unbox actual :> IComparable).CompareTo(unbox x) <= 0)
 
-let endWith (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).EndsWith x)
+let endWith (x: string) = CustomMatcher<obj>(string x, fun s -> (string s).EndsWith x)
 
-let startWith (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).StartsWith x)
+let startWith (x: string) = CustomMatcher<obj>(string x, fun s -> (string s).StartsWith x)
 
-let haveSubstring (x:string) = CustomMatcher<obj>(string x, fun s -> (string s).Contains x)
+let haveSubstring (x: string) = CustomMatcher<obj>(string x, fun s -> (string s).Contains x)
 
 let ofExactType<'a> = CustomMatcher<obj>(typeof<'a>.ToString(), fun x -> (unbox x).GetType() = typeof<'a>)
 
@@ -116,7 +115,7 @@ let contain x = CustomMatcher<obj>(sprintf "Contains %s" (x.ToString()), fun c -
                 | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = x)
                 | _ -> false)
 
-let private (?) (this : 'Source) (name : string) : 'Result =
+let private (?) (this: 'Source) (name: string) : 'Result =
                 let bindingFlags = BindingFlags.Public ||| BindingFlags.NonPublic ||| BindingFlags.Instance ||| BindingFlags.GetProperty
                 let property = this.GetType().GetProperty(name, bindingFlags)
                 if (property = null) then
@@ -163,30 +162,30 @@ let ascending = makeOrderedMatcher "Ascending" compare
 
 let descending = makeOrderedMatcher "Descending" (fun a b -> -(compare a b))
 
-type ChoiceDiscriminator(n : int) =
-    member this.check(c : Choice<'a, 'b>): bool =
+type ChoiceDiscriminator(n: int) =
+    member this.check(c: Choice<'a, 'b>): bool =
         match c with
         | Choice1Of2(_) -> n = 1
         | Choice2Of2(_) -> n = 2
-    member this.check(c : Choice<'a, 'b, 'c>): bool =
+    member this.check(c: Choice<'a, 'b, 'c>): bool =
         match c with
         | Choice1Of3(_) -> n = 1
         | Choice2Of3(_) -> n = 2
         | Choice3Of3(_) -> n = 3
-    member this.check(c : Choice<'a, 'b, 'c, 'd>): bool =
+    member this.check(c: Choice<'a, 'b, 'c, 'd>): bool =
         match c with
         | Choice1Of4(_) -> n = 1
         | Choice2Of4(_) -> n = 2
         | Choice3Of4(_) -> n = 3
         | Choice4Of4(_) -> n = 4
-    member this.check(c : Choice<'a, 'b, 'c, 'd, 'e>): bool =
+    member this.check(c: Choice<'a, 'b, 'c, 'd, 'e>): bool =
         match c with
         | Choice1Of5(_) -> n = 1
         | Choice2Of5(_) -> n = 2
         | Choice3Of5(_) -> n = 3
         | Choice4Of5(_) -> n = 4
         | Choice5Of5(_) -> n = 5
-    member this.check(c : Choice<'a, 'b, 'c, 'd, 'e, 'f>): bool =
+    member this.check(c: Choice<'a, 'b, 'c, 'd, 'e, 'f>): bool =
         match c with
         | Choice1Of6(_) -> n = 1
         | Choice2Of6(_) -> n = 2
@@ -194,7 +193,7 @@ type ChoiceDiscriminator(n : int) =
         | Choice4Of6(_) -> n = 4
         | Choice5Of6(_) -> n = 5
         | Choice6Of6(_) -> n = 6
-    member this.check(c : Choice<'a, 'b, 'c, 'd, 'e, 'f, 'g>): bool =
+    member this.check(c: Choice<'a, 'b, 'c, 'd, 'e, 'f, 'g>): bool =
         match c with
         | Choice1Of7(_) -> n = 1
         | Choice2Of7(_) -> n = 2
@@ -203,7 +202,7 @@ type ChoiceDiscriminator(n : int) =
         | Choice5Of7(_) -> n = 5
         | Choice6Of7(_) -> n = 6
         | Choice7Of7(_) -> n = 7
-    member this.check(c : obj): bool =
+    member this.check(c: obj): bool =
         let cType = c.GetType()
         let cArgs = cType.GetGenericArguments()
         let cArgCount = Seq.length cArgs
