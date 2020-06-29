@@ -12,9 +12,9 @@ type MatchException (expected, actual, userMessage) =
 type Xunit.Assert with
     static member That<'a> (actual, matcher: IMatcher<'a>) =
         if not (matcher.Matches(actual)) then
-            let description = new StringDescription()
+            let description = StringDescription()
             matcher.DescribeTo(description)
-            raise (new MatchException(description.ToString(), (sprintf "%A" actual), null))
+            raise (MatchException(description.ToString(), (sprintf "%A" actual), null))
 
 let inline should (f : 'a -> ^b) x (y : obj) =
     let c = f x
@@ -35,7 +35,7 @@ let inline shouldFail (f:unit->unit) =
         with
         | _ -> true
     if not failed then
-        raise (new MatchException("Method should fail", "No exception raised", null))
+        raise (MatchException("Method should fail", "No exception raised", null))
 
 
 let equal expected = CustomMatchers.equal expected

@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open NHamcrest.Core
 
 [<TestClass>]
 type ``be Empty tests`` ()=

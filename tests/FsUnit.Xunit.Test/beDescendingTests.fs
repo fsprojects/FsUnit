@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 type ``be descending tests`` ()=
     [<Fact>] member test.

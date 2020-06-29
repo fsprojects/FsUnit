@@ -4,13 +4,12 @@ open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open NHamcrest
 open NHamcrest.Core
-open System.Collections
 
 let inline private assertThat(actual, matcher:IMatcher<'a>) =
     if not (matcher.Matches(actual)) then
-            let description = new StringDescription()
-            matcher.DescribeTo(description)
-            raise (new AssertFailedException(sprintf "%s %s" (description.ToString()) (sprintf "was %A" actual)))
+        let description = StringDescription()
+        matcher.DescribeTo(description)
+        raise (AssertFailedException(sprintf "%A was %A" description actual))
 
 #if NETSTANDARD1_6
 type Assert with
@@ -33,7 +32,6 @@ let inline should (f : 'a -> ^b) x (y : obj) =
     else
         assertThat(y, c)
 
-
 let inline shouldFail (f:unit->unit) =
     let failed =
         try
@@ -42,12 +40,11 @@ let inline shouldFail (f:unit->unit) =
         with
         | _ -> true
     if not failed then
-        raise (new AssertFailedException("Method should fail"))
-
+        raise (AssertFailedException("Method should fail"))
 
 let equal expected = CustomMatchers.equal expected
 
-let equivalent expected = 
+let equivalent expected =
     CustomMatchers.equivalent (fun e a -> CollectionAssert.AreEquivalent(e, a)) expected
 
 let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected

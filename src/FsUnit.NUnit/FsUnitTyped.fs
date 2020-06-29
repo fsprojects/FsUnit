@@ -40,10 +40,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn> (f : unit -> unit) =
-        Assert.Throws(
-            Is.InstanceOf<'exn>(),
-            TestDelegate(f))
-        |> ignore
+        Assert.Throws(Is.InstanceOf<'exn>(), TestDelegate(f)) |> ignore
 
     [<DebuggerStepThrough>]
     let shouldContainText (x : string) (y : string) =

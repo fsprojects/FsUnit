@@ -2,6 +2,7 @@
 
 open System
 open System.Collections
+open System.Globalization
 open NHamcrest
 open NHamcrest.Core
 open System.Reflection
@@ -19,10 +20,10 @@ let equivalent f x = CustomMatcher<obj>(sprintf "Equivalent to %A" x, fun c ->
                 | _ -> false)
 
 //TODO: Look into a better way of doing this.
-let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%s with a tolerance of %s" (x.ToString()) (t.ToString()), fun a -> 
-                let actualParsed, actual = Double.TryParse(string a, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
-                let expectedParsed, expect = Double.TryParse(string x, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
-                let toleranceParsed, tol = Double.TryParse(string t, System.Globalization.NumberStyles.Any, new System.Globalization.CultureInfo("en-US"))
+let equalWithin (t:obj) (x:obj) = CustomMatcher<obj>(sprintf "%A with a tolerance of %A" x t, fun a -> 
+                let actualParsed, actual = Double.TryParse(string a, NumberStyles.Any, CultureInfo("en-US"))
+                let expectedParsed, expect = Double.TryParse(string x, NumberStyles.Any, CultureInfo("en-US"))
+                let toleranceParsed, tol = Double.TryParse(string t, NumberStyles.Any, CultureInfo("en-US"))
                 if actualParsed && expectedParsed && toleranceParsed then
                     abs(actual - expect) <= tol
                 else false )
@@ -72,16 +73,15 @@ let False = CustomMatcher<obj>("False", fun b -> unbox b = false)
 
 let NaN = CustomMatcher<obj>("NaN", fun x ->
                 match x with
-                | :? single as s -> System.Single.IsNaN(s)
-                | :? double as d -> System.Double.IsNaN(d)
+                | :? single as s -> Single.IsNaN(s)
+                | :? double as d -> Double.IsNaN(d)
                 | _ -> false)
 
 let unique = CustomMatcher<obj>("All items unique", fun (x:obj) ->
-                let isAllItemsUnique x =
-                    let y = Seq.distinct x in Seq.length x = Seq.length y
-
                 match x with
-                | :? IEnumerable as e -> e |> Seq.cast |> isAllItemsUnique
+                | :? IEnumerable as e -> 
+                        let isAllItemsUnique x = let y = Seq.distinct x in Seq.length x = Seq.length y
+                        e |> Seq.cast |> isAllItemsUnique
                 | _ -> false)
 
 let sameAs x = Is.SameAs<obj>(x)
@@ -132,7 +132,7 @@ let containf f = CustomMatcher<obj>(sprintf "Contains %s" (f.ToString()), fun c 
                 | :? list<_> as l -> l |> List.exists f
                 | :? array<_> as a -> a |> Array.exists f
                 | :? seq<_> as s -> s |> Seq.exists f
-                | :? System.Collections.IEnumerable as e -> e |> Seq.cast |> Seq.exists f
+                | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists f
                 | _ -> false)
 
 let supersetOf x = CustomMatcher<obj>(sprintf "Is superset of %A" x, fun c -> 
@@ -154,7 +154,7 @@ let private makeOrderedMatcher description comparer = CustomMatcher<obj>(descrip
                 | :? seq<IComparable> as s ->
                         let a = s |> Seq.toArray
                         a = (a |> Array.sortWith comparer)
-                | :? System.Collections.IEnumerable as e ->
+                | :? IEnumerable as e ->
                         let a = e |> Seq.cast |> Seq.toArray
                         a = (a |> Array.sortWith comparer)
                 | _ -> false)
@@ -215,7 +215,7 @@ type ChoiceDiscriminator(n : int) =
         | _ -> false
 
 let choice n = CustomMatcher<obj>(sprintf "The choice %d" n, fun x -> 
-                (new ChoiceDiscriminator(n)).check(x))
+                (ChoiceDiscriminator(n)).check(x))
 
 let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min max, fun actual ->
                 let unboxed = (unbox actual :> IComparable)
@@ -224,5 +224,5 @@ let inRange min max = CustomMatcher<obj>(sprintf "In range from %A to %A" min ma
 
 let ofCase (case: FSharp.Quotations.Expr) =
                 let expected = case |> Common.caseName |> defaultArg <| "<The given type is not a union case and the matcher won't work.>"
-                let matcher = NHamcrest.Core.CustomMatcher(expected, fun x -> x |> Common.isOfCase case)
+                let matcher = CustomMatcher(expected, fun x -> x |> Common.isOfCase case)
                 matcher

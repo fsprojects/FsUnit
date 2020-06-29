@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -12,8 +11,8 @@ type NeverEqual() =
     override this.GetHashCode() = 1
 
 type ``equal Tests`` ()=
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
 
     [<Fact>] member test.
      ``value type should equal equivalent value`` ()=
@@ -57,11 +56,11 @@ type ``equal Tests`` ()=
 
     [<Fact>] member test.
      ``should fail when Equals returns false`` ()=
-        anObj |> should not' (equal (new NeverEqual()))
+        anObj |> should not' (equal (NeverEqual()))
 
     [<Fact>] member test.
      ``should pass when negated and Equals returns false`` ()=
-        anObj |> should not' (equal (new NeverEqual()))
+        anObj |> should not' (equal (NeverEqual()))
 
     [<Fact>] member test.
      ``should pass when comparing two lists that have the same values`` ()=
