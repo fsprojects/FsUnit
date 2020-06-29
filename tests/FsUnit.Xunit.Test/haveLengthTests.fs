@@ -47,5 +47,5 @@ type ``haveLength tests`` ()=
     // Seq
     [<Fact>] member test.
      ``Seq with 1 item should fail to have Length 1`` ()=
-        (fun () -> seq {yield 1;} |> should haveLength 1)
+        (fun () -> seq { 1 } |> should haveLength 1)
         |> should throw typeof<System.ArgumentException>

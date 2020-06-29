@@ -38,7 +38,7 @@ type ``contain tests`` ()=
 
     [<Test>] member test.
      ``Seq with item should contain item`` ()=
-        seq { yield 1 } |> should contain 1
+        seq { 1 } |> should contain 1
 
     [<Test>] member test.
      ``empty Seq should fail to contain item`` ()=
@@ -50,7 +50,7 @@ type ``contain tests`` ()=
 
     [<Test>] member test.
      ``Seq with item should fail to not contain item`` ()=
-        shouldFail (fun () -> seq { yield 1 } |> should not' (contain 1))
+        shouldFail (fun () -> seq { 1 } |> should not' (contain 1))
 
     [<Test>] member test.
      ``Enumerable with item should contain item`` ()=

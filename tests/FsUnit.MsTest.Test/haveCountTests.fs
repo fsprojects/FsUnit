@@ -28,5 +28,5 @@ type ``have Count tests`` ()=
     // Seq
     [<TestMethod>] member test.
      ``Seq with 1 item should fail to have Count 1`` ()=
-        (fun () -> seq {yield 1;} |> should haveCount 1)
+        (fun () -> seq { 1 } |> should haveCount 1)
         |> should throw typeof<System.ArgumentException>

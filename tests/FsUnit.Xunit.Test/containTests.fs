@@ -33,7 +33,7 @@ type ``contain tests`` ()=
 
     [<Fact>] member test.
      ``Seq with item should contain item`` ()=
-        seq { yield 1 } |> should contain 1
+        seq { 1 } |> should contain 1
 
     [<Fact>] member test.
      ``empty Seq should not contain item`` ()=
