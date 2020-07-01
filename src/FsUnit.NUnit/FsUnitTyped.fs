@@ -1,4 +1,4 @@
-﻿namespace FsUnitTyped
+namespace FsUnitTyped
 
 open System.Diagnostics
 open NUnit.Framework
@@ -9,11 +9,15 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldEqual (expected: 'a) (actual: 'a) =
-        Assert.AreEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.AreEqual
+            (expected, actual,
+             sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected: 'a) (actual: 'a) =
-        Assert.AreNotEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.AreNotEqual
+            (expected, actual,
+             sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =
@@ -23,8 +27,7 @@ module TopLevelOperators =
         Assert.Contains(x, list)
 
     [<DebuggerStepThrough>]
-    let shouldBeEmpty (list: 'a seq) =
-        Assert.IsEmpty(list)
+    let shouldBeEmpty (list: 'a seq) = Assert.IsEmpty(list)
 
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =
@@ -32,11 +35,15 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
-        Assert.Less(y, x, sprintf "Expected: %A\nActual: %A" x y)
+        Assert.Less
+            (y, x,
+             sprintf "Expected: %A\nActual: %A" x y)
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (x: 'a) (y: 'a) =
-        Assert.Greater(y, x, sprintf "Expected: %A\nActual: %A" x y)
+        Assert.Greater
+            (y, x,
+             sprintf "Expected: %A\nActual: %A" x y)
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn> (f: unit -> unit) =
@@ -44,13 +51,11 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
-        if y.Contains(x) |> not then
-            failwithf "\"%s\" is not a substring of \"%s\"" x y
+        if y.Contains(x) |> not then failwithf "\"%s\" is not a substring of \"%s\"" x y
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (x: string) (y: string) =
-        if y.Contains(x) then
-            failwithf "\"%s\" is a substring of \"%s\"" x y
+        if y.Contains(x) then failwithf "\"%s\" is a substring of \"%s\"" x y
 
     [<DebuggerStepThrough>]
     let shouldHaveLength expected list =

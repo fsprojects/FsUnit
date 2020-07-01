@@ -1,4 +1,4 @@
-﻿namespace FsUnit
+namespace FsUnit
 
 open System
 open System.Diagnostics
@@ -11,8 +11,7 @@ module TopLevelOperators =
 
     [<SetUpFixture>]
     type FSharpCustomMessageFormatter() =
-      do TestContext.AddFormatter(
-           ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
+        do TestContext.AddFormatter(ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
 
     let Null = NullConstraint()
 
@@ -33,14 +32,12 @@ module TopLevelOperators =
     [<DebuggerNonUserCode>]
     let should (f: 'a -> #Constraint) x (y: obj) =
         let c = f x
+
         let y =
             match y with
             | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
             | _ -> y
-        if isNull (box c) then
-            Assert.That(y, Is.Null)
-        else
-            Assert.That(y, c)
+        if isNull (box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
 
     let equal x = EqualConstraint(x)
 
@@ -70,8 +67,7 @@ module TopLevelOperators =
 
     let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
 
-    let shouldFail (f: unit -> unit) =
-        TestDelegate(f) |> should throw typeof<AssertionException>
+    let shouldFail (f: unit -> unit) = TestDelegate(f) |> should throw typeof<AssertionException>
 
     let endWith (s: string) = EndsWithConstraint s
 
@@ -87,7 +83,7 @@ module TopLevelOperators =
 
     let descending = Is.Ordered.Descending
 
-    let not' x = 
+    let not' x =
         if isNull (box x) then NotConstraint(Null) else NotConstraint(x)
 
     let inRange min max = RangeConstraint(min, max)

@@ -1,4 +1,4 @@
-﻿module FsUnit.Xunit
+module FsUnit.Xunit
 
 open System
 open Xunit
@@ -6,11 +6,11 @@ open Xunit.Sdk
 open NHamcrest
 open NHamcrest.Core
 
-type MatchException (expected, actual, userMessage) =
+type MatchException(expected, actual, userMessage) =
     inherit AssertActualExpectedException(expected, actual, userMessage)
 
 type Xunit.Assert with
-    static member That<'a> (actual, matcher: IMatcher<'a>) =
+    static member That<'a>(actual, matcher: IMatcher<'a>) =
         if not (matcher.Matches(actual)) then
             let description = StringDescription()
             matcher.DescribeTo(description)
@@ -18,24 +18,20 @@ type Xunit.Assert with
 
 let inline should (f: 'a -> ^b) x (y: obj) =
     let c = f x
+
     let y =
         match y with
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
-    if isNull (box c) then
-        Assert.That(y, Is.Null())
-    else
-        Assert.That(y, c)
+    if isNull (box c) then Assert.That(y, Is.Null()) else Assert.That(y, c)
 
 let inline shouldFail (f: unit -> unit) =
     let failed =
         try
             f()
             false
-        with
-        | _ -> true
-    if not failed then
-        raise (MatchException("Method should fail", "No exception raised", null))
+        with _ -> true
+    if not failed then raise (MatchException("Method should fail", "No exception raised", null))
 
 
 let equal expected = CustomMatchers.equal expected

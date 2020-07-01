@@ -1,11 +1,11 @@
-﻿module FsUnit.MsTest
+module FsUnit.MsTest
 
 open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open NHamcrest
 open NHamcrest.Core
 
-let inline private assertThat(actual, matcher: IMatcher<'a>) =
+let inline private assertThat (actual, matcher: IMatcher<'a>) =
     if not (matcher.Matches(actual)) then
         let description = StringDescription()
         matcher.DescribeTo(description)
@@ -13,41 +13,34 @@ let inline private assertThat(actual, matcher: IMatcher<'a>) =
 
 #if NETSTANDARD1_6
 type Assert with
-    static member That'<'a> (actual, matcher: IMatcher<'a>) =
-        assertThat(actual, matcher)
+    static member That'<'a>(actual, matcher: IMatcher<'a>) = assertThat (actual, matcher)
 #else
 type Assert with
-    static member That<'a> (actual, matcher: IMatcher<'a>) =
-        assertThat(actual, matcher)
+    static member That<'a>(actual, matcher: IMatcher<'a>) = assertThat (actual, matcher)
 #endif
 
 let inline should (f: 'a -> ^b) x (y: obj) =
     let c = f x
+
     let y =
         match y with
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
-    if isNull (box c) then
-        assertThat(y, Is.Null())
-    else
-        assertThat(y, c)
+    if isNull (box c) then assertThat (y, Is.Null()) else assertThat (y, c)
 
 let inline shouldFail (f: unit -> unit) =
     let failed =
         try
             f()
             false
-        with
-        | _ -> true
-    if not failed then
-        raise (AssertFailedException("Method should fail"))
+        with _ -> true
+    if not failed then raise (AssertFailedException("Method should fail"))
 
 let equal expected = CustomMatchers.equal expected
 
-let equivalent expected =
-    CustomMatchers.equivalent (fun e a -> CollectionAssert.AreEquivalent(e, a)) expected
+let equivalent expected = CustomMatchers.equivalent (fun e a -> CollectionAssert.AreEquivalent(e, a)) expected
 
-let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
+let equalWithin (tolerance: obj) (expected: obj) = CustomMatchers.equalWithin tolerance expected
 
 let not' (expected: obj) = CustomMatchers.not' expected
 
