@@ -7,8 +7,8 @@ open NUnit.Framework.Constraints
 open CustomConstraints
 
 [<AutoOpen>]
-module TopLevelOperators =
 
+module TopLevelOperators =
     [<SetUpFixture>]
     type FSharpCustomMessageFormatter() =
         do TestContext.AddFormatter(ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
@@ -19,7 +19,8 @@ module TopLevelOperators =
 
     let EmptyString = EmptyStringConstraint()
 
-    let NullOrEmptyString = OrConstraint(NullConstraint(), EmptyConstraint())
+    let NullOrEmptyString =
+        OrConstraint(NullConstraint(), EmptyConstraint())
 
     let True = TrueConstraint()
 
@@ -35,9 +36,10 @@ module TopLevelOperators =
 
         let y =
             match y with
-            | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
+            | :? (unit -> unit) -> box(TestDelegate(y :?> unit -> unit))
             | _ -> y
-        if isNull (box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
+
+        if isNull(box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
 
     let equal x = EqualConstraint(x)
 
@@ -67,13 +69,15 @@ module TopLevelOperators =
 
     let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
 
-    let shouldFail (f: unit -> unit) = TestDelegate(f) |> should throw typeof<AssertionException>
+    let shouldFail(f: unit -> unit) =
+        TestDelegate(f)
+        |> should throw typeof<AssertionException>
 
-    let endWith (s: string) = EndsWithConstraint s
+    let endWith(s: string) = EndsWithConstraint s
 
-    let startWith (s: string) = StartsWithConstraint s
+    let startWith(s: string) = StartsWithConstraint s
 
-    let haveSubstring (s: string) = SubstringConstraint s
+    let haveSubstring(s: string) = SubstringConstraint s
 
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
@@ -84,7 +88,7 @@ module TopLevelOperators =
     let descending = Is.Ordered.Descending
 
     let not' x =
-        if isNull (box x) then NotConstraint(Null) else NotConstraint(x)
+        if isNull(box x) then NotConstraint(Null) else NotConstraint(x)
 
     let inRange min max = RangeConstraint(min, max)
 

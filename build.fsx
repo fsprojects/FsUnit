@@ -1,8 +1,8 @@
 #r @"paket:
 source https://nuget.org/api/v2
 framework netstandard2.0
-nuget Fantomas 3.3.0
-nuget FSharp.Compiler.Service 34.1.0
+nuget Fantomas prerelease
+nuget FSharp.Compiler.Service
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
@@ -145,7 +145,12 @@ Target.create "CleanDocs" (fun _ ->
 // Check code format & format code using Fantomas
 
 Target.create "Format" (fun _ ->
-    let fantomasConfig = FormatConfig.Default
+    let fantomasConfig = {
+        FormatConfig.Default with
+            PageWidth = 150
+            SpaceBeforeLowercaseInvocation = false
+            SpaceBeforeParameter = false
+    }
 
     !!"src/**/*.fs" -- "./**/*AssemblyInfo.fs"
     |> formatCode fantomasConfig
