@@ -11,13 +11,8 @@ let inline private assertThat (actual, matcher: IMatcher<'a>) =
         matcher.DescribeTo(description)
         raise (AssertFailedException(sprintf "%A was %A" description actual))
 
-#if NETSTANDARD1_6
-type Assert with
-    static member That'<'a>(actual, matcher: IMatcher<'a>) = assertThat (actual, matcher)
-#else
 type Assert with
     static member That<'a>(actual, matcher: IMatcher<'a>) = assertThat (actual, matcher)
-#endif
 
 let inline should (f: 'a -> ^b) x (y: obj) =
     let c = f x
