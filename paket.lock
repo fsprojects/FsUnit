@@ -66,7 +66,7 @@ NUGET
     NuGet.Frameworks (5.6) - restriction: || (&& (== net46) (>= netcoreapp2.1)) (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
     NUnit (3.12)
       NETStandard.Library (>= 2.0) - restriction: || (&& (== net46) (< net35) (>= netstandard2.0)) (== netcoreapp3.1) (== netstandard2.0)
-    NUnit3TestAdapter (3.16.1)
+    NUnit3TestAdapter (3.17)
       Microsoft.DotNet.InternalAbstractions (>= 1.0) - restriction: || (&& (== net46) (>= netcoreapp2.1)) (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
       System.ComponentModel.EventBasedAsync (>= 4.3) - restriction: || (&& (== net46) (>= netcoreapp2.1)) (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
       System.ComponentModel.TypeConverter (>= 4.3) - restriction: || (&& (== net46) (>= netcoreapp2.1)) (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
