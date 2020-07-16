@@ -2,7 +2,6 @@
 source https://nuget.org/api/v2
 framework netstandard2.0
 nuget Fantomas prerelease
-nuget FSharp.Compiler.Service
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
@@ -11,7 +10,6 @@ nuget Fake.DotNet.Cli
 nuget Fake.DotNet.MSBuild
 nuget Fake.DotNet.AssemblyInfoFile
 nuget Fake.DotNet.Paket
-nuget Fake.DotNet.FSFormatting
 nuget Fake.DotNet.Fsi
 nuget Fake.Tools.Git
 nuget Fake.Api.GitHub //"
@@ -31,7 +29,6 @@ open Fake.DotNet
 open Fake.Tools.Git
 open System.IO
 open Fantomas.FakeHelpers
-open Fantomas.FormatConfig
 
 Target.initEnvironment()
 
@@ -145,15 +142,8 @@ Target.create "CleanDocs" (fun _ ->
 // Check code format & format code using Fantomas
 
 Target.create "Format" (fun _ ->
-    let fantomasConfig = {
-        FormatConfig.Default with
-            PageWidth = 150
-            SpaceBeforeLowercaseInvocation = false
-            SpaceBeforeParameter = false
-    }
-
     !!"src/**/*.fs" -- "./**/*AssemblyInfo.fs"
-    |> formatCode fantomasConfig
+    |> formatCode
     |> Async.RunSynchronously
     |> printfn "Formatted files: %A"
 )

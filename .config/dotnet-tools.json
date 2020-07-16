@@ -19,12 +19,6 @@
       "commands": [
         "dotnet-serve"
       ]
-    },
-    "fantomas-tool": {
-      "version": "4.0.0-alpha-011",
-      "commands": [
-        "fantomas"
-      ]
     }
   }
 }

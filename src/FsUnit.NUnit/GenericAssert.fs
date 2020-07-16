@@ -189,7 +189,8 @@ type Assert =
     /// </summary>
     /// <param name="arg1">The first value, expected to be greater.</param>
     /// <param name="arg2">The second value, expected to be less.</param>
-    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit = Assert.That(arg1, Is.GreaterThan arg2, null, null)
+    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit =
+        Assert.That(arg1, Is.GreaterThan arg2, null, null)
 
     /// <summary>
     /// Verifies that the first value is greater than the second value.
@@ -198,7 +199,8 @@ type Assert =
     /// <param name="arg1">The first value, expected to be greater.</param>
     /// <param name="arg2">The second value, expected to be less.</param>
     /// <param name="message">The message to display in case of failure.</param>
-    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string): unit = Assert.That(arg1, Is.GreaterThan arg2, message, null)
+    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string): unit =
+        Assert.That(arg1, Is.GreaterThan arg2, message, null)
 
     /// <summary>
     /// Verifies that the first value is greater than the second value.
@@ -217,7 +219,8 @@ type Assert =
     /// </summary>
     /// <param name="arg1">The first value, expected to be greater.</param>
     /// <param name="arg2">The second value, expected to be less.</param>
-    static member GreaterOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit = Assert.That(arg1, Is.GreaterThanOrEqualTo arg2, null, null)
+    static member GreaterOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit =
+        Assert.That(arg1, Is.GreaterThanOrEqualTo arg2, null, null)
 
     /// <summary>
     /// Verifies that the first value is greater than or equal to than the second value.
@@ -246,7 +249,8 @@ type Assert =
     /// </summary>
     /// <param name="arg1">The first value, expected to be less.</param>
     /// <param name="arg2">The second value, expected to be greater.</param>
-    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit = Assert.That(arg1, Is.LessThan arg2, null, null)
+    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit =
+        Assert.That(arg1, Is.LessThan arg2, null, null)
 
     /// <summary>
     /// Verifies that the first value is less than the second value.
@@ -255,7 +259,8 @@ type Assert =
     /// <param name="arg1">The first value, expected to be less.</param>
     /// <param name="arg2">The second value, expected to be greater.</param>
     /// <param name="message">The message to display in case of failure.</param>
-    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string): unit = Assert.That(arg1, Is.LessThan arg2, message, null)
+    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string): unit =
+        Assert.That(arg1, Is.LessThan arg2, message, null)
 
     /// <summary>
     /// Verifies that the first value is less than the second value.
@@ -274,7 +279,8 @@ type Assert =
     /// </summary>
     /// <param name="arg1">The first value, expected to be less.</param>
     /// <param name="arg2">The second value, expected to be greater.</param>
-    static member LessOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit = Assert.That(arg1, Is.LessThanOrEqualTo arg2, null, null)
+    static member LessOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T): unit =
+        Assert.That(arg1, Is.LessThanOrEqualTo arg2, null, null)
 
     /// <summary>
     /// Verifies that the first value is less than or equal to the second value.
@@ -302,7 +308,8 @@ type Assert =
     /// If the object is 'null', then an NUnit.Framework.AssertException is thrown.
     /// </summary>
     /// <param name="arg">The object that is to be tested.</param>
-    static member NotNull<'T when 'T: not struct>(arg: 'T): unit = Assert.That(arg, Is.Not.Null, null, null)
+    static member NotNull<'T when 'T: not struct>(arg: 'T): unit =
+        Assert.That(arg, Is.Not.Null, null, null)
 
     /// <summary>
     /// Verifies that the object that is passed in is not equal to 'null'.
@@ -310,7 +317,8 @@ type Assert =
     /// </summary>
     /// <param name="arg">The object that is to be tested.</param>
     /// <param name="message">The message to display in case of failure.</param>
-    static member NotNull<'T when 'T: not struct>(arg: 'T, message: string): unit = Assert.That(arg, Is.Not.Null, message, null)
+    static member NotNull<'T when 'T: not struct>(arg: 'T, message: string): unit =
+        Assert.That(arg, Is.Not.Null, message, null)
 
     /// <summary>
     /// Verifies that the object that is passed in is not equal to 'null'.
