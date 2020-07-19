@@ -37,16 +37,20 @@ let inline shouldFail(f: unit -> unit) =
     then raise(MatchException("Method should fail", "No exception raised", null))
 
 
-let equal expected = CustomMatchers.equal expected
+let equal expected =
+    CustomMatchers.equal expected
 
 let equalWithin (tolerance: obj) (expected: obj) =
     CustomMatchers.equalWithin tolerance expected
 
-let not'(expected: obj) = CustomMatchers.not' expected
+let not'(expected: obj) =
+    CustomMatchers.not' expected
 
-let throw(t: Type) = CustomMatchers.throw t
+let throw(t: Type) =
+    CustomMatchers.throw t
 
-let throwWithMessage (m: string) (t: Type) = CustomMatchers.throwWithMessage m t
+let throwWithMessage (m: string) (t: Type) =
+    CustomMatchers.throwWithMessage m t
 
 let be = CustomMatchers.be
 
@@ -66,33 +70,42 @@ let NaN = CustomMatchers.NaN
 
 let unique = CustomMatchers.unique
 
-let sameAs expected = CustomMatchers.sameAs expected
+let sameAs expected =
+    CustomMatchers.sameAs expected
 
-let greaterThan(expected: obj) = CustomMatchers.greaterThan expected
+let greaterThan(expected: obj) =
+    CustomMatchers.greaterThan expected
 
 let greaterThanOrEqualTo(expected: obj) =
     CustomMatchers.greaterThanOrEqualTo expected
 
-let lessThan(expected: obj) = CustomMatchers.lessThan expected
+let lessThan(expected: obj) =
+    CustomMatchers.lessThan expected
 
 let lessThanOrEqualTo(expected: obj) =
     CustomMatchers.lessThanOrEqualTo expected
 
-let endWith(expected: string) = CustomMatchers.endWith expected
+let endWith(expected: string) =
+    CustomMatchers.endWith expected
 
-let startWith(expected: string) = CustomMatchers.startWith expected
+let startWith(expected: string) =
+    CustomMatchers.startWith expected
 
-let haveSubstring(expected: string) = CustomMatchers.haveSubstring expected
+let haveSubstring(expected: string) =
+    CustomMatchers.haveSubstring expected
 
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 
 let instanceOfType<'a> = CustomMatchers.instanceOfType<'a>
 
-let contain expected = CustomMatchers.contain expected
+let contain expected =
+    CustomMatchers.contain expected
 
-let haveLength n = CustomMatchers.haveLength n
+let haveLength n =
+    CustomMatchers.haveLength n
 
-let haveCount n = CustomMatchers.haveCount n
+let haveCount n =
+    CustomMatchers.haveCount n
 
 let matchList = CustomMatchers.matchList
 
@@ -102,8 +115,11 @@ let ascending = CustomMatchers.ascending
 
 let descending = CustomMatchers.descending
 
-let inRange min max = CustomMatchers.inRange min max
+let inRange min max =
+    CustomMatchers.inRange min max
 
-let supersetOf expected = CustomMatchers.supersetOf expected
+let supersetOf expected =
+    CustomMatchers.supersetOf expected
 
-let subsetOf expected = CustomMatchers.subsetOf expected
+let subsetOf expected =
+    CustomMatchers.subsetOf expected

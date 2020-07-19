@@ -1,4 +1,6 @@
 [*.fs]
 max_line_length=150
+fsharp_max_function_binding_width=10
+fsharp_max_infix_operator_expression=70
 fsharp_space_before_parameter=false
 fsharp_space_before_lowercase_invocation=false 

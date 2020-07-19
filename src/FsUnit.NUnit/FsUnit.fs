@@ -40,43 +40,57 @@ module TopLevelOperators =
 
         if isNull(box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
 
-    let equal x = Equality.IsEqualTo(x)
+    let equal x =
+        Equality.IsEqualTo(x)
 
-    let equivalent x = CollectionEquivalentConstraint(x)
+    let equivalent x =
+        CollectionEquivalentConstraint(x)
 
-    let equalWithin tolerance x = equal(x).Within tolerance
+    let equalWithin tolerance x =
+        equal(x).Within tolerance
 
-    let contain x = ContainsConstraint(x)
+    let contain x =
+        ContainsConstraint(x)
 
-    let haveLength n = Has.Length.EqualTo(n)
+    let haveLength n =
+        Has.Length.EqualTo(n)
 
-    let haveCount n = Has.Count.EqualTo(n)
+    let haveCount n =
+        Has.Count.EqualTo(n)
 
     let be = id
 
-    let sameAs x = SameAsConstraint(x)
+    let sameAs x =
+        SameAsConstraint(x)
 
     let throw = Throws.TypeOf
 
-    let throwWithMessage (m: string) (t: System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
+    let throwWithMessage (m: string) (t: System.Type) =
+        Throws.TypeOf(t).And.Message.EqualTo(m)
 
-    let greaterThan x = GreaterThanConstraint(x)
+    let greaterThan x =
+        GreaterThanConstraint(x)
 
-    let greaterThanOrEqualTo x = GreaterThanOrEqualConstraint(x)
+    let greaterThanOrEqualTo x =
+        GreaterThanOrEqualConstraint(x)
 
-    let lessThan x = LessThanConstraint(x)
+    let lessThan x =
+        LessThanConstraint(x)
 
-    let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
+    let lessThanOrEqualTo x =
+        LessThanOrEqualConstraint(x)
 
     let shouldFail(f: unit -> unit) =
-        TestDelegate(f)
-        |> should throw typeof<AssertionException>
+        TestDelegate(f) |> should throw typeof<AssertionException>
 
-    let endWith(s: string) = EndsWithConstraint s
+    let endWith(s: string) =
+        EndsWithConstraint s
 
-    let startWith(s: string) = StartsWithConstraint s
+    let startWith(s: string) =
+        StartsWithConstraint s
 
-    let haveSubstring(s: string) = SubstringConstraint s
+    let haveSubstring(s: string) =
+        SubstringConstraint s
 
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
@@ -89,10 +103,14 @@ module TopLevelOperators =
     let not' x =
         if isNull(box x) then NotConstraint(Null) else NotConstraint(x)
 
-    let inRange min max = RangeConstraint(min, max)
+    let inRange min max =
+        RangeConstraint(min, max)
 
-    let ofCase case = OfSameCaseConstraint(case)
+    let ofCase case =
+        OfSameCaseConstraint(case)
 
-    let supersetOf x = CollectionSupersetConstraint(x)
+    let supersetOf x =
+        CollectionSupersetConstraint(x)
 
-    let subsetOf x = CollectionSubsetConstraint(x)
+    let subsetOf x =
+        CollectionSubsetConstraint(x)

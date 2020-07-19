@@ -119,7 +119,8 @@ let unique =
 
     CustomMatcher<obj>("All items unique", Func<_, _> matches)
 
-let sameAs x = Is.SameAs<obj>(x)
+let sameAs x =
+    Is.SameAs<obj>(x)
 
 let greaterThan(x: obj) =
     let matches(actual: obj) =
@@ -129,8 +130,7 @@ let greaterThan(x: obj) =
 
 let greaterThanOrEqualTo(x: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x)
-        >= 0
+        (unbox actual :> IComparable).CompareTo(unbox x) >= 0
 
     CustomMatcher<obj>(sprintf "Greater than or equal to %A" x, Func<_, _> matches)
 
@@ -142,8 +142,7 @@ let lessThan(x: obj) =
 
 let lessThanOrEqualTo(x: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x)
-        <= 0
+        (unbox actual :> IComparable).CompareTo(unbox x) <= 0
 
     CustomMatcher<obj>(sprintf "Less than or equal to %A" x, Func<_, _> matches)
 
@@ -292,9 +291,7 @@ type ChoiceDiscriminator(n: int) =
         let cArgCount = Seq.length cArgs
         try
             this.GetType().GetMethods()
-            |> Seq.filter(fun m ->
-                m.Name = "check"
-                && Seq.length(m.GetGenericArguments()) = cArgCount)
+            |> Seq.filter(fun m -> m.Name = "check" && Seq.length(m.GetGenericArguments()) = cArgCount)
             |> Seq.exists(fun m -> m.MakeGenericMethod(cArgs).Invoke(this, [| c |]) :?> bool)
         with _ -> false
 
@@ -304,9 +301,7 @@ let choice n =
 let inRange min max =
     let matches(actual: obj) =
         let unboxed = (unbox actual :> IComparable)
-        unboxed.CompareTo(unbox min)
-        >= 0
-        && unboxed.CompareTo(unbox max) <= 0
+        unboxed.CompareTo(unbox min) >= 0 && unboxed.CompareTo(unbox max) <= 0
 
     CustomMatcher<obj>(sprintf "In range from %A to %A" min max, Func<_, _> matches)
 
