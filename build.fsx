@@ -140,7 +140,7 @@ Target.create "CleanDocs" (fun _ ->
 
 Target.create "Format" (fun _ ->
     !! "src/**/*.fs"
-      //++ "tests/**/*.fs" 
+      ++ "tests/**/*.fs" 
       -- "./**/*AssemblyInfo.fs"
     |> formatCode
     |> Async.RunSynchronously

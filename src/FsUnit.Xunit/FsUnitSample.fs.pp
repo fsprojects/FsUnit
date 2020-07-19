@@ -13,11 +13,11 @@ type LightBulb(state) =
 type ``Given a LightBulb that has had its state set to true`` ()=
    let lightBulb = LightBulb(true)
 
-   [<Fact>] member test.
+   [<Fact>] member __.
     ``when I ask whether it is On it answers true.`` ()=
            lightBulb.On |> should be True
 
-   [<Fact>] member test.
+   [<Fact>] member __.
     ``when I convert it to a string it becomes "On".`` ()=
            string lightBulb |> should equal "On"
 
