@@ -37,6 +37,13 @@ type ``haveLength tests`` ()=
      ``Array with 1 item should fail to not have Length 1`` ()=
         shouldFail (fun () -> [|1|] |> should not' (haveLength 1))
 
+    [<Fact>] member test.
+     ``Array with 1 item should fail to have Length 2 but messages should equal`` ()=
+        (fun () -> [|1|] |> should haveLength 2)
+        |> fun f -> Assert.Throws<MatchException>(f)
+        |> fun e -> (e.Expected, e.Actual)
+        |> should equal ("Have Length 2", "[|1|]")
+
     // Seq
     [<Fact>] member test.
      ``Seq with 1 item should fail to have Length 1`` ()=

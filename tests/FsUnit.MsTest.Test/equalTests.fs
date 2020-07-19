@@ -2,7 +2,6 @@
 open System.Collections.Immutable
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open NHamcrest.Core
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -96,6 +95,13 @@ type ``equal Tests`` ()=
     [<TestMethod>] member test.
      ``None should equal None`` ()=
         None |> should equal None
+        
+    [<TestMethod>] member test.
+     ``Ok "foo" should fail on equal Ok "bar" but message should be equal`` ()=
+        (fun () -> Ok "foo" |> should equal (Ok "bar"))
+        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun e -> e.Message
+        |> should equal ("Equals Ok \"bar\" was Ok \"foo\"")
 
     [<TestMethod>] member test.
      ``structural value type should equal equivalent value`` () =

@@ -96,4 +96,10 @@ type ``equal Tests`` ()=
     [<Fact>] member test.
      ``structural value type should not equal non-equivalent value`` () =
         anImmutableArray |> should not' (equal otherImmutableArray)
-
+        
+    [<Fact>] member test.
+     ``Ok "foo" should fail on equal Ok "bar" but message should be equal`` ()=
+         (fun () -> Ok "foo" |> should equal (Ok "bar"))
+         |> fun f -> Assert.Throws<MatchException>(f)
+         |> fun e -> (e.Expected, e.Actual)
+         |> should equal ("Equals Ok \"bar\"", "Ok \"foo\"")

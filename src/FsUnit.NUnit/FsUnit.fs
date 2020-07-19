@@ -1,14 +1,10 @@
-﻿// TODO : Add license header
+﻿namespace FsUnit
 
-namespace FsUnit
-
-open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
 open CustomConstraints
 
-//
 [<AutoOpen>]
 module TopLevelOperators =
 
@@ -40,7 +36,7 @@ module TopLevelOperators =
             match y with
             | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
             | _ -> y
-        if box c = null then
+        if isNull (box c) then
             Assert.That(y, Is.Null)
         else
             Assert.That(y, c)
@@ -90,8 +86,8 @@ module TopLevelOperators =
 
     let descending = Is.Ordered.Descending
 
-    let not' x =
-        if box x = null then NotConstraint(Null) else NotConstraint(x)
+    let not' x = 
+        if isNull (box x) then NotConstraint(Null) else NotConstraint(x)
 
     let inRange min max = RangeConstraint(min, max)
 
