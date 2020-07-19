@@ -9,11 +9,11 @@ open System.Collections.Generic
 module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldEqual (expected: 'a) (actual: 'a) =
-        Assert.AreEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.That(actual, FsUnit.Equality.IsEqualTo(expected), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected: 'a) (actual: 'a) =
-        Assert.AreNotEqual(expected, actual, sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected), sprintf "Expected: %A\nActual: %A" expected actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =

@@ -1,14 +1,13 @@
 namespace FsUnit
 
-open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Constraints
 open CustomConstraints
 
 [<AutoOpen>]
-
 module TopLevelOperators =
+
     [<SetUpFixture>]
     type FSharpCustomMessageFormatter() =
         do TestContext.AddFormatter(ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
@@ -41,7 +40,7 @@ module TopLevelOperators =
 
         if isNull(box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
 
-    let equal x = EqualConstraint(x)
+    let equal x = Equality.IsEqualTo(x)
 
     let equivalent x = CollectionEquivalentConstraint(x)
 
@@ -59,7 +58,7 @@ module TopLevelOperators =
 
     let throw = Throws.TypeOf
 
-    let throwWithMessage (m: string) (t: Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
+    let throwWithMessage (m: string) (t: System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
 
     let greaterThan x = GreaterThanConstraint(x)
 

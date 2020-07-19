@@ -16,9 +16,7 @@ type Assert =
     /// <param name="expected">The expected value.</param>
     /// <param name="actual">The actual value.</param>
     static member AreEqual<'T when 'T: equality>(expected: 'T, actual: 'T): unit =
-        let eqConstraint =
-            Is.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let eqConstraint = Equality.IsEqualTo(expected)
         Assert.That(actual, eqConstraint, null, null)
 
     /// <summary>
@@ -29,9 +27,7 @@ type Assert =
     /// <param name="actual">The actual value.</param>
     /// <param name="message">The message to display in case of failure.</param>
     static member AreEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string): unit =
-        let eqConstraint =
-            Is.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let eqConstraint = Equality.IsEqualTo(expected)
         Assert.That(actual, eqConstraint, message, null)
 
     /// <summary>
@@ -43,9 +39,7 @@ type Assert =
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
     static member AreEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []): unit =
-        let eqConstraint =
-            Is.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let eqConstraint = Equality.IsEqualTo(expected)
         Assert.That(actual, eqConstraint, message, args)
 
     /// <summary>
@@ -55,9 +49,7 @@ type Assert =
     /// <param name="expected">The expected value.</param>
     /// <param name="actual">The actual value.</param>
     static member AreNotEqual<'T when 'T: equality>(expected: 'T, actual: 'T): unit =
-        let neqConstraint =
-            Is.Not.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let neqConstraint = Equality.IsNotEqualTo(expected)
         Assert.That(actual, neqConstraint, null, null)
 
     /// <summary>
@@ -68,9 +60,7 @@ type Assert =
     /// <param name="actual">The actual value.</param>
     /// <param name="message">The message to display in case of failure.</param>
     static member AreNotEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string): unit =
-        let neqConstraint =
-            Is.Not.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let neqConstraint = Equality.IsNotEqualTo(expected)
         Assert.That(actual, neqConstraint, message, null)
 
     /// <summary>
@@ -82,9 +72,7 @@ type Assert =
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
     static member AreNotEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []): unit =
-        let neqConstraint =
-            Is.Not.EqualTo(expected).Using FastGenericEqualityComparer<'T>
-
+        let neqConstraint = Equality.IsNotEqualTo(expected)
         Assert.That(actual, neqConstraint, message, args)
 
     /// <summary>
@@ -158,8 +146,9 @@ type Assert =
     /// </summary>
     /// <param name="expected">The expected object.</param>
     /// <param name="actual">The list to be examined.</param>
-    static member Contains<'T>(expected: 'T, actual: ICollection<'T>): unit =
-        let containsConstraint = Has.Some.EqualTo(expected)
+    static member Contains<'T when 'T: equality>(expected: 'T, actual: IEnumerable<'T>): unit =
+        let eqConstraint = Equality.IsEqualTo(expected)
+        let containsConstraint = SomeItemsConstraint(eqConstraint)
         Assert.That(actual, containsConstraint, null, null)
 
     /// <summary>
@@ -168,9 +157,10 @@ type Assert =
     /// <param name="expected">The expected object.</param>
     /// <param name="actual">The list to be examined.</param>
     /// <param name="message">The message to display in case of failure.</param>
-    static member Contains<'T>(expected: 'T, actual: ICollection<'T>, message: string): unit =
-        let containsConstraint = Has.Some.EqualTo(expected)
-        Assert.That(actual, containsConstraint, null, null)
+    static member Contains<'T when 'T: equality>(expected: 'T, actual: IEnumerable<'T>, message: string): unit =
+        let eqConstraint = Equality.IsEqualTo(expected)
+        let containsConstraint = SomeItemsConstraint(eqConstraint)
+        Assert.That(actual, containsConstraint, message, null)
 
     /// <summary>
     /// Asserts that an object is contained in a list.
@@ -179,9 +169,10 @@ type Assert =
     /// <param name="actual">The list to be examined.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Contains<'T>(expected: 'T, actual: ICollection<'T>, message: string, [<ParamArray>] args: obj []): unit =
-        let containsConstraint = Has.Some.EqualTo(expected)
-        Assert.That(actual, containsConstraint, null, null)
+    static member Contains<'T when 'T: equality>(expected: 'T, actual: IEnumerable<'T>, message: string, [<ParamArray>] args: obj []): unit =
+        let eqConstraint = Equality.IsEqualTo(expected)
+        let containsConstraint = SomeItemsConstraint(eqConstraint)
+        Assert.That(actual, containsConstraint, message, args)
 
     /// <summary>
     /// Verifies that the first value is greater than the second value.
