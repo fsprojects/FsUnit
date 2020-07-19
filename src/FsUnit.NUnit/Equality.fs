@@ -38,4 +38,5 @@ type Equality<'T when 'T: equality> =
         | :? IStructuralEquatable -> Is.EqualTo(x).Or.EqualTo(x).Using<'T>(Equality.Structural)
         | _ -> Is.EqualTo(x)
 
-    static member IsNotEqualTo(x: 'T) = NotConstraint(Equality.IsEqualTo(x))
+    static member IsNotEqualTo(x: 'T) =
+        NotConstraint(Equality.IsEqualTo(x))

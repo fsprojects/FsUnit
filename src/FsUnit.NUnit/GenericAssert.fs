@@ -326,7 +326,8 @@ type Assert =
     /// If the object is not 'null', then an NUnit.Framework.AssertException is thrown.
     /// </summary>
     /// <param name="arg">The object that is to be tested.</param>
-    static member Null<'T when 'T: not struct>(arg: 'T): unit = Assert.That(arg, Is.Null, null, null)
+    static member Null<'T when 'T: not struct>(arg: 'T): unit =
+        Assert.That(arg, Is.Null, null, null)
 
     /// <summary>
     /// Verifies that the object that is passed in is equal to 'null'.
@@ -334,7 +335,8 @@ type Assert =
     /// </summary>
     /// <param name="arg">The object that is to be tested.</param>
     /// <param name="message">The message to display in case of failure.</param>
-    static member Null<'T when 'T: not struct>(arg: 'T, message: string): unit = Assert.That(arg, Is.Null, message, null)
+    static member Null<'T when 'T: not struct>(arg: 'T, message: string): unit =
+        Assert.That(arg, Is.Null, message, null)
 
     /// <summary>
     /// Verifies that the object that is passed in is equal to 'null'.
@@ -343,4 +345,5 @@ type Assert =
     /// <param name="arg">The object that is to be tested.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Null<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj []): unit = Assert.That(arg, Is.Null, message, args)
+    static member Null<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj []): unit =
+        Assert.That(arg, Is.Null, message, args)

@@ -23,7 +23,8 @@ module TopLevelOperators =
         Assert.Contains(x, list)
 
     [<DebuggerStepThrough>]
-    let shouldBeEmpty(list: 'a seq) = Assert.IsEmpty(list)
+    let shouldBeEmpty(list: 'a seq) =
+        Assert.IsEmpty(list)
 
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =

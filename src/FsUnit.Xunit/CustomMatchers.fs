@@ -119,7 +119,8 @@ let unique =
 
     CustomMatcher<obj>("All items unique", Func<_, _> matches)
 
-let sameAs x = Is.SameAs<obj>(x)
+let sameAs x =
+    Is.SameAs<obj>(x)
 
 let greaterThan(x: obj) =
     let matches(actual: obj) =
