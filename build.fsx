@@ -1,15 +1,15 @@
 #r @"paket:
 source https://nuget.org/api/v2
 framework netstandard2.0
+nuget Fantomas prerelease
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
-nuget Fake.Core.ReleaseNotes 
+nuget Fake.Core.ReleaseNotes
 nuget Fake.IO.FileSystem
 nuget Fake.DotNet.Cli
 nuget Fake.DotNet.MSBuild
 nuget Fake.DotNet.AssemblyInfoFile
 nuget Fake.DotNet.Paket
-nuget Fake.DotNet.FSFormatting 
 nuget Fake.DotNet.Fsi
 nuget Fake.Tools.Git
 nuget Fake.Api.GitHub //"
@@ -19,17 +19,16 @@ nuget Fake.Api.GitHub //"
 #r "netstandard" // Temp fix for https://github.com/fsharp/FAKE/issues/1985
 #endif
 
-open Fake 
+open Fake
 open Fake.Core.TargetOperators
-open Fake.Core 
+open Fake.Core
 open Fake.IO
 open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.DotNet
-open Fake.Tools
 open Fake.Tools.Git
-open System
 open System.IO
+open Fantomas.FakeHelpers
 
 Target.initEnvironment()
 
@@ -50,9 +49,6 @@ let project = "FsUnit"
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
 let summary = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
-
-// File system information
-let solutionFile  = "FsUnit.sln"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -102,7 +98,7 @@ Target.create "AssemblyInfo" (fun _ ->
     !! "src/**/*.??proj"
     |> Seq.filter (fun x -> not <| x.Contains(".netstandard"))
     |> Seq.map getProjectDetails
-    |> Seq.iter (fun (projFileName, projectName, folderName, attributes) ->
+    |> Seq.iter (fun (projFileName, _, folderName, attributes) ->
         match projFileName with
         | Fsproj -> AssemblyInfoFile.createFSharp (folderName @@ "AssemblyInfo.fs") attributes
         | Csproj -> AssemblyInfoFile.createCSharp ((folderName @@ "Properties") @@ "AssemblyInfo.cs") attributes
@@ -123,9 +119,9 @@ Target.create "CopyBinaries" (fun _ ->
 // Clean build results
 
 Target.create "Clean" (fun _ ->
-    Shell.cleanDirs 
+    Shell.cleanDirs
         [
-        "bin"; "temp"; 
+        "bin"; "temp";
         "src/FsUnit.NUnit/bin/";
         "src/FsUnit.NUnit/obj/";
         "src/FsUnit.Xunit/bin/";
@@ -137,6 +133,16 @@ Target.create "Clean" (fun _ ->
 
 Target.create "CleanDocs" (fun _ ->
     Shell.cleanDirs ["docs/output"]
+)
+
+// --------------------------------------------------------------------------------------
+// Check code format & format code using Fantomas
+
+Target.create "Format" (fun _ ->
+    !!"src/**/*.fs" -- "./**/*AssemblyInfo.fs"
+    |> formatCode
+    |> Async.RunSynchronously
+    |> printfn "Formatted files: %A"
 )
 
 // --------------------------------------------------------------------------------------
@@ -200,8 +206,8 @@ let preGenerateDocs ()  =
     Shell.rename "docs/content/license.md" "docs/content/LICENSE.txt"
 
 let generateDocs () =
-    let result = 
-        DotNet.exec (fun p -> { p with WorkingDirectory = "." }) 
+    let result =
+        DotNet.exec (fun p -> { p with WorkingDirectory = "." })
             "fsi" (__SOURCE_DIRECTORY__ + "/docs/generate.fsx")
     if result.OK then
         Trace.traceImportant "Help generated"
@@ -209,16 +215,16 @@ let generateDocs () =
         String.concat "\n" result.Errors
         |> failwithf "generating help documentation failed:\n%s"
 
-Target.create "GenerateDocs" (fun _ -> 
+Target.create "GenerateDocs" (fun _ ->
     preGenerateDocs()
     System.Environment.SetEnvironmentVariable("CHANGED_FILE", null)
     generateDocs()
 )
 
-Target.create "KeepRunning" (fun _ ->                    
+Target.create "KeepRunning" (fun _ ->
     let watcherEventHandler (e:FileSystemEventArgs) =
         Trace.traceImportant <| sprintf "File %s is %A" e.FullPath e.ChangeType
-        if not <| e.FullPath.Contains("output") then 
+        if not <| e.FullPath.Contains("output") then
             let value = if e.FullPath.EndsWith("generate.fsx") then null else e.FullPath
             System.Environment.SetEnvironmentVariable("CHANGED_FILE", value)
             generateDocs()
@@ -261,6 +267,7 @@ Target.create "Release" ignore
 
 "Clean"
   ==> "AssemblyInfo"
+  ==> "Format"
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
@@ -268,10 +275,10 @@ Target.create "Release" ignore
   =?> ("ReleaseDocs", BuildServer.isLocalBuild)
   ==> "Release"
 
-"Build" 
+"Build"
   ==> "NUnit"
   ==> "xUnit"
-  ==> "MsTest" 
+  ==> "MsTest"
   ==> "RunTests"
 
 "All"

@@ -1,10 +1,11 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EE5D61BB-A9AF-4FD4-8EA1-46841326A083}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.NUnit", "src\FsUnit.NUnit\FsUnit.NUnit.fsproj", "{E729B493-15E6-4447-A5A5-A60784924627}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.NUnit", "src\FsUnit.NUnit\FsUnit.NUnit.fsproj", "{E729B493-15E6-4447-A5A5-A60784924627}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{35F65EEF-9059-4829-93EE-C8F7810B3997}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,15 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{35F65E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{79367338-3E06-4830-AA07-9B429B61F888}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.NUnit.Test", "tests\FsUnit.NUnit.Test\FsUnit.NUnit.Test.fsproj", "{6064279B-8E7A-4AC7-8420-EB7BC1320C0D}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.NUnit.Test", "tests\FsUnit.NUnit.Test\FsUnit.NUnit.Test.fsproj", "{6064279B-8E7A-4AC7-8420-EB7BC1320C0D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.Xunit", "src\FsUnit.Xunit\FsUnit.Xunit.fsproj", "{A2FF7AFB-FD76-4F09-A176-654819796A9A}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.Xunit", "src\FsUnit.Xunit\FsUnit.Xunit.fsproj", "{A2FF7AFB-FD76-4F09-A176-654819796A9A}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.MsTest", "src\FsUnit.MsTestUnit\FsUnit.MsTest.fsproj", "{ED810E0E-0E09-4528-953A-61594598B650}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.MsTest", "src\FsUnit.MsTestUnit\FsUnit.MsTest.fsproj", "{ED810E0E-0E09-4528-953A-61594598B650}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.Xunit.Test", "tests\FsUnit.Xunit.Test\FsUnit.Xunit.Test.fsproj", "{951EC3A5-5BDF-484E-BC1F-D45C69B3725D}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.Xunit.Test", "tests\FsUnit.Xunit.Test\FsUnit.Xunit.Test.fsproj", "{951EC3A5-5BDF-484E-BC1F-D45C69B3725D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs30Unit.MsTest.Test", "tests\FsUnit.MsTest.Test\Fs30Unit.MsTest.Test.fsproj", "{1593585D-FE1B-4378-BE53-EE62A4CC84DB}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FsUnit.MsTest.Test", "tests\FsUnit.MsTest.Test\FsUnit.MsTest.Test.fsproj", "{1593585D-FE1B-4378-BE53-EE62A4CC84DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{D33A7B6D-EE0A-4AC6-8240-D4BFA490094E}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,15 +36,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{D33A7B6D-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{9580EF72-AC6E-4B0E-906E-3694A52876DB}"
 	ProjectSection(SolutionItems) = preProject
-		docs\content\xUnit.fsx = docs\content\xUnit.fsx
-		docs\content\Paket.fsx = docs\content\Paket.fsx
-		docs\content\NUnit.fsx = docs\content\NUnit.fsx
-		docs\content\MsTest.fsx = docs\content\MsTest.fsx
 		docs\content\FsUnitTyped.fsx = docs\content\FsUnitTyped.fsx
 		docs\content\index.fsx = docs\content\index.fsx
-		docs\content\operators.md = docs\content\operators.md
-		docs\content\release-notes.md = docs\content\release-notes.md
 		docs\content\license.md = docs\content\license.md
+		docs\content\MsTest.fsx = docs\content\MsTest.fsx
+		docs\content\NUnit.fsx = docs\content\NUnit.fsx
+		docs\content\operators.md = docs\content\operators.md
+		docs\content\Paket.fsx = docs\content\Paket.fsx
+		docs\content\release-notes.md = docs\content\release-notes.md
+		docs\content\xUnit.fsx = docs\content\xUnit.fsx
 	EndProjectSection
 EndProject
 Global
@@ -54,9 +55,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E729B493-15E6-4447-A5A5-A60784924627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -132,6 +130,9 @@ Global
 		{1593585D-FE1B-4378-BE53-EE62A4CC84DB}.Release|x86.ActiveCfg = Release|Any CPU
 		{1593585D-FE1B-4378-BE53-EE62A4CC84DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E729B493-15E6-4447-A5A5-A60784924627} = {EE5D61BB-A9AF-4FD4-8EA1-46841326A083}
 		{6064279B-8E7A-4AC7-8420-EB7BC1320C0D} = {79367338-3E06-4830-AA07-9B429B61F888}
@@ -141,5 +142,8 @@ Global
 		{1593585D-FE1B-4378-BE53-EE62A4CC84DB} = {79367338-3E06-4830-AA07-9B429B61F888}
 		{D33A7B6D-EE0A-4AC6-8240-D4BFA490094E} = {35F65EEF-9059-4829-93EE-C8F7810B3997}
 		{9580EF72-AC6E-4B0E-906E-3694A52876DB} = {D33A7B6D-EE0A-4AC6-8240-D4BFA490094E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {402FF7D5-E6CC-4B15-A71A-56615B644F7E}
 	EndGlobalSection
 EndGlobal

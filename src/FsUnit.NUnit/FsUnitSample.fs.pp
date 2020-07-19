@@ -12,7 +12,7 @@ type LightBulb(state) =
 
 [<TestFixture>] 
 type ``Given a LightBulb that has had its state set to true`` ()=
-   let lightBulb = new LightBulb(true)
+   let lightBulb = LightBulb(true)
 
    [<Test>] member test.
     ``when I ask whether it is On it answers true.`` ()=

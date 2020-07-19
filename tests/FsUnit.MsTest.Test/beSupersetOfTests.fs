@@ -18,7 +18,7 @@ type ``be supersetOf tests`` ()=
         {1..10} |> should be (supersetOf {4..8})
         
     [<TestMethod>] member test.
-     ``1 to 10 should be superset of 4. 1 and 7`` ()=
+     ``1 to 10 should be superset of 4, 1 and 7`` ()=
         [|1..10|] |> should be (supersetOf [|4;1;7|])
 
     [<TestMethod>] member test.

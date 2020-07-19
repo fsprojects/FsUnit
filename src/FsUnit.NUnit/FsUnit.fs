@@ -1,4 +1,4 @@
-﻿namespace FsUnit
+namespace FsUnit
 
 open System.Diagnostics
 open NUnit.Framework
@@ -10,8 +10,7 @@ module TopLevelOperators =
 
     [<SetUpFixture>]
     type FSharpCustomMessageFormatter() =
-      do TestContext.AddFormatter(
-           ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
+        do TestContext.AddFormatter(ValueFormatterFactory(fun _ -> ValueFormatter(sprintf "%A")))
 
     let Null = NullConstraint()
 
@@ -19,7 +18,8 @@ module TopLevelOperators =
 
     let EmptyString = EmptyStringConstraint()
 
-    let NullOrEmptyString = OrConstraint(NullConstraint(), EmptyConstraint())
+    let NullOrEmptyString =
+        OrConstraint(NullConstraint(), EmptyConstraint())
 
     let True = TrueConstraint()
 
@@ -30,16 +30,15 @@ module TopLevelOperators =
     let unique = UniqueItemsConstraint()
 
     [<DebuggerNonUserCode>]
-    let should (f : 'a -> #Constraint) x (y : obj) =
+    let should (f: 'a -> #Constraint) x (y: obj) =
         let c = f x
+
         let y =
             match y with
-            | :? (unit -> unit) -> box (TestDelegate(y :?> unit -> unit))
+            | :? (unit -> unit) -> box(TestDelegate(y :?> unit -> unit))
             | _ -> y
-        if isNull (box c) then
-            Assert.That(y, Is.Null)
-        else
-            Assert.That(y, c)
+
+        if isNull(box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
 
     let equal x = Equality.IsEqualTo(x)
 
@@ -59,7 +58,7 @@ module TopLevelOperators =
 
     let throw = Throws.TypeOf
 
-    let throwWithMessage (m:string) (t:System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
+    let throwWithMessage (m: string) (t: System.Type) = Throws.TypeOf(t).And.Message.EqualTo(m)
 
     let greaterThan x = GreaterThanConstraint(x)
 
@@ -69,14 +68,15 @@ module TopLevelOperators =
 
     let lessThanOrEqualTo x = LessThanOrEqualConstraint(x)
 
-    let shouldFail (f : unit -> unit) =
-        TestDelegate(f) |> should throw typeof<AssertionException>
+    let shouldFail(f: unit -> unit) =
+        TestDelegate(f)
+        |> should throw typeof<AssertionException>
 
-    let endWith (s:string) = EndsWithConstraint s
+    let endWith(s: string) = EndsWithConstraint s
 
-    let startWith (s:string) = StartsWithConstraint s
+    let startWith(s: string) = StartsWithConstraint s
 
-    let haveSubstring (s:string) = SubstringConstraint s
+    let haveSubstring(s: string) = SubstringConstraint s
 
     let ofExactType<'a> = ExactTypeConstraint(typeof<'a>)
 
@@ -86,8 +86,8 @@ module TopLevelOperators =
 
     let descending = Is.Ordered.Descending
 
-    let not' x = 
-        if isNull (box x) then NotConstraint(Null) else NotConstraint(x)
+    let not' x =
+        if isNull(box x) then NotConstraint(Null) else NotConstraint(x)
 
     let inRange min max = RangeConstraint(min, max)
 

@@ -26,4 +26,4 @@ type ``shouldBeEmpty tests`` ()=
 
     [<Test>] member test.
      ``non-empty Seq should fail to be Empty`` ()=
-        shouldFail (fun () -> seq { yield 1 } |> shouldBeEmpty)
+        shouldFail (fun () -> seq { 1 } |> shouldBeEmpty)

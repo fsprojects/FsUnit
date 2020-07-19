@@ -112,4 +112,3 @@ type ``equal Tests`` ()=
     [<Test>] member test.
      ``structural value type should not equal non-equivalent value`` () =
         anImmutableArray |> should not' (equal otherImmutableArray)
-

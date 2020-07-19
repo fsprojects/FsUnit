@@ -2,7 +2,6 @@
 
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open NHamcrest.Core
 
 type LightBulb(state) =
    member x.On = state
@@ -13,7 +12,7 @@ type LightBulb(state) =
 
 [<TestClass>] 
 type ``Given a LightBulb that has had its state set to true`` ()=
-   let lightBulb = new LightBulb(true)
+   let lightBulb = LightBulb(true)
 
    [<TestMethod>] member test.
     ``when I ask whether it is On it answers true.`` ()=

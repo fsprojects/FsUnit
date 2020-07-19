@@ -38,7 +38,7 @@ type ``shouldContain tests`` ()=
 
     [<Test>] member test.
      ``Seq with item should contain item`` ()=
-        seq { yield 1 } |> shouldContain 1
+        seq { 1 } |> shouldContain 1
 
     [<Test>] member test.
      ``empty Seq should fail to contain item`` ()=
@@ -50,4 +50,4 @@ type ``shouldContain tests`` ()=
 
     [<Test>] member test.
      ``Seq with item should fail to not contain item`` ()=
-        shouldFail (fun () -> seq { yield 1 } |> shouldNotContain 1)
+        shouldFail (fun () -> seq { 1 } |> shouldNotContain 1)

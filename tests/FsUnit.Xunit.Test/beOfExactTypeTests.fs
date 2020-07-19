@@ -1,7 +1,6 @@
 ﻿namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 type ``should be of exact type tests`` ()=
     [<Fact>] member test.

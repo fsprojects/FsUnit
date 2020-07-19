@@ -4,7 +4,6 @@ open System.Collections.Immutable
 
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -63,11 +62,11 @@ type ``equal Tests`` ()=
 
     [<Fact>] member test.
      ``should fail when Equals returns false`` ()=
-        anObj |> should not' (equal (new NeverEqual()))
+        anObj |> should not' (equal (NeverEqual()))
 
     [<Fact>] member test.
      ``should pass when negated and Equals returns false`` ()=
-        anObj |> should not' (equal (new NeverEqual()))
+        anObj |> should not' (equal (NeverEqual()))
 
     [<Fact>] member test.
      ``should pass when comparing two lists that have the same values`` ()=

@@ -2,7 +2,6 @@
 open System
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
-open NHamcrest.Core
 
 exception TestException
 

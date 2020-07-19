@@ -1,4 +1,4 @@
-﻿module FsUnit.Xunit
+module FsUnit.Xunit
 
 open System
 open Xunit
@@ -6,47 +6,47 @@ open Xunit.Sdk
 open NHamcrest
 open NHamcrest.Core
 
-type MatchException (expected, actual, userMessage) =
+type MatchException(expected, actual, userMessage) =
     inherit AssertActualExpectedException(expected, actual, userMessage)
 
 type Xunit.Assert with
-    static member That<'a> (actual, matcher: IMatcher<'a>) =
-        if not (matcher.Matches(actual)) then
-            let description = new StringDescription()
+    static member That<'a>(actual, matcher: IMatcher<'a>) =
+        if not(matcher.Matches(actual)) then
+            let description = StringDescription()
             matcher.DescribeTo(description)
-            raise (new MatchException(description.ToString(), (sprintf "%A" actual), null))
+            raise(MatchException(description.ToString(), (sprintf "%A" actual), null))
 
-let inline should (f : 'a -> ^b) x (y : obj) =
+let inline should (f: 'a -> ^b) x (y: obj) =
     let c = f x
+
     let y =
         match y with
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
-    if isNull (box c) then
-        Assert.That(y, Is.Null())
-    else
-        Assert.That(y, c)
 
-let inline shouldFail (f:unit->unit) =
+    if isNull(box c) then Assert.That(y, Is.Null()) else Assert.That(y, c)
+
+let inline shouldFail(f: unit -> unit) =
     let failed =
         try
             f()
             false
-        with
-        | _ -> true
-    if not failed then
-        raise (new MatchException("Method should fail", "No exception raised", null))
+        with _ -> true
+
+    if not failed
+    then raise(MatchException("Method should fail", "No exception raised", null))
 
 
 let equal expected = CustomMatchers.equal expected
 
-let equalWithin (tolerance:obj) (expected:obj) = CustomMatchers.equalWithin tolerance expected
+let equalWithin (tolerance: obj) (expected: obj) =
+    CustomMatchers.equalWithin tolerance expected
 
-let not' (expected:obj) = CustomMatchers.not' expected
+let not'(expected: obj) = CustomMatchers.not' expected
 
-let throw (t:Type) = CustomMatchers.throw t
+let throw(t: Type) = CustomMatchers.throw t
 
-let throwWithMessage (m:string) (t:Type) = CustomMatchers.throwWithMessage m t
+let throwWithMessage (m: string) (t: Type) = CustomMatchers.throwWithMessage m t
 
 let be = CustomMatchers.be
 
@@ -68,19 +68,21 @@ let unique = CustomMatchers.unique
 
 let sameAs expected = CustomMatchers.sameAs expected
 
-let greaterThan (expected:obj) = CustomMatchers.greaterThan expected
+let greaterThan(expected: obj) = CustomMatchers.greaterThan expected
 
-let greaterThanOrEqualTo (expected:obj) = CustomMatchers.greaterThanOrEqualTo expected
+let greaterThanOrEqualTo(expected: obj) =
+    CustomMatchers.greaterThanOrEqualTo expected
 
-let lessThan (expected:obj) = CustomMatchers.lessThan expected
+let lessThan(expected: obj) = CustomMatchers.lessThan expected
 
-let lessThanOrEqualTo (expected:obj) = CustomMatchers.lessThanOrEqualTo expected
+let lessThanOrEqualTo(expected: obj) =
+    CustomMatchers.lessThanOrEqualTo expected
 
-let endWith (expected:string) = CustomMatchers.endWith expected
+let endWith(expected: string) = CustomMatchers.endWith expected
 
-let startWith (expected:string) = CustomMatchers.startWith expected
+let startWith(expected: string) = CustomMatchers.startWith expected
 
-let haveSubstring (expected:string) = CustomMatchers.haveSubstring expected
+let haveSubstring(expected: string) = CustomMatchers.haveSubstring expected
 
 let ofExactType<'a> = CustomMatchers.ofExactType<'a>
 

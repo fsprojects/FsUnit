@@ -9,13 +9,15 @@ module Common =
     /// Takes an expression and returns the name of the union cases that are the result of this expression.
     /// Note, not all ways an expression may result in an union case are covered in this function.
     /// </summary>
-    let rec caseName = function
-        | Lambda (_, expr) | Let (_, _, expr) -> caseName expr
-        | NewUnionCase (case, _) ->
-            Some case.Name
+    let rec caseName =
+        function
+        | Lambda(_, expr)
+        | Let(_, _, expr) -> caseName expr
+        | NewUnionCase(case, _) -> Some case.Name
         | NewTuple expressions ->
             expressions
-            |> List.map caseName |> List.choose id
+            |> List.map caseName
+            |> List.choose id
             |> (fun x -> System.String.Join(", ", x))
             |> Some
         | _ -> None
@@ -35,21 +37,26 @@ module Common =
     /// <exception cref="System.Exception">If the expression is not an union case or does not result in an union case.</exception>
     /// <exception cref="System.Exception">If argument to check is not an union case or does not result in an union case.</exception>
     /// <remarks>Note, not all ways an expression may result in an union case are covered in this function.</remarks>
-    let rec isOfCase = function
-        | Lambda (_, expr) | Let (_, _, expr) -> isOfCase expr
-        | NewUnionCase (case, _) ->
+    let rec isOfCase =
+        function
+        | Lambda(_, expr)
+        | Let(_, _, expr) -> isOfCase expr
+        | NewUnionCase(case, _) ->
             // Returns a function that check wether the tag of the argument matches
             // the tag of the union given in the expression.
-            let readTag = FSharpValue.PreComputeUnionTagReader case.DeclaringType
+            let readTag =
+                FSharpValue.PreComputeUnionTagReader case.DeclaringType
+
             let comparator = (=) case.Tag
             (fun x ->
-                if FSharpType.IsUnion(x.GetType()) then
-                    x :> obj |> (readTag >> comparator)
-                else
-                    failwith "Value (not expression) is not a union case.")
+                if FSharpType.IsUnion(x.GetType())
+                then x :> obj |> (readTag >> comparator)
+                else failwith "Value (not expression) is not a union case.")
         | NewTuple expressions ->
             // a tuple may contain several union cases so we can simply
             // map this functions over all expressions
             let mappedExpressions = expressions |> List.map isOfCase
-            (fun x -> mappedExpressions |> List.exists (fun expression -> x |> expression))
+            (fun x ->
+                mappedExpressions
+                |> List.exists(fun expression -> x |> expression))
         | _ -> failwith "Expression (not value) is not a union case."

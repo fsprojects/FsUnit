@@ -2,7 +2,6 @@
 open System
 open Xunit
 open FsUnit.Xunit
-open NHamcrest.Core
 
 exception TestException
 
