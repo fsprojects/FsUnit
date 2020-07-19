@@ -21,35 +21,6 @@ FsUnitTyped from NuGet
 
 The `FsUnit.Typed` is part of `FsUnit` package for NUnit and can be [installed from NuGet](https://nuget.org/packages/FsUnit).
 
-FsUnitTyped with Paket
------------------------
-
-`FsUnitTyped` supports lightweight usage scenario with [Paket](http://fsprojects.github.io/Paket/).
-
-In the case when you do not want to add dependency on [FsUnit](https://www.nuget.org/packages/FsUnit/)
-package to your project, you can add reference to [FsUnitTyped.fs](https://github.com/fsprojects/FsUnit/blob/master/src/FsUnit.NUnit/FsUnit.Typed.fs)
-file and [NUnit](https://www.nuget.org/packages/NUnit/) package.
-
-Example of `paket.dependencies` file:
-
-    [lang=paket]
-    source https://nuget.org/api/v2
-
-    nuget FSharp.Core
-    github fsprojects/FsUnit src/FsUnit.NUnit/FsUnitTyped.fs
-
-    group Test
-        source https://nuget.org/api/v2
-        nuget NUnit.Console
-        nuget NUnit
-
-Example of `paket.reference` file for test projects:
-
-    [lang=paket]
-    File:FsUnitTyped.fs
-    group Test
-        NUnit
-
 Syntax
 -------
 

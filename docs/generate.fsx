@@ -117,8 +117,6 @@ let template t =
 
                             li [ _class "nav-header" ] [ str "Getting started" ]
                             li [] [ a [ _href "NUnit.html" ] [ str "NUnit Classic" ] ]
-                            li []
-                              [ a [ _href "Paket.html" ] [ str "Lightweight FsUnit with Paket" ] ]
                             li [] [ a [ _href "FsUnitTyped.html" ] [ str "FsUnitTyped" ] ]
                             li [ _class "divider" ] []
 

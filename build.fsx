@@ -139,7 +139,9 @@ Target.create "CleanDocs" (fun _ ->
 // Check code format & format code using Fantomas
 
 Target.create "Format" (fun _ ->
-    !!"src/**/*.fs" -- "./**/*AssemblyInfo.fs"
+    !! "src/**/*.fs"
+      //++ "tests/**/*.fs" 
+      -- "./**/*AssemblyInfo.fs"
     |> formatCode
     |> Async.RunSynchronously
     |> printfn "Formatted files: %A"
@@ -149,7 +151,6 @@ Target.create "Format" (fun _ ->
 // Build library & test project
 
 Target.create "Build" (fun _ ->
-    //DotNetCli.Build    (fun c -> { c with WorkingDir = rootFolder })
     DotNet.exec id "build" "FsUnit.sln -c Release" |> ignore
 )
 
@@ -157,17 +158,14 @@ Target.create "Build" (fun _ ->
 // Run the unit tests using test runner
 
 Target.create "NUnit" (fun _ ->
-    //DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.NUnit.Test/"})
     DotNet.test id "tests/FsUnit.NUnit.Test/"
 )
 
 Target.create "xUnit" (fun _ ->
-    //DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.Xunit.Test/"})
     DotNet.test id "tests/FsUnit.Xunit.Test/"
 )
 
 Target.create "MsTest" (fun _ ->
-    //DotNetCli.Test (fun c -> {c with WorkingDir = "tests/FsUnit.MsTest.Test/"})
     DotNet.test id "tests/FsUnit.MsTest.Test/"
 )
 

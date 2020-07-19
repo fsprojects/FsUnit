@@ -111,7 +111,8 @@ let unique =
         match x with
         | :? IEnumerable as e ->
             let isAllItemsUnique x =
-                let y = Seq.distinct x in Seq.length x = Seq.length y
+                let y = Seq.distinct x
+                Seq.length x = Seq.length y
 
             e |> Seq.cast |> isAllItemsUnique
         | _ -> false
@@ -309,7 +310,7 @@ let inRange min max =
 
     CustomMatcher<obj>(sprintf "In range from %A to %A" min max, Func<_, _> matches)
 
-let ofCase(case: FSharp.Quotations.Expr) =
+let ofCase(case: Quotations.Expr) =
     let expected =
         case
         |> Common.caseName
