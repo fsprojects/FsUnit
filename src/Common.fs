@@ -56,7 +56,5 @@ module Common =
             // a tuple may contain several union cases so we can simply
             // map this functions over all expressions
             let mappedExpressions = expressions |> List.map isOfCase
-            (fun x ->
-                mappedExpressions
-                |> List.exists(fun expression -> x |> expression))
+            (fun x -> mappedExpressions |> List.exists(fun expression -> x |> expression))
         | _ -> failwith "Expression (not value) is not a union case."

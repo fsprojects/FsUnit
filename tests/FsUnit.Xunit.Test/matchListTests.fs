@@ -6,8 +6,7 @@ open FsUnit.Xunit
 type ``match List tests``() =
     [<Fact>]
     member __.``Empty list should match itself``() =
-        ([]: List<int>)
-        |> should matchList ([]: List<int>)
+        ([]: List<int>) |> should matchList ([]: List<int>)
 
     [<Fact>]
     member __.``Empty obj list should match itself``() =

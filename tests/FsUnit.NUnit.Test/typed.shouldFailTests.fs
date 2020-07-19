@@ -19,5 +19,4 @@ type ``shouldFail tests``() =
 
     [<Test>]
     member __.``Simplify "should throw"``() =
-        (fun () -> failwith "BOOM!")
-        |> shouldFail<System.Exception>
+        (fun () -> failwith "BOOM!") |> shouldFail<System.Exception>

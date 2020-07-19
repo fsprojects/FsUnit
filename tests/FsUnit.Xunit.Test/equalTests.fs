@@ -90,13 +90,11 @@ type ``equal Tests``() =
 
     [<Fact>]
     member __.``structural value type should equal equivalent value``() =
-        anImmutableArray
-        |> should equal equivalentImmutableArray
+        anImmutableArray |> should equal equivalentImmutableArray
 
     [<Fact>]
     member __.``structural value type should not equal non-equivalent value``() =
-        anImmutableArray
-        |> should not' (equal otherImmutableArray)
+        anImmutableArray |> should not' (equal otherImmutableArray)
 
     [<Fact>]
     member __.``Ok "foo" should fail on equal Ok "bar" but message should be equal``() =

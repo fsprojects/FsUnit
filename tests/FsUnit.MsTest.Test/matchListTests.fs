@@ -7,8 +7,7 @@ open FsUnit.MsTest
 type ``match List tests``() =
     [<TestMethod>]
     member __.``Empty list should match itself``() =
-        ([]: List<int>)
-        |> should matchList ([]: List<int>)
+        ([]: List<int>) |> should matchList ([]: List<int>)
 
     [<TestMethod>]
     member __.``Empty obj list should match itself``() =

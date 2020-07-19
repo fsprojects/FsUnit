@@ -17,13 +17,11 @@ type ``raise tests``() =
 
     [<Fact>]
     member __.``should fail when exception is not thrown``() =
-        (fun () -> ())
-        |> should not' (throw typeof<Exception>)
+        (fun () -> ()) |> should not' (throw typeof<Exception>)
 
     [<Fact>]
     member __.``should pass when negated and exception is not thrown``() =
-        (fun () -> ())
-        |> should not' (throw typeof<Exception>)
+        (fun () -> ()) |> should not' (throw typeof<Exception>)
 
     [<Fact>]
     member __.``should fail when negated and exception is thrown``() =

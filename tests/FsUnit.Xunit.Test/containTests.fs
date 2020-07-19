@@ -50,20 +50,16 @@ type ``contain tests``() =
 
     [<Fact>]
     member __.``Enumerable with item should contain item``() =
-        System.Collections.ArrayList([| 1 |])
-        |> should contain 1
+        System.Collections.ArrayList([| 1 |]) |> should contain 1
 
     [<Fact>]
     member __.``empty Enumerable should not contain item``() =
-        System.Collections.ArrayList()
-        |> should not' (contain 1)
+        System.Collections.ArrayList() |> should not' (contain 1)
 
     [<Fact>]
     member __.``Enumerable with items should contain item``() =
-        System.Collections.ArrayList([| 2; 3 |])
-        |> should contain 2
+        System.Collections.ArrayList([| 2; 3 |]) |> should contain 2
 
     [<Fact>]
     member __.``Enumerable with different items should not contain item``() =
-        System.Collections.ArrayList([| 2; 3 |])
-        |> should not' (contain 1)
+        System.Collections.ArrayList([| 2; 3 |]) |> should not' (contain 1)

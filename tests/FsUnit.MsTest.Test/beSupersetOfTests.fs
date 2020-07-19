@@ -20,13 +20,11 @@ type ``be supersetOf tests``() =
 
     [<TestMethod>]
     member __.``1 to 10 should be superset of 4, 1 and 7``() =
-        [| 1 .. 10 |]
-        |> should be (supersetOf [| 4; 1; 7 |])
+        [| 1 .. 10 |] |> should be (supersetOf [| 4; 1; 7 |])
 
     [<TestMethod>]
     member __.``1 to 10 should not be superset of 5, 1 and 11``() =
-        [ 1 .. 10 ]
-        |> should not' (be supersetOf [ 5; 1; 11 ])
+        [ 1 .. 10 ] |> should not' (be supersetOf [ 5; 1; 11 ])
 
     [<TestMethod>]
     member __.``5 should not be superset of 1 to 10``() =

@@ -50,9 +50,7 @@ type ``equal Tests``() =
 
     [<TestMethod>]
     member __.``collection should fail on '1 to 10 should not equivalent of 1 to 10'``() =
-        shouldFail(fun () ->
-            [ 1 .. 10 ]
-            |> should not' (equivalent [ 1 .. 10 ]))
+        shouldFail(fun () -> [ 1 .. 10 ] |> should not' (equivalent [ 1 .. 10 ]))
 
     [<TestMethod>]
     member __.``array should equal equivalent independent of order``() =
@@ -107,10 +105,8 @@ type ``equal Tests``() =
 
     [<TestMethod>]
     member __.``structural value type should equal equivalent value``() =
-        anImmutableArray
-        |> should equal equivalentImmutableArray
+        anImmutableArray |> should equal equivalentImmutableArray
 
     [<TestMethod>]
     member __.``structural value type should not equal non-equivalent value``() =
-        anImmutableArray
-        |> should not' (equal otherImmutableArray)
+        anImmutableArray |> should not' (equal otherImmutableArray)

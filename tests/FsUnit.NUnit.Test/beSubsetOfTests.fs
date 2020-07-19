@@ -20,13 +20,11 @@ type ``be subsetOf tests``() =
 
     [<Test>]
     member __.``1 to 10 should be subset of 4. 1 and 7``() =
-        [| 1 .. 10 |]
-        |> should be (supersetOf [| 4; 1; 7 |])
+        [| 1 .. 10 |] |> should be (supersetOf [| 4; 1; 7 |])
 
     [<Test>]
     member __.``5, 1 and 11 should not be subset of 1 to 10``() =
-        [ 5; 1; 11 ]
-        |> should not' (be subsetOf [| 1 .. 10 |])
+        [ 5; 1; 11 ] |> should not' (be subsetOf [| 1 .. 10 |])
 
     [<Test>]
     member __.``1 to 10 should not be subset of 5``() =

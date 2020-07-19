@@ -20,8 +20,7 @@ type ``ofCase tests``() =
 
     [<Fact>]
     let ``Given a union case and a tuple of union cases including a matching case returns true``() =
-        First
-        |> should be (ofCase <@ First, Second, Third @>)
+        First |> should be (ofCase <@ First, Second, Third @>)
 
     [<Fact>]
     let ``Given a (parameterized) union case (without parameter) of matching case returns true``() =
@@ -33,8 +32,7 @@ type ``ofCase tests``() =
 
     [<Fact>]
     let ``Given a union case and tuple of non-matching cases fails the assertion``() =
-        Second 5
-        |> should not' (be ofCase <@ First, Third @>)
+        Second 5 |> should not' (be ofCase <@ First, Third @>)
 
     [<Fact>]
     let ``Given a non-union case as expression throws an exception``() =
@@ -44,8 +42,5 @@ type ``ofCase tests``() =
 
     [<Fact>]
     let ``Given a non-union case as value argument throws an exception``() =
-        (fun () ->
-            5
-            |> should not' (be ofCase <@ Second 5 @>)
-            |> ignore)
+        (fun () -> 5 |> should not' (be ofCase <@ Second 5 @>) |> ignore)
         |> should (throwWithMessage "Value (not expression) is not a union case.") typeof<System.Exception>

@@ -90,10 +90,8 @@ type ``shouldEqual Tests``() =
 
     [<Test>]
     member __.``structural value type should equal equivalent value``() =
-        anImmutableArray
-        |> shouldEqual equivalentImmutableArray
+        anImmutableArray |> shouldEqual equivalentImmutableArray
 
     [<Test>]
     member __.``structural value type should not equal non-equivalent value``() =
-        anImmutableArray
-        |> shouldNotEqual otherImmutableArray
+        anImmutableArray |> shouldNotEqual otherImmutableArray
