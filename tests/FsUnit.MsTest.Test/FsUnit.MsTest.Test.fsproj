@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyName>FsUnit.MsTest.Test</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ofCase.fs" />
