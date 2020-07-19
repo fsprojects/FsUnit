@@ -41,7 +41,7 @@ module TopLevelOperators =
         else
             Assert.That(y, c)
 
-    let equal x = EqualConstraint(x)
+    let equal x = Equality.IsEqualTo(x)
 
     let equivalent x = CollectionEquivalentConstraint(x)
 

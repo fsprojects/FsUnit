@@ -13,6 +13,7 @@
       <Link>Common.fs</Link>
     </Compile>
     <Compile Include="CustomConstraints.fs" />
+    <Compile Include="Equality.fs" />
     <Compile Include="FsUnit.fs" />
     <Compile Include="FsUnitTyped.fs" />
     <Compile Include="GenericAssert.fs" />
