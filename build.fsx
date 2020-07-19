@@ -50,9 +50,6 @@ let project = "FsUnit"
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
 let summary = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
 
-// File system information
-let solutionFile  = "FsUnit.sln"
-
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
 let gitOwner = "fsprojects"
@@ -101,7 +98,7 @@ Target.create "AssemblyInfo" (fun _ ->
     !! "src/**/*.??proj"
     |> Seq.filter (fun x -> not <| x.Contains(".netstandard"))
     |> Seq.map getProjectDetails
-    |> Seq.iter (fun (projFileName, projectName, folderName, attributes) ->
+    |> Seq.iter (fun (projFileName, _, folderName, attributes) ->
         match projFileName with
         | Fsproj -> AssemblyInfoFile.createFSharp (folderName @@ "AssemblyInfo.fs") attributes
         | Csproj -> AssemblyInfoFile.createCSharp ((folderName @@ "Properties") @@ "AssemblyInfo.cs") attributes
