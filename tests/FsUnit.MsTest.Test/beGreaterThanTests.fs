@@ -11,7 +11,7 @@ type ``be greaterThan tests``() =
         11 |> should be (greaterThan 10)
 
     [<TestMethod>]
-    member __.``11.1 should be greater than 11.0``() =
+    member __.``11[dot]1 should be greater than 11[dot]0``() =
         11.1 |> should be (greaterThan 11.0)
 
     [<TestMethod>]
@@ -19,15 +19,15 @@ type ``be greaterThan tests``() =
         9 |> should not' (be greaterThan 10)
 
     [<TestMethod>]
-    member __.``9.1 should not be greater than 9.2``() =
+    member __.``9[dot]1 should not be greater than 9[dot]2``() =
         9.1 |> should not' (be greaterThan 9.2)
 
     [<TestMethod>]
-    member __.``9.2 should not be greater than 9.2``() =
+    member __.``9[dot]2 should not be greater than 9[dot]2``() =
         9.2 |> should not' (be greaterThan 9.2)
 
     [<TestMethod>]
-    member __.``9.2 should not be greater than 9.2 but message should be equal``() =
+    member __.``9[dot]2 should not be greater than 9[dot]2 but message should be equal``() =
         (fun () -> 9.2 |> should be (greaterThan 9.2))
         |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
         |> fun e -> e.Message

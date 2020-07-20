@@ -15,10 +15,10 @@ type ``shouldBeSmallerThan tests``() =
         |> shouldFail<AssertionException>
 
     [<Test>]
-    member __.``10.0 should be less than 10.1``() =
+    member __.``10[dot]0 should be less than 10[dot]1``() =
         10.0 |> shouldBeSmallerThan 10.1
 
     [<Test>]
-    member __.``10.0 should not be less than 10.0``() =
+    member __.``10[dot]0 should not be less than 10[dot]0``() =
         (fun () -> 10.0 |> shouldBeSmallerThan 10.0)
         |> shouldFail<AssertionException>

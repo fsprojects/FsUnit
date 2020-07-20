@@ -162,7 +162,7 @@ type ``greater tests``() =
         Assert.Greater(11, 10)
 
     [<Test>]
-    member __.``11.1 should be greater than 11.0``() =
+    member __.``11[dot]1 should be greater than 11[dot]0``() =
         Assert.Greater(11.1, 11.0)
 
     [<Test>]
@@ -170,11 +170,11 @@ type ``greater tests``() =
         shouldFail(fun () -> Assert.Greater(9, 10))
 
     [<Test>]
-    member __.``9.1 should not be greater than 9.2``() =
+    member __.``9[dot]1 should not be greater than 9[dot]2``() =
         shouldFail(fun () -> Assert.Greater(9.1, 9.2))
 
     [<Test>]
-    member __.``9.2 should not be greater than 9.2``() =
+    member __.``9[dot]2 should not be greater than 9[dot]2``() =
         shouldFail(fun () -> Assert.Greater(9.2, 9.2))
 
 [<TestFixture>]
@@ -184,7 +184,7 @@ type ``greaterOrEqual tests``() =
         Assert.GreaterOrEqual(11, 10)
 
     [<Test>]
-    member __.``11.1 should be greater than 11.0``() =
+    member __.``11[dot]1 should be greater than 11[dot]0``() =
         Assert.GreaterOrEqual(11.1, 11.0)
 
     [<Test>]
@@ -192,11 +192,11 @@ type ``greaterOrEqual tests``() =
         shouldFail(fun () -> Assert.GreaterOrEqual(9, 10))
 
     [<Test>]
-    member __.``9.1 should not be greater than 9.2``() =
+    member __.``9[dot]1 should not be greater than 9[dot]2``() =
         shouldFail(fun () -> Assert.GreaterOrEqual(9.1, 9.2))
 
     [<Test>]
-    member __.``9.2 should be equal to 9.2``() =
+    member __.``9[dot]2 should be equal to 9[dot]2``() =
         Assert.GreaterOrEqual(9.2, 9.2)
 
     [<Test>]
@@ -210,7 +210,7 @@ type ``less tests``() =
         Assert.Less(10, 11)
 
     [<Test>]
-    member __.``10.0 should be less than 10.1``() =
+    member __.``10[dot]0 should be less than 10[dot]1``() =
         Assert.Less(10.0, 10.1)
 
     [<Test>]
@@ -218,11 +218,11 @@ type ``less tests``() =
         shouldFail(fun () -> Assert.Less(10, 9))
 
     [<Test>]
-    member __.``9.2 should not be less than 9.1``() =
+    member __.``9[dot]2 should not be less than 9[dot]1``() =
         shouldFail(fun () -> Assert.Less(9.2, 9.1))
 
     [<Test>]
-    member __.``9.1 should not be less than 9.1``() =
+    member __.``9[dot]1 should not be less than 9[dot]1``() =
         shouldFail(fun () -> Assert.Less(9.1, 9.1))
 
 [<TestFixture>]
@@ -232,7 +232,7 @@ type ``lessOrEqual tests``() =
         Assert.LessOrEqual(10, 11)
 
     [<Test>]
-    member __.``10.0 should be less than 10.1``() =
+    member __.``10[dot]0 should be less than 10[dot]1``() =
         Assert.LessOrEqual(10.0, 10.1)
 
     [<Test>]
@@ -240,11 +240,11 @@ type ``lessOrEqual tests``() =
         shouldFail(fun () -> Assert.LessOrEqual(10, 9))
 
     [<Test>]
-    member __.``9.2 should not be less than 9.1``() =
+    member __.``9[dot]2 should not be less than 9[dot]1``() =
         shouldFail(fun () -> Assert.LessOrEqual(9.2, 9.1))
 
     [<Test>]
-    member __.``9.1 should be less than or equal to 9.1``() =
+    member __.``9[dot]1 should be less than or equal to 9[dot]1``() =
         Assert.LessOrEqual(9.1, 9.1)
 
 [<TestFixture>]

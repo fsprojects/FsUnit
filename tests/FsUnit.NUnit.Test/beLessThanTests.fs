@@ -10,7 +10,7 @@ type ``be lessThan tests``() =
         10 |> should be (lessThan 11)
 
     [<Test>]
-    member __.``10.0 should be less than 10.1``() =
+    member __.``10[dot]0 should be less than 10[dot]1``() =
         10.0 |> should be (lessThan 10.1)
 
     [<Test>]
@@ -18,9 +18,9 @@ type ``be lessThan tests``() =
         10 |> should not' (be lessThan 9)
 
     [<Test>]
-    member __.``9.2 should not be less than 9.1``() =
+    member __.``9[dot]2 should not be less than 9[dot]1``() =
         9.2 |> should not' (be lessThan 9.1)
 
     [<Test>]
-    member __.``9.1 should not be less than 9.1``() =
+    member __.``9[dot]1 should not be less than 9[dot]1``() =
         9.1 |> should not' (be lessThan 9.1)

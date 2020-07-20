@@ -10,5 +10,5 @@ type ``shouldBeGreaterThan tests``() =
         11 |> shouldBeGreaterThan 10
 
     [<Test>]
-    member __.``11.1 should be greater than 11.0``() =
+    member __.``11[dot]1 should be greater than 11[dot]0``() =
         11.1 |> shouldBeGreaterThan 11.0
