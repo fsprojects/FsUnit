@@ -4,6 +4,10 @@ open System.Collections.Immutable
 
 open NUnit.Framework
 open FsUnitTyped
+open FsUnit
+
+type InitMsgUtils () =
+    inherit FSharpCustomMessageFormatter()
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -74,6 +78,26 @@ type ``shouldEqual Tests``() =
     [<Test>]
     member __.``None should equal None``() =
         None |> shouldEqual None
+
+    [<Test>]
+    member __.``Error "Foo" should equal Error "Foo"``() =
+        Error "Foo" |> shouldEqual (Error "Foo")
+
+    [<Test>]
+    member __.``Error "Foo" should equal fails and have same message``() =
+        (fun () -> Error "Foo" |> shouldEqual (Error "Bar"))
+        |> Assert.Throws<AssertionException>
+        |> fun e -> e.Message |> should equal "  Expected: Error \"Bar\" or Error \"Bar\"\r\n  But was:  Error \"Foo\"\r\n"
+
+    [<Test>]
+    member __.``Error "Foo" should not equal Error "Bar"``() =
+        Error "Foo" |> shouldNotEqual (Error "Bar")
+
+    [<Test>]
+    member __.``Error "Foo" should not equal Error "Bar" fails and have same message``() =
+        (fun () -> Error "Foo" |> shouldNotEqual (Error "Foo"))
+        |> Assert.Throws<AssertionException>
+        |>fun e -> e.Message |> should equal "  Expected: not Error \"Foo\" or Error \"Foo\"\r\n  But was:  Error \"Foo\"\r\n"
 
     [<Test>]
     member this.``structural equality``() =
