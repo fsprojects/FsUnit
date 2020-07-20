@@ -22,5 +22,9 @@
     </None>
     <None Include="sample.paket.template" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Reflection" />
+  </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
