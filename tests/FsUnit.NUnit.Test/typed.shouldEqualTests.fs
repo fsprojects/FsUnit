@@ -5,6 +5,7 @@ open System.Collections.Immutable
 open NUnit.Framework
 open FsUnitTyped
 open FsUnit
+open System
 
 type InitMsgUtils() =
     inherit FSharpCustomMessageFormatter()
@@ -89,7 +90,7 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<AssertionException>
         |> fun e ->
             e.Message
-            |> should equal "  Expected: Error \"Bar\" or Error \"Bar\"\r\n  But was:  Error \"Foo\"\r\n"
+            |> should equal (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member __.``Error "Foo" should not equal Error "Bar"``() =
@@ -101,7 +102,7 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<AssertionException>
         |> fun e ->
             e.Message
-            |> should equal "  Expected: not Error \"Foo\" or Error \"Foo\"\r\n  But was:  Error \"Foo\"\r\n"
+            |> should equal (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member this.``structural equality``() =
