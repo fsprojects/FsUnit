@@ -9,7 +9,7 @@ type ``should be of exact type tests``() =
         "" |> should be ofExactType<string>
 
     [<Fact>]
-    member __.``0.0 should be of exact type float``() =
+    member __.``0[dot]0 should be of exact type float``() =
         0.0 |> should be ofExactType<float>
 
     [<Fact>]
