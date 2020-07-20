@@ -26,10 +26,9 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet }}
 
-    - name: Build on Windows
-      if: matrix.os == 'windows-latest'
-      run: .\build.cmd
-
-    - name: Build on Unix
-      if: matrix.os != 'windows-latest'
-      run: ./build.sh
+    - name: Install local tools
+      run: dotnet tool restore
+    - name: Paket Restore
+      run: dotnet paket restore
+    - name: Build and Test
+      run: dotnet fake run build.fsx
