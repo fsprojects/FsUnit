@@ -1,6 +1,8 @@
-[![Build Status](https://github.com/fsprojects/FsUnit/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/FsUnit/actions?query=branch%3Amaster)
-
 # FsUnit
+
+![FsUnit Logo](https://github.com/fsprojects/fsunit/blob/master/docs/files/img/logo.png?raw=true)
+
+[![Build Status](https://github.com/fsprojects/FsUnit/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/FsUnit/actions?query=branch%3Amaster)
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
 FsUnit currently supports NUnit, xUnit, and MsTest.
