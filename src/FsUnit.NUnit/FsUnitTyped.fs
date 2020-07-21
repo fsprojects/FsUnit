@@ -5,14 +5,16 @@ open NUnit.Framework
 open System.Collections.Generic
 
 [<AutoOpen>]
-
 module TopLevelOperators =
+
     [<DebuggerStepThrough>]
     let shouldEqual (expected: 'a) (actual: 'a) =
+        FsUnit.TopLevelOperators.FSharpCustomMessageFormatter() |> ignore
         Assert.That(actual, FsUnit.Equality.IsEqualTo(expected))
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected: 'a) (actual: 'a) =
+        FsUnit.TopLevelOperators.FSharpCustomMessageFormatter() |> ignore
         Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected))
 
     [<DebuggerStepThrough>]
