@@ -1,5 +1,4 @@
-namespace FsUnit.Typed.Test
-
+namespace global
 open FsUnit
 
 type InitMsgUtils() =
