@@ -1,4 +1,4 @@
-namespace FsUnit.Test
+namespace FsUnit.Typed.Test
 
 open FsUnit
 
