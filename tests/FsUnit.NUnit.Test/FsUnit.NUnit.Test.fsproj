@@ -4,6 +4,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="init.fs" />
     <Compile Include="ofCaseTests.fs" />
     <Compile Include="beAscendingTests.fs" />
     <Compile Include="beDescendingTests.fs" />
