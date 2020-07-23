@@ -2,14 +2,9 @@ namespace FsUnit.Test
 
 open NUnit.Framework
 open FsUnit
-open System
 
 [<TestFixture>]
 type ``be supersetOf tests``() =
-
-    [<SetUp>]
-    member __.setup () =
-        FSharpCustomMessageFormatter() |> ignore
 
     [<Test>]
     member __.``1 to 10 should be superset of 5, 3 and 8``() =
@@ -38,14 +33,6 @@ type ``be supersetOf tests``() =
     [<Test>]
     member __.``1 to 10 should be superset of 1 to 10``() =
         [ 1 .. 10 ] |> should be (supersetOf [ 1 .. 10 ])
-
-    [<Test>]
-    member __.``Ok ok should fail with be superset of Ok no but message should be equal``() =
-        (fun () -> [ Ok "ok" ] |> should be (supersetOf [ Ok "no" ]))
-        |> Assert.Throws<AssertionException>
-        |> fun e ->
-            e.Message
-            |> should equal (sprintf "  Expected: superset of [Ok \"no\"]%s  But was:  [Ok \"ok\"]%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member __.``should fail on '1 to 10 should be superset of 1 to 11'``() =

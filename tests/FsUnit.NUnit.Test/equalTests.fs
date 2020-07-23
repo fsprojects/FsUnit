@@ -5,6 +5,7 @@ open System.Collections.Immutable
 
 open NUnit.Framework
 open FsUnit
+open System
 
 type AlwaysEqual() =
     override this.Equals(other) = true
@@ -23,6 +24,10 @@ type ``equal Tests``() =
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
+    
+    [<SetUp>]
+    member __.setup () =
+        FSharpCustomMessageFormatter() |> ignore
 
     [<Test>]
     member __.``value type should equal equivalent value``() =
@@ -103,6 +108,14 @@ type ``equal Tests``() =
     [<Test>]
     member __.``None should equal None``() =
         None |> should equal None
+
+    [<Test>]
+    member __.``Ok "ok" should equal Ok "no" should fail but message should be equal``() =
+        (fun () -> [ Ok "ok" ] |> should equal [ Ok "no" ])
+        |> Assert.Throws<AssertionException>
+        |> fun e ->
+            e.Message
+            |> should equal (sprintf "  Expected: [Ok \"no\"] or [Ok \"no\"]%s  But was:  [Ok \"ok\"]%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member __.``structural value type should equal equivalent value``() =
