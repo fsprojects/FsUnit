@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ofCaseTests.fs" />
-    <Compile Include="init.fs" />
     <Compile Include="beAscendingTests.fs" />
     <Compile Include="beDescendingTests.fs" />
     <Compile Include="beNullTests.fs" />

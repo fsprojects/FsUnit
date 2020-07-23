@@ -33,6 +33,20 @@ type InitMsgUtils() =
     inherit FSharpCustomMessageFormatter()
 
 (**
+or you initialize `FSharpCustomMessageFormatter` for single tests from your setup method:
+
+*)
+
+open FsUnit
+
+[<TestFixture>]
+type MyTests () =
+
+    [<SetUp>]
+    member __.setup () =
+        FSharpCustomMessageFormatter() |> ignore
+
+(**
 
 Euler - Problem 1
 -----------------

@@ -8,12 +8,12 @@ open FsUnit
 open System
 
 type AlwaysEqual() =
-    override this.Equals(other) = true
-    override this.GetHashCode() = 1
+    override __.Equals(other) = true
+    override __.GetHashCode() = 1
 
 type NeverEqual() =
-    override this.Equals(other) = false
-    override this.GetHashCode() = 1
+    override __.Equals(other) = false
+    override __.GetHashCode() = 1
 
 [<TestFixture>]
 type ``shouldEqual Tests``() =
@@ -22,6 +22,10 @@ type ``shouldEqual Tests``() =
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
+    
+    [<SetUp>]
+    member __.setup () =
+        FSharpCustomMessageFormatter() |> ignore
 
     [<Test>]
     member __.``value type should equal equivalent value``() =
