@@ -22,15 +22,32 @@ FsUnit for NUnit
   <div class="span1"></div>
 </div>
 
+Initialization
+--------------
+
 If you reference `FsUnit` from `NuGet` and want to use pretty-printed F# value types in error messages,
 you have to add following piece of code to your assembly:
+
+*)
+namespace global
+open FsUnit
+
+type InitMsgUtils() =
+    inherit FSharpCustomMessageFormatter()
+
+(**
+or you initialize `FSharpCustomMessageFormatter` for single test fixture from your setup method:
 
 *)
 
 open FsUnit
 
-type InitMsgUtils() =
-    inherit FSharpCustomMessageFormatter()
+[<TestFixture>]
+type MyTests () =
+
+    [<SetUp>]
+    member __.setup () =
+        FSharpCustomMessageFormatter() |> ignore
 
 (**
 

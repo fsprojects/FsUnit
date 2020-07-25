@@ -8,6 +8,7 @@ open NUnit.Framework
 open NUnit.Framework.Constraints
 
 type Equality<'T when 'T: equality> =
+
     static member Reference =
         Func<'T, 'T, bool>(fun x y -> FastGenericEqualityComparer<'T>.Equals(x, y))
 

@@ -5,15 +5,15 @@ open NUnit.Framework
 open System.Collections.Generic
 
 [<AutoOpen>]
-
 module TopLevelOperators =
+
     [<DebuggerStepThrough>]
     let shouldEqual (expected: 'a) (actual: 'a) =
-        Assert.That(actual, FsUnit.Equality.IsEqualTo(expected), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.That(actual, FsUnit.Equality.IsEqualTo(expected))
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected: 'a) (actual: 'a) =
-        Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected), sprintf "Expected: %A\nActual: %A" expected actual)
+        Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected))
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =

@@ -1,4 +1,4 @@
-namespace FsUnit.Test
+namespace global
 
 open FsUnit
 

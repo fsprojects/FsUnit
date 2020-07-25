@@ -4,16 +4,16 @@ open System.Collections.Immutable
 
 open NUnit.Framework
 open FsUnitTyped
+open FsUnit
+open System
 
 type AlwaysEqual() =
-    override this.Equals(other) = true
-    override this.GetHashCode() = 1
-
+    override __.Equals(other) = true
+    override __.GetHashCode() = 1
 
 type NeverEqual() =
-    override this.Equals(other) = false
-    override this.GetHashCode() = 1
-
+    override __.Equals(other) = false
+    override __.GetHashCode() = 1
 
 [<TestFixture>]
 type ``shouldEqual Tests``() =
@@ -74,6 +74,34 @@ type ``shouldEqual Tests``() =
     [<Test>]
     member __.``None should equal None``() =
         None |> shouldEqual None
+
+    [<Test>]
+    member __.``Error "Foo" should equal Error "Foo"``() =
+        Error "Foo" |> shouldEqual(Error "Foo")
+
+    [<Test>]
+    member __.``Error "Foo" should equal fails and have same message``() =
+        (fun () -> Error "Foo" |> shouldEqual(Error "Bar"))
+        |> Assert.Throws<AssertionException>
+        |> fun e ->
+            e.Message
+            |> should
+                equal
+                   (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+
+    [<Test>]
+    member __.``Error "Foo" should not equal Error "Bar"``() =
+        Error "Foo" |> shouldNotEqual(Error "Bar")
+
+    [<Test>]
+    member __.``Error "Foo" should not equal Error "Bar" fails and have same message``() =
+        (fun () -> Error "Foo" |> shouldNotEqual(Error "Foo"))
+        |> Assert.Throws<AssertionException>
+        |> fun e ->
+            e.Message
+            |> should
+                equal
+                   (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member this.``structural equality``() =
