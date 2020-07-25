@@ -17,7 +17,6 @@ NUGET
       Microsoft.TestPlatform.TestHost (>= 16.6.1) - restriction: || (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
     Microsoft.NETCore.Platforms (3.1.1)
     Microsoft.NETCore.Targets (3.1)
-    Microsoft.NETFramework.ReferenceAssemblies (1.0)
     Microsoft.TestPlatform.ObjectModel (16.6.1) - restriction: || (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))
       NuGet.Frameworks (>= 5.0)
     Microsoft.TestPlatform.TestHost (16.6.1) - restriction: || (== netcoreapp3.1) (&& (== netstandard2.0) (>= netcoreapp2.1))

@@ -3,7 +3,6 @@ framework: netstandard2.0, netcoreapp3.1
 
 nuget FSharp.Core ~> 4.3.4
 nuget NETStandard.Library ~> 2.0.0
-nuget Microsoft.NETFramework.ReferenceAssemblies
 
 nuget Microsoft.NET.Test.Sdk
 // For NUnit
