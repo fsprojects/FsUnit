@@ -1,4 +1,5 @@
-﻿namespace global
+namespace global
+
 open FsUnit
 
 type InitMsgUtils() =

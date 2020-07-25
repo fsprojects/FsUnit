@@ -22,10 +22,6 @@ type ``shouldEqual Tests``() =
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
-    
-    [<SetUp>]
-    member __.setup () =
-        FSharpCustomMessageFormatter() |> ignore
 
     [<Test>]
     member __.``value type should equal equivalent value``() =
