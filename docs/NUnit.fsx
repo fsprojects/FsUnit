@@ -1,10 +1,10 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FsUnit.NUnit/netstandard2.0/"
-#r "NUnit.Framework.dll"
-#r "FsUnit.NUnit.dll"
+#r "../packages/NUnit/lib/netstandard2.0/nunit.framework.dll"
+#r "../bin/FsUnit.NUnit/netstandard2.0/FsUnit.NUnit.dll"
 
+open NUnit.Framework
 (**
 FsUnit for NUnit
 ========================
@@ -25,19 +25,27 @@ FsUnit for NUnit
 Initialization
 --------------
 
-If you reference `FsUnit` from `NuGet` and want to use pretty-printed F# value types in error messages,
-you have to add following piece of code to your assembly:
+If you reference `FsUnit` from `NuGet` and want to use pretty-printed F# value types in error messages, you have to register custom values formatters.
 
+__SetUpFixture__
+
+Add following piece of code to your assembly to register formatter for namespace or entire assembly
 *)
-namespace global
 open FsUnit
 
 type InitMsgUtils() =
     inherit FSharpCustomMessageFormatter()
 
 (**
-or you initialize `FSharpCustomMessageFormatter` for single test fixture from your setup method:
 
+> The OneTimeSetUp method in a SetUpFixture is executed once before any of the fixtures contained in its namespace. 
+> A SetUpFixture outside of any namespace provides SetUp and TearDown for the entire assembly.
+
+In F# you can use [namespace global](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/namespaces#global-namespace) to create `InitMsgUtils` outside of any namespace.
+
+__SetUp__
+
+As an alrernative solution you can initialize `FSharpCustomMessageFormatter` for single test fixture from your setup method:
 *)
 
 open FsUnit

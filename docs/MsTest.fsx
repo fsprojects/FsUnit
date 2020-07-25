@@ -1,10 +1,9 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FsUnit.MsTest/netstandard2.0/"
-#r "FsUnit.MsTest.dll"
-#r "NHamcrest.dll"
-#r "Microsoft.VisualStudio.TestPlatform.TestFramework.dll"
+#r "../packages/MSTest.TestFramework/lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll"
+#r "../packages/NHamcrest/lib/netstandard1.5/NHamcrest.dll"
+#r "../bin/FsUnit.MsTest/netstandard2.0/FsUnit.MsTest.dll"
 
 (**
 FsUnit for MsTest
