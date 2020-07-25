@@ -228,8 +228,6 @@ Target.create "Release" ignore
   ==> "CopyBinaries"
   ==> "RunTests"
   ==> "All"
-  =?> ("ReleaseDocs", BuildServer.isLocalBuild)
-  ==> "Release"
 
 "Build"
   ==> "NUnit"
@@ -239,9 +237,8 @@ Target.create "Release" ignore
 
 "All"
   ==> "NuGet"
-  ==> "Release"
-
-"GenerateDocs"
+  ==> "GenerateDocs"
   ==> "ReleaseDocs"
+  ==> "Release"
 
 Target.runOrDefault "All"
