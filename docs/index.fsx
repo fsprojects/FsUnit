@@ -1,9 +1,8 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/FsUnit.NUnit/net46/"
-#r "NUnit.Framework.dll"
-#r "FsUnit.NUnit.dll"
+#r "../packages/NUnit/lib/netstandard2.0/nunit.framework.dll"
+#r "../bin/FsUnit.NUnit/netstandard2.0/FsUnit.NUnit.dll"
 
 open FsUnit
 
@@ -17,7 +16,7 @@ What is FsUnit?
 ===============
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).
+FsUnit currently supports NUnit, xUnit, and MsTest.
 
 The goals of FsUnit are:
 

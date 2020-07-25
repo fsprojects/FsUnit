@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "paket": {
-      "version": "5.247.3",
+      "version": "5.249.0",
       "commands": [
         "paket"
       ]
@@ -14,10 +14,10 @@
         "fake"
       ]
     },
-    "dotnet-serve": {
-      "version": "1.7.125",
+    "fsharp.formatting.commandtool": {
+      "version": "6.1.0",
       "commands": [
-        "dotnet-serve"
+        "fsdocs"
       ]
     }
   }

@@ -1,6 +1,6 @@
 # FsUnit
 
-<img align="right" width="100" style="margin-left:20px" src="https://github.com/fsprojects/fsunit/blob/master/docs/files/img/logo.png?raw=true">
+<img align="right" width="100" style="margin-left:20px" src="https://github.com/fsprojects/fsunit/blob/master/docs/img/logo.png?raw=true">
 
 [![Build Status](https://github.com/fsprojects/FsUnit/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/FsUnit/actions?query=branch%3Amaster)
 
