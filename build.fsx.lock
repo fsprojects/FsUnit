@@ -124,7 +124,7 @@ NUGET
       Fake.Core.Trace (>= 5.20.2)
       Fake.IO.FileSystem (>= 5.20.2)
       FSharp.Core (>= 4.7.2)
-    Fantomas (4.0.0-alpha-014)
+    Fantomas (4.0.0-beta-001)
       FSharp.Compiler.Service (>= 36.0.3)
       FSharp.Core (>= 4.7.1)
     FParsec (1.1.1)

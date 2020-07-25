@@ -22,15 +22,11 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to NUnit.
 files
-    ../../bin/FsUnit.NUnit/net46/FsUnit.* ==> lib/net46
     ../../bin/FsUnit.NUnit/netstandard2.0/FsUnit.* ==> lib/netstandard2.0
     ../../src/install.ps1 ==> tools
 
 dependencies
     framework: netstandard20
         NETStandard.Library >= LOCKEDVERSION
-        NUnit ~> LOCKEDVERSION
-        FSharp.Core >= LOCKEDVERSION
-    framework: net46
         NUnit ~> LOCKEDVERSION
         FSharp.Core >= LOCKEDVERSION
