@@ -45,7 +45,7 @@ In F# you can use [namespace global](https://docs.microsoft.com/en-us/dotnet/fsh
 
 __SetUp__
 
-As an alrernative solution you can initialize `FSharpCustomMessageFormatter` for single test fixture from your setup method:
+As an alternative solution you can initialize `FSharpCustomMessageFormatter` for single test fixture from your setup method:
 *)
 
 open FsUnit

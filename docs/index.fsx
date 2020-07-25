@@ -16,7 +16,7 @@ What is FsUnit?
 ===============
 
 **FsUnit** is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
-FsUnit currently supports NUnit, xUnit, and MsTest (VS11 only).
+FsUnit currently supports NUnit, xUnit, and MsTest.
 
 The goals of FsUnit are:
 
