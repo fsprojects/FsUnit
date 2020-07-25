@@ -198,13 +198,13 @@ Target.create "PublishNuget" (fun _ ->
 
 Target.create "GenerateDocs" (fun _ ->
    Shell.cleanDir ".fsdocs"
-   DotNet.exec id "fsdocs" "build --clean" |> ignore
+   DotNet.exec id "fsdocs" "build --clean --parameters root http://fsprojects.github.io/FsUnit" |> ignore
 )
 // --------------------------------------------------------------------------------------
 // Release Scripts
 
 Target.create "ReleaseDocs" (fun _ ->
-    let tempDocsDir = "temp/gh-pages"
+    let tempDocsDir = "tmp/gh-pages"
     Shell.cleanDir tempDocsDir
     Repository.cloneSingleBranch "" cloneUrl "gh-pages" tempDocsDir
 
