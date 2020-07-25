@@ -1,6 +1,7 @@
-### 4.0.0 - Jul 22, 2020
+### 4.0.0 - Jul 28, 2020
 - Better support for IStructuralEquatable under NUnit - https://github.com/fsprojects/FsUnit/pull/147
 - Refactorings & Fantomas integration - https://github.com/fsprojects/FsUnit/pull/157
+- Dropped net46 support - https://github.com/fsprojects/FsUnit/pull/169
 
 ### 3.9.0 - Jun 25, 2020
 - Readable assertion messages on failure - https://github.com/fsprojects/FsUnit/pull/155
