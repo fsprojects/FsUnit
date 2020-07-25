@@ -91,6 +91,9 @@ docs/output/
 temp/
 .vs/
 .fake/
+.fsdocs/
+tmp/
+output/
 
 # Test results produced by build
 TestResults.xml
@@ -103,12 +106,9 @@ localpackages/
 paket-files
 .paket/
 *.orig
-docs/content/license.md
-docs/content/release-notes.md
 .fake
 FsUnit.Xunit.Test.dll.xunit.html
 NUnit.xml
-docs/tools/FSharp.Formatting.svclog
 xunit.html
 
 release.sh

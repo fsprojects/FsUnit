@@ -196,54 +196,10 @@ Target.create "PublishNuget" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Generate the documentation
 
-let preGenerateDocs ()  =
-    Shell.rm "docs/content/release-notes.md"
-    Shell.copyFile "docs/content/" "RELEASE_NOTES.md"
-    Shell.rename "docs/content/release-notes.md" "docs/content/RELEASE_NOTES.md"
-
-    Shell.rm "docs/content/license.md"
-    Shell.copyFile "docs/content/" "LICENSE.txt"
-    Shell.rename "docs/content/license.md" "docs/content/LICENSE.txt"
-
-let generateDocs () =
-    let result =
-        DotNet.exec (fun p -> { p with WorkingDirectory = "." })
-            "fsi" (__SOURCE_DIRECTORY__ + "/docs/generate.fsx")
-    if result.OK then
-        Trace.traceImportant "Help generated"
-    else
-        String.concat "\n" result.Errors
-        |> failwithf "generating help documentation failed:\n%s"
-
 Target.create "GenerateDocs" (fun _ ->
-    preGenerateDocs()
-    System.Environment.SetEnvironmentVariable("CHANGED_FILE", null)
-    generateDocs()
+   Shell.cleanDir ".fsdocs"
+   DotNet.exec id "fsdocs" "build --clean" |> ignore
 )
-
-Target.create "KeepRunning" (fun _ ->
-    let watcherEventHandler (e:FileSystemEventArgs) =
-        Trace.traceImportant <| sprintf "File %s is %A" e.FullPath e.ChangeType
-        if not <| e.FullPath.Contains("output") then
-            let value = if e.FullPath.EndsWith("generate.fsx") then null else e.FullPath
-            System.Environment.SetEnvironmentVariable("CHANGED_FILE", value)
-            generateDocs()
-
-    use watcher = new FileSystemWatcher(DirectoryInfo("docs/").FullName,"*.*")
-    watcher.Changed.Add(watcherEventHandler)
-    watcher.Created.Add(watcherEventHandler)
-    watcher.Renamed.Add(watcherEventHandler)
-    watcher.Deleted.Add(watcherEventHandler)
-    watcher.IncludeSubdirectories <- true
-    watcher.EnableRaisingEvents <- true
-
-    CreateProcess.fromRawCommandLine "dotnet" "serve -o -d ./docs/output"
-    |> (Proc.run >> ignore)
-    //Trace.traceImportant "Waiting for docs edits. Press any key to stop."
-    //System.Console.ReadKey() |> ignore
-    //watcher.EnableRaisingEvents <- false
-)
-
 // --------------------------------------------------------------------------------------
 // Release Scripts
 
@@ -253,7 +209,7 @@ Target.create "ReleaseDocs" (fun _ ->
     Repository.cloneSingleBranch "" cloneUrl "gh-pages" tempDocsDir
 
     Repository.fullclean tempDocsDir
-    Shell.copyRecursive "docs/output" tempDocsDir true |> Trace.tracefn "%A"
+    Shell.copyRecursive "output" tempDocsDir true |> Trace.tracefn "%A"
     Staging.stageAll tempDocsDir
     Commit.exec tempDocsDir (sprintf "Update generated documentation for version %s" release.NugetVersion)
     Branches.push tempDocsDir
@@ -284,10 +240,6 @@ Target.create "Release" ignore
 "All"
   ==> "NuGet"
   ==> "Release"
-
-"CleanDocs"
-  ==> "GenerateDocs"
-  ==> "KeepRunning"
 
 "GenerateDocs"
   ==> "ReleaseDocs"
