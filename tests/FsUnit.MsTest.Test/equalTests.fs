@@ -1,5 +1,6 @@
 namespace FsUnit.Test
 
+open System
 open System.Collections.Immutable
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
@@ -110,3 +111,10 @@ type ``equal Tests``() =
     [<TestMethod>]
     member __.``structural value type should not equal non-equivalent value``() =
         anImmutableArray |> should not' (equal otherImmutableArray)
+
+    [<TestMethod>]
+    member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
+        let array1 = ImmutableArray.Create(Uri("http://example.com/1"))
+        let array2 = ImmutableArray.Create(Uri("http://example.com/2"))
+
+        shouldFail(fun () -> array1 |> should equal array2)
