@@ -126,7 +126,10 @@ type ``shouldEqual Tests``() =
 
     [<Test>]
     member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
-        let array1 = ImmutableArray.Create(Uri("http://example.com/1"))
-        let array2 = ImmutableArray.Create(Uri("http://example.com/2"))
+        let array1 =
+            ImmutableArray.Create(Uri("http://example.com/1"))
+
+        let array2 =
+            ImmutableArray.Create(Uri("http://example.com/2"))
 
         shouldFail(fun () -> array1 |> shouldEqual array2)

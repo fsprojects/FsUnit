@@ -1,3 +1,6 @@
+### 4.0.1 - Jul 31, 2020
+- Prefer IStructuralEquatable to IStructuralComparable - https://github.com/fsprojects/FsUnit/pull/171
+
 ### 4.0.0 - Jul 28, 2020
 - Better support for IStructuralEquatable under NUnit - https://github.com/fsprojects/FsUnit/pull/147
 - Refactorings & Fantomas integration - https://github.com/fsprojects/FsUnit/pull/157
