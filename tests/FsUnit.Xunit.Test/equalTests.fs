@@ -1,5 +1,6 @@
 namespace FsUnit.Test
 
+open System
 open System.Collections.Immutable
 
 open Xunit
@@ -102,3 +103,10 @@ type ``equal Tests``() =
         |> fun f -> Assert.Throws<MatchException>(f)
         |> fun e -> (e.Expected, e.Actual)
         |> should equal ("Equals Ok \"bar\"", "Ok \"foo\"")
+
+    [<Fact>]
+    member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
+        let array1 = ImmutableArray.Create(Uri("http://example.com/1"))
+        let array2 = ImmutableArray.Create(Uri("http://example.com/2"))
+
+        shouldFail(fun () -> array1 |> should equal array2)
