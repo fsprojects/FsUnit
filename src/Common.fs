@@ -16,8 +16,7 @@ module Common =
         | NewUnionCase(case, _) -> Some case.Name
         | NewTuple expressions ->
             expressions
-            |> List.map caseName
-            |> List.choose id
+            |> List.choose caseName
             |> (fun x -> System.String.Join(", ", x))
             |> Some
         | _ -> None
