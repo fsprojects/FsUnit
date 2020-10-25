@@ -1,7 +1,9 @@
 #r @"paket:
 source https://nuget.org/api/v2
 framework netstandard2.0
-nuget Fantomas prerelease
+nuget FSharp.Core 4.7.2.0
+nuget Fantomas
+nuget Fantomas.Extras
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
@@ -28,7 +30,9 @@ open Fake.IO.Globbing.Operators
 open Fake.DotNet
 open Fake.Tools.Git
 open System.IO
-open Fantomas.FakeHelpers
+open Fantomas
+open Fantomas.Extras
+open Fantomas.FormatConfig
 
 Target.initEnvironment()
 
@@ -142,7 +146,7 @@ Target.create "Format" (fun _ ->
     !! "src/**/*.fs"
       ++ "tests/**/*.fs" 
       -- "./**/*AssemblyInfo.fs"
-    |> formatCode
+    |> FakeHelpers.checkCode
     |> Async.RunSynchronously
     |> printfn "Formatted files: %A"
 )
