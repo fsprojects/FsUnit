@@ -30,5 +30,6 @@ A few things to keep in mind:
 
 - [@dmohl](https://github.com/dmohl)
 - [@sergey-tihon](https://github.com/sergey-tihon)
+- [@CaptnCodr](https://github.com/CaptnCodr)
 
 The default maintainer account for projects under "fsprojects" is [@fsprojectsgit](https://github.com/fsprojectsgit) - F# Community Project Incubation Space (repo management)
