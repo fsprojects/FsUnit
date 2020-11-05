@@ -1,6 +1,6 @@
 ﻿type file
 id
-	Fs30Unit.MsTest.Sample
+    Fs30Unit.MsTest.Sample
 owners
     Ray Vernagus and Daniel Mohl
 authors
@@ -10,11 +10,11 @@ projectUrl
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
 licenseUrl
-    http://github.com/fsprojects/FsUnit/blob/master/LICENSE.txt
+    http://github.com/fsprojects/FsUnit/blob/master/license.txt
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2015
+    Copyright 2015-2020
 tags
     F# fsharp MsTest FsUnit
 summary
@@ -22,6 +22,6 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to MsTest.
 dependencies
-	Fs30Unit.MsTest
+    Fs30Unit.MsTest
 files
-	../../bin/FsUnit.MsTest/*.pp ==> content
+    ../../bin/FsUnit.MsTest/**/*.pp ==> content

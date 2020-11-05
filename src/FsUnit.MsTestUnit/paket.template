@@ -1,6 +1,6 @@
 type file
 id
-	Fs30Unit.MsTest
+    Fs30Unit.MsTest
 owners
     Ray Vernagus and Daniel Mohl
 authors
@@ -10,7 +10,7 @@ projectUrl
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
 licenseUrl
-    http://github.com/fsprojects/FsUnit/blob/master/LICENSE.txt
+    http://github.com/fsprojects/FsUnit/blob/master/license.txt
 requireLicenseAcceptance
     false
 copyright
