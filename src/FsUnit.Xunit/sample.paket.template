@@ -1,6 +1,6 @@
 ﻿type file
 id
-	FsUnit.xUnit.Sample
+    FsUnit.xUnit.Sample
 owners
     Ray Vernagus and Daniel Mohl
 authors
@@ -10,11 +10,11 @@ projectUrl
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
 licenseUrl
-    http://github.com/fsprojects/FsUnit/blob/master/LICENSE.txt
+    http://github.com/fsprojects/FsUnit/blob/master/license.txt
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2015
+    Copyright 2015-2020
 tags
     F# fsharp xUnit FsUnit
 summary
@@ -22,6 +22,6 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to xUnit.
 dependencies
-	FsUnit.xUnit
+    FsUnit.xUnit
 files
-	../../bin/FsUnit.Xunit/*.pp ==> content
+    ../../bin/FsUnit.Xunit/**/*.pp ==> content
