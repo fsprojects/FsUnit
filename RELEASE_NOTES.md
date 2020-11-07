@@ -1,3 +1,6 @@
+### 4.0.2 - Nov 07, 2020
+- Fix license information and sample nuget packages. - https://github.com/fsprojects/FsUnit/pull/176
+
 ### 4.0.1 - Jul 31, 2020
 - Prefer IStructuralEquatable to IStructuralComparable - https://github.com/fsprojects/FsUnit/pull/171
 
