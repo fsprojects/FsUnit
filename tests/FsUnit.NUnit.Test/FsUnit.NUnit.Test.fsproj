@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
   <ItemGroup>
