@@ -1,7 +1,7 @@
 RESTRICTION: || (== net50) (== netstandard2.0)
 NUGET
   remote: https://www.nuget.org/api/v2
-    FSharp.Core (4.7.2)
+    FSharp.Core (4.3.4)
     Microsoft.CodeCoverage (16.8) - restriction: || (== net50) (&& (== netstandard2.0) (>= net45)) (&& (== netstandard2.0) (>= netcoreapp2.1))
     Microsoft.DotNet.InternalAbstractions (1.0) - restriction: || (== net50) (&& (== netstandard2.0) (>= netcoreapp2.1))
       System.AppContext (>= 4.1)
