@@ -1,6 +1,6 @@
 # FsUnit
 
-<img align="right" width="100" style="margin-left:20px" src="https://github.com/fsprojects/fsunit/blob/master/docs/img/logo.png?raw=true">
+<img align="right" width="100" style="margin-left:20px" src="https://raw.githubusercontent.com/fsprojects/fsunit/master/docs/img/logo.png">
 
 [![Build Status](https://github.com/fsprojects/FsUnit/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/FsUnit/actions?query=branch%3Amaster)
 
@@ -23,7 +23,7 @@ A few things to keep in mind:
 
 * Development environments need to be setup to run tests for xUnit and NUnit. A product like ReSharper can make this easier.
 
-* Since the unit tests for FsUnit are written with FsUnit, failing tests are just as important as passing tests.  
+* Since the unit tests for FsUnit are written with FsUnit, failing tests are just as important as passing tests.
 
 
 ## Maintainer(s)
