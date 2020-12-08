@@ -155,7 +155,7 @@ Supplying an expression that will result in a non-union type as well as supplyin
 *)
 type TestUnion = First | Second of int | Third of string
 
-First |> should be (ofCase<@ First @>) 
+First |> should be (ofCase<@ First @>)
 First |> should be (ofCase<@ First, Second @>) // checks if on the cases matches the given case
 Second 5 |> should be (ofCase<@ Second 10 @>) // note, the actual value is not checked!
 First |> should not' (be ofCase<@ Second 5 @>)
@@ -189,7 +189,7 @@ the project and submit pull requests. If you're adding a new public API, please 
 consider adding [samples][content] that can be turned into a documentation. You might
 also want to read the [library design notes][readme] to understand how it works.
 
-  [content]: https://github.com/fsprojects/FsUnit/tree/master/docs/content
+  [content]: http://fsprojects.github.io/FsUnit/#Syntax
   [gh]: https://github.com/fsprojects/FsUnit
   [issues]: https://github.com/fsprojects/FsUnit/issues
   [readme]: https://github.com/fsprojects/FsUnit/blob/master/README.md
