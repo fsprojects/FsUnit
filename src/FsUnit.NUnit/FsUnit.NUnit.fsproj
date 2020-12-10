@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FsUnit.NUnit</AssemblyName>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="($(DesignTimeBuild) == true)">
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
