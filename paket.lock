@@ -41,7 +41,7 @@ NUGET
     NHamcrest (2.0.1)
       NETStandard.Library (>= 1.6.1)
     NuGet.Frameworks (5.8) - restriction: || (== net50) (&& (== netstandard2.0) (>= netcoreapp2.1))
-    NUnit (3.12)
+    NUnit (3.13)
       NETStandard.Library (>= 2.0)
     NUnit3TestAdapter (3.17)
       Microsoft.DotNet.InternalAbstractions (>= 1.0) - restriction: || (== net50) (&& (== netstandard2.0) (>= netcoreapp2.1))
