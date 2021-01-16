@@ -1,4 +1,4 @@
-### 4.0.3 - Jan 16, 2021
+### 4.0.4 - Jan 16, 2021
 - Dependency update (NUnit 3.12 => 3.13).
 - Nuget authors update.
 
