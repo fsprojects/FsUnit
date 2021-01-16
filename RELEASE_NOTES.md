@@ -1,3 +1,7 @@
+### 4.0.4 - Jan 16, 2021
+- Dependency update (NUnit 3.12 => 3.13).
+- Nuget authors update.
+
 ### 4.0.2 - Nov 07, 2020
 - Fix license information and sample nuget packages. - https://github.com/fsprojects/FsUnit/pull/176
 
