@@ -27,10 +27,10 @@ module Common =
     /// </summary>
     /// <example>
     /// <code>
-    /// type TestUnion = First | Second of int | Third of string
-    /// let thisIsTrue = First |> isCase <@ First @>
-    /// let thisIsTrue = Second 5 |> isCase <@ Second @>
-    /// let thisIsTrue = Third "myString" |> isCase <@ Second, Third @>
+    ///// type TestUnion = First | Second of int | Third of string
+    ///// let thisIsTrue = First |> isCase <@ First @>
+    ///// let thisIsTrue = Second 5 |> isCase <@ Second @>
+    ///// let thisIsTrue = Third "myString" |> isCase <@ Second, Third @>
     /// </code>
     /// </example>
     /// <exception cref="System.Exception">If the expression is not an union case or does not result in an union case.</exception>

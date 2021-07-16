@@ -16,4 +16,4 @@ nuget xunit
 nuget xunit.runner.visualstudio
 // for MsTest
 nuget MSTest.TestFramework
-nuget MSTest.TestAdapter
+nuget MSTest.TestAdapter ~> 2.1.2
