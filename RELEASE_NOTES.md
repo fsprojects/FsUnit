@@ -1,3 +1,7 @@
+### 4.0.5 - Jul 18, 2021
+- Dependency update (Paket 5.257.0 => 5.258.1, FAKE-CLI 5.20.3 => 5.20.4). - https://github.com/fsprojects/FsUnit/pull/186
+- Use explicit MSTest.TestAdapter v2.1.2.
+
 ### 4.0.4 - Jan 16, 2021
 - Dependency update (NUnit 3.12 => 3.13).
 - Nuget authors update.
