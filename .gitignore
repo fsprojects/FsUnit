@@ -98,13 +98,15 @@ output/
 # Test results produced by build
 TestResults.xml
 
+# Paket dependency manager
+paket-files
+.paket/
+
 # Nuget outputs
 nuget/*.nupkg
 release.cmd
 release.sh
 localpackages/
-paket-files
-.paket/
 *.orig
 .fake
 FsUnit.Xunit.Test.dll.xunit.html

@@ -1,3 +1,6 @@
+### 4.0.6 - Aug 14, 2021
+- Update dotnet tools (Paket 5.258.1 => 6.0.4, FSharp.Formatting.CommandTool 7.2.9 => 11.4.2). - https://github.com/fsprojects/FsUnit/pull/188
+
 ### 4.0.5 - Jul 18, 2021
 - Dependency update (Paket 5.257.0 => 5.258.1, FAKE-CLI 5.20.3 => 5.20.4). - https://github.com/fsprojects/FsUnit/pull/186
 - Use explicit MSTest.TestAdapter v2.1.2.
