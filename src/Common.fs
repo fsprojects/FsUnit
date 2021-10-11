@@ -48,7 +48,7 @@ module Common =
             // the tag of the union given in the expression.
             let readTag =
                 FSharpValue.PreComputeUnionTagReader case.DeclaringType
-            
+
             let comparator = (=) case.Tag
             (fun x ->
                 if isUnionCase x then 
