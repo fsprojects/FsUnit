@@ -45,3 +45,15 @@ type ``ofCase tests``() =
     member __.``Given a non-union case as value argument throws an exception``() =
         (fun () -> 5 |> should not' (be ofCase <@ Second 5 @>) |> ignore)
         |> should (throwWithMessage "Value (not expression) is not a union case.") typeof<System.Exception>
+
+    [<Test>]
+    member __.``None should be ofCase None`` () =
+        None |> should be (ofCase <@ None @>)
+
+    [<Test>]
+    member __.``Some 42 should be ofCase Some 42`` () =
+        Some 42 |> should be (ofCase <@ Some 42 @>)
+
+    [<Test>]
+    member __.``Some 1 should not be ofCase None`` () =
+        Some 1 |> should not' (be ofCase <@ None @>)
