@@ -6,7 +6,8 @@ module Common =
     open Microsoft.FSharp.Reflection
 
     let isUnionCase x = 
-        not <| FSharpType.IsUnion(<@ x @>.Type) && (box x) = null || FSharpType.IsUnion(x.GetType())
+        FSharpType.IsUnion(<@ x @>.Type) |> not && (box x) = null
+        || FSharpType.IsUnion(x.GetType())
 
     /// <summary>
     /// Takes an expression and returns the name of the union cases that are the result of this expression.
