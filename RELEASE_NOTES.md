@@ -1,3 +1,6 @@
+### 4.0.7 - Oct 12, 2021
+- Fix `ofCase` which didn't handle 'None'. - https://github.com/fsprojects/FsUnit/pull/192
+
 ### 4.0.6 - Aug 14, 2021
 - Update dotnet tools (Paket 5.258.1 => 6.0.4, FSharp.Formatting.CommandTool 7.2.9 => 11.4.2). - https://github.com/fsprojects/FsUnit/pull/188
 
