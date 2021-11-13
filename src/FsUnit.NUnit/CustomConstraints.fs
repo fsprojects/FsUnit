@@ -16,5 +16,5 @@ module CustomConstraints =
                 ConstraintResult(this, actual, result)
             else
                 let actualType = actual.GetType()
-                do printfn "Got a %s" actualType.Name
+                do printf $"Got a {actualType.Name}"
                 failwith "Value (not expression) is not a union case."

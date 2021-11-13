@@ -8,7 +8,7 @@ open NHamcrest.Core
 open System.Reflection
 
 let equal x =
-    CustomMatcher<obj>(sprintf "Equals %A" x, (fun a -> a = x))
+    CustomMatcher<obj>($"Equals %A{x}", (fun a -> a = x))
 
 let equivalent f x =
     let matches(c: obj) =
@@ -23,7 +23,7 @@ let equivalent f x =
             | _ -> false
         with _ -> false
 
-    CustomMatcher<obj>(sprintf "Equivalent to %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Equivalent to %A{x}", Func<_, _> matches)
 
 //TODO: Look into a better way of doing this.
 let equalWithin (t: obj) (x: obj) =
@@ -41,13 +41,13 @@ let equalWithin (t: obj) (x: obj) =
         then abs(actual - expect) <= tol
         else false
 
-    CustomMatcher<obj>(sprintf "%A with a tolerance of %A" x t, Func<_, _> matches)
+    CustomMatcher<obj>($"%A{x} with a tolerance of %A{t}", Func<_, _> matches)
 
 let not'(x: obj) =
     match box x with
     | null -> Is.Not<obj>(Is.Null())
     | :? (IMatcher<obj>) as matcher -> Is.Not<obj>(matcher)
-    | x -> Is.Not<obj>(CustomMatcher<obj>(sprintf "Equals %A" x, (fun a -> a = x)) :> IMatcher<obj>)
+    | x -> Is.Not<obj>(CustomMatcher<obj>($"Equals %A{x}", (fun a -> a = x)) :> IMatcher<obj>)
 
 let throw(t: Type) =
     let matches(f: obj) =
@@ -71,7 +71,7 @@ let throwWithMessage (m: string) (t: Type) =
             with ex -> ex.GetType() = t && ex.Message = m
         | _ -> false
 
-    CustomMatcher<obj>(sprintf "%s \"%s\"" (string t) m, Func<_, _> matches)
+    CustomMatcher<obj>($"{string t} \"{m}\"", Func<_, _> matches)
 
 let be = id
 
@@ -126,25 +126,25 @@ let greaterThan(x: obj) =
     let matches(actual: obj) =
         (unbox actual :> IComparable).CompareTo(unbox x) > 0
 
-    CustomMatcher<obj>(sprintf "Greater than %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Greater than %A{x}", Func<_, _> matches)
 
 let greaterThanOrEqualTo(x: obj) =
     let matches(actual: obj) =
         (unbox actual :> IComparable).CompareTo(unbox x) >= 0
 
-    CustomMatcher<obj>(sprintf "Greater than or equal to %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Greater than or equal to %A{x}", Func<_, _> matches)
 
 let lessThan(x: obj) =
     let matches(actual: obj) =
         (unbox actual :> IComparable).CompareTo(unbox x) < 0
 
-    CustomMatcher<obj>(sprintf "Less than %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Less than %A{x}", Func<_, _> matches)
 
 let lessThanOrEqualTo(x: obj) =
     let matches(actual: obj) =
         (unbox actual :> IComparable).CompareTo(unbox x) <= 0
 
-    CustomMatcher<obj>(sprintf "Less than or equal to %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Less than or equal to %A{x}", Func<_, _> matches)
 
 let endWith(x: string) =
     CustomMatcher<obj>(string x, (fun s -> (string s).EndsWith x))
@@ -170,7 +170,7 @@ let contain x =
         | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = x)
         | _ -> false
 
-    CustomMatcher<obj>(sprintf "Contains %A" x, Func<_, _> matches)
+    CustomMatcher<obj>($"Contains %A{x}", Func<_, _> matches)
 
 let private (?) (this: 'Source) (name: string): 'Result =
     let bindingFlags =
@@ -183,14 +183,14 @@ let private (?) (this: 'Source) (name: string): 'Result =
         this.GetType().GetProperty(name, bindingFlags)
 
     if isNull property
-    then raise(ArgumentException(sprintf "Property %s was not found" name, "name"))
+    then raise(ArgumentException($"Property {name} was not found", "name"))
     property.GetValue(this, null) :?> 'Result
 
 let haveLength n =
-    CustomMatcher<obj>(sprintf "Have Length %d" n, (fun x -> x?Length = n))
+    CustomMatcher<obj>($"Have Length %d{n}", (fun x -> x?Length = n))
 
 let haveCount n =
-    CustomMatcher<obj>(sprintf "Have Count %d" n, (fun x -> x?Count = n))
+    CustomMatcher<obj>($"Have Count %d{n}", (fun x -> x?Count = n))
 
 let containf f =
     let matches(c: obj) =
@@ -201,13 +201,13 @@ let containf f =
         | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists f
         | _ -> false
 
-    CustomMatcher<obj>(sprintf "Contains %A" f, Func<_, _> matches)
+    CustomMatcher<obj>($"Contains %A{f}", Func<_, _> matches)
 
 let supersetOf x =
-    CustomMatcher<obj>(sprintf "Is superset of %A" x, (fun c -> Set.isSuperset (Set(unbox c)) (Set x)))
+    CustomMatcher<obj>($"Is superset of %A{x}", (fun c -> Set.isSuperset (Set(unbox c)) (Set x)))
 
 let subsetOf x =
-    CustomMatcher<obj>(sprintf "Is subset of %A" x, (fun c -> Set.isSubset (Set(unbox c)) (Set x)))
+    CustomMatcher<obj>($"Is subset of %A{x}", (fun c -> Set.isSubset (Set(unbox c)) (Set x)))
 
 let matchList xs =
     let matches(ys: obj) =
@@ -216,7 +216,7 @@ let matchList xs =
         | :? IEnumerable as e -> e |> Seq.cast |> Seq.isEmpty && xs |> Seq.isEmpty
         | _ -> false
 
-    CustomMatcher<obj>(sprintf "All elements from list %A" xs, Func<_, _> matches)
+    CustomMatcher<obj>($"All elements from list %A{xs}", Func<_, _> matches)
 
 let private makeOrderedMatcher description comparer =
     let matches(c: obj) =
@@ -296,14 +296,14 @@ type ChoiceDiscriminator(n: int) =
         with _ -> false
 
 let choice n =
-    CustomMatcher<obj>(sprintf "The choice %d" n, (fun x -> (ChoiceDiscriminator(n)).check(x)))
+    CustomMatcher<obj>($"The choice %d{n}", (fun x -> (ChoiceDiscriminator(n)).check(x)))
 
 let inRange min max =
     let matches(actual: obj) =
         let unboxed = (unbox actual :> IComparable)
         unboxed.CompareTo(unbox min) >= 0 && unboxed.CompareTo(unbox max) <= 0
 
-    CustomMatcher<obj>(sprintf "In range from %A to %A" min max, Func<_, _> matches)
+    CustomMatcher<obj>($"In range from %A{min} to %A{max}", Func<_, _> matches)
 
 let ofCase(case: Quotations.Expr) =
     let expected =
