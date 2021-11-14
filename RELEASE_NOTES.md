@@ -1,3 +1,7 @@
+### 4.1.0 - Nov 14, 2021
+- Add net6.0 support. - https://github.com/fsprojects/FsUnit/pull/194
+- Drop F# 4.7.x support.
+
 ### 4.0.7 - Oct 12, 2021
 - Fix `ofCase` which didn't handle 'None'. - https://github.com/fsprojects/FsUnit/pull/192
 

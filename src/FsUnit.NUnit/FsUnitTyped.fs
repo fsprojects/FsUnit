@@ -29,15 +29,15 @@ module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =
         if Seq.exists ((=) x) y
-        then failwithf "Seq %A should not contain %A" y x
+        then failwith $"Seq %A{y} should not contain %A{x}"
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
-        Assert.Less(y, x, sprintf "Expected: %A\nActual: %A" x y)
+        Assert.Less(y, x, $"Expected: %A{x}\nActual: %A{y}")
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (x: 'a) (y: 'a) =
-        Assert.Greater(y, x, sprintf "Expected: %A\nActual: %A" x y)
+        Assert.Greater(y, x, $"Expected: %A{x}\nActual: %A{y}")
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
@@ -46,15 +46,15 @@ module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
         if y.Contains(x) |> not
-        then failwithf "\"%s\" is not a substring of \"%s\"" x y
+        then failwith $"\"{x}\" is not a substring of \"{y}\""
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (x: string) (y: string) =
         if y.Contains(x)
-        then failwithf "\"%s\" is a substring of \"%s\"" x y
+        then failwith $"\"{x}\" is a substring of \"{y}\""
 
     [<DebuggerStepThrough>]
     let shouldHaveLength expected list =
         let actual = Seq.length list
         if actual <> expected
-        then failwithf "Invalid length in %A\r\nExpected: %i\r\nActual: %i" list expected actual
+        then failwith $"Invalid length in %A{list}\r\nExpected: {expected}\r\nActual: {actual}"

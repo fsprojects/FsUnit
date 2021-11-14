@@ -9,7 +9,7 @@ let inline private assertThat(actual, matcher: IMatcher<'a>) =
     if not(matcher.Matches(actual)) then
         let description = StringDescription()
         matcher.DescribeTo(description)
-        raise(AssertFailedException(sprintf "%A was %A" description actual))
+        raise(AssertFailedException($"%A{description} was %A{actual}"))
 
 type Assert with
     static member That<'a>(actual, matcher: IMatcher<'a>) =
