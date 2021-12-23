@@ -10,7 +10,7 @@ projectUrl
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
 licenseUrl
-    http://github.com/fsprojects/FsUnit/blob/master/license.txt
+    https://raw.githubusercontent.com/fsprojects/FsUnit/master/license.txt
 requireLicenseAcceptance
     false
 copyright
