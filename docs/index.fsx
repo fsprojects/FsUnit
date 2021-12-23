@@ -189,7 +189,7 @@ the project and submit pull requests. If you're adding a new public API, please 
 consider adding [samples][content] that can be turned into a documentation. You might
 also want to read the [library design notes][readme] to understand how it works.
 
-  [content]: http://fsprojects.github.io/FsUnit/#Syntax
+  [content]: https://fsprojects.github.io/FsUnit/#Syntax
   [gh]: https://github.com/fsprojects/FsUnit
   [issues]: https://github.com/fsprojects/FsUnit/issues
   [readme]: https://github.com/fsprojects/FsUnit/blob/master/README.md
