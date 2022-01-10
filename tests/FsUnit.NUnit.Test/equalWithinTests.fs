@@ -3,7 +3,7 @@ namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
 
-(* Thanks to erdoll for this suggestion: http://fsunit.codeplex.com/discussions/269320 *)
+(* Thanks to erdoll for this suggestion: https://fsunit.codeplex.com/discussions/269320 *)
 
 [<TestFixture>]
 type ``equalWithin tests``() =

@@ -202,7 +202,7 @@ Target.create "PublishNuget" (fun _ ->
 
 Target.create "GenerateDocs" (fun _ ->
    Shell.cleanDir ".fsdocs"
-   DotNet.exec id "fsdocs" "build --clean --parameters root http://fsprojects.github.io/FsUnit" |> ignore
+   DotNet.exec id "fsdocs" "build --clean --parameters root https://fsprojects.github.io/FsUnit" |> ignore
 )
 // --------------------------------------------------------------------------------------
 // Release Scripts
