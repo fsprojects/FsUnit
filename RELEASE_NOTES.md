@@ -1,4 +1,4 @@
-### 4.2.0 - Jan 11, 2022
+### 4.2.0 - Jan 15, 2022
 - Adjust license URL to be the raw link, fix http --> https - https://github.com/fsprojects/FsUnit/pull/195
 - Update copyright time period. - https://github.com/fsprojects/FsUnit/pull/196
 
