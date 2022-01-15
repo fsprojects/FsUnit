@@ -1,5 +1,6 @@
-### 4.2.0 - Dec 23, 2021
-- Adjust license URL to be the raw link, fix http --> https
+### 4.2.0 - Jan 11, 2022
+- Adjust license URL to be the raw link, fix http --> https - https://github.com/fsprojects/FsUnit/pull/195
+- Update copyright time period. - https://github.com/fsprojects/FsUnit/pull/196
 
 ### 4.1.0 - Nov 14, 2021
 - Add net6.0 support. - https://github.com/fsprojects/FsUnit/pull/194
