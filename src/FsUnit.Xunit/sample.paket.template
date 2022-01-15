@@ -9,6 +9,8 @@ projectUrl
     https://github.com/fsprojects/FsUnit
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
+licenseExpression
+    MIT
 licenseUrl
     https://github.com/fsprojects/FsUnit/blob/master/license.txt
 requireLicenseAcceptance
