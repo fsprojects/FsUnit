@@ -1,7 +1,7 @@
 #r @"paket:
 source https://nuget.org/api/v2
 framework netstandard2.0
-nuget FSharp.Core 4.7.2.0
+nuget FSharp.Core 5.0.0
 nuget Fantomas
 nuget Fantomas.Extras
 nuget Fake.Core.Target
