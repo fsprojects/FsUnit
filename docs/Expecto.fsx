@@ -57,3 +57,7 @@ false |> isFalse "Value is false."
 None |> isNone "Value is None."
 
 {1 .. 10} |> contains "Seq 1 to 10 contains 4." 4
+
+(**
+All operators are listed here: <a href="https://github.com/haf/expecto/blob/main/Expecto/Flip.Expect.fs">Expecto.Flip.Expect</a>
+*)
