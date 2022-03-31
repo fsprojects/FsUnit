@@ -131,3 +131,4 @@ type ``shouldEqual Tests``() =
         let array2 =
             ImmutableArray.Create(Uri("https://example.com/2"))
 
+        shouldFail(fun () -> array1 |> shouldEqual array2)
