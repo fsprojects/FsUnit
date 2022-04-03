@@ -35,12 +35,12 @@ module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
         if not (x < y) then
-            failwith $"Expected:\n  %A{x}\nto be smaller than:\n  %A{y}")
+            failwith $"Expected:\n  %A{x}\nto be smaller than:\n  %A{y}"
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (x: 'a) (y: 'a) =
         if not (x > y) then
-            failwith $"Expected:\n  %A{x}\nto be greater than:\n  %A{y}")
+            failwith $"Expected:\n  %A{x}\nto be greater than:\n  %A{y}"
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
