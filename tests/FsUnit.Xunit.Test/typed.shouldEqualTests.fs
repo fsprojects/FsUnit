@@ -81,11 +81,10 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member __.``Error "Foo" should equal fails and have same message``() =
         (fun () -> Error "Foo" |> shouldEqual(Error "Bar"))
-        |> Assert.Throws<AssertionException>
+        |> Assert.Throws<System.NullReferenceException>
         |> fun e ->
             e.Message
-            |> should
-                equal
+            |> shouldEqual
                    (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Fact>]
@@ -95,12 +94,11 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member __.``Error "Foo" should not equal Error "Bar" fails and have same message``() =
         (fun () -> Error "Foo" |> shouldNotEqual(Error "Foo"))
-        |> Assert.Throws<AssertionException>
+        |> Assert.Throws<System.NullReferenceException>
         |> fun e ->
             e.Message
-            |> should
-                equal
-                   (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+            |> shouldEqual
+               (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Fact>]
     member this.``structural equality``() =
