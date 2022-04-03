@@ -1,47 +1,43 @@
 namespace FsUnitTyped
 
 open System.Diagnostics
-open Xunit
-open System.Collections.Generic
 open FsUnit.Xunit
 
 [<AutoOpen>]
 module TopLevelOperators =
 
     [<DebuggerStepThrough>]
-    let shouldEqual (expected: 'a) (actual: 'a) =
-        expected |> should equal actual
+    let shouldEqual<'a> (expected: 'a) (actual: 'a) =
+        should equal expected actual
 
     [<DebuggerStepThrough>]
-    let shouldNotEqual (expected: 'a) (actual: 'a) =
+    let shouldNotEqual<'a> (expected: 'a) (actual: 'a) =
         expected |> should not' (equal actual)
 
     [<DebuggerStepThrough>]
-    let shouldContain (x: 'a) (y: 'a seq) =
+    let shouldContain<'a when 'a : equality> (x: 'a) (y: 'a seq) =
         y |> should contain x
 
     [<DebuggerStepThrough>]
-    let shouldBeEmpty(list: 'a seq) =
+    let shouldBeEmpty<'a> (list: 'a seq) =
         list |> should be Empty
 
     [<DebuggerStepThrough>]
-    let shouldNotContain (x: 'a) (y: 'a seq) =
+    let shouldNotContain<'a when 'a : equality> (x: 'a) (y: 'a seq) =
         if Seq.exists ((=) x) y then
             failwith $"Seq %A{y} should not contain %A{x}"
 
     [<DebuggerStepThrough>]
-    let shouldBeSmallerThan (x: 'a) (y: 'a) =
-        if not(x < y) then
-            failwith $"Expected:\n  %A{x}\nto be smaller than:\n  %A{y}"
+    let shouldBeSmallerThan<'a when 'a : comparison> (x: 'a) (y: 'a) =
+        should be (lessThan x) y
 
     [<DebuggerStepThrough>]
-    let shouldBeGreaterThan (x: 'a) (y: 'a) =
-        if not(x > y) then
-            failwith $"Expected:\n  %A{x}\nto be greater than:\n  %A{y}"
+    let shouldBeGreaterThan<'a when 'a : comparison> (x: 'a) (y: 'a) =
+        should be (greaterThan x) y
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
-        f |> should throw typeof<'exn>
+        should throw typeof<'exn> f
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
@@ -54,7 +50,7 @@ module TopLevelOperators =
             failwith $"\"{x}\" is a substring of \"{y}\""
 
     [<DebuggerStepThrough>]
-    let shouldHaveLength expected list =
+    let shouldHaveLength<'a> (expected: int) (list: 'a seq) =
         let actual = Seq.length list
 
         if actual <> expected then

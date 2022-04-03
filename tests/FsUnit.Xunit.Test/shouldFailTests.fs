@@ -17,7 +17,7 @@ type ``shouldFail tests``() =
         shouldFail(fun () -> shouldFail id)
 
     [<Fact>]
-    member __.``shouldFaild should throw an exception``() =
+    member __.``shouldFail should throw an exception``() =
         (fun () -> shouldFail id) |> should throw typeof<MatchException>
 
     [<Fact>]

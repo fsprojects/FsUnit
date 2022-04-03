@@ -2,6 +2,7 @@ namespace FsUnit.Typed.Test
 
 open System.Collections.Immutable
 
+open FsUnit.Xunit
 open Xunit
 open FsUnitTyped
 open FsUnit
@@ -81,7 +82,7 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member __.``Error "Foo" should equal fails and have same message``() =
         (fun () -> Error "Foo" |> shouldEqual(Error "Bar"))
-        |> Assert.Throws<System.NullReferenceException>
+        |> Assert.Throws<MatchException>
         |> fun e ->
             e.Message
             |> shouldEqual(sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
@@ -93,11 +94,11 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member __.``Error "Foo" should not equal Error "Bar" fails and have same message``() =
         (fun () -> Error "Foo" |> shouldNotEqual(Error "Foo"))
-        |> Assert.Throws<System.NullReferenceException>
+        |> Assert.Throws<MatchException>
         |> fun e ->
             e.Message
             |> shouldEqual(
-                sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine
+                sprintf "  Expected: not Equals Error \"Foo\"%sActual:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine
             )
 
     [<Fact>]
