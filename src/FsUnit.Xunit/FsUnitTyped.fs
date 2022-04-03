@@ -41,7 +41,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
-        f |> should (throw typeof<'exn>)
+        f |> should throw typeof<'exn>
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
