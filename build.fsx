@@ -1,9 +1,8 @@
 #r @"paket:
-source https://nuget.org/api/v2
-framework netstandard2.0
-nuget FSharp.Core 5.0.0
-nuget Fantomas
-nuget Fantomas.Extras
+source https://api.nuget.org/v3/index.json
+framework: net6.0
+storage: none
+nuget FSharp.Core
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
@@ -16,23 +15,16 @@ nuget Fake.DotNet.Fsi
 nuget Fake.Tools.Git
 nuget Fake.Api.GitHub //"
 
-#if !FAKE
 #load "./.fake/build.fsx/intellisense.fsx"
-#r "netstandard" // Temp fix for https://github.com/fsharp/FAKE/issues/1985
-#endif
 
-open Fake
-open Fake.Core.TargetOperators
 open Fake.Core
+open Fake.Core.TargetOperators
 open Fake.IO
 open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.DotNet
 open Fake.Tools.Git
 open System.IO
-open Fantomas
-open Fantomas.Extras
-open Fantomas.FormatConfig
 
 Target.initEnvironment()
 
@@ -142,13 +134,36 @@ Target.create "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Check code format & format code using Fantomas
 
-Target.create "Format" (fun _ ->
+let sourceFiles =
     !! "src/**/*.fs"
       ++ "tests/**/*.fs" 
       -- "./**/*AssemblyInfo.fs"
-    |> FakeHelpers.checkCode
-    |> Async.RunSynchronously
-    |> printfn "Formatted files: %A"
+
+Target.create "CheckFormat" (fun _ ->
+    let result =
+        sourceFiles
+        |> Seq.map (sprintf "\"%s\"")
+        |> String.concat " "
+        |> sprintf "%s --check"
+        |> DotNet.exec id "fantomas"
+
+    if result.ExitCode = 0 then
+        Trace.log "No files need formatting"
+    elif result.ExitCode = 99 then
+        failwith "Some files need formatting, check output for more info"
+    else
+        Trace.logf "Errors while formatting: %A" result.Errors
+)
+
+Target.create "Format" (fun _ ->
+    let result =
+        sourceFiles
+        |> Seq.map (sprintf "\"%s\"")
+        |> String.concat " "
+        |> DotNet.exec id "fantomas"
+
+    if not result.OK then
+        printfn "Errors while formatting all files: %A" result.Messages
 )
 
 // --------------------------------------------------------------------------------------
@@ -227,7 +242,7 @@ Target.create "Release" ignore
 
 "Clean"
   ==> "AssemblyInfo"
-  ==> "Format"
+  ==> "CheckFormat"
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
