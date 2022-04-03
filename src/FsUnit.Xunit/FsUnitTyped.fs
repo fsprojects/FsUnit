@@ -18,10 +18,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =
-        let list = List<_>()
-        for a in y do
-            list.Add a
-        Assert.Contains(x, list)
+        y |> should contain expected
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(list: 'a seq) =
