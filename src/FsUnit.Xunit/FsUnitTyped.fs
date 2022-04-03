@@ -3,6 +3,7 @@ namespace FsUnitTyped
 open System.Diagnostics
 open Xunit
 open System.Collections.Generic
+open FsUnit.Xunit
 
 [<AutoOpen>]
 module TopLevelOperators =
@@ -24,7 +25,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(list: 'a seq) =
-        Assert.IsEmpty(list)
+        Assert.That(list, Empty)
 
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =
@@ -33,15 +34,17 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
-        Assert.Less(y, x, $"Expected: %A{x}\nActual: %A{y}")
+        if not (x < y) then
+            failwith $"Expected:\n  %A{x}\nto be smaller than:\n  %A{y}")
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (x: 'a) (y: 'a) =
-        Assert.Greater(y, x, $"Expected: %A{x}\nActual: %A{y}")
+        if not (x > y) then
+            failwith $"Expected:\n  %A{x}\nto be greater than:\n  %A{y}")
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
-        Assert.Throws(Is.InstanceOf<'exn>(), TestDelegate(f)) |> ignore
+        f |> should throw
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
