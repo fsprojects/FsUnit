@@ -5,7 +5,6 @@ open System.Collections.Immutable
 open FsUnit.Xunit
 open Xunit
 open FsUnitTyped
-open FsUnit
 open System
 
 type AlwaysEqual() =
@@ -85,7 +84,12 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<MatchException>
         |> fun e ->
             e.Message
-            |> shouldEqual(sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+            |> shouldEqual(
+                sprintf
+                    "Exception of type 'FsUnit.Xunit+MatchException' was thrown.%sExpected: Equals Error \"Bar\"%sActual:   Error \"Foo\""
+                    Environment.NewLine
+                    Environment.NewLine
+            )
 
     [<Fact>]
     member __.``Error "Foo" should not equal Error "Bar"``() =
@@ -97,7 +101,12 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<MatchException>
         |> fun e ->
             e.Message
-            |> shouldEqual(sprintf "  Expected: not Equals Error \"Foo\"%sActual:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+            |> shouldEqual(
+                sprintf
+                    "Exception of type 'FsUnit.Xunit+MatchException' was thrown.%sExpected: not Equals Error \"Foo\"%sActual:   Error \"Foo\""
+                    Environment.NewLine
+                    Environment.NewLine
+            )
 
     [<Fact>]
     member this.``structural equality``() =

@@ -6,33 +6,37 @@ open FsUnit.Xunit
 [<AutoOpen>]
 module TopLevelOperators =
 
+    /// Asserts that `expected` is equal to `actual`.
+    /// The equality instance on `expected` is used.
     [<DebuggerStepThrough>]
     let shouldEqual<'a> (expected: 'a) (actual: 'a) =
-        should equal expected actual
+        should equal actual expected
 
+    /// Asserts that `expected` is not equal to `actual`.
+    /// The equality instance on `expected` is used.
     [<DebuggerStepThrough>]
     let shouldNotEqual<'a> (expected: 'a) (actual: 'a) =
-        expected |> should not' (equal actual)
+        should not' (equal actual) expected
 
     [<DebuggerStepThrough>]
-    let shouldContain<'a when 'a : equality> (x: 'a) (y: 'a seq) =
+    let shouldContain<'a when 'a: equality> (x: 'a) (y: 'a seq) =
         y |> should contain x
 
     [<DebuggerStepThrough>]
-    let shouldBeEmpty<'a> (list: 'a seq) =
+    let shouldBeEmpty<'a>(list: 'a seq) =
         list |> should be Empty
 
     [<DebuggerStepThrough>]
-    let shouldNotContain<'a when 'a : equality> (x: 'a) (y: 'a seq) =
+    let shouldNotContain<'a when 'a: equality> (x: 'a) (y: 'a seq) =
         if Seq.exists ((=) x) y then
             failwith $"Seq %A{y} should not contain %A{x}"
 
     [<DebuggerStepThrough>]
-    let shouldBeSmallerThan<'a when 'a : comparison> (x: 'a) (y: 'a) =
+    let shouldBeSmallerThan<'a when 'a: comparison> (x: 'a) (y: 'a) =
         should be (lessThan x) y
 
     [<DebuggerStepThrough>]
-    let shouldBeGreaterThan<'a when 'a : comparison> (x: 'a) (y: 'a) =
+    let shouldBeGreaterThan<'a when 'a: comparison> (x: 'a) (y: 'a) =
         should be (greaterThan x) y
 
     [<DebuggerStepThrough>]
