@@ -97,9 +97,7 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<MatchException>
         |> fun e ->
             e.Message
-            |> shouldEqual(
-                sprintf "  Expected: not Equals Error \"Foo\"%sActual:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine
-            )
+            |> shouldEqual(sprintf "  Expected: not Equals Error \"Foo\"%sActual:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Fact>]
     member this.``structural equality``() =

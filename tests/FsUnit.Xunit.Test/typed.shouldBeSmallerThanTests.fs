@@ -11,8 +11,7 @@ type ``shouldBeSmallerThan tests``() =
 
     [<Fact>]
     member __.``10 should not be less than 10``() =
-        (fun () -> 10 |> shouldBeSmallerThan 10)
-        |> shouldFail<MatchException>
+        (fun () -> 10 |> shouldBeSmallerThan 10) |> shouldFail<MatchException>
 
     [<Fact>]
     member __.``10[dot]0 should be less than 10[dot]1``() =
@@ -22,4 +21,4 @@ type ``shouldBeSmallerThan tests``() =
     member __.``10[dot]0 should not be less than 10[dot]0``() =
         (fun () -> 10.0 |> shouldBeSmallerThan 10.0)
         |> should throw typeof<MatchException>
-        //|> shouldFail<MatchException>
+//|> shouldFail<MatchException>
