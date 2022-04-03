@@ -84,8 +84,7 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<System.NullReferenceException>
         |> fun e ->
             e.Message
-            |> shouldEqual
-                   (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+            |> shouldEqual(sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Fact>]
     member __.``Error "Foo" should not equal Error "Bar"``() =
@@ -97,8 +96,9 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<System.NullReferenceException>
         |> fun e ->
             e.Message
-            |> shouldEqual
-               (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+            |> shouldEqual(
+                sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine
+            )
 
     [<Fact>]
     member this.``structural equality``() =
@@ -123,10 +123,8 @@ type ``shouldEqual Tests``() =
 
     [<Fact>]
     member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
-        let array1 =
-            ImmutableArray.Create(Uri("https://example.com/1"))
+        let array1 = ImmutableArray.Create(Uri("https://example.com/1"))
 
-        let array2 =
-            ImmutableArray.Create(Uri("https://example.com/2"))
+        let array2 = ImmutableArray.Create(Uri("https://example.com/2"))
 
         shouldFail(fun () -> array1 |> shouldEqual array2)
