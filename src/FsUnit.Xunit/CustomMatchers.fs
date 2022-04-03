@@ -59,7 +59,7 @@ let throw(t: Type) =
                 testFunc()
                 false
             with
-            | ex -> ex.GetType() = t
+            | ex -> t.IsAssignableFrom(ex.GetType())
         | _ -> false
 
     CustomMatcher<obj>(string t, Func<_, _> matches)
