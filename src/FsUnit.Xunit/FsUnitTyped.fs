@@ -10,11 +10,11 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldEqual (expected: 'a) (actual: 'a) =
-        Assert.That(actual, FsUnit.Equality.IsEqualTo(expected))
+        expected |> should equal actual
 
     [<DebuggerStepThrough>]
     let shouldNotEqual (expected: 'a) (actual: 'a) =
-        Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected))
+        expected |> should not' (equal actual)
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =
@@ -25,7 +25,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(list: 'a seq) =
-        Assert.That(list, Empty)
+        list |> should be Empty
 
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =
