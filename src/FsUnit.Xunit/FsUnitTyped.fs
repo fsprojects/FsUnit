@@ -18,7 +18,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =
-        y |> should contain expected
+        y |> should contain x
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(list: 'a seq) =
@@ -41,7 +41,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
-        f |> should throw
+        f |> should (throw typeof<'exn>)
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
