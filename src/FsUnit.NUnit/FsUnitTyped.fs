@@ -18,8 +18,10 @@ module TopLevelOperators =
     [<DebuggerStepThrough>]
     let shouldContain (x: 'a) (y: 'a seq) =
         let list = List<_>()
+
         for a in y do
             list.Add a
+
         Assert.Contains(x, list)
 
     [<DebuggerStepThrough>]
@@ -28,8 +30,8 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldNotContain (x: 'a) (y: 'a seq) =
-        if Seq.exists ((=) x) y
-        then failwith $"Seq %A{y} should not contain %A{x}"
+        if Seq.exists ((=) x) y then
+            failwith $"Seq %A{y} should not contain %A{x}"
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
@@ -45,16 +47,17 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
-        if y.Contains(x) |> not
-        then failwith $"\"{x}\" is not a substring of \"{y}\""
+        if y.Contains(x) |> not then
+            failwith $"\"{x}\" is not a substring of \"{y}\""
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (x: string) (y: string) =
-        if y.Contains(x)
-        then failwith $"\"{x}\" is a substring of \"{y}\""
+        if y.Contains(x) then
+            failwith $"\"{x}\" is a substring of \"{y}\""
 
     [<DebuggerStepThrough>]
     let shouldHaveLength expected list =
         let actual = Seq.length list
-        if actual <> expected
-        then failwith $"Invalid length in %A{list}\r\nExpected: {expected}\r\nActual: {actual}"
+
+        if actual <> expected then
+            failwith $"Invalid length in %A{list}\r\nExpected: {expected}\r\nActual: {actual}"

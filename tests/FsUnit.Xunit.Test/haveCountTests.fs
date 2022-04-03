@@ -4,11 +4,9 @@ open Xunit
 open FsUnit.Xunit
 
 type ``have Count tests``() =
-    let emptyList =
-        new System.Collections.Generic.List<int>()
+    let emptyList = new System.Collections.Generic.List<int>()
 
-    let singleItemList =
-        new System.Collections.Generic.List<int>()
+    let singleItemList = new System.Collections.Generic.List<int>()
 
     do singleItemList.Add(1)
 

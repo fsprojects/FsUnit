@@ -5,7 +5,7 @@ module Common =
     open Microsoft.FSharp.Quotations.Patterns
     open Microsoft.FSharp.Reflection
 
-    let isUnionCase x = 
+    let isUnionCase x =
         FSharpType.IsUnion(<@ x @>.Type) |> not && (box x) = null
         || FSharpType.IsUnion(x.GetType())
 
@@ -25,12 +25,6 @@ module Common =
             |> Some
         | _ -> None
 
-    /// <summary>
-    /// Checks wether the given value is of the same case of a union type as the
-    /// case defined by the given expression.
-    /// </summary>
-    /// <example>
-    /// <code>
     ///// type TestUnion = First | Second of int | Third of string
     ///// let thisIsTrue = First |> isCase <@ First @>
     ///// let thisIsTrue = Second 5 |> isCase <@ Second @>
@@ -47,14 +41,15 @@ module Common =
         | NewUnionCase(case, _) ->
             // Returns a function that check wether the tag of the argument matches
             // the tag of the union given in the expression.
-            let readTag =
-                FSharpValue.PreComputeUnionTagReader case.DeclaringType
+            let readTag = FSharpValue.PreComputeUnionTagReader case.DeclaringType
 
             let comparator = (=) case.Tag
+
             (fun x ->
-                if isUnionCase x then 
+                if isUnionCase x then
                     x :> obj |> (readTag >> comparator)
-                else failwith "Value (not expression) is not a union case.")
+                else
+                    failwith "Value (not expression) is not a union case.")
         | NewTuple expressions ->
             // a tuple may contain several union cases so we can simply
             // map this functions over all expressions

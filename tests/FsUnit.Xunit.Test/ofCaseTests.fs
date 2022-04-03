@@ -37,6 +37,7 @@ type ``ofCase tests``() =
     [<Fact>]
     let ``Given a non-union case as expression throws an exception``() =
         let value = Third
+
         (fun () -> value |> should be (ofCase <@ int @>) |> ignore)
         |> should (throwWithMessage "Expression (not value) is not a union case.") typeof<System.Exception>
 
@@ -44,15 +45,15 @@ type ``ofCase tests``() =
     let ``Given a non-union case as value argument throws an exception``() =
         (fun () -> 5 |> should not' (be ofCase <@ Second 5 @>) |> ignore)
         |> should (throwWithMessage "Value (not expression) is not a union case.") typeof<System.Exception>
-        
+
     [<Fact>]
-    member __.``None should be ofCase None`` () =
+    member __.``None should be ofCase None``() =
         None |> should be (ofCase <@ None @>)
-        
+
     [<Fact>]
-    member __.``Some 42 should be ofCase Some 42`` () =
+    member __.``Some 42 should be ofCase Some 42``() =
         Some 42 |> should be (ofCase <@ Some 42 @>)
 
     [<Fact>]
-    member __.``Some 1 should not be ofCase None`` () =
+    member __.``Some 1 should not be ofCase None``() =
         Some 1 |> should not' (be ofCase <@ None @>)

@@ -43,11 +43,11 @@ type ``contain tests``() =
 
     [<TestMethod>]
     member __.``Seq with items should contain item``() =
-        { 2 .. 3 } |> should contain 2
+        { 2..3 } |> should contain 2
 
     [<TestMethod>]
     member __.``Seq with different items should contain item``() =
-        { 2 .. 3 } |> should not' (contain 1)
+        { 2..3 } |> should not' (contain 1)
 
     [<TestMethod>]
     member __.``Enumerable with item should contain item``() =
