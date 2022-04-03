@@ -39,7 +39,7 @@ type ``equal Tests``() =
 
     [<Fact>]
     member __.``collection type should equal collection``() =
-        [ 1 .. 10 ] |> should equal [ 1 .. 10 ]
+        [ 1..10 ] |> should equal [ 1..10 ]
 
     [<Fact>]
     member __.``collection type should not equal equivalent if is not in same order``() =
@@ -106,10 +106,8 @@ type ``equal Tests``() =
 
     [<Fact>]
     member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
-        let array1 =
-            ImmutableArray.Create(Uri("https://example.com/1"))
+        let array1 = ImmutableArray.Create(Uri("https://example.com/1"))
 
-        let array2 =
-            ImmutableArray.Create(Uri("https://example.com/2"))
+        let array2 = ImmutableArray.Create(Uri("https://example.com/2"))
 
         shouldFail(fun () -> array1 |> should equal array2)

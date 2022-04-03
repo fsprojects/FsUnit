@@ -3,13 +3,13 @@
   "isRoot": true,
   "tools": {
     "paket": {
-      "version": "6.2.1",
+      "version": "7.1.3",
       "commands": [
         "paket"
       ]
     },
     "fake-cli": {
-      "version": "5.20.4",
+      "version": "5.22.0",
       "commands": [
         "fake"
       ]
@@ -18,6 +18,12 @@
       "version": "11.5.1",
       "commands": [
         "fsdocs"
+      ]
+    },
+    "fantomas-tool": {
+      "version": "4.7.5",
+      "commands": [
+        "fantomas"
       ]
     }
   }

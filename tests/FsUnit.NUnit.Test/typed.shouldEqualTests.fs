@@ -87,7 +87,7 @@ type ``shouldEqual Tests``() =
             e.Message
             |> should
                 equal
-                   (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+                (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member __.``Error "Foo" should not equal Error "Bar"``() =
@@ -101,7 +101,7 @@ type ``shouldEqual Tests``() =
             e.Message
             |> should
                 equal
-                   (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+                (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
     member this.``structural equality``() =
@@ -126,10 +126,8 @@ type ``shouldEqual Tests``() =
 
     [<Test>]
     member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
-        let array1 =
-            ImmutableArray.Create(Uri("https://example.com/1"))
+        let array1 = ImmutableArray.Create(Uri("https://example.com/1"))
 
-        let array2 =
-            ImmutableArray.Create(Uri("https://example.com/2"))
+        let array2 = ImmutableArray.Create(Uri("https://example.com/2"))
 
         shouldFail(fun () -> array1 |> shouldEqual array2)

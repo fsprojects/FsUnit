@@ -18,8 +18,7 @@ module TopLevelOperators =
 
     let EmptyString = EmptyStringConstraint()
 
-    let NullOrEmptyString =
-        OrConstraint(NullConstraint(), EmptyConstraint())
+    let NullOrEmptyString = OrConstraint(NullConstraint(), EmptyConstraint())
 
     let True = TrueConstraint()
 
@@ -38,7 +37,10 @@ module TopLevelOperators =
             | :? (unit -> unit) -> box(TestDelegate(y :?> unit -> unit))
             | _ -> y
 
-        if isNull(box c) then Assert.That(y, Is.Null) else Assert.That(y, c)
+        if isNull(box c) then
+            Assert.That(y, Is.Null)
+        else
+            Assert.That(y, c)
 
     let equal x =
         Equality.IsEqualTo(x)
@@ -101,7 +103,10 @@ module TopLevelOperators =
     let descending = Is.Ordered.Descending
 
     let not' x =
-        if isNull(box x) then NotConstraint(Null) else NotConstraint(x)
+        if isNull(box x) then
+            NotConstraint(Null)
+        else
+            NotConstraint(x)
 
     let inRange min max =
         RangeConstraint(min, max)

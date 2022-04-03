@@ -5,11 +5,9 @@ open FsUnit.MsTest
 
 [<TestClass>]
 type ``have Count tests``() =
-    let emptyList =
-        new System.Collections.Generic.List<int>()
+    let emptyList = new System.Collections.Generic.List<int>()
 
-    let singleItemList =
-        new System.Collections.Generic.List<int>()
+    let singleItemList = new System.Collections.Generic.List<int>()
 
     do singleItemList.Add(1)
 

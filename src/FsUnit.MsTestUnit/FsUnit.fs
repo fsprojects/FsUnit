@@ -23,17 +23,21 @@ let inline should (f: 'a -> ^b) x (y: obj) =
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
 
-    if isNull(box c) then assertThat(y, Is.Null()) else assertThat(y, c)
+    if isNull(box c) then
+        assertThat(y, Is.Null())
+    else
+        assertThat(y, c)
 
 let inline shouldFail(f: unit -> unit) =
     let failed =
         try
             f()
             false
-        with _ -> true
+        with
+        | _ -> true
 
-    if not failed
-    then raise(AssertFailedException("Method should fail"))
+    if not failed then
+        raise(AssertFailedException("Method should fail"))
 
 let equal expected =
     CustomMatchers.equal expected
