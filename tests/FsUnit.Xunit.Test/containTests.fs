@@ -42,11 +42,11 @@ type ``contain tests``() =
 
     [<Fact>]
     member __.``Seq with items should contain item``() =
-        { 2 .. 3 } |> should contain 2
+        { 2..3 } |> should contain 2
 
     [<Fact>]
     member __.``Seq with different items should contain item``() =
-        { 2 .. 3 } |> should not' (contain 1)
+        { 2..3 } |> should not' (contain 1)
 
     [<Fact>]
     member __.``Enumerable with item should contain item``() =

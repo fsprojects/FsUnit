@@ -24,17 +24,21 @@ let inline should (f: 'a -> ^b) x (y: obj) =
         | :? (unit -> unit) as assertFunc -> box assertFunc
         | _ -> y
 
-    if isNull(box c) then Assert.That(y, Is.Null()) else Assert.That(y, c)
+    if isNull(box c) then
+        Assert.That(y, Is.Null())
+    else
+        Assert.That(y, c)
 
 let inline shouldFail(f: unit -> unit) =
     let failed =
         try
             f()
             false
-        with _ -> true
+        with
+        | _ -> true
 
-    if not failed
-    then raise(MatchException("Method should fail", "No exception raised", null))
+    if not failed then
+        raise(MatchException("Method should fail", "No exception raised", null))
 
 
 let equal expected =
