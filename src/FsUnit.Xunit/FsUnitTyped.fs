@@ -1,6 +1,7 @@
 namespace FsUnitTyped
 
 open System.Diagnostics
+open Xunit
 open FsUnit.Xunit
 
 [<AutoOpen>]
@@ -10,13 +11,13 @@ module TopLevelOperators =
     /// The equality instance on `actual` is used, if available.
     [<DebuggerStepThrough>]
     let shouldEqual<'a> (expected: 'a) (actual: 'a) =
-        should equal expected actual
+        actual |> should equal expected
 
     /// Asserts that `expected` is not equal to `actual`.
     /// The equality instance on `actual` is used, if available.
     [<DebuggerStepThrough>]
     let shouldNotEqual<'a> (expected: 'a) (actual: 'a) =
-        should not' (equal expected) actual
+        actual |> should not' (equal expected)
 
     [<DebuggerStepThrough>]
     let shouldContain<'a when 'a: equality> (x: 'a) (y: 'a seq) =
@@ -24,7 +25,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty<'a>(list: 'a seq) =
-        list |> should be Empty
+        Assert.Empty list
 
     [<DebuggerStepThrough>]
     let shouldNotContain<'a when 'a: equality> (x: 'a) (y: 'a seq) =
@@ -33,15 +34,15 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan<'a when 'a: comparison> (x: 'a) (y: 'a) =
-        should be (lessThan x) y
+        y |> should be (lessThan x)
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan<'a when 'a: comparison> (x: 'a) (y: 'a) =
-        should be (greaterThan x) y
+        y |> should be (greaterThan x)
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
-        should throw typeof<'exn> f
+        f |> should throw typeof<'exn>
 
     [<DebuggerStepThrough>]
     let shouldContainText (x: string) (y: string) =
