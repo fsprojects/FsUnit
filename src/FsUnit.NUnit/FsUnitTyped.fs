@@ -16,22 +16,22 @@ module TopLevelOperators =
         Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected))
 
     [<DebuggerStepThrough>]
-    let shouldContain (x: 'a) (y: 'a seq) =
+    let shouldContain (expected: 'a) (actual: 'a seq) =
         let list = List<_>()
 
-        for a in y do
+        for a in actual do
             list.Add a
 
-        Assert.Contains(x, list)
+        Assert.Contains(expected, list)
 
     [<DebuggerStepThrough>]
-    let shouldBeEmpty(list: 'a seq) =
-        Assert.IsEmpty(list)
+    let shouldBeEmpty(actual: 'a seq) =
+        Assert.IsEmpty(actual)
 
     [<DebuggerStepThrough>]
-    let shouldNotContain (x: 'a) (y: 'a seq) =
-        if Seq.exists ((=) x) y then
-            failwith $"Seq %A{y} should not contain %A{x}"
+    let shouldNotContain (expected: 'a) (actual: 'a seq) =
+        if Seq.exists ((=) expected) actual then
+            failwith $"Seq %A{actual} should not contain %A{expected}"
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (x: 'a) (y: 'a) =
@@ -46,14 +46,14 @@ module TopLevelOperators =
         Assert.Throws(Is.InstanceOf<'exn>(), TestDelegate(f)) |> ignore
 
     [<DebuggerStepThrough>]
-    let shouldContainText (x: string) (y: string) =
-        if y.Contains(x) |> not then
-            failwith $"\"{x}\" is not a substring of \"{y}\""
+    let shouldContainText (expected: string) (actual: string) =
+        if actual.Contains(expected) |> not then
+            failwith $"\"{expected}\" is not a substring of \"{actual}\""
 
     [<DebuggerStepThrough>]
-    let shouldNotContainText (x: string) (y: string) =
-        if y.Contains(x) then
-            failwith $"\"{x}\" is a substring of \"{y}\""
+    let shouldNotContainText (expected: string) (actual: string) =
+        if actual.Contains(expected) then
+            failwith $"\"{expected}\" is a substring of \"{actual}\""
 
     [<DebuggerStepThrough>]
     let shouldHaveLength expected list =

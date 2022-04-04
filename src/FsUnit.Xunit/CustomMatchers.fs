@@ -7,48 +7,48 @@ open NHamcrest
 open NHamcrest.Core
 open System.Reflection
 
-let equal x =
-    CustomMatcher<obj>($"Equals %A{x}", (fun a -> a = x))
+let equal expected =
+    CustomMatcher<obj>($"Equals %A{expected}", (fun actual -> actual = expected))
 
-let equivalent f x =
-    let matches(c: obj) =
+let equivalent f expected =
+    let matches(actual: obj) =
         try
             let toCollection o =
                 o |> Seq.cast |> Seq.toArray :> ICollection
 
-            match c with
+            match actual with
             | :? IEnumerable as e ->
-                f (toCollection x) (toCollection e)
+                f (toCollection expected) (toCollection e)
                 true
             | _ -> false
         with
         | _ -> false
 
-    CustomMatcher<obj>($"Equivalent to %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Equivalent to %A{expected}", Func<_, _> matches)
 
 //TODO: Look into a better way of doing this.
-let equalWithin (t: obj) (x: obj) =
-    let matches(a: obj) =
+let equalWithin (tolerance: obj) (expected: obj) =
+    let matches(actual: obj) =
         let actualParsed, actual =
-            Double.TryParse(string a, NumberStyles.Any, CultureInfo("en-US"))
+            Double.TryParse(string actual, NumberStyles.Any, CultureInfo("en-US"))
 
         let expectedParsed, expect =
-            Double.TryParse(string x, NumberStyles.Any, CultureInfo("en-US"))
+            Double.TryParse(string expected, NumberStyles.Any, CultureInfo("en-US"))
 
         let toleranceParsed, tol =
-            Double.TryParse(string t, NumberStyles.Any, CultureInfo("en-US"))
+            Double.TryParse(string tolerance, NumberStyles.Any, CultureInfo("en-US"))
 
         if actualParsed && expectedParsed && toleranceParsed then
             abs(actual - expect) <= tol
         else
             false
 
-    CustomMatcher<obj>($"%A{x} with a tolerance of %A{t}", Func<_, _> matches)
+    CustomMatcher<obj>($"%A{expected} with a tolerance of %A{tolerance}", Func<_, _> matches)
 
 let not'(x: obj) =
     match box x with
     | null -> Is.Not<obj>(Is.Null())
-    | :? (IMatcher<obj>) as matcher -> Is.Not<obj>(matcher)
+    | :? IMatcher<obj> as matcher -> Is.Not<obj>(matcher)
     | x -> Is.Not<obj>(CustomMatcher<obj>($"Equals %A{x}", (fun a -> a = x)) :> IMatcher<obj>)
 
 let throw(t: Type) =
@@ -100,8 +100,8 @@ let True = CustomMatcher<obj>("True", (fun b -> unbox b = true))
 let False = CustomMatcher<obj>("False", (fun b -> unbox b = false))
 
 let NaN =
-    let matches(x: obj) =
-        match x with
+    let matches(actual: obj) =
+        match actual with
         | :? single as s -> Single.IsNaN(s)
         | :? double as d -> Double.IsNaN(d)
         | _ -> false
@@ -109,8 +109,8 @@ let NaN =
     CustomMatcher<obj>("NaN", Func<_, _> matches)
 
 let unique =
-    let matches(x: obj) =
-        match x with
+    let matches(actual: obj) =
+        match actual with
         | :? IEnumerable as e ->
             let isAllItemsUnique x =
                 let y = Seq.distinct x
@@ -121,41 +121,41 @@ let unique =
 
     CustomMatcher<obj>("All items unique", Func<_, _> matches)
 
-let sameAs x =
-    Is.SameAs<obj>(x)
+let sameAs expected =
+    Is.SameAs<obj>(expected)
 
-let greaterThan(x: obj) =
+let greaterThan(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x) > 0
+        (unbox actual :> IComparable).CompareTo(unbox expected) > 0
 
-    CustomMatcher<obj>($"Greater than %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Greater than %A{expected}", Func<_, _> matches)
 
-let greaterThanOrEqualTo(x: obj) =
+let greaterThanOrEqualTo(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x) >= 0
+        (unbox actual :> IComparable).CompareTo(unbox expected) >= 0
 
-    CustomMatcher<obj>($"Greater than or equal to %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Greater than or equal to %A{expected}", Func<_, _> matches)
 
-let lessThan(x: obj) =
+let lessThan(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x) < 0
+        (unbox actual :> IComparable).CompareTo(unbox expected) < 0
 
-    CustomMatcher<obj>($"Less than %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Less than %A{expected}", Func<_, _> matches)
 
-let lessThanOrEqualTo(x: obj) =
+let lessThanOrEqualTo(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable).CompareTo(unbox x) <= 0
+        (unbox actual :> IComparable).CompareTo(unbox expected) <= 0
 
-    CustomMatcher<obj>($"Less than or equal to %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Less than or equal to %A{expected}", Func<_, _> matches)
 
-let endWith(x: string) =
-    CustomMatcher<obj>(string x, (fun s -> (string s).EndsWith x))
+let endWith(expected: string) =
+    CustomMatcher<obj>(string expected, (fun s -> (string s).EndsWith expected))
 
-let startWith(x: string) =
-    CustomMatcher<obj>(string x, (fun s -> (string s).StartsWith x))
+let startWith(expected: string) =
+    CustomMatcher<obj>(string expected, (fun s -> (string s).StartsWith expected))
 
-let haveSubstring(x: string) =
-    CustomMatcher<obj>(string x, (fun s -> (string s).Contains x))
+let haveSubstring(expected: string) =
+    CustomMatcher<obj>(string expected, (fun s -> (string s).Contains expected))
 
 let ofExactType<'a> =
     CustomMatcher<obj>(typeof<'a>.ToString (), (fun x -> (unbox x).GetType() = typeof<'a>))
@@ -163,16 +163,16 @@ let ofExactType<'a> =
 let instanceOfType<'a> =
     CustomMatcher<obj>(typeof<'a>.ToString (), (fun x -> typeof<'a>.IsInstanceOfType (x)))
 
-let contain x =
-    let matches(c: obj) =
-        match c with
-        | :? (list<_>) as l -> l |> List.exists(fun i -> i = x)
-        | :? (array<_>) as a -> a |> Array.exists(fun i -> i = x)
-        | :? (seq<_>) as s -> s |> Seq.exists(fun i -> i = x)
-        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = x)
+let contain expected =
+    let matches(actual: obj) =
+        match actual with
+        | :? (list<_>) as l -> l |> List.exists(fun i -> i = expected)
+        | :? (array<_>) as a -> a |> Array.exists(fun i -> i = expected)
+        | :? (seq<_>) as s -> s |> Seq.exists(fun i -> i = expected)
+        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = expected)
         | _ -> false
 
-    CustomMatcher<obj>($"Contains %A{x}", Func<_, _> matches)
+    CustomMatcher<obj>($"Contains %A{expected}", Func<_, _> matches)
 
 let private (?) (this: 'Source) (name: string) : 'Result =
     let bindingFlags =
@@ -188,15 +188,15 @@ let private (?) (this: 'Source) (name: string) : 'Result =
 
     property.GetValue(this, null) :?> 'Result
 
-let haveLength n =
-    CustomMatcher<obj>($"Have Length %d{n}", (fun x -> x?Length = n))
+let haveLength expected =
+    CustomMatcher<obj>($"Have Length %d{expected}", (fun x -> x?Length = expected))
 
-let haveCount n =
-    CustomMatcher<obj>($"Have Count %d{n}", (fun x -> x?Count = n))
+let haveCount expected =
+    CustomMatcher<obj>($"Have Count %d{expected}", (fun x -> x?Count = expected))
 
 let containf f =
-    let matches(c: obj) =
-        match c with
+    let matches(actual: obj) =
+        match actual with
         | :? (list<_>) as l -> l |> List.exists f
         | :? (array<_>) as a -> a |> Array.exists f
         | :? (seq<_>) as s -> s |> Seq.exists f
@@ -205,11 +205,11 @@ let containf f =
 
     CustomMatcher<obj>($"Contains %A{f}", Func<_, _> matches)
 
-let supersetOf x =
-    CustomMatcher<obj>($"Is superset of %A{x}", (fun c -> Set.isSuperset (Set(unbox c)) (Set x)))
+let supersetOf expected =
+    CustomMatcher<obj>($"Is superset of %A{expected}", (fun c -> Set.isSuperset (Set(unbox c)) (Set expected)))
 
-let subsetOf x =
-    CustomMatcher<obj>($"Is subset of %A{x}", (fun c -> Set.isSubset (Set(unbox c)) (Set x)))
+let subsetOf expected =
+    CustomMatcher<obj>($"Is subset of %A{expected}", (fun c -> Set.isSubset (Set(unbox c)) (Set expected)))
 
 let matchList xs =
     let matches(ys: obj) =
@@ -221,8 +221,8 @@ let matchList xs =
     CustomMatcher<obj>($"All elements from list %A{xs}", Func<_, _> matches)
 
 let private makeOrderedMatcher description comparer =
-    let matches(c: obj) =
-        match c with
+    let matches(actual: obj) =
+        match actual with
         | :? (list<IComparable>) as l -> l = List.sortWith comparer l
         | :? (array<IComparable>) as a -> a = Array.sortWith comparer a
         | :? (seq<IComparable>) as s ->
