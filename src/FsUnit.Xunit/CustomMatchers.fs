@@ -7,6 +7,9 @@ open NHamcrest
 open NHamcrest.Core
 open System.Reflection
 
+/// The `equal x` matcher, when applied to an object `a`, matches if `a = x`.
+/// Note that this is inconsistent with FsUnit.NUnit
+/// (see https://github.com/fsprojects/FsUnit/issues/207).
 let equal x =
     CustomMatcher<obj>($"Equals %A{x}", (fun a -> a = x))
 

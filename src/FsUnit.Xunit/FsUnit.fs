@@ -41,6 +41,7 @@ let inline shouldFail(f: unit -> unit) =
         raise(MatchException("Method should fail", "No exception raised", null))
 
 
+/// Constraint requiring that `actual.Equals(expected)`.
 let equal expected =
     CustomMatchers.equal expected
 

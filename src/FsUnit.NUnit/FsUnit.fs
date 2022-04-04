@@ -42,8 +42,11 @@ module TopLevelOperators =
         else
             Assert.That(y, c)
 
-    let equal x =
-        Equality.IsEqualTo(x)
+    /// Constraint that attempts to use a number of more specific equality
+    /// checks available to NUnit, ultimately calling `expected.Equals(actual)`
+    /// if no more specific checks apply.
+    let equal expected =
+        Equality.IsEqualTo(expected)
 
     let equivalent x =
         CollectionEquivalentConstraint(x)
