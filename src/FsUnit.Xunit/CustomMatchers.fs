@@ -8,7 +8,7 @@ open NHamcrest.Core
 open System.Reflection
 
 let equal expected =
-    CustomMatcher<obj>($"Equals %A{expected}", (fun actual -> actual = expected))
+    CustomMatcher<obj>($"Equals %A{expected}", (fun actual -> expected = actual))
 
 let equivalent f expected =
     let matches(actual: obj) =
