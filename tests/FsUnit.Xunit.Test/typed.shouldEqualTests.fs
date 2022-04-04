@@ -56,7 +56,9 @@ type ``shouldEqual Tests``() =
 
     [<Fact>]
     member __.``should pass when Equals returns true``() =
-        anObj |> shouldEqual(box(new AlwaysEqual()))
+        // See https://github.com/fsprojects/FsUnit/issues/207 for why
+        // this test differs from the corresponding NUnit one.
+        box(AlwaysEqual()) |> shouldEqual anObj
 
     [<Fact>]
     member __.``should fail when Equals returns false``() =
@@ -68,7 +70,9 @@ type ``shouldEqual Tests``() =
 
     [<Fact>]
     member __.``should fail when negated and Equals returns true``() =
-        shouldFail(fun () -> anObj |> shouldNotEqual(box(new AlwaysEqual())))
+        // See https://github.com/fsprojects/FsUnit/issues/207 for why
+        // this test differs from the corresponding NUnit one.
+        shouldFail(fun () -> box(AlwaysEqual()) |> shouldNotEqual anObj)
 
     [<Fact>]
     member __.``None should equal None``() =
