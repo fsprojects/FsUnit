@@ -126,31 +126,29 @@ let sameAs expected =
 
 let greaterThan(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable)
-            .CompareTo(unbox expected) > 0
+        let comparable = unbox actual :> IComparable
+        comparable.CompareTo(unbox expected) > 0
 
     CustomMatcher<obj>($"Greater than %A{expected}", Func<_, _> matches)
 
 let greaterThanOrEqualTo(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable)
-            .CompareTo(unbox expected)
-        >= 0
+        let comparable = unbox actual :> IComparable
+        comparable.CompareTo(unbox expected) >= 0
 
     CustomMatcher<obj>($"Greater than or equal to %A{expected}", Func<_, _> matches)
 
 let lessThan(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable)
-            .CompareTo(unbox expected) < 0
+        let comparable = unbox actual :> IComparable
+        comparable.CompareTo(unbox expected) < 0
 
     CustomMatcher<obj>($"Less than %A{expected}", Func<_, _> matches)
 
 let lessThanOrEqualTo(expected: obj) =
     let matches(actual: obj) =
-        (unbox actual :> IComparable)
-            .CompareTo(unbox expected)
-        <= 0
+        let comparable = unbox actual :> IComparable
+        comparable.CompareTo(unbox expected) <= 0
 
     CustomMatcher<obj>($"Less than or equal to %A{expected}", Func<_, _> matches)
 

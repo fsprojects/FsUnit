@@ -34,12 +34,12 @@ module TopLevelOperators =
             failwith $"Seq %A{actual} should not contain %A{expected}"
 
     [<DebuggerStepThrough>]
-    let shouldBeSmallerThan (x: 'a) (y: 'a) =
-        Assert.Less(y, x, $"Expected: %A{x}\nActual: %A{y}")
+    let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
+        Assert.Less(actual, expected, $"Expected: %A{expected}\nActual: %A{actual}")
 
     [<DebuggerStepThrough>]
-    let shouldBeGreaterThan (x: 'a) (y: 'a) =
-        Assert.Greater(y, x, $"Expected: %A{x}\nActual: %A{y}")
+    let shouldBeGreaterThan (expected: 'a) (actual: 'a) =
+        Assert.Greater(actual, expected, $"Expected: %A{expected}\nActual: %A{actual}")
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
