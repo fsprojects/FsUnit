@@ -63,9 +63,7 @@ type ``equal Tests``() =
 
     [<Fact>]
     member __.``should pass when Equals returns true``() =
-        // See https://github.com/fsprojects/FsUnit/issues/207 for why
-        // this test differs from the corresponding NUnit one.
-        box(new AlwaysEqual()) |> should equal anObj
+        anObj |> should equal (box(new AlwaysEqual()))
 
     [<Fact>]
     member __.``should fail when Equals returns false``() =
@@ -77,9 +75,7 @@ type ``equal Tests``() =
 
     [<Fact>]
     member __.``should fail when negated and Equals returns true``() =
-        // See https://github.com/fsprojects/FsUnit/issues/207 for why
-        // this test differs from the corresponding NUnit one.
-        shouldFail(fun () -> box(new AlwaysEqual()) |> should not' (equal anObj))
+        shouldFail(fun () -> anObj |> should not' (equal(box(AlwaysEqual()))))
 
     [<Fact>]
     member __.``should pass when comparing two lists that have the same values``() =
