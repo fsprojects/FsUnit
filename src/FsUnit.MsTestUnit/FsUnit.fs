@@ -15,18 +15,18 @@ type Assert with
     static member That<'a>(actual, matcher: IMatcher<'a>) =
         assertThat(actual, matcher)
 
-let inline should (f: 'a -> ^b) x (y: obj) =
-    let c = f x
+let inline should (f: 'a -> ^b) x (actual: obj) =
+    let matcher = f x
 
-    let y =
-        match y with
+    let actual =
+        match actual with
         | :? (unit -> unit) as assertFunc -> box assertFunc
-        | _ -> y
+        | _ -> actual
 
-    if isNull(box c) then
-        assertThat(y, Is.Null())
+    if isNull(box matcher) then
+        assertThat(actual, Is.Null())
     else
-        assertThat(y, c)
+        assertThat(actual, matcher)
 
 let inline shouldFail(f: unit -> unit) =
     let failed =
