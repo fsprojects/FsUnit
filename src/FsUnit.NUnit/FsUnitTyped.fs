@@ -16,7 +16,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContain (expected: 'a) (actual: 'a seq) =
-        CollectionAssert.Contains (actual, expected)
+        CollectionAssert.Contains(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(actual: 'a seq) =
@@ -24,7 +24,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldNotContain (expected: 'a) (actual: 'a seq) =
-        CollectionAssert.DoesNotContain (actual, expected, $"Seq %A{actual} should not contain %A{expected}")
+        CollectionAssert.DoesNotContain(actual, expected, $"Seq %A{actual} should not contain %A{expected}")
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
