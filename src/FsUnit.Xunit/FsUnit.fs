@@ -16,18 +16,18 @@ type Xunit.Assert with
             matcher.DescribeTo(description)
             raise(MatchException(description.ToString(), ($"%A{actual}"), null))
 
-let inline should (f: 'a -> ^b) x (y: obj) =
-    let c = f x
+let inline should (f: 'a -> ^b) x (actual: obj) =
+    let matcher = f x
 
-    let y =
-        match y with
+    let actual =
+        match actual with
         | :? (unit -> unit) as assertFunc -> box assertFunc
-        | _ -> y
+        | _ -> actual
 
-    if isNull(box c) then
-        Assert.That(y, Is.Null())
+    if isNull(box matcher) then
+        Assert.That(actual, Is.Null())
     else
-        Assert.That(y, c)
+        Assert.That(actual, matcher)
 
 let inline shouldFail(f: unit -> unit) =
     let failed =
@@ -106,11 +106,11 @@ let instanceOfType<'a> = CustomMatchers.instanceOfType<'a>
 let contain expected =
     CustomMatchers.contain expected
 
-let haveLength n =
-    CustomMatchers.haveLength n
+let haveLength expected =
+    CustomMatchers.haveLength expected
 
-let haveCount n =
-    CustomMatchers.haveCount n
+let haveCount expected =
+    CustomMatchers.haveCount expected
 
 let matchList = CustomMatchers.matchList
 
