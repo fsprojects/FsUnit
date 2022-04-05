@@ -15,8 +15,8 @@ module TopLevelOperators =
         Assert.That(actual, FsUnit.Equality.IsNotEqualTo(expected))
 
     [<DebuggerStepThrough>]
-    let shouldContain (actual: 'a) (expected: 'a seq) =
-        Assert.Contains(actual, Seq.toArray expected)
+    let shouldContain (expected: 'a) (actual: 'a seq) =
+        CollectionAssert.Contains (actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(actual: 'a seq) =
@@ -24,7 +24,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldNotContain (expected: 'a) (actual: 'a seq) =
-        Assert.That(actual, Does.Not.Contain(expected), $"Seq %A{actual} should not contain %A{expected}")
+        CollectionAssert.DoesNotContain (actual, expected, $"Seq %A{actual} should not contain %A{expected}")
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
@@ -47,5 +47,5 @@ module TopLevelOperators =
         Assert.That(actual, Does.Not.Contain(expected), $"\"{expected}\" is a substring of \"{actual}\"")
 
     [<DebuggerStepThrough>]
-    let shouldHaveLength expected actual =
+    let shouldHaveLength (expected: int) actual =
         Assert.That(Seq.length actual, Is.EqualTo(expected), $"Invalid length in %A{actual}")
