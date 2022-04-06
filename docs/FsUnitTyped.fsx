@@ -9,9 +9,9 @@ What is FsUnitTyped?
 ===============
 
 **FsUnitTyped** is a statically typed set of FsUnit operators that makes
-unit-testing with `FsUnit` even more safe and enjoyable (Available only for `NUnit`).
+unit-testing with `FsUnit` even more safe and enjoyable (Available only for `NUnit` and `Xunit`).
 
-No more untyped constrains and tests like
+No more untyped constraints and tests like
 
     1 |> should equal "1"
 

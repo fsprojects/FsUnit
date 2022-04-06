@@ -62,12 +62,20 @@ type ``equal Tests``() =
         anObj |> should equal anObj
 
     [<Fact>]
+    member __.``should pass when Equals returns true``() =
+        anObj |> should equal (box(new AlwaysEqual()))
+
+    [<Fact>]
     member __.``should fail when Equals returns false``() =
         anObj |> should not' (equal(NeverEqual()))
 
     [<Fact>]
     member __.``should pass when negated and Equals returns false``() =
         anObj |> should not' (equal(NeverEqual()))
+
+    [<Fact>]
+    member __.``should fail when negated and Equals returns true``() =
+        shouldFail(fun () -> anObj |> should not' (equal(box(AlwaysEqual()))))
 
     [<Fact>]
     member __.``should pass when comparing two lists that have the same values``() =
