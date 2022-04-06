@@ -137,7 +137,7 @@ Target.create "CleanDocs" (fun _ ->
 let sourceFiles =
     !! "src/**/*.fs"
       ++ "tests/**/*.fs" 
-      -- "./**/*AssemblyInfo.fs"
+      -- "./**/*Assembly*.fs"
 
 Target.create "CheckFormat" (fun _ ->
     let result =

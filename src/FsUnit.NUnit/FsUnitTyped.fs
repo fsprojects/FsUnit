@@ -2,7 +2,6 @@ namespace FsUnitTyped
 
 open System.Diagnostics
 open NUnit.Framework
-open System.Collections.Generic
 
 [<AutoOpen>]
 module TopLevelOperators =
@@ -17,12 +16,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContain (expected: 'a) (actual: 'a seq) =
-        let list = List<_>()
-
-        for a in actual do
-            list.Add a
-
-        Assert.Contains(expected, list)
+        CollectionAssert.Contains(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(actual: 'a seq) =
@@ -30,16 +24,15 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldNotContain (expected: 'a) (actual: 'a seq) =
-        if Seq.exists ((=) expected) actual then
-            failwith $"Seq %A{actual} should not contain %A{expected}"
+        CollectionAssert.DoesNotContain(actual, expected, $"Seq %A{actual} should not contain %A{expected}")
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
-        Assert.Less(actual, expected, $"Expected: %A{expected}\nActual: %A{actual}")
+        Assert.Less(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (expected: 'a) (actual: 'a) =
-        Assert.Greater(actual, expected, $"Expected: %A{expected}\nActual: %A{actual}")
+        Assert.Greater(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
@@ -47,17 +40,12 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContainText (expected: string) (actual: string) =
-        if actual.Contains(expected) |> not then
-            failwith $"\"{expected}\" is not a substring of \"{actual}\""
+        StringAssert.Contains(expected, actual)
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (expected: string) (actual: string) =
-        if actual.Contains(expected) then
-            failwith $"\"{expected}\" is a substring of \"{actual}\""
+        StringAssert.DoesNotContain(expected, actual)
 
     [<DebuggerStepThrough>]
-    let shouldHaveLength expected list =
-        let actual = Seq.length list
-
-        if actual <> expected then
-            failwith $"Invalid length in %A{list}\r\nExpected: {expected}\r\nActual: {actual}"
+    let shouldHaveLength (expected: int) actual =
+        Assert.That(Seq.length actual, Is.EqualTo(expected), $"Invalid length in %A{actual}")
