@@ -40,11 +40,11 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContainText (expected: string) (actual: string) =
-        Assert.That(actual, Does.Contain(expected), $"\"{expected}\" is not a substring of \"{actual}\"")
+        StringAssert.Contains(expected, actual)
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (expected: string) (actual: string) =
-        Assert.That(actual, Does.Not.Contain(expected), $"\"{expected}\" is a substring of \"{actual}\"")
+        StringAssert.DoesNotContain(expected, actual)
 
     [<DebuggerStepThrough>]
     let shouldHaveLength (expected: int) actual =
