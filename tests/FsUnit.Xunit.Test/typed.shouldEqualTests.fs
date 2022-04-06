@@ -16,8 +16,8 @@ type NeverEqual() =
     override __.GetHashCode() = 1
 
 type ``shouldEqual Tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
@@ -60,11 +60,11 @@ type ``shouldEqual Tests``() =
 
     [<Fact>]
     member __.``should fail when Equals returns false``() =
-        shouldFail(fun () -> anObj |> shouldEqual(box(new NeverEqual())))
+        shouldFail(fun () -> anObj |> shouldEqual(box(NeverEqual())))
 
     [<Fact>]
     member __.``should pass when negated and Equals returns false``() =
-        anObj |> shouldNotEqual(box(new NeverEqual()))
+        anObj |> shouldNotEqual(box(NeverEqual()))
 
     [<Fact>]
     member __.``should fail when negated and Equals returns true``() =

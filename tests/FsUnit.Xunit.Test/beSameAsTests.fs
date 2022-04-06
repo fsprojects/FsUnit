@@ -4,8 +4,8 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be SameAs tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
 
     [<Fact>]
     member __.``an object should be the same as itself``() =

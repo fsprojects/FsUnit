@@ -18,8 +18,8 @@ type NeverEqual() =
 
 [<TestFixture>]
 type ``areEqual Tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
 
@@ -41,11 +41,11 @@ type ``areEqual Tests``() =
 
     [<Test>]
     member __.``should pass when Equals returns true``() =
-        Assert.AreEqual(box(new AlwaysEqual()), anObj)
+        Assert.AreEqual(box(AlwaysEqual()), anObj)
 
     [<Test>]
     member __.``should fail when Equals returns false``() =
-        shouldFail(fun () -> Assert.AreEqual(anObj, box(new NeverEqual())))
+        shouldFail(fun () -> Assert.AreEqual(anObj, box(NeverEqual())))
 
     [<Test>]
     member __.``None should equal None``() =
@@ -66,8 +66,8 @@ type ``areEqual Tests``() =
 
 [<TestFixture>]
 type ``areNotEqual Tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
 
@@ -89,11 +89,11 @@ type ``areNotEqual Tests``() =
 
     [<Test>]
     member __.``should pass when negated and Equals returns false``() =
-        Assert.AreNotEqual(box(new NeverEqual()), anObj)
+        Assert.AreNotEqual(box(NeverEqual()), anObj)
 
     [<Test>]
     member __.``should fail when negated and Equals returns true``() =
-        shouldFail(fun () -> Assert.AreNotEqual(box(new AlwaysEqual()), anObj))
+        shouldFail(fun () -> Assert.AreNotEqual(box(AlwaysEqual()), anObj))
 
     [<Test>]
     member __.``List with elements should not match empty list``() =
@@ -105,8 +105,8 @@ type ``areNotEqual Tests``() =
 
 [<TestFixture>]
 type ``areSame tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
 
     [<Test>]
     member __.``an object should be the same as itself``() =
@@ -118,8 +118,8 @@ type ``areSame tests``() =
 
 [<TestFixture>]
 type ``areNotSame tests``() =
-    let anObj = new obj()
-    let otherObj = new obj()
+    let anObj = obj()
+    let otherObj = obj()
 
     [<Test>]
     member __.``an object should not be same as different object``() =
