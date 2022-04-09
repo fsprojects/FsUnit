@@ -5,9 +5,9 @@ open FsUnitTyped
 
 type ``shouldContainText tests``() =
     [<Fact>]
-    member __.``empty string should contain ""``() =
+    member _.``empty string should contain ""``() =
         "" |> shouldContainText ""
 
     [<Fact>]
-    member __.``ships should contain hip``() =
+    member _.``ships should contain hip``() =
         "ships" |> shouldContainText "hip"

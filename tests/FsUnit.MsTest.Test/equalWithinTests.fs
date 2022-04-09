@@ -8,25 +8,25 @@ open FsUnit.MsTest
 [<TestClass>]
 type ``equalWithin tests``() =
     [<TestMethod>]
-    member __.``should equal within tolerance``() =
+    member _.``should equal within tolerance``() =
         10.1 |> should (equalWithin 0.1) 10.11
 
     [<TestMethod>]
-    member __.``should equal within tolerance with different types``() =
+    member _.``should equal within tolerance with different types``() =
         10 |> should (equalWithin 0.1) 10
 
     [<TestMethod>]
-    member __.``should equal within tolerance with same types``() =
+    member _.``should equal within tolerance with same types``() =
         10 |> should (equalWithin 1) 11
 
     [<TestMethod>]
-    member __.``should equal within tolerance when exactly equal``() =
+    member _.``should equal within tolerance when exactly equal``() =
         10.11 |> should (equalWithin 0.1) 10.11
 
     [<TestMethod>]
-    member __.``should equal within tolerance when less than``() =
+    member _.``should equal within tolerance when less than``() =
         10.09 |> should (equalWithin 0.1) 10.11
 
     [<TestMethod>]
-    member __.``should not equal within tolerance``() =
+    member _.``should not equal within tolerance``() =
         10.1 |> should not' ((equalWithin 0.001) 10.11)

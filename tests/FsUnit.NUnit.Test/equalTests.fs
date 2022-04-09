@@ -26,87 +26,87 @@ type ``equal Tests``() =
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
 
     [<Test>]
-    member __.``value type should equal equivalent value``() =
+    member _.``value type should equal equivalent value``() =
         1 |> should equal 1
 
     [<Test>]
-    member __.``collection type should equal collection``() =
+    member _.``collection type should equal collection``() =
         [ 1..10 ] |> should equal [ 1..10 ]
 
     [<Test>]
-    member __.``collection type should not equal equivalent if is not in same order``() =
+    member _.``collection type should not equal equivalent if is not in same order``() =
         [ 1; 2; 3 ] |> should not' (equal [ 3; 2; 1 ])
 
     [<Test>]
-    member __.``list type should equivalent collection ``() =
+    member _.``list type should equivalent collection ``() =
         [ 1..10 ] |> should equivalent [ 1..10 ]
 
     [<Test>]
-    member __.``list type should equal equivalent independent of order``() =
+    member _.``list type should equal equivalent independent of order``() =
         [ 1; 2; 3 ] |> should equivalent [ 3; 2; 1 ]
 
     [<Test>]
-    member __.``sequence should equal equivalent independent of order``() =
+    member _.``sequence should equal equivalent independent of order``() =
         { 1..10 } |> should equivalent { 10..-1..1 }
 
     [<Test>]
-    member __.``collection should fail on '1 to 10 should not equivalent of 1 to 10'``() =
+    member _.``collection should fail on '1 to 10 should not equivalent of 1 to 10'``() =
         shouldFail(fun () -> [ 1..10 ] |> should not' (equivalent [ 1..10 ]))
 
     [<Test>]
-    member __.``array should equal equivalent independent of order``() =
+    member _.``array should equal equivalent independent of order``() =
         [| 1; 4; 8 |] |> should equivalent [| 4; 8; 1 |]
 
     [<Test>]
-    member __.``value type should fail to equal nonequivalent value``() =
+    member _.``value type should fail to equal nonequivalent value``() =
         shouldFail(fun () -> 1 |> should equal 2)
 
     [<Test>]
-    member __.``value type should not equal nonequivalent value``() =
+    member _.``value type should not equal nonequivalent value``() =
         1 |> should not' (equal 2)
 
     [<Test>]
-    member __.``value type should fail to not equal equivalent value``() =
+    member _.``value type should fail to not equal equivalent value``() =
         shouldFail(fun () -> 1 |> should not' (equal 1))
 
     [<Test>]
-    member __.``reference type should equal itself``() =
+    member _.``reference type should equal itself``() =
         anObj |> should equal anObj
 
     [<Test>]
-    member __.``reference type should fail to equal other``() =
+    member _.``reference type should fail to equal other``() =
         shouldFail(fun () -> anObj |> should equal otherObj)
 
     [<Test>]
-    member __.``reference type should not equal other``() =
+    member _.``reference type should not equal other``() =
         anObj |> should not' (equal otherObj)
 
     [<Test>]
-    member __.``reference type should fail to not equal itself``() =
+    member _.``reference type should fail to not equal itself``() =
         shouldFail(fun () -> anObj |> should not' (equal anObj))
 
     [<Test>]
-    member __.``should pass when Equals returns true``() =
+    member _.``should pass when Equals returns true``() =
         anObj |> should equal (AlwaysEqual())
 
     [<Test>]
-    member __.``should fail when Equals returns false``() =
+    member _.``should fail when Equals returns false``() =
         shouldFail(fun () -> anObj |> should equal (NeverEqual()))
 
     [<Test>]
-    member __.``should pass when negated and Equals returns false``() =
+    member _.``should pass when negated and Equals returns false``() =
         anObj |> should not' (equal(NeverEqual()))
 
     [<Test>]
-    member __.``should fail when negated and Equals returns true``() =
+    member _.``should fail when negated and Equals returns true``() =
         shouldFail(fun () -> anObj |> should not' (equal(AlwaysEqual())))
 
     [<Test>]
-    member __.``None should equal None``() =
+    member _.``None should equal None``() =
         None |> should equal None
 
     [<Test>]
-    member __.``Ok "ok" should equal Ok "no" should fail but message should be equal``() =
+    member _.``Ok "ok" should equal Ok "no" should fail but message should be equal``() =
         (fun () -> [ Ok "ok" ] |> should equal [ Ok "no" ])
         |> Assert.Throws<AssertionException>
         |> fun e ->
@@ -114,15 +114,15 @@ type ``equal Tests``() =
             |> should equal (sprintf "  Expected: [Ok \"no\"] or [Ok \"no\"]%s  But was:  [Ok \"ok\"]%s" Environment.NewLine Environment.NewLine)
 
     [<Test>]
-    member __.``structural value type should equal equivalent value``() =
+    member _.``structural value type should equal equivalent value``() =
         anImmutableArray |> should equal equivalentImmutableArray
 
     [<Test>]
-    member __.``structural value type should not equal non-equivalent value``() =
+    member _.``structural value type should not equal non-equivalent value``() =
         anImmutableArray |> should not' (equal otherImmutableArray)
 
     [<Test>]
-    member __.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
+    member _.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
         let array1 = ImmutableArray.Create(Uri("https://example.com/1"))
 
         let array2 = ImmutableArray.Create(Uri("https://example.com/2"))

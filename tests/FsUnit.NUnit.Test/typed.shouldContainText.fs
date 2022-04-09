@@ -6,9 +6,9 @@ open FsUnitTyped
 [<TestFixture>]
 type ``shouldContainText tests``() =
     [<Test>]
-    member __.``empty string should contain ""``() =
+    member _.``empty string should contain ""``() =
         "" |> shouldContainText ""
 
     [<Test>]
-    member __.``ships should contain hip``() =
+    member _.``ships should contain hip``() =
         "ships" |> shouldContainText "hip"

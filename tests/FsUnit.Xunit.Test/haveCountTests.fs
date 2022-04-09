@@ -12,23 +12,23 @@ type ``have Count tests``() =
 
     // Collection
     [<Fact>]
-    member __.``Collection with 1 item should have Count 1``() =
+    member _.``Collection with 1 item should have Count 1``() =
         singleItemList |> should haveCount 1
 
     [<Fact>]
-    member __.``empty Collection should fail to have Count 1``() =
+    member _.``empty Collection should fail to have Count 1``() =
         shouldFail(fun () -> emptyList |> should haveCount 1)
 
     [<Fact>]
-    member __.``empty Collection should not have Count 1``() =
+    member _.``empty Collection should not have Count 1``() =
         emptyList |> should not' (haveCount 1)
 
     [<Fact>]
-    member __.``Collection with 1 item should fail to not have Count 1``() =
+    member _.``Collection with 1 item should fail to not have Count 1``() =
         shouldFail(fun () -> singleItemList |> should not' (haveCount 1))
 
     // Seq
     [<Fact>]
-    member __.``Seq with 1 item should fail to have Count 1``() =
+    member _.``Seq with 1 item should fail to have Count 1``() =
         (fun () -> seq { 1 } |> should haveCount 1)
         |> should throw typeof<System.ArgumentException>
