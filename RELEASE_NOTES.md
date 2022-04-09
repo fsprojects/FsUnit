@@ -1,3 +1,12 @@
+### 5.0.0 - Apr 9, 2022
+- [BREAKING] xUnit equality assertions executed of expected value instead of actual
+- FsUnitTyped assertions for xUnit (by @Smaug123) - https://github.com/fsprojects/FsUnit/commit/736b7a1378efe0266533fddcd0e47a6e53672256
+- Native assertions for NUnit/FsUnitTyped (by @CaptnCodr) - https://github.com/fsprojects/FsUnit/commit/b4f29af63b809e5a84fcd4835bad6b47860a08da
+- Allows usage of parent exception types in shouldFail assertions - https://github.com/fsprojects/FsUnit/commit/c9963411a065fde2a49f5fe258c48a9b3ab1606e
+- Docs for Expecto assertions - http://fsprojects.github.io/FsUnit/Expecto.html
+- Fantomas code formatting
+- Dependencies update
+
 ### 4.2.0 - Jan 15, 2022
 - Adjust license URL to be the raw link, fix http --> https - https://github.com/fsprojects/FsUnit/pull/195
 - Update copyright time period and change license to MIT. - https://github.com/fsprojects/FsUnit/pull/196
