@@ -22,12 +22,11 @@ summary
 description
     FsUnit is a set of extensions that add special testing syntax to MsTest.
 files
-    ../../bin/FsUnit.MsTest/netstandard2.0/FsUnit.* ==> lib/netstandard2.0
+    ../../bin/FsUnit.MsTest/net6.0/FsUnit.* ==> lib/net6.0
     ../../src/install.ps1 ==> tools
 
 dependencies
-    framework: netstandard20
-        NETStandard.Library >= LOCKEDVERSION
+    framework: net6.0
         MSTest.TestFramework ~> LOCKEDVERSION
         NHamcrest ~> LOCKEDVERSION
         FSharp.Core >= LOCKEDVERSION
