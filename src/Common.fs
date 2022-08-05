@@ -25,12 +25,10 @@ module Common =
             |> Some
         | _ -> None
 
-    ///// type TestUnion = First | Second of int | Third of string
-    ///// let thisIsTrue = First |> isCase <@ First @>
-    ///// let thisIsTrue = Second 5 |> isCase <@ Second @>
-    ///// let thisIsTrue = Third "myString" |> isCase <@ Second, Third @>
-    /// </code>
-    /// </example>
+    /// <summary>
+    /// Checks wether the given value is of the same case of a union type as the
+    /// case defined by the given expression.
+    /// </summary>
     /// <exception cref="System.Exception">If the expression is not an union case or does not result in an union case.</exception>
     /// <exception cref="System.Exception">If argument to check is not an union case or does not result in an union case.</exception>
     /// <remarks>Note, not all ways an expression may result in an union case are covered in this function.</remarks>

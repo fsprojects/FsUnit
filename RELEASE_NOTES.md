@@ -1,3 +1,7 @@
+### 5.0.1 - Aug 5, 2022
+- Docs updates
+- Dependecies update
+
 ### 5.0.0 - Apr 9, 2022
 - [BREAKING] xUnit equality assertions executed of expected value instead of actual
 - FsUnitTyped assertions for xUnit (by @Smaug123) - https://github.com/fsprojects/FsUnit/commit/736b7a1378efe0266533fddcd0e47a6e53672256

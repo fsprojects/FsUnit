@@ -5,13 +5,13 @@ open System.Reflection
 [<assembly: AssemblyTitleAttribute("FsUnit.Xunit")>]
 [<assembly: AssemblyProductAttribute("FsUnit")>]
 [<assembly: AssemblyDescriptionAttribute("FsUnit is a set of libraries that makes unit-testing with F# more enjoyable.")>]
-[<assembly: AssemblyVersionAttribute("5.0.0")>]
-[<assembly: AssemblyFileVersionAttribute("5.0.0")>]
+[<assembly: AssemblyVersionAttribute("5.0.1")>]
+[<assembly: AssemblyFileVersionAttribute("5.0.1")>]
 do ()
 
 module internal AssemblyVersionInformation =
     let [<Literal>] AssemblyTitle = "FsUnit.Xunit"
     let [<Literal>] AssemblyProduct = "FsUnit"
     let [<Literal>] AssemblyDescription = "FsUnit is a set of libraries that makes unit-testing with F# more enjoyable."
-    let [<Literal>] AssemblyVersion = "5.0.0"
-    let [<Literal>] AssemblyFileVersion = "5.0.0"
+    let [<Literal>] AssemblyVersion = "5.0.1"
+    let [<Literal>] AssemblyFileVersion = "5.0.1"
