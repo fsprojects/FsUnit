@@ -9,7 +9,7 @@ What is FsUnitTyped?
 ===============
 
 **FsUnitTyped** is a statically typed set of FsUnit operators that makes
-unit-testing with `FsUnit` even more safe and enjoyable (Available only for `NUnit` and `Xunit`).
+unit-testing with `FsUnit` even more safe and enjoyable (available only for `NUnit` and `xUnit`).
 
 No more untyped constraints and tests like
 
@@ -18,7 +18,7 @@ No more untyped constraints and tests like
 FsUnitTyped from NuGet
 -----------------------
 
-The `FsUnit.Typed` is part of `FsUnit` package for NUnit and can be [installed from NuGet](https://nuget.org/packages/FsUnit).
+`FsUnit.Typed` is part of `FsUnit` package and can be [installed from NuGet](https://nuget.org/packages/FsUnit).
 
 Syntax
 -------
@@ -26,7 +26,6 @@ Syntax
 With FsUnitTyped, you can write unit tests like this:
 *)
 
-open NUnit.Framework
 open FsUnitTyped
 
 (**

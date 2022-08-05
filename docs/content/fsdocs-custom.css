@@ -51,3 +51,7 @@
 .main strong, #fsdocs-content strong {
   font-weight: 700;
 }
+
+table {
+  width: 100%;
+}
