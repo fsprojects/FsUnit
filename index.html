@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>What is FsUnit?
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FsUnit.NUnit">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link type="text/css" rel="stylesheet" href="./content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="./content/fsdocs-custom.css" />
+    <script type="text/javascript" src="./content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+                <li><a href="https://github.com/haf/expecto">Expecto</a></li>
+                <li><a href="https://fscheck.github.io/FsCheck/">FsCheck</a></li>
+                <li><a href="https://github.com/fsprojects/Foq">Foq</a></li>
+                <li><a href="https://fsharp.org">fsharp.org</a></li>
+            </ul>
+            <h3 class="muted"><a href="./index.html">FsUnit</a></h3>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="span9 container main" id="fsdocs-content">
+                <h1><a name="What-is-FsUnit" class="anchor" href="#What-is-FsUnit">What is FsUnit?</a></h1>
+<p><strong>FsUnit</strong> is a set of libraries that makes unit-testing with F# more enjoyable. It adds a special syntax to your favorite .NET testing framework.
+FsUnit currently supports NUnit, xUnit, and MsTest.</p>
+<p>The goals of FsUnit are:</p>
+<ul>
+<li>to make unit-testing feel more at home in F# , i.e., more functional.</li>
+<li>to leverage existing test frameworks while at the same time adapting them to the F# language in new ways.</li>
+</ul>
+<p>NuGet packages are available for each of the supported testing frameworks:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/FsUnit/"><img src="https://buildstats.info/nuget/FsUnit" alt="NuGet Status" /> - NUnit</a></li>
+<li><a href="https://www.nuget.org/packages/FsUnit.Xunit/"><img src="https://buildstats.info/nuget/FsUnit.Xunit" alt="NuGet Status" /> - xUnit</a></li>
+<li><a href="https://www.nuget.org/packages/Fs30Unit.MsTest/"><img src="https://buildstats.info/nuget/Fs30Unit.MsTest" alt="NuGet Status" /> - MsTest</a></li>
+</ul>
+<h2><a name="Syntax" class="anchor" href="#Syntax">Syntax</a></h2>
+<p>With FsUnit, you can write unit tests like this:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs12', 13)" onmouseover="showTip(event, 'fs12', 13)" class="id">NUnit</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs13', 14)" onmouseover="showTip(event, 'fs13', 14)" class="id">Framework</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 15)" onmouseover="showTip(event, 'fs1', 15)" class="id">FsUnit</span>
+</code></pre>
+<p>One object equals or does not equal another:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 16)" onmouseover="showTip(event, 'fs14', 16)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs15', 17)" onmouseover="showTip(event, 'fs15', 17)" class="fn">equal</span> <span class="n">1</span>
+<span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 19)" onmouseover="showTip(event, 'fs16', 19)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="fn">equal</span> <span class="n">2</span><span class="pn">)</span>
+</code></pre>
+<p>One collection is equivalent or is not equivalent to another (order doesn't matter):</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">[</span><span class="n">2</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs17', 22)" onmouseover="showTip(event, 'fs17', 22)" class="fn">equivalent</span> <span class="pn">[</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span>
+<span class="pn">[</span><span class="n">2</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">6</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 23)" onmouseover="showTip(event, 'fs14', 23)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs17', 25)" onmouseover="showTip(event, 'fs17', 25)" class="fn">equivalent</span> <span class="pn">[</span><span class="n">4</span><span class="pn">;</span><span class="n">8</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span><span class="pn">)</span>
+</code></pre>
+<p>One numeric object equals or does not equal another, with a specified tolerance:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">10.1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 26)" onmouseover="showTip(event, 'fs14', 26)" class="fn">should</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs18', 27)" onmouseover="showTip(event, 'fs18', 27)" class="fn">equalWithin</span> <span class="n">0.1</span><span class="pn">)</span> <span class="n">10.11</span>
+<span class="n">10.1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 29)" onmouseover="showTip(event, 'fs16', 29)" class="fn">not&#39;</span> <span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs18', 30)" onmouseover="showTip(event, 'fs18', 30)" class="fn">equalWithin</span> <span class="n">0.001</span><span class="pn">)</span> <span class="n">10.11</span><span class="pn">)</span>
+</code></pre>
+<p>A string does or does not start with or end with a specified substring:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 31)" onmouseover="showTip(event, 'fs14', 31)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs19', 32)" onmouseover="showTip(event, 'fs19', 32)" class="fn">startWith</span> <span class="s">&quot;sh&quot;</span>
+<span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 33)" onmouseover="showTip(event, 'fs14', 33)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 34)" onmouseover="showTip(event, 'fs16', 34)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs19', 35)" onmouseover="showTip(event, 'fs19', 35)" class="fn">startWith</span> <span class="s">&quot;ss&quot;</span><span class="pn">)</span>
+<span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 36)" onmouseover="showTip(event, 'fs14', 36)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs20', 37)" onmouseover="showTip(event, 'fs20', 37)" class="fn">endWith</span> <span class="s">&quot;ps&quot;</span>
+<span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 38)" onmouseover="showTip(event, 'fs14', 38)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 39)" onmouseover="showTip(event, 'fs16', 39)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs20', 40)" onmouseover="showTip(event, 'fs20', 40)" class="fn">endWith</span> <span class="s">&quot;ss&quot;</span><span class="pn">)</span>
+<span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 41)" onmouseover="showTip(event, 'fs14', 41)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs21', 42)" onmouseover="showTip(event, 'fs21', 42)" class="fn">haveSubstring</span> <span class="s">&quot;hip&quot;</span>
+<span class="s">&quot;ships&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 43)" onmouseover="showTip(event, 'fs14', 43)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 44)" onmouseover="showTip(event, 'fs16', 44)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs21', 45)" onmouseover="showTip(event, 'fs21', 45)" class="fn">haveSubstring</span> <span class="s">&quot;pip&quot;</span><span class="pn">)</span>
+</code></pre>
+<p>A List, Seq, or Array instance contains or does not contain a value:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">[</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 46)" onmouseover="showTip(event, 'fs14', 46)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs22', 47)" onmouseover="showTip(event, 'fs22', 47)" class="fn">contain</span> <span class="n">1</span>
+<span class="pn">[</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 48)" onmouseover="showTip(event, 'fs14', 48)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 49)" onmouseover="showTip(event, 'fs16', 49)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs22', 50)" onmouseover="showTip(event, 'fs22', 50)" class="fn">contain</span> <span class="n">1</span><span class="pn">)</span>
+</code></pre>
+<p>A List or Array instance has a certain length:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 51)" onmouseover="showTip(event, 'fs2', 51)" class="id">anArray</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 52)" onmouseover="showTip(event, 'fs14', 52)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs23', 53)" onmouseover="showTip(event, 'fs23', 53)" class="fn">haveLength</span> <span class="n">4</span>
+</code></pre>
+<p>A Collection instance has a certain count:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs3', 54)" onmouseover="showTip(event, 'fs3', 54)" class="id">aCollection</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 55)" onmouseover="showTip(event, 'fs14', 55)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs24', 56)" onmouseover="showTip(event, 'fs24', 56)" class="fn">haveCount</span> <span class="n">4</span>
+</code></pre>
+<p>A function should throw a certain type of exception:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span class="pn">)</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs25', 57)" onmouseover="showTip(event, 'fs25', 57)" class="fn">failwith</span> <span class="s">&quot;BOOM!&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 58)" onmouseover="showTip(event, 'fs26', 58)" class="fn">ignore</span><span class="pn">)</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 59)" onmouseover="showTip(event, 'fs14', 59)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs27', 60)" onmouseover="showTip(event, 'fs27', 60)" class="fn">throw</span> <span onmouseout="hideTip(event, 'fs28', 61)" onmouseover="showTip(event, 'fs28', 61)" class="k">typeof</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs4', 62)" onmouseover="showTip(event, 'fs4', 62)" class="id">System</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs29', 63)" onmouseover="showTip(event, 'fs29', 63)" class="id">Exception</span><span class="pn">&gt;</span>
+<span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span class="pn">)</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs25', 64)" onmouseover="showTip(event, 'fs25', 64)" class="fn">failwith</span> <span class="s">&quot;BOOM!&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 65)" onmouseover="showTip(event, 'fs26', 65)" class="fn">ignore</span><span class="pn">)</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 66)" onmouseover="showTip(event, 'fs14', 66)" class="fn">should</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 67)" onmouseover="showTip(event, 'fs30', 67)" class="fn">throwWithMessage</span> <span class="s">&quot;BOOM!&quot;</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs28', 68)" onmouseover="showTip(event, 'fs28', 68)" class="k">typeof</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs4', 69)" onmouseover="showTip(event, 'fs4', 69)" class="id">System</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs29', 70)" onmouseover="showTip(event, 'fs29', 70)" class="id">Exception</span><span class="pn">&gt;</span>
+</code></pre>
+<p>A function should fail</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs31', 71)" onmouseover="showTip(event, 'fs31', 71)" class="fn">shouldFail</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span class="pn">)</span> <span class="k">-&gt;</span> <span class="n">5</span><span class="o">/</span><span class="n">0</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 72)" onmouseover="showTip(event, 'fs26', 72)" class="fn">ignore</span><span class="pn">)</span>
+</code></pre>
+<p>A number of assertions can be created using the <code>be</code> keyword:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">true</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 73)" onmouseover="showTip(event, 'fs14', 73)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 74)" onmouseover="showTip(event, 'fs32', 74)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs33', 75)" onmouseover="showTip(event, 'fs33', 75)" class="id">True</span>
+<span class="k">false</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 76)" onmouseover="showTip(event, 'fs14', 76)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 77)" onmouseover="showTip(event, 'fs16', 77)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 78)" onmouseover="showTip(event, 'fs32', 78)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs33', 79)" onmouseover="showTip(event, 'fs33', 79)" class="id">True</span><span class="pn">)</span>
+
+<span class="s">&quot;&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 80)" onmouseover="showTip(event, 'fs14', 80)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 81)" onmouseover="showTip(event, 'fs32', 81)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs34', 82)" onmouseover="showTip(event, 'fs34', 82)" class="id">EmptyString</span>
+<span class="s">&quot;&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 83)" onmouseover="showTip(event, 'fs14', 83)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 84)" onmouseover="showTip(event, 'fs32', 84)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs35', 85)" onmouseover="showTip(event, 'fs35', 85)" class="id">NullOrEmptyString</span>
+
+<span class="k">null</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 86)" onmouseover="showTip(event, 'fs14', 86)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 87)" onmouseover="showTip(event, 'fs32', 87)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs35', 88)" onmouseover="showTip(event, 'fs35', 88)" class="id">NullOrEmptyString</span>
+<span class="k">null</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 89)" onmouseover="showTip(event, 'fs14', 89)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 90)" onmouseover="showTip(event, 'fs32', 90)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs36', 91)" onmouseover="showTip(event, 'fs36', 91)" class="id">Null</span>
+<span class="k">null</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 92)" onmouseover="showTip(event, 'fs14', 92)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 93)" onmouseover="showTip(event, 'fs32', 93)" class="fn">be</span> <span class="k">null</span>
+
+<span onmouseout="hideTip(event, 'fs9', 94)" onmouseover="showTip(event, 'fs9', 94)" class="id">anObj</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 95)" onmouseover="showTip(event, 'fs14', 95)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 96)" onmouseover="showTip(event, 'fs16', 96)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 97)" onmouseover="showTip(event, 'fs32', 97)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs36', 98)" onmouseover="showTip(event, 'fs36', 98)" class="id">Null</span><span class="pn">)</span>
+<span onmouseout="hideTip(event, 'fs9', 99)" onmouseover="showTip(event, 'fs9', 99)" class="id">anObj</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 100)" onmouseover="showTip(event, 'fs14', 100)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 101)" onmouseover="showTip(event, 'fs16', 101)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 102)" onmouseover="showTip(event, 'fs32', 102)" class="fn">be</span> <span class="k">null</span><span class="pn">)</span>
+<span onmouseout="hideTip(event, 'fs9', 103)" onmouseover="showTip(event, 'fs9', 103)" class="id">anObj</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 104)" onmouseover="showTip(event, 'fs14', 104)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 105)" onmouseover="showTip(event, 'fs32', 105)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs37', 106)" onmouseover="showTip(event, 'fs37', 106)" class="fn">sameAs</span> <span onmouseout="hideTip(event, 'fs9', 107)" onmouseover="showTip(event, 'fs9', 107)" class="id">anObj</span><span class="pn">)</span>
+<span onmouseout="hideTip(event, 'fs9', 108)" onmouseover="showTip(event, 'fs9', 108)" class="id">anObj</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 109)" onmouseover="showTip(event, 'fs14', 109)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 110)" onmouseover="showTip(event, 'fs16', 110)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 111)" onmouseover="showTip(event, 'fs32', 111)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs37', 112)" onmouseover="showTip(event, 'fs37', 112)" class="fn">sameAs</span> <span onmouseout="hideTip(event, 'fs11', 113)" onmouseover="showTip(event, 'fs11', 113)" class="id">otherObj</span><span class="pn">)</span>
+
+<span class="n">11</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 114)" onmouseover="showTip(event, 'fs14', 114)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 115)" onmouseover="showTip(event, 'fs32', 115)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs38', 116)" onmouseover="showTip(event, 'fs38', 116)" class="fn">greaterThan</span> <span class="n">10</span><span class="pn">)</span>
+<span class="n">9</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 117)" onmouseover="showTip(event, 'fs14', 117)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 118)" onmouseover="showTip(event, 'fs16', 118)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 119)" onmouseover="showTip(event, 'fs32', 119)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs38', 120)" onmouseover="showTip(event, 'fs38', 120)" class="fn">greaterThan</span> <span class="n">10</span><span class="pn">)</span>
+<span class="n">11</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 121)" onmouseover="showTip(event, 'fs14', 121)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 122)" onmouseover="showTip(event, 'fs32', 122)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs39', 123)" onmouseover="showTip(event, 'fs39', 123)" class="fn">greaterThanOrEqualTo</span> <span class="n">10</span><span class="pn">)</span>
+<span class="n">9</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 124)" onmouseover="showTip(event, 'fs14', 124)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 125)" onmouseover="showTip(event, 'fs16', 125)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 126)" onmouseover="showTip(event, 'fs32', 126)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs39', 127)" onmouseover="showTip(event, 'fs39', 127)" class="fn">greaterThanOrEqualTo</span> <span class="n">10</span><span class="pn">)</span>
+<span class="n">10</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 128)" onmouseover="showTip(event, 'fs14', 128)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 129)" onmouseover="showTip(event, 'fs32', 129)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs40', 130)" onmouseover="showTip(event, 'fs40', 130)" class="fn">lessThan</span> <span class="n">11</span><span class="pn">)</span>
+<span class="n">10</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 131)" onmouseover="showTip(event, 'fs14', 131)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 132)" onmouseover="showTip(event, 'fs16', 132)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 133)" onmouseover="showTip(event, 'fs32', 133)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs40', 134)" onmouseover="showTip(event, 'fs40', 134)" class="fn">lessThan</span> <span class="n">9</span><span class="pn">)</span>
+<span class="n">10.0</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 135)" onmouseover="showTip(event, 'fs14', 135)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 136)" onmouseover="showTip(event, 'fs32', 136)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs41', 137)" onmouseover="showTip(event, 'fs41', 137)" class="fn">lessThanOrEqualTo</span> <span class="n">10.1</span><span class="pn">)</span>
+<span class="n">10</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 138)" onmouseover="showTip(event, 'fs14', 138)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 139)" onmouseover="showTip(event, 'fs16', 139)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 140)" onmouseover="showTip(event, 'fs32', 140)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs41', 141)" onmouseover="showTip(event, 'fs41', 141)" class="fn">lessThanOrEqualTo</span> <span class="n">9</span><span class="pn">)</span>
+
+<span class="n">0.0</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 142)" onmouseover="showTip(event, 'fs14', 142)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 143)" onmouseover="showTip(event, 'fs32', 143)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs42', 144)" onmouseover="showTip(event, 'fs42', 144)" class="id">ofExactType</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs43', 145)" onmouseover="showTip(event, 'fs43', 145)" class="vt">float</span><span class="pn">&gt;</span>
+<span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 146)" onmouseover="showTip(event, 'fs14', 146)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 147)" onmouseover="showTip(event, 'fs16', 147)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 148)" onmouseover="showTip(event, 'fs32', 148)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs42', 149)" onmouseover="showTip(event, 'fs42', 149)" class="id">ofExactType</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs10', 150)" onmouseover="showTip(event, 'fs10', 150)" class="rt">obj</span><span class="pn">&gt;</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 151)" onmouseover="showTip(event, 'fs14', 151)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 152)" onmouseover="showTip(event, 'fs32', 152)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs44', 153)" onmouseover="showTip(event, 'fs44', 153)" class="id">Empty</span>
+<span class="pn">[</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 154)" onmouseover="showTip(event, 'fs14', 154)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 155)" onmouseover="showTip(event, 'fs16', 155)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 156)" onmouseover="showTip(event, 'fs32', 156)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs44', 157)" onmouseover="showTip(event, 'fs44', 157)" class="id">Empty</span><span class="pn">)</span>
+
+<span class="s">&quot;test&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 158)" onmouseover="showTip(event, 'fs14', 158)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 159)" onmouseover="showTip(event, 'fs32', 159)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs45', 160)" onmouseover="showTip(event, 'fs45', 160)" class="id">instanceOfType</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs46', 161)" onmouseover="showTip(event, 'fs46', 161)" class="rt">string</span><span class="pn">&gt;</span>
+<span class="s">&quot;test&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 162)" onmouseover="showTip(event, 'fs14', 162)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 163)" onmouseover="showTip(event, 'fs16', 163)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 164)" onmouseover="showTip(event, 'fs32', 164)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs45', 165)" onmouseover="showTip(event, 'fs45', 165)" class="id">instanceOfType</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs8', 166)" onmouseover="showTip(event, 'fs8', 166)" class="vt">int</span><span class="pn">&gt;</span><span class="pn">)</span>
+
+<span class="n">2.0</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 167)" onmouseover="showTip(event, 'fs14', 167)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 168)" onmouseover="showTip(event, 'fs16', 168)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 169)" onmouseover="showTip(event, 'fs32', 169)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs47', 170)" onmouseover="showTip(event, 'fs47', 170)" class="id">NaN</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">3</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 171)" onmouseover="showTip(event, 'fs14', 171)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 172)" onmouseover="showTip(event, 'fs32', 172)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs48', 173)" onmouseover="showTip(event, 'fs48', 173)" class="id">unique</span>
+
+<span class="pn">[</span><span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">3</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 174)" onmouseover="showTip(event, 'fs14', 174)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 175)" onmouseover="showTip(event, 'fs32', 175)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs49', 176)" onmouseover="showTip(event, 'fs49', 176)" class="id">ascending</span>
+<span class="pn">[</span><span class="n">1</span><span class="pn">;</span><span class="n">3</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 177)" onmouseover="showTip(event, 'fs14', 177)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 178)" onmouseover="showTip(event, 'fs16', 178)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 179)" onmouseover="showTip(event, 'fs32', 179)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs49', 180)" onmouseover="showTip(event, 'fs49', 180)" class="id">ascending</span><span class="pn">)</span>
+<span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 181)" onmouseover="showTip(event, 'fs14', 181)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 182)" onmouseover="showTip(event, 'fs32', 182)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs50', 183)" onmouseover="showTip(event, 'fs50', 183)" class="id">descending</span>
+<span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 184)" onmouseover="showTip(event, 'fs14', 184)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 185)" onmouseover="showTip(event, 'fs16', 185)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 186)" onmouseover="showTip(event, 'fs32', 186)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs50', 187)" onmouseover="showTip(event, 'fs50', 187)" class="id">descending</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 188)" onmouseover="showTip(event, 'fs14', 188)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 189)" onmouseover="showTip(event, 'fs32', 189)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs51', 190)" onmouseover="showTip(event, 'fs51', 190)" class="fn">supersetOf</span> <span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">6</span><span class="pn">;</span><span class="n">9</span><span class="pn">]</span><span class="pn">)</span>
+<span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 191)" onmouseover="showTip(event, 'fs14', 191)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 192)" onmouseover="showTip(event, 'fs16', 192)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 193)" onmouseover="showTip(event, 'fs32', 193)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs51', 194)" onmouseover="showTip(event, 'fs51', 194)" class="fn">supersetOf</span> <span class="pn">[</span><span class="n">5</span><span class="pn">;</span><span class="n">11</span><span class="pn">;</span><span class="n">21</span><span class="pn">]</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="n">3</span><span class="pn">;</span><span class="n">6</span><span class="pn">;</span><span class="n">9</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 195)" onmouseover="showTip(event, 'fs14', 195)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 196)" onmouseover="showTip(event, 'fs32', 196)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs52', 197)" onmouseover="showTip(event, 'fs52', 197)" class="fn">subsetOf</span> <span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span><span class="pn">)</span>
+<span class="pn">[</span><span class="n">5</span><span class="pn">;</span><span class="n">11</span><span class="pn">;</span><span class="n">21</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 198)" onmouseover="showTip(event, 'fs14', 198)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 199)" onmouseover="showTip(event, 'fs16', 199)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 200)" onmouseover="showTip(event, 'fs32', 200)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs52', 201)" onmouseover="showTip(event, 'fs52', 201)" class="fn">subsetOf</span> <span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span><span class="pn">)</span>
+</code></pre>
+<p>The ofCase operator allows you to check the case of a union.
+Supplying an expression that will result in a non-union type as well as supplying a non-union type as value argument will result in an exception detailing which parameter is wrong. Note that the actual value of the case is NOT checked, e.g. using <code>&lt;@ MyCase 5 @&gt;</code> as expression and <code>(MyCase 10)</code> as parameter will succeed. It is possible to check for more than one case by using a tuple of union cases.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs53', 202)" onmouseover="showTip(event, 'fs53', 202)" class="rt">TestUnion</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs54', 203)" onmouseover="showTip(event, 'fs54', 203)" class="uc">First</span> <span class="pn">|</span> <span onmouseout="hideTip(event, 'fs55', 204)" onmouseover="showTip(event, 'fs55', 204)" class="uc">Second</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs8', 205)" onmouseover="showTip(event, 'fs8', 205)" class="vt">int</span> <span class="pn">|</span> <span onmouseout="hideTip(event, 'fs56', 206)" onmouseover="showTip(event, 'fs56', 206)" class="uc">Third</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs46', 207)" onmouseover="showTip(event, 'fs46', 207)" class="rt">string</span>
+
+<span class="uc">First</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 208)" onmouseover="showTip(event, 'fs14', 208)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 209)" onmouseover="showTip(event, 'fs32', 209)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 210)" onmouseover="showTip(event, 'fs57', 210)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span class="uc">First</span> <span class="pn">@&gt;</span><span class="pn">)</span>
+<span class="uc">First</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 211)" onmouseover="showTip(event, 'fs14', 211)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 212)" onmouseover="showTip(event, 'fs32', 212)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 213)" onmouseover="showTip(event, 'fs57', 213)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span class="uc">First</span><span class="pn">,</span> <span class="uc">Second</span> <span class="pn">@&gt;</span><span class="pn">)</span> <span class="c">// checks if on the cases matches the given case</span>
+<span class="uc">Second</span> <span class="n">5</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 214)" onmouseover="showTip(event, 'fs14', 214)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 215)" onmouseover="showTip(event, 'fs32', 215)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 216)" onmouseover="showTip(event, 'fs57', 216)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span class="uc">Second</span> <span class="n">10</span> <span class="pn">@&gt;</span><span class="pn">)</span> <span class="c">// note, the actual value is not checked!</span>
+<span class="uc">First</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 217)" onmouseover="showTip(event, 'fs14', 217)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs16', 218)" onmouseover="showTip(event, 'fs16', 218)" class="fn">not&#39;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 219)" onmouseover="showTip(event, 'fs32', 219)" class="fn">be</span> <span onmouseout="hideTip(event, 'fs57', 220)" onmouseover="showTip(event, 'fs57', 220)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span class="uc">Second</span> <span class="n">5</span> <span class="pn">@&gt;</span><span class="pn">)</span>
+<span class="n">5</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 221)" onmouseover="showTip(event, 'fs14', 221)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 222)" onmouseover="showTip(event, 'fs32', 222)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 223)" onmouseover="showTip(event, 'fs57', 223)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span class="uc">Second</span> <span class="n">5</span> <span class="pn">@&gt;</span><span class="pn">)</span> <span class="c">// will throw an exception</span>
+<span class="uc">Second</span> <span class="n">5</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 224)" onmouseover="showTip(event, 'fs14', 224)" class="fn">should</span> <span onmouseout="hideTip(event, 'fs32', 225)" onmouseover="showTip(event, 'fs32', 225)" class="fn">be</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 226)" onmouseover="showTip(event, 'fs57', 226)" class="fn">ofCase</span><span class="pn">&lt;@</span> <span onmouseout="hideTip(event, 'fs8', 227)" onmouseover="showTip(event, 'fs8', 227)" class="fn">int</span> <span class="pn">@&gt;</span><span class="pn">)</span> <span class="c">// will throw an exception</span>
+</code></pre>
+<h2><a name="Test-Projects-Targeting-Higher-F-Runtimes" class="anchor" href="#Test-Projects-Targeting-Higher-F-Runtimes">Test Projects Targeting Higher F# Runtimes</a></h2>
+<p>If you build your test project with a target F# runtime greater than the targeted runtime of the FsUnit assembly, you may find FsUnit operators failing at runtime, in which case you need to add a binding redirect to the App.config file.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="o">&lt;?</span><span class="id">xml</span> <span class="id">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="id">encoding</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="o">?&gt;</span>
+<span class="pn">&lt;</span><span class="id">configuration</span><span class="pn">&gt;</span>
+  <span class="pn">&lt;</span><span class="id">runtime</span><span class="pn">&gt;</span>
+    <span class="pn">&lt;</span><span class="id">assemblyBinding</span> <span class="id">xmlns</span><span class="o">=</span><span class="s">&quot;urn:schemas-microsoft-com:asm.v1&quot;</span><span class="pn">&gt;</span>
+      <span class="pn">&lt;</span><span class="id">dependentAssembly</span><span class="pn">&gt;</span>
+        <span class="pn">&lt;</span><span class="id">assemblyIdentity</span> <span class="id">name</span><span class="o">=</span><span class="s">&quot;FSharp.Core&quot;</span> <span class="id">publicKeyToken</span><span class="o">=</span><span class="s">&quot;b03f5f7f11d50a3a&quot;</span> <span class="id">culture</span><span class="o">=</span><span class="s">&quot;neutral&quot;</span> <span class="o">/&gt;</span>
+        <span class="pn">&lt;</span><span class="id">bindingRedirect</span> <span class="id">oldVersion</span><span class="o">=</span><span class="s">&quot;0.0.0.0-999.999.999.999&quot;</span> <span class="id">newVersion</span><span class="o">=</span><span class="s">&quot;4.4.0.0&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="id">dependentAssembly</span><span class="pn">&gt;</span>
+    <span class="o">&lt;/</span><span class="id">assemblyBinding</span><span class="pn">&gt;</span>
+  <span class="o">&lt;/</span><span class="id">runtime</span><span class="pn">&gt;</span>
+<span class="o">&lt;/</span><span class="id">configuration</span><span class="pn">&gt;</span>
+</code></pre>
+<h2><a name="Contributing" class="anchor" href="#Contributing">Contributing</a></h2>
+<p>The project is hosted on <a href="https://github.com/fsprojects/FsUnit">GitHub</a> where you can <a href="https://github.com/fsprojects/FsUnit/issues">report issues</a>, fork
+the project and submit pull requests. If you're adding a new public API, please also
+consider adding <a href="https://fsprojects.github.io/FsUnit/#Syntax">samples</a> that can be turned into a documentation. You might
+also want to read the <a href="https://github.com/fsprojects/FsUnit/blob/master/README.md">library design notes</a> to understand how it works.</p>
+
+                <div class="fsdocs-tip" id="fs1">Namespace FsUnit</div>
+<div class="fsdocs-tip" id="fs2">val anArray: &#39;a list</div>
+<div class="fsdocs-tip" id="fs3">val aCollection: System.Collections.Generic.List&lt;int&gt;</div>
+<div class="fsdocs-tip" id="fs4">Namespace System</div>
+<div class="fsdocs-tip" id="fs5">Namespace System.Collections</div>
+<div class="fsdocs-tip" id="fs6">Namespace System.Collections.Generic</div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br />type List&lt;&#39;T&gt; =
+  interface ICollection&lt;&#39;T&gt;
+  interface IEnumerable&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface ICollection
+  interface IList
+  new: unit -&gt; unit + 2 &#220;berladungen
+  member Add: item: &#39;T -&gt; unit
+  ...<br /><em>&lt;summary&gt;Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists.&lt;/summary&gt;<br />&lt;typeparam name=&quot;T&quot;&gt;The type of elements in the list.&lt;/typeparam&gt;</em><br /><br />--------------------<br />System.Collections.Generic.List() : System.Collections.Generic.List&lt;&#39;T&gt;<br />System.Collections.Generic.List(collection: System.Collections.Generic.IEnumerable&lt;&#39;T&gt;) : System.Collections.Generic.List&lt;&#39;T&gt;<br />System.Collections.Generic.List(capacity: int) : System.Collections.Generic.List&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs8">Multiple items<br />val int: value: &#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;<br />&lt;example id=&quot;int-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs9">val anObj: obj</div>
+<div class="fsdocs-tip" id="fs10">type obj = System.Object<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Object&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs11">val otherObj: obj</div>
+<div class="fsdocs-tip" id="fs12">Namespace NUnit</div>
+<div class="fsdocs-tip" id="fs13">Namespace NUnit.Framework</div>
+<div class="fsdocs-tip" id="fs14">val should: f: (&#39;a -&gt; #Constraints.Constraint) -&gt; x: &#39;a -&gt; actual: obj -&gt; unit</div>
+<div class="fsdocs-tip" id="fs15">val equal: expected: &#39;a -&gt; Constraints.EqualConstraint (requires equality)</div>
+<div class="fsdocs-tip" id="fs16"></div>
+<div class="fsdocs-tip" id="fs17">val equivalent: expected: System.Collections.IEnumerable -&gt; Constraints.CollectionEquivalentConstraint</div>
+<div class="fsdocs-tip" id="fs18">val equalWithin: tolerance: &#39;a -&gt; expected: &#39;b -&gt; Constraints.EqualConstraint (requires equality)</div>
+<div class="fsdocs-tip" id="fs19">val startWith: expected: string -&gt; Constraints.StartsWithConstraint</div>
+<div class="fsdocs-tip" id="fs20">val endWith: expected: string -&gt; Constraints.EndsWithConstraint</div>
+<div class="fsdocs-tip" id="fs21">val haveSubstring: expected: string -&gt; Constraints.SubstringConstraint</div>
+<div class="fsdocs-tip" id="fs22">val contain: expected: &#39;a -&gt; Constraints.ContainsConstraint</div>
+<div class="fsdocs-tip" id="fs23">val haveLength: expected: &#39;a -&gt; Constraints.EqualConstraint</div>
+<div class="fsdocs-tip" id="fs24">val haveCount: expected: &#39;a -&gt; Constraints.EqualConstraint</div>
+<div class="fsdocs-tip" id="fs25">val failwith: message: string -&gt; &#39;T<br /><em>&lt;summary&gt;Throw a &lt;see cref=&quot;T:System.Exception&quot; /&gt; exception.&lt;/summary&gt;<br />&lt;param name=&quot;message&quot;&gt;The exception message.&lt;/param&gt;<br />&lt;returns&gt;Never returns.&lt;/returns&gt;<br />&lt;example id=&quot;failwith-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let failingFunction() = 
+     failwith &quot;Oh no&quot; // Throws an exception
+     true  // Never reaches this
+   
+ failingFunction()  // Throws a System.Exception
+ &lt;/code&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs26">val ignore: value: &#39;T -&gt; unit<br /><em>&lt;summary&gt;Ignore the passed value. This is often used to throw away results of a computation.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to ignore.&lt;/param&gt;<br />&lt;example id=&quot;min-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+  ignore 55555   //  Evaluates to ()
+ &lt;/code&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs27">val throw: arg00: System.Type -&gt; Constraints.ExactTypeConstraint</div>
+<div class="fsdocs-tip" id="fs28">val typeof&lt;&#39;T&gt; : System.Type<br /><em>&lt;summary&gt;Generate a System.Type runtime representation of a static type.&lt;/summary&gt;<br />&lt;example id=&quot;typeof-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let t = typeof&amp;lt;int&amp;gt;  // Gets the System.Type
+ t.FullName                 // Evaluates to &quot;System.Int32&quot;
+ &lt;/code&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs29">Multiple items<br />type Exception =
+  interface ISerializable
+  new: unit -&gt; unit + 2 &#220;berladungen
+  member GetBaseException: unit -&gt; exn
+  member GetObjectData: info: SerializationInfo * context: StreamingContext -&gt; unit
+  member GetType: unit -&gt; Type
+  member ToString: unit -&gt; string
+  member Data: IDictionary
+  member HResult: int
+  member HelpLink: string
+  member InnerException: exn
+  ...<br /><em>&lt;summary&gt;Represents errors that occur during application execution.&lt;/summary&gt;</em><br /><br />--------------------<br />System.Exception() : System.Exception<br />System.Exception(message: string) : System.Exception<br />System.Exception(message: string, innerException: exn) : System.Exception</div>
+<div class="fsdocs-tip" id="fs30">val throwWithMessage: expected: string -&gt; t: System.Type -&gt; Constraints.EqualConstraint</div>
+<div class="fsdocs-tip" id="fs31">val shouldFail: f: (unit -&gt; unit) -&gt; unit</div>
+<div class="fsdocs-tip" id="fs32">val be: (&#39;a -&gt; &#39;a)</div>
+<div class="fsdocs-tip" id="fs33">val True: Constraints.TrueConstraint</div>
+<div class="fsdocs-tip" id="fs34">val EmptyString: Constraints.EmptyStringConstraint</div>
+<div class="fsdocs-tip" id="fs35">val NullOrEmptyString: Constraints.OrConstraint</div>
+<div class="fsdocs-tip" id="fs36">val Null: Constraints.NullConstraint</div>
+<div class="fsdocs-tip" id="fs37">val sameAs: expected: &#39;a -&gt; Constraints.SameAsConstraint</div>
+<div class="fsdocs-tip" id="fs38">val greaterThan: expected: &#39;a -&gt; Constraints.GreaterThanConstraint</div>
+<div class="fsdocs-tip" id="fs39">val greaterThanOrEqualTo: expected: &#39;a -&gt; Constraints.GreaterThanOrEqualConstraint</div>
+<div class="fsdocs-tip" id="fs40">val lessThan: expected: &#39;a -&gt; Constraints.LessThanConstraint</div>
+<div class="fsdocs-tip" id="fs41">val lessThanOrEqualTo: expected: &#39;a -&gt; Constraints.LessThanOrEqualConstraint</div>
+<div class="fsdocs-tip" id="fs42">val ofExactType&lt;&#39;a&gt; : Constraints.ExactTypeConstraint</div>
+<div class="fsdocs-tip" id="fs43">Multiple items<br />val float: value: &#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;<br />&lt;example id=&quot;float-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure.
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs44">val Empty: Constraints.EmptyConstraint</div>
+<div class="fsdocs-tip" id="fs45">val instanceOfType&lt;&#39;a&gt; : Constraints.InstanceOfTypeConstraint</div>
+<div class="fsdocs-tip" id="fs46">Multiple items<br />val string: value: &#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;<br />&lt;example id=&quot;string-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />type string = System.String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs47">val NaN: Constraints.NaNConstraint</div>
+<div class="fsdocs-tip" id="fs48">val unique: Constraints.UniqueItemsConstraint</div>
+<div class="fsdocs-tip" id="fs49">val ascending: Constraints.CollectionOrderedConstraint</div>
+<div class="fsdocs-tip" id="fs50">val descending: Constraints.CollectionOrderedConstraint</div>
+<div class="fsdocs-tip" id="fs51">val supersetOf: expected: System.Collections.IEnumerable -&gt; Constraints.CollectionSupersetConstraint</div>
+<div class="fsdocs-tip" id="fs52">val subsetOf: expected: System.Collections.IEnumerable -&gt; Constraints.CollectionSubsetConstraint</div>
+<div class="fsdocs-tip" id="fs53">type TestUnion =
+  | First
+  | Second of int
+  | Third of string</div>
+<div class="fsdocs-tip" id="fs54">Union-Fall TestUnion.First: TestUnion</div>
+<div class="fsdocs-tip" id="fs55">Union-Fall TestUnion.Second: int -&gt; TestUnion</div>
+<div class="fsdocs-tip" id="fs56">Union-Fall TestUnion.Third: string -&gt; TestUnion</div>
+<div class="fsdocs-tip" id="fs57">val ofCase: case: Quotations.Expr -&gt; CustomConstraints.OfSameCaseConstraint</div>
+
+            </div>
+            <div class="span3">
+                <a href="./index.html"> <img id="fsdocs-logo" src="./img/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" /> </a>
+
+                <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                <!-- <div id="header">
+                    <div class="searchbox">
+                        <label for="search-by">
+                            <i class="fas fa-search"></i>
+                        </label>
+                        <input data-search-input="" id="search-by" type="search" placeholder="Search..." />
+                        <span data-search-clear="">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                </div> -->
+                <!-- END SEARCH BOX: this adds support for the search box -->
+
+                <ul class="nav nav-list" id="menu">
+                    <li class="nav-header">FsUnit</li>
+                    <li><a href="./index.html">Home page</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/fsprojects/FsUnit/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+                    <li><a href="https://www.nuget.org/packages?q=FsUnit">Get Library via NuGet</a></li>
+                    <li><a href="https://github.com/fsprojects/FsUnit">Source Code on GitHub</a></li>
+                    <li><a href="https://github.com/fsprojects/FsUnit/blob/master/license.txt">License</a></li>
+
+                    <li class="nav-header">Getting started</li>
+                    <li><a href="./NUnit.html">NUnit</a></li>
+                    <li><a href="./FsUnitTyped.html">FsUnitTyped</a></li>
+                    <li><a href="./xUnit.html">xUnit</a></li>
+                    <li><a href="./MsTest.html">MsTest</a></li>
+
+                    <li class="nav-header">Documentation</li>
+                    <li><a href="./operators.html">Operators</a></li>
+                    <!-- <li><a href="https://fsprojects.github.io/FsUnit/reference/index.html">API Reference</a></li> -->
+                    <li class="nav-header">Miscellaneous</li>
+                    <li><a href="./Expecto.html">Expecto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/fsprojects/FsUnit"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"> </a>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = 'https://fsprojects.github.io/FsUnit'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <!--<script type="text/javascript" src="https://fsprojects.github.io/FsUnitcontent/fsdocs-search.js"></script>-->
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+
+</html>
