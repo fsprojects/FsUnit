@@ -31,3 +31,4 @@ dependencies
         xunit ~> LOCKEDVERSION
         NHamcrest ~> LOCKEDVERSION
         FSharp.Core >= LOCKEDVERSION
+    framework: netstandard2.0

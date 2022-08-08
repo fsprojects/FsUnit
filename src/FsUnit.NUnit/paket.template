@@ -30,3 +30,4 @@ dependencies
     framework: net6.0
         NUnit ~> LOCKEDVERSION
         FSharp.Core >= LOCKEDVERSION
+    framework: netstandard2.0
