@@ -1,3 +1,6 @@
+### 5.0.2 - Aug 15, 2022
+- Dependency update (NHamcrest 2.0.1 => 3.0.1) -> (https://github.com/fsprojects/FsUnit/pull/211)
+
 ### 5.0.1 - Aug 5, 2022
 - Docs updates
 - Dependencies update
