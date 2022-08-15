@@ -1,19 +1,21 @@
-source https://nuget.org/api/v2
-framework: netstandard2.0, net6.0
+source https://api.nuget.org/v3/index.json
+framework: net6.0, netstandard2.0
 
 nuget FSharp.Core ~> 5.0.0
-nuget NETStandard.Library ~> 2.0.0
 
 nuget Microsoft.NET.Test.Sdk
-// For NUnit
+
+// NUnit
 nuget NUnit
 nuget NUnit3TestAdapter
 nuget System.Collections.Immutable
 nuget System.Collections.NonGeneric
-// For xUnit
+
+// xUnit
 nuget NHamcrest
 nuget xunit
 nuget xunit.runner.visualstudio
-// for MsTest
+
+// MsTest
 nuget MSTest.TestFramework
 nuget MSTest.TestAdapter ~> 2.1.2
