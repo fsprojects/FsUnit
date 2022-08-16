@@ -1,3 +1,6 @@
+### 5.0.3 - Aug 16, 2022
+- Fixed a reference issue with .NET Framework.
+
 ### 5.0.2 - Aug 15, 2022
 - Dependency update (NHamcrest 2.0.1 => 3.0.1) -> (https://github.com/fsprojects/FsUnit/pull/211)
 
