@@ -27,8 +27,6 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    framework: net6.0
-        xunit ~> LOCKEDVERSION
-        NHamcrest ~> LOCKEDVERSION
-        FSharp.Core >= LOCKEDVERSION
-    framework: netstandard2.0
+    xunit ~> LOCKEDVERSION
+    NHamcrest ~> LOCKEDVERSION
+    FSharp.Core >= LOCKEDVERSION
