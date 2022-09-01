@@ -14,7 +14,19 @@ type Xunit.Assert with
         if not(matcher.Matches(actual)) then
             let description = StringDescription()
             matcher.DescribeTo(description)
-            raise(MatchException(description.ToString(), ($"%A{actual}"), null))
+
+            let raiseMatchException(value: string) =
+                raise(MatchException(description.ToString(), value, null))
+
+            match box actual with
+            | :? (unit -> unit) as actualfunc ->
+                (try
+                    actualfunc()
+                    String.Empty
+                 with
+                 | ex -> ex.ToString())
+                |> raiseMatchException
+            | _ -> $"%A{actual}" |> raiseMatchException
 
 let inline should (f: 'a -> ^b) x (actual: obj) =
     let matcher = f x

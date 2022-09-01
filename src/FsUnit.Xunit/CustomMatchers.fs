@@ -26,20 +26,19 @@ let equivalent f expected =
 
     CustomMatcher<obj>($"Equivalent to %A{expected}", Func<_, _> matches)
 
-//TODO: Look into a better way of doing this.
 let equalWithin (tolerance: obj) (expected: obj) =
     let matches(actual: obj) =
-        let actualParsed, actual =
-            Double.TryParse(string actual, NumberStyles.Any, CultureInfo("en-US"))
+        let parseValue(v: string) =
+            match Double.TryParse(v, NumberStyles.Any, CultureInfo("en-US")) with
+            | (true, x) -> Some(x)
+            | (false, _) -> None
 
-        let expectedParsed, expect =
-            Double.TryParse(string expected, NumberStyles.Any, CultureInfo("en-US"))
+        let actual = string actual |> parseValue
+        let expect = string expected |> parseValue
+        let tol = string tolerance |> parseValue
 
-        let toleranceParsed, tol =
-            Double.TryParse(string tolerance, NumberStyles.Any, CultureInfo("en-US"))
-
-        if actualParsed && expectedParsed && toleranceParsed then
-            abs(actual - expect) <= tol
+        if [| actual; expect; tol |] |> Array.contains None |> not then
+            abs(actual.Value - expect.Value) <= tol.Value
         else
             false
 
