@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``shouldFail tests``() =
+
     [<Fact>]
     member _.``empty List should fail to contain item``() =
         shouldFail(fun () -> [] |> should contain 1)
@@ -21,6 +22,6 @@ type ``shouldFail tests``() =
         (fun () -> shouldFail id) |> should throw typeof<MatchException>
 
     [<Fact>]
-    member _.``shouldFaild should not throw an exception when fail``() =
+    member _.``shouldFail should not throw an exception when fail``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
         |> should not' (throw typeof<MatchException>)

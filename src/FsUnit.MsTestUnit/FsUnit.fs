@@ -9,7 +9,19 @@ let inline private assertThat(actual, matcher: IMatcher<'a>) =
     if not(matcher.Matches(actual)) then
         let description = StringDescription()
         matcher.DescribeTo(description)
-        raise(AssertFailedException($"%A{description} was %A{actual}"))
+
+        let raiseAssertFailedException value =
+            raise(AssertFailedException($"%A{description} was %A{value}", null))
+
+        match box actual with
+        | :? (unit -> unit) as actualfunc ->
+            (try
+                actualfunc()
+                String.Empty
+             with
+             | ex -> ex.ToString())
+            |> raiseAssertFailedException
+        | _ -> actual |> raiseAssertFailedException
 
 type Assert with
     static member That<'a>(actual, matcher: IMatcher<'a>) =
