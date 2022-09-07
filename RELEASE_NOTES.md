@@ -1,3 +1,6 @@
+### 5.0.4 - Sep 6, 2022
+- Fix actual messages in xUnit & MsTest in operators `throw` & `throwWithMessage` when exception will be thrown inside lambda. - https://github.com/fsprojects/FsUnit/pull/216
+
 ### 5.0.3 - Aug 16, 2022
 - Fixed a reference issue with .NET Framework.
 
