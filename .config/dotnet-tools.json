@@ -15,13 +15,13 @@
       ]
     },
     "fsdocs-tool": {
-      "version": "15.0.1",
+      "version": "16.1.1",
       "commands": [
         "fsdocs"
       ]
     },
-    "fantomas-tool": {
-      "version": "4.7.9",
+    "fantomas": {
+      "version": "5.0.0",
       "commands": [
         "fantomas"
       ]

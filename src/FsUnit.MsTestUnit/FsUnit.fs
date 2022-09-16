@@ -18,12 +18,13 @@ let inline private assertThat(actual, matcher: IMatcher<'a>) =
             (try
                 actualfunc()
                 String.Empty
-             with
-             | ex -> ex.ToString())
+             with ex ->
+                 ex.ToString())
             |> raiseAssertFailedException
         | _ -> actual |> raiseAssertFailedException
 
 type Assert with
+
     static member That<'a>(actual, matcher: IMatcher<'a>) =
         assertThat(actual, matcher)
 
@@ -45,8 +46,8 @@ let inline shouldFail(f: unit -> unit) =
         try
             f()
             false
-        with
-        | _ -> true
+        with _ ->
+            true
 
     if not failed then
         raise(AssertFailedException("Method should fail"))

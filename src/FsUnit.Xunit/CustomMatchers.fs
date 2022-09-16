@@ -21,8 +21,8 @@ let equivalent f expected =
                 f (toCollection expected) (toCollection e)
                 true
             | _ -> false
-        with
-        | _ -> false
+        with _ ->
+            false
 
     CustomMatcher<obj>($"Equivalent to %A{expected}", Func<_, _> matches)
 
@@ -57,8 +57,8 @@ let throw(t: Type) =
             try
                 testFunc()
                 false
-            with
-            | ex -> t.IsAssignableFrom(ex.GetType())
+            with ex ->
+                t.IsAssignableFrom(ex.GetType())
         | _ -> false
 
     CustomMatcher<obj>(string t, Func<_, _> matches)
@@ -70,8 +70,8 @@ let throwWithMessage (m: string) (t: Type) =
             try
                 testFunc()
                 false
-            with
-            | ex -> ex.GetType() = t && ex.Message = m
+            with ex ->
+                ex.GetType() = t && ex.Message = m
         | _ -> false
 
     CustomMatcher<obj>($"{string t} \"{m}\"", Func<_, _> matches)
@@ -298,8 +298,8 @@ type ChoiceDiscriminator(n: int) =
             this.GetType().GetMethods()
             |> Seq.filter(fun m -> m.Name = "check" && Seq.length(m.GetGenericArguments()) = cArgCount)
             |> Seq.exists(fun m -> m.MakeGenericMethod(cArgs).Invoke(this, [| c |]) :?> bool)
-        with
-        | _ -> false
+        with _ ->
+            false
 
 let choice n =
     CustomMatcher<obj>($"The choice %d{n}", (fun x -> (ChoiceDiscriminator(n)).check(x)))
