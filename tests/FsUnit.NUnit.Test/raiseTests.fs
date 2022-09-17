@@ -26,13 +26,13 @@ type ``raise tests``() =
 
     [<Test>]
     member _.``should fail when negated and exception is thrown``() =
-        shouldFail (fun () ->
+        shouldFail(fun () ->
             (fun () -> raise TestException |> ignore)
             |> should not' (throw typeof<TestException>))
 
     [<Test>]
     member _.``should fail when exception thrown is not the type expected``() =
-        shouldFail (fun () ->
+        shouldFail(fun () ->
             (fun () -> raise TestException |> ignore)
             |> should throw typeof<ApplicationException>)
 
@@ -45,13 +45,13 @@ type ``raise tests``() =
 
     [<Test>]
     member _.``should fail when exception of expected type with unexpected message is thrown``() =
-        shouldFail (fun () ->
+        shouldFail(fun () ->
             (fun () -> raise(ApplicationException "BOOM!") |> ignore)
             |> should (throwWithMessage "CRASH!") typeof<ApplicationException>)
 
     [<Test>]
     member _.``should fail when exception of unexpected type with expected message is thrown``() =
-        shouldFail (fun () ->
+        shouldFail(fun () ->
             let msg = "BOOM!"
 
             (fun () -> raise(ApplicationException msg) |> ignore)
@@ -59,7 +59,7 @@ type ``raise tests``() =
 
     [<Test>]
     member _.``should fail when negated and exception of expected type with expected message is thrown``() =
-        shouldFail (fun () ->
+        shouldFail(fun () ->
             let msg = "BOOM!"
 
             (fun () -> raise(ApplicationException msg) |> ignore)

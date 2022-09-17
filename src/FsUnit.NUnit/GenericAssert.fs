@@ -38,7 +38,7 @@ type Assert =
     /// <param name="actual">The actual value.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member AreEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member AreEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         let eqConstraint = Equality.IsEqualTo(expected)
         Assert.That(actual, eqConstraint, message, args)
 
@@ -71,7 +71,7 @@ type Assert =
     /// <param name="actual">The actual value.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member AreNotEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member AreNotEqual<'T when 'T: equality>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         let neqConstraint = Equality.IsNotEqualTo(expected)
         Assert.That(actual, neqConstraint, message, args)
 
@@ -104,7 +104,7 @@ type Assert =
     /// <param name="actual">The actual object.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member AreNotSame<'T when 'T: not struct>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member AreNotSame<'T when 'T: not struct>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         let sameConstraint = Is.Not.SameAs expected
         Assert.That(actual, sameConstraint, message, args)
 
@@ -137,7 +137,7 @@ type Assert =
     /// <param name="actual">The actual object.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member AreSame<'T when 'T: not struct>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member AreSame<'T when 'T: not struct>(expected: 'T, actual: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         let sameConstraint = Is.SameAs expected
         Assert.That(actual, sameConstraint, message, args)
 
@@ -169,7 +169,7 @@ type Assert =
     /// <param name="actual">The list to be examined.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Contains<'T when 'T: equality>(expected: 'T, actual: IEnumerable<'T>, message: string, [<ParamArray>] args: obj []) : unit =
+    static member Contains<'T when 'T: equality>(expected: 'T, actual: IEnumerable<'T>, message: string, [<ParamArray>] args: obj[]) : unit =
         let eqConstraint = Equality.IsEqualTo(expected)
         let containsConstraint = SomeItemsConstraint(eqConstraint)
         Assert.That(actual, containsConstraint, message, args)
@@ -201,7 +201,7 @@ type Assert =
     /// <param name="arg2">The second value, expected to be less.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member Greater<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg1, Is.GreaterThan arg2, message, args)
 
     /// <summary>
@@ -231,7 +231,7 @@ type Assert =
     /// <param name="arg2">The second value, expected to be less.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member GreaterOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member GreaterOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg1, Is.GreaterThanOrEqualTo arg2, message, args)
 
     /// <summary>
@@ -261,7 +261,7 @@ type Assert =
     /// <param name="arg2">The second value, expected to be greater.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member Less<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg1, Is.LessThan arg2, message, args)
 
     /// <summary>
@@ -291,7 +291,7 @@ type Assert =
     /// <param name="arg2">The second value, expected to be greater.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member LessOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member LessOrEqual<'T when 'T: comparison>(arg1: 'T, arg2: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg1, Is.LessThanOrEqualTo arg2, message, args)
 
     /// <summary>
@@ -318,7 +318,7 @@ type Assert =
     /// <param name="arg">The object that is to be tested.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member NotNull<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member NotNull<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg, Is.Not.Null, message, args)
 
     /// <summary>
@@ -345,5 +345,5 @@ type Assert =
     /// <param name="arg">The object that is to be tested.</param>
     /// <param name="message">The message to display in case of failure.</param>
     /// <param name="args">Array of objects to be used in formatting the message.</param>
-    static member Null<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj []) : unit =
+    static member Null<'T when 'T: not struct>(arg: 'T, message: string, [<ParamArray>] args: obj[]) : unit =
         Assert.That(arg, Is.Null, message, args)

@@ -20,16 +20,8 @@ type Equality<'T when 'T: equality> =
 
     static member inline IsEqualTo(x: 'T) =
         match (box x) with
-        | :? IStructuralEquatable ->
-            Is
-                .EqualTo(x)
-                .Or.EqualTo(x)
-                .Using<'T>(Equality.Structural)
-        | :? IStructuralComparable ->
-            Is
-                .EqualTo(x)
-                .Or.EqualTo(x)
-                .Using<'T>(Equality.StructuralC)
+        | :? IStructuralEquatable -> Is.EqualTo(x).Or.EqualTo(x).Using<'T>(Equality.Structural)
+        | :? IStructuralComparable -> Is.EqualTo(x).Or.EqualTo(x).Using<'T>(Equality.StructuralC)
         | _ -> Is.EqualTo(x)
 
     static member IsNotEqualTo(x: 'T) =

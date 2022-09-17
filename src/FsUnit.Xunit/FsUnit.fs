@@ -10,6 +10,7 @@ type MatchException(expected, actual, userMessage) =
     inherit AssertActualExpectedException(expected, actual, userMessage)
 
 type Xunit.Assert with
+
     static member That<'a>(actual, matcher: IMatcher<'a>) =
         if not(matcher.Matches(actual)) then
             let description = StringDescription()
@@ -23,8 +24,8 @@ type Xunit.Assert with
                 (try
                     actualfunc()
                     String.Empty
-                 with
-                 | ex -> ex.ToString())
+                 with ex ->
+                     ex.ToString())
                 |> raiseMatchException
             | _ -> $"%A{actual}" |> raiseMatchException
 
@@ -46,8 +47,8 @@ let inline shouldFail(f: unit -> unit) =
         try
             f()
             false
-        with
-        | _ -> true
+        with _ ->
+            true
 
     if not failed then
         raise(MatchException("Method should fail", "No exception raised", null))
