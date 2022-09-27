@@ -1,5 +1,6 @@
 namespace FsUnit.Test
 
+open System
 open NUnit.Framework
 open FsUnit
 
@@ -18,11 +19,16 @@ type ``shouldFail tests``() =
         shouldFail(fun () -> shouldFail id)
 
     [<Test>]
-    member _.``shouldFaild should throw an exception``() =
+    member _.``shouldFail should throw an exception``() =
         (fun () -> shouldFail id)
         |> should throw typeof<NUnit.Framework.AssertionException>
 
     [<Test>]
-    member _.``shouldFaild should not throw an exception when fail``() =
+    member _.``shouldFail should not throw an exception when fail``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
         |> should not' (throw typeof<NUnit.Framework.AssertionException>)
+
+    [<Test>]
+    member _.``test raising exception``() =
+        fun () -> raise(ArgumentException "help")
+        |> should (throwWithMessage "help") typeof<ArgumentException>

@@ -34,7 +34,8 @@ module TopLevelOperators =
 
         let y =
             match actual with
-            | :? (unit -> unit) -> box(TestDelegate(actual :?> unit -> unit))
+            | :? (unit -> unit) as testFunc -> box(TestDelegate(testFunc))
+            | :? (unit -> obj) as testFunc -> box(TestDelegate(testFunc >> ignore))
             | _ -> actual
 
         if isNull(box expression) then

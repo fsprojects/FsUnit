@@ -2,6 +2,7 @@ namespace FsUnit.Test
 
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
+open System
 
 [<TestClass>]
 type ``shouldFail tests``() =
@@ -18,11 +19,16 @@ type ``shouldFail tests``() =
         shouldFail(fun () -> shouldFail id)
 
     [<TestMethod>]
-    member _.``shouldFaild should throw an exception``() =
+    member _.``shouldFail should throw an exception``() =
         (fun () -> shouldFail id)
         |> should throw typeof<AssertFailedException>
 
     [<TestMethod>]
-    member _.``shouldFaild should not throw an exception when fail``() =
+    member _.``shouldFail should not throw an exception when fail``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
         |> should not' (throw typeof<AssertFailedException>)
+
+    [<TestMethod>]
+    member _.``test raising exception``() =
+        fun () -> raise(ArgumentException "help")
+        |> should (throwWithMessage "help") typeof<ArgumentException>

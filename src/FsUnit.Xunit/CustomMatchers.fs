@@ -65,13 +65,16 @@ let throw(t: Type) =
 
 let throwWithMessage (m: string) (t: Type) =
     let matches(f: obj) =
-        match f with
-        | :? (unit -> unit) as testFunc ->
+        let wrap testFunc =
             try
                 testFunc()
                 false
             with ex ->
                 ex.GetType() = t && ex.Message = m
+
+        match f with
+        | :? (unit -> unit) as testFunc -> wrap testFunc
+        | :? (unit -> obj) as testFunc -> wrap(testFunc >> ignore)
         | _ -> false
 
     CustomMatcher<obj>($"{string t} \"{m}\"", Func<_, _> matches)

@@ -1,5 +1,6 @@
 namespace FsUnit.Test
 
+open System
 open Xunit
 open FsUnit.Xunit
 
@@ -25,3 +26,8 @@ type ``shouldFail tests``() =
     member _.``shouldFail should not throw an exception when fail``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
         |> should not' (throw typeof<MatchException>)
+
+    [<Fact>]
+    member _.``test raising exception``() =
+        fun () -> raise(ArgumentException "help")
+        |> should (throwWithMessage "help") typeof<ArgumentException>
