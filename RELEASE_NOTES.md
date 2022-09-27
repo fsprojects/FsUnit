@@ -1,3 +1,6 @@
+### 5.0.5 - Sep 27, 2022
+- Fix `throwWithMessage` that now ignores return type. - https://github.com/fsprojects/FsUnit/pull/220
+
 ### 5.0.4 - Sep 6, 2022
 - Fix actual messages in xUnit & MsTest in operators `throw` & `throwWithMessage` when exception will be thrown inside lambda. - https://github.com/fsprojects/FsUnit/pull/216
 
