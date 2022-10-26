@@ -53,6 +53,15 @@ let inline shouldFail(f: unit -> unit) =
     if not failed then
         raise(MatchException("Method should fail", "No exception raised", null))
 
+let equalSeq(expected: seq<'a>) =
+    let matcher actual =
+        try
+            Assert.Equal<seq<'a>>(expected, unbox(actual))
+            true
+        with _ ->
+            false
+
+    CustomMatcher<obj>($"Equals %A{expected}", matcher)
 
 let equal expected =
     CustomMatchers.equal expected

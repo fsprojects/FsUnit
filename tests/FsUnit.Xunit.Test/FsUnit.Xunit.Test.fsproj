@@ -6,6 +6,7 @@
     <Compile Include="beAscendingTests.fs" />
     <Compile Include="beDescendingTests.fs" />
     <Compile Include="equalTests.fs" />
+    <Compile Include="equalSeqTests.fs" />
     <Compile Include="containTests.fs" />
     <Compile Include="beChoice.fs" />
     <Compile Include="beEmptyStringTests.fs" />
