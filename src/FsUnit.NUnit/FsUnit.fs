@@ -46,6 +46,9 @@ module TopLevelOperators =
     let equal expected =
         Equality.IsEqualTo(expected)
 
+    let equalSeq(expected: seq<'a>) =
+        EqualConstraint(expected)
+
     let equivalent expected =
         CollectionEquivalentConstraint(expected)
 

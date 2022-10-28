@@ -1,26 +1,27 @@
 ﻿namespace FsUnit.Test
 
-open Xunit
-open FsUnit.Xunit
+open Microsoft.VisualStudio.TestTools.UnitTesting
+open FsUnit.MsTest
 
+[<TestClass>]
 type ``equalSeq Tests``() =
 
-    [<Fact>]
+    [<TestMethod>]
     member _.``sequence should equal sequence``() =
         Seq.init 3 ((+) 1) |> should equalSeq (Seq.init 3 ((+) 1))
 
-    [<Fact>]
+    [<TestMethod>]
     member _.``sequence should not equal sequence``() =
         Seq.init 3 ((+) 1) |> should not' (equalSeq(Seq.init 3 ((-) 3)))
 
-    [<Fact>]
+    [<TestMethod>]
     member _.``filled sequence should not equal empty sequence``() =
         Seq.init 3 ((+) 1) |> should not' (equalSeq Seq.empty)
 
-    [<Fact>]
+    [<TestMethod>]
     member _.``empty sequence should equal empty sequence``() =
         Seq.empty |> should equalSeq Seq.empty
 
-    [<Fact>]
+    [<TestMethod>]
     member _.``sequence should not equal another sequence``() =
         Seq.init 4 ((+) 1) |> should not' (equalSeq(Seq.init 5 ((+) 1)))

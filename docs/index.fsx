@@ -47,6 +47,12 @@ One object equals or does not equal another:
 1 |> should not' (equal 2)
 
 (**
+One sequence equals or does not equal another:
+*)
+seq { 1; 2; 3 } |> should equalSeq (seq { 1; 2; 3 })
+seq { 1 } |> should not' (equalSeq (seq { 1; 2}))
+
+(**
 One collection is equivalent or is not equivalent to another (order doesn't matter):
 *)
 

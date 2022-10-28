@@ -20,6 +20,7 @@
     <Compile Include="beSameAsTests.fs" />
     <Compile Include="containTests.fs" />
     <Compile Include="equalTests.fs" />
+    <Compile Include="equalSeqTests.fs" />
     <Compile Include="raiseTests.fs" />
     <Compile Include="haveLengthTests.fs" />
     <Compile Include="haveCountTests.fs" />
