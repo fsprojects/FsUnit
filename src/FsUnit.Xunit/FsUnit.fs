@@ -53,6 +53,8 @@ let inline shouldFail(f: unit -> unit) =
     if not failed then
         raise(MatchException("Method should fail", "No exception raised", null))
 
+let equalSeq expected =
+    CustomMatchers.equalSeq (fun (e: seq<'a>) (a: seq<'a>) -> Assert.Equal<seq<'a>>(e, a)) expected
 
 let equal expected =
     CustomMatchers.equal expected

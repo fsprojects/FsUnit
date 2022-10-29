@@ -10,6 +10,16 @@ open System.Reflection
 let equal expected =
     CustomMatcher<obj>($"Equals %A{expected}", (fun actual -> expected = actual))
 
+let equalSeq (func: seq<'a> -> seq<'a> -> unit) (expected: seq<'a>) =
+    let matches(actual: obj) =
+        try
+            func expected (unbox(actual))
+            true
+        with _ ->
+            false
+
+    CustomMatcher<obj>($"Equals %A{expected}", Func<_, _> matches)
+
 let equivalent f expected =
     let matches(actual: obj) =
         try

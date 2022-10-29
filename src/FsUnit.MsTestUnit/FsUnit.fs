@@ -55,6 +55,9 @@ let inline shouldFail(f: unit -> unit) =
 let equal expected =
     CustomMatchers.equal expected
 
+let equalSeq expected =
+    CustomMatchers.equalSeq (fun (e: seq<'a>) (a: seq<'a>) -> Assert.IsTrue(Linq.Enumerable.SequenceEqual(e, a))) expected
+
 let equivalent expected =
     CustomMatchers.equivalent (fun e a -> CollectionAssert.AreEquivalent(e, a)) expected
 

@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #r "../packages/xunit.extensibility.core/lib/netstandard1.1/xunit.core.dll"
-#r "../packages/NHamcrest/lib/netstandard1.5/NHamcrest.dll"
+#r "../packages/NHamcrest/lib/netstandard2.0/NHamcrest.dll"
 #r "../bin/FsUnit.Xunit/netstandard2.0/FsUnit.Xunit.dll"
 
 (**

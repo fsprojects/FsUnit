@@ -26,6 +26,7 @@
     <Compile Include="beTrueTests.fs" />
     <Compile Include="containTests.fs" />
     <Compile Include="equalTests.fs" />
+    <Compile Include="equalSeqTests.fs" />
     <Compile Include="equalWithinTests.fs" />
     <Compile Include="haveCountTests.fs" />
     <Compile Include="haveLengthTests.fs" />
