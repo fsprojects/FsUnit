@@ -1,3 +1,6 @@
+### 5.1.0 - Oct 29, 2022
+- Add `equalSeq` operator - https://github.com/fsprojects/FsUnit/pull/222
+
 ### 5.0.5 - Sep 27, 2022
 - Fix `throwWithMessage` that now ignores return type. - https://github.com/fsprojects/FsUnit/pull/220
 
