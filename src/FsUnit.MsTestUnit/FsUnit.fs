@@ -1,9 +1,9 @@
 module FsUnit.MsTest
 
 open System
-open Microsoft.VisualStudio.TestTools.UnitTesting
 open NHamcrest
 open NHamcrest.Core
+open Microsoft.VisualStudio.TestTools.UnitTesting
 
 let inline private assertThat(actual, matcher: IMatcher<'a>) =
     if not(matcher.Matches(actual)) then
@@ -34,6 +34,7 @@ let inline should (f: 'a -> ^b) x (actual: obj) =
     let actual =
         match actual with
         | :? (unit -> unit) as assertFunc -> box assertFunc
+        | :? (unit -> obj) as assertFunc -> box(assertFunc >> ignore)
         | _ -> actual
 
     if isNull(box matcher) then

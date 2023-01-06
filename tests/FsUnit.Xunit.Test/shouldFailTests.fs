@@ -31,3 +31,7 @@ type ``shouldFail tests``() =
     member _.``test raising exception``() =
         fun () -> raise(ArgumentException "help")
         |> should (throwWithMessage "help") typeof<ArgumentException>
+
+    [<Fact>]
+    member _.``Null source should fail``() =
+        shouldFail(fun () -> Seq.empty |> Seq.append null |> ignore)
