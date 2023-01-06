@@ -1,6 +1,6 @@
 #r @"paket:
 source https://api.nuget.org/v3/index.json
-framework: net7.0
+framework: net6.0
 storage: none
 nuget FSharp.Core
 nuget Fake.Core.Target
