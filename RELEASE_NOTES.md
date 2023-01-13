@@ -1,3 +1,8 @@
+### 5.2.0 - Jan 13, 2023
+- Align should & throw in xUnit and MsTest. -> (https://github.com/fsprojects/FsUnit/pull/226)
+- Add .NET7 as TargetFramework.
+- Update dependencies.
+
 ### 5.1.0 - Oct 29, 2022
 - Add `equalSeq` operator - https://github.com/fsprojects/FsUnit/pull/222
 
