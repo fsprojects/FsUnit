@@ -11,10 +11,15 @@ type ApplicationException(msg: string) =
 
 [<TestClass>]
 type ``raise tests``() =
+
     [<TestMethod>]
     member _.``should pass when exception of expected type is thrown``() =
         (fun () -> raise TestException |> ignore)
         |> should throw typeof<TestException>
+
+    [<TestMethod>]
+    member _.``should pass when exception of expected type is thrown without ignore``() =
+        (fun () -> raise TestException) |> should throw typeof<TestException>
 
     [<TestMethod>]
     member _.``should fail when exception is not thrown``() =
@@ -74,3 +79,10 @@ type ``raise tests``() =
 
         (fun () -> raise(ApplicationException msg) |> ignore)
         |> should not' ((throwWithMessage msg) typeof<ArgumentException>)
+
+    [<TestMethod>]
+    member _.``should pass without ignore``() =
+        let msg = "BOOM!"
+
+        (fun () -> raise(ApplicationException msg))
+        |> should (throwWithMessage msg) typeof<ApplicationException>

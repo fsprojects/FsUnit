@@ -35,6 +35,7 @@ let inline should (f: 'a -> ^b) x (actual: obj) =
     let actual =
         match actual with
         | :? (unit -> unit) as assertFunc -> box assertFunc
+        | :? (unit -> obj) as assertFunc -> box(assertFunc >> ignore)
         | _ -> actual
 
     if isNull(box matcher) then

@@ -62,13 +62,16 @@ let not'(x: obj) =
 
 let throw(t: Type) =
     let matches(f: obj) =
-        match f with
-        | :? (unit -> unit) as testFunc ->
+        let wrap testFunc =
             try
                 testFunc()
                 false
             with ex ->
                 t.IsAssignableFrom(ex.GetType())
+
+        match f with
+        | :? (unit -> unit) as testFunc -> wrap testFunc
+        | :? (unit -> obj) as testFunc -> wrap(testFunc >> ignore)
         | _ -> false
 
     CustomMatcher<obj>(string t, Func<_, _> matches)
