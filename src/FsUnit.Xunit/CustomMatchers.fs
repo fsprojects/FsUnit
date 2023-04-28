@@ -177,10 +177,10 @@ let haveSubstring(expected: string) =
     CustomMatcher<obj>(string expected, (fun s -> (string s).Contains expected))
 
 let ofExactType<'a> =
-    CustomMatcher<obj>(typeof<'a>.ToString (), (fun x -> (unbox x).GetType() = typeof<'a>))
+    CustomMatcher<obj>(typeof<'a>.ToString(), (fun x -> (unbox x).GetType() = typeof<'a>))
 
 let instanceOfType<'a> =
-    CustomMatcher<obj>(typeof<'a>.ToString (), (fun x -> typeof<'a>.IsInstanceOfType (x)))
+    CustomMatcher<obj>(typeof<'a>.ToString(), (fun x -> typeof<'a>.IsInstanceOfType(x)))
 
 let contain expected =
     let matches(actual: obj) =

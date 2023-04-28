@@ -2,12 +2,12 @@
 source https://api.nuget.org/v3/index.json
 framework: net6.0
 storage: none
-nuget FSharp.Core
+nuget FSharp.Core 6.0.0.0
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
 nuget Fake.IO.FileSystem
-nuget Fake.DotNet.Cli
+nuget Fake.DotNet.Cli 
 nuget Fake.DotNet.MSBuild
 nuget Fake.DotNet.AssemblyInfoFile
 nuget Fake.DotNet.Paket
@@ -67,29 +67,25 @@ let cloneUrl = "git@github.com:fsprojects/FsUnit.git"
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
 
 // Helper active pattern for project types
-let (|Fsproj|Csproj|Vbproj|) (projFileName:string) =
+let (|Fsproj|Csproj|Vbproj|) (projFileName: string) =
     match projFileName with
     | f when f.EndsWith("fsproj") -> Fsproj
     | f when f.EndsWith("csproj") -> Csproj
     | f when f.EndsWith("vbproj") -> Vbproj
-    | _                           -> failwith (sprintf "Project file %s not supported. Unknown project type." projFileName)
+    | _ -> failwith (sprintf "Project file %s not supported. Unknown project type." projFileName)
 
 // Generate assembly info files with the right version & up-to-date information
 Target.create "AssemblyInfo" (fun _ ->
     let getAssemblyInfoAttributes projectName =
-        [ AssemblyInfo.Title (projectName)
+        [ AssemblyInfo.Title(projectName)
           AssemblyInfo.Product project
           AssemblyInfo.Description summary
           AssemblyInfo.Version release.AssemblyVersion
           AssemblyInfo.FileVersion release.AssemblyVersion ]
 
-    let getProjectDetails (projectPath:string) =
+    let getProjectDetails (projectPath: string) =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
-        ( projectPath,
-          projectName,
-          Path.GetDirectoryName(projectPath),
-          (getAssemblyInfoAttributes projectName)
-        )
+        (projectPath, projectName, Path.GetDirectoryName(projectPath), (getAssemblyInfoAttributes projectName))
 
     !! "src/**/*.??proj"
     |> Seq.filter (fun x -> not <| x.Contains(".netstandard"))
@@ -98,46 +94,39 @@ Target.create "AssemblyInfo" (fun _ ->
         match projFileName with
         | Fsproj -> AssemblyInfoFile.createFSharp (folderName @@ "AssemblyInfo.fs") attributes
         | Csproj -> AssemblyInfoFile.createCSharp ((folderName @@ "Properties") @@ "AssemblyInfo.cs") attributes
-        | Vbproj -> AssemblyInfoFile.createVisualBasic ((folderName @@ "My Project") @@ "AssemblyInfo.vb") attributes
-        )
-)
+        | Vbproj -> AssemblyInfoFile.createVisualBasic ((folderName @@ "My Project") @@ "AssemblyInfo.vb") attributes))
 
 // Copies binaries from default VS location to expected bin folder
 // But keeps a subdirectory structure for each project in the
 // src folder to support multiple project outputs
 Target.create "CopyBinaries" (fun _ ->
     !! "src/**/*.??proj"
-    |>  Seq.map (fun f -> ((Path.GetDirectoryName f) @@ "bin/Release", "bin" @@ (Path.GetFileNameWithoutExtension f)))
-    |>  Seq.iter (fun (fromDir, toDir) -> Shell.copyDir toDir fromDir (fun _ -> true))
-)
+    |> Seq.map (fun f -> ((Path.GetDirectoryName f) @@ "bin/Release", "bin" @@ (Path.GetFileNameWithoutExtension f)))
+    |> Seq.iter (fun (fromDir, toDir) -> Shell.copyDir toDir fromDir (fun _ -> true)))
 
 // --------------------------------------------------------------------------------------
 // Clean build results
 
 Target.create "Clean" (fun _ ->
     Shell.cleanDirs
-        [
-        "bin"; "temp";
-        "src/FsUnit.NUnit/bin/";
-        "src/FsUnit.NUnit/obj/";
-        "src/FsUnit.Xunit/bin/";
-        "src/FsUnit.Xunit/obj/";
-        "src/FsUnit.MsTestUnit/bin/"
-        "src/FsUnit.MsTestUnit/obj/"
-        ]
-)
+        [ "bin"
+          "temp"
+          "src/FsUnit.NUnit/bin/"
+          "src/FsUnit.NUnit/obj/"
+          "src/FsUnit.Xunit/bin/"
+          "src/FsUnit.Xunit/obj/"
+          "src/FsUnit.MsTestUnit/bin/"
+          "src/FsUnit.MsTestUnit/obj/" ])
 
-Target.create "CleanDocs" (fun _ ->
-    Shell.cleanDirs ["docs/output"]
-)
+Target.create "CleanDocs" (fun _ -> Shell.cleanDirs [ "docs/output" ])
 
 // --------------------------------------------------------------------------------------
 // Check code format & format code using Fantomas
 
 let sourceFiles =
     !! "src/**/*.fs"
-      ++ "tests/**/*.fs" 
-      -- "./**/*Assembly*.fs"
+    ++ "tests/**/*.fs"
+    -- "./**/*Assembly*.fs"
 
 Target.create "CheckFormat" (fun _ ->
     let result =
@@ -152,8 +141,7 @@ Target.create "CheckFormat" (fun _ ->
     elif result.ExitCode = 99 then
         failwith "Some files need formatting, check output for more info"
     else
-        Trace.logf "Errors while formatting: %A" result.Errors
-)
+        Trace.logf "Errors while formatting: %A" result.Errors)
 
 Target.create "Format" (fun _ ->
     let result =
@@ -163,32 +151,25 @@ Target.create "Format" (fun _ ->
         |> DotNet.exec id "fantomas"
 
     if not result.OK then
-        printfn "Errors while formatting all files: %A" result.Messages
-)
+        printfn "Errors while formatting all files: %A" result.Messages)
 
 // --------------------------------------------------------------------------------------
 // Build library & test project
 
 Target.create "Build" (fun _ ->
     let result = DotNet.exec id "build" "FsUnit.sln -c Release"
-    if not result.OK
-    then failwithf "Build failed: %A" result.Errors
-)
+
+    if not result.OK then 
+        failwithf "Build failed: %A" result.Errors
 
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
-Target.create "NUnit" (fun _ ->
-    DotNet.test id "tests/FsUnit.NUnit.Test/"
-)
+Target.create "NUnit" (fun _ -> DotNet.test id "tests/FsUnit.NUnit.Test/")
 
-Target.create "xUnit" (fun _ ->
-    DotNet.test id "tests/FsUnit.Xunit.Test/"
-)
+Target.create "xUnit" (fun _ -> DotNet.test id "tests/FsUnit.Xunit.Test/")
 
-Target.create "MsTest" (fun _ ->
-    DotNet.test id "tests/FsUnit.MsTest.Test/"
-)
+Target.create "MsTest" (fun _ -> DotNet.test id "tests/FsUnit.MsTest.Test/")
 
 Target.create "RunTests" ignore
 
@@ -196,29 +177,28 @@ Target.create "RunTests" ignore
 // Build a NuGet package
 
 Target.create "NuGet" (fun _ ->
-    Paket.pack(fun p ->
+    Paket.pack (fun p ->
         { p with
             ToolType = ToolType.CreateLocalTool()
             OutputPath = "bin"
             Version = release.NugetVersion
-            ReleaseNotes = String.toLines release.Notes})
-)
+            ReleaseNotes = String.toLines release.Notes }))
 
 Target.create "PublishNuget" (fun _ ->
-    Paket.push(fun p ->
+    Paket.push (fun p ->
         { p with
             ToolType = ToolType.CreateLocalTool()
-            WorkingDir = "bin" })
-)
+            WorkingDir = "bin" }))
 
 
 // --------------------------------------------------------------------------------------
 // Generate the documentation
 
 Target.create "GenerateDocs" (fun _ ->
-   Shell.cleanDir ".fsdocs"
-   DotNet.exec id "fsdocs" "build --clean --parameters root https://fsprojects.github.io/FsUnit" |> ignore
-)
+    Shell.cleanDir ".fsdocs"
+
+    DotNet.exec id "fsdocs" "build --clean --parameters root https://fsprojects.github.io/FsUnit"
+    |> ignore)
 // --------------------------------------------------------------------------------------
 // Release Scripts
 
@@ -231,8 +211,7 @@ Target.create "ReleaseDocs" (fun _ ->
     Shell.copyRecursive "output" tempDocsDir true |> Trace.tracefn "%A"
     Staging.stageAll tempDocsDir
     Commit.exec tempDocsDir (sprintf "Update generated documentation for version %s" release.NugetVersion)
-    Branches.push tempDocsDir
-)
+    Branches.push tempDocsDir)
 
 // --------------------------------------------------------------------------------------
 // Run all targets by default. Invoke 'build <Target>' to override
@@ -241,12 +220,12 @@ Target.create "All" ignore
 Target.create "Release" ignore
 
 "Clean"
-  ==> "AssemblyInfo"
-  ==> "CheckFormat"
-  ==> "Build"
-  ==> "CopyBinaries"
-  ==> "RunTests"
-  ==> "All"
+==> "AssemblyInfo"
+==> "CheckFormat"
+==> "Build"
+==> "CopyBinaries"
+==> "RunTests"
+==> "All"
 
 "Build"
   ==> "NUnit"
