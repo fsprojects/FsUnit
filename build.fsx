@@ -1,7 +1,6 @@
 #r @"paket:
 source https://api.nuget.org/v3/index.json
 framework: net6.0
-storage: none
 nuget FSharp.Core 6.0.0.0
 nuget Fake.Core.Target
 nuget Fake.Core.Trace
@@ -160,7 +159,7 @@ Target.create "Build" (fun _ ->
     let result = DotNet.exec id "build" "FsUnit.sln -c Release"
 
     if not result.OK then 
-        failwithf "Build failed: %A" result.Errors
+        failwithf "Build failed: %A" result.Errors)
 
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
