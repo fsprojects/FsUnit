@@ -164,11 +164,23 @@ Target.create "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
-Target.create "NUnit" (fun _ -> DotNet.test id "tests/FsUnit.NUnit.Test/")
+Target.create "NUnit" (fun _ -> 
+    let result = DotNet.exec id "test" "tests/FsUnit.NUnit.Test/"
 
-Target.create "xUnit" (fun _ -> DotNet.test id "tests/FsUnit.Xunit.Test/")
+    if not result.OK then
+        failwithf "NUnit test failed: %A" result.Errors)
 
-Target.create "MsTest" (fun _ -> DotNet.test id "tests/FsUnit.MsTest.Test/")
+Target.create "xUnit" (fun _ -> 
+    let result = DotNet.exec id "test" "tests/FsUnit.Xunit.Test/"
+
+    if not result.OK then
+        failwithf "xUnit test failed: %A" result.Errors)
+
+Target.create "MsTest" (fun _ -> 
+    let result = DotNet.exec id "test" "tests/FsUnit.MsTest.Test/"
+
+    if not result.OK then
+        failwithf "MsTest test failed: %A" result.Errors)
 
 Target.create "RunTests" ignore
 
