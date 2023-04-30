@@ -6,7 +6,7 @@ nuget Fake.Core.Target
 nuget Fake.Core.Trace
 nuget Fake.Core.ReleaseNotes
 nuget Fake.IO.FileSystem
-nuget Fake.DotNet.Cli 
+nuget Fake.DotNet.Cli
 nuget Fake.DotNet.MSBuild
 nuget Fake.DotNet.AssemblyInfoFile
 nuget Fake.DotNet.Paket
@@ -164,7 +164,7 @@ Target.create "Build" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Run the unit tests using test runner
 
-Target.create "NUnit" (fun _ -> 
+Target.create "NUnit" (fun _ ->
     let result = DotNet.exec id "test" "tests/FsUnit.NUnit.Test/"
 
     if not result.OK then
@@ -231,12 +231,12 @@ Target.create "All" ignore
 Target.create "Release" ignore
 
 "Clean"
-==> "AssemblyInfo"
-==> "CheckFormat"
-==> "Build"
-==> "CopyBinaries"
-==> "RunTests"
-==> "All"
+  ==> "AssemblyInfo"
+  ==> "CheckFormat"
+  ==> "Build"
+  ==> "CopyBinaries"
+  ==> "RunTests"
+  ==> "All"
 
 "Build"
   ==> "NUnit"
