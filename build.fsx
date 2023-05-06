@@ -192,7 +192,7 @@ Target.create "NuGet" (fun _ ->
         { p with
             ToolType = ToolType.CreateLocalTool()
             OutputPath = "bin"
-            Version = release.NugetVersion
+            Version = release.AssemblyVersion
             ReleaseNotes = String.toLines release.Notes }))
 
 Target.create "PublishNuget" (fun _ ->
