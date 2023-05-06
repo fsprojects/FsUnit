@@ -1,4 +1,4 @@
-### 5.3.0.0 - May 1, 2023
+### 5.3.0.0 - May 6, 2023
 - Remove .NET7 as framework because of incompatibilities.
 - Update dependencies.
 
