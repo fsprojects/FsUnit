@@ -23,7 +23,6 @@ description
     FsUnit is a set of extensions that add special testing syntax to xUnit.
 files
     ../../bin/FsUnit.Xunit/net6.0/FsUnit.* ==> lib/net6.0
-    ../../bin/FsUnit.Xunit/net7.0/FsUnit.* ==> lib/net7.0
     ../../bin/FsUnit.Xunit/netstandard2.0/FsUnit.* ==> lib/netstandard2.0
     ../../src/install.ps1 ==> tools
 

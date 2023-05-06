@@ -1,3 +1,7 @@
+### 5.3.0.0 - May 6, 2023
+- Remove .NET7 as framework because of incompatibilities.
+- Update dependencies.
+
 ### 5.2.0 - Jan 13, 2023
 - Align should & throw in xUnit and MsTest. -> (https://github.com/fsprojects/FsUnit/pull/226)
 - Add .NET7 as TargetFramework.
