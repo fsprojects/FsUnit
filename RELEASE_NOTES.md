@@ -1,3 +1,7 @@
+### 5.3.1.0 - Jun 7, 2023
+- Set FSharp.Core back to ~5.0.0 to support older projects. (https://github.com/fsprojects/FsUnit/pull/236)
+- Update some dependencies.
+
 ### 5.3.0.0 - May 6, 2023
 - Remove .NET7 as framework because of incompatibilities.
 - Update dependencies.
