@@ -3,6 +3,7 @@ namespace FsUnit.Test
 open System
 open Xunit
 open FsUnit.Xunit
+open Xunit.Sdk
 
 type ``shouldFail tests``() =
 
@@ -20,12 +21,12 @@ type ``shouldFail tests``() =
 
     [<Fact>]
     member _.``shouldFail should throw an exception``() =
-        (fun () -> shouldFail id) |> should throw typeof<MatchException>
+        (fun () -> shouldFail id) |> should throw typeof<EqualException>
 
     [<Fact>]
     member _.``shouldFail should not throw an exception when fail``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
-        |> should not' (throw typeof<MatchException>)
+        |> should not' (throw typeof<EqualException>)
 
     [<Fact>]
     member _.``test raising exception``() =

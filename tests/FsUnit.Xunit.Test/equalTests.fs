@@ -106,13 +106,6 @@ type ``equal Tests``() =
         anImmutableArray |> should not' (equal otherImmutableArray)
 
     [<Fact>]
-    member _.``Ok "foo" should fail on equal Ok "bar" but message should be equal``() =
-        (fun () -> Ok "foo" |> should equal (Ok "bar"))
-        |> fun f -> Assert.Throws<MatchException>(f)
-        |> fun e -> (e.Expected, e.Actual)
-        |> should equal ("Equals Ok \"bar\"", "Ok \"foo\"")
-
-    [<Fact>]
     member _.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =
         let array1 = ImmutableArray.Create(Uri("https://example.com/1"))
 

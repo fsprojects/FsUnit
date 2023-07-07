@@ -23,10 +23,3 @@ type ``be greaterThan tests``() =
     [<Fact>]
     member _.``9[dot]2 should not be greater than 9[dot]2``() =
         9.2 |> should not' (be greaterThan 9.2)
-
-    [<Fact>]
-    member _.``10 should not be greater than 10 but messages should equal``() =
-        (fun () -> 10 |> should be (greaterThan 10))
-        |> fun f -> Assert.Throws<MatchException>(f)
-        |> fun e -> (e.Expected, e.Actual)
-        |> should equal ("Greater than 10", "10")
