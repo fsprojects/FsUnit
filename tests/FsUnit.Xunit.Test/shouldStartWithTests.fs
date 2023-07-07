@@ -15,4 +15,3 @@ type ``should startWith tests``() =
     [<Fact>]
     member _.``ships should not start with ss``() =
         "ships" |> should not' (startWith "ss")
-
