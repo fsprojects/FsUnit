@@ -21,7 +21,7 @@ NUGET
     NETStandard.Library (2.0.3)
       Microsoft.NETCore.Platforms (>= 1.1)
     Newtonsoft.Json (13.0.3) - restriction: || (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1))
-    NHamcrest (3.2)
+    NHamcrest (3.3)
     NuGet.Frameworks (6.6.1) - restriction: || (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1))
     NUnit (3.13.3)
       NETStandard.Library (>= 2.0)

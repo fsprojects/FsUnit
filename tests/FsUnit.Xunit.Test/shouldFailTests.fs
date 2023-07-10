@@ -21,10 +21,15 @@ type ``shouldFail tests``() =
 
     [<Fact>]
     member _.``shouldFail should throw an exception``() =
-        (fun () -> shouldFail id) |> should throw typeof<EqualException>
+        (fun () -> shouldFail id) |> should throw typeof<ThrowsException>
 
     [<Fact>]
-    member _.``shouldFail should not throw an exception when fail``() =
+    member _.``shouldFail should not throw an exception when fail with ThrowsException``() =
+        (fun () -> shouldFail(fun () -> [] |> should contain 1))
+        |> should not' (throw typeof<ThrowsException>)
+
+    [<Fact>]
+    member _.``shouldFail should not throw an exception when fail with EqualException``() =
         (fun () -> shouldFail(fun () -> [] |> should contain 1))
         |> should not' (throw typeof<EqualException>)
 
