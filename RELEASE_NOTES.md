@@ -1,3 +1,7 @@
+### 5.4.0.0 - Jul 10, 2023
+- Add support for xunit 2.5.0. - (https://github.com/fsprojects/FsUnit/pull/240)
+- Update dependencies.
+
 ### 5.3.1.0 - Jun 7, 2023
 - Set FSharp.Core back to ~5.0.0 to support older projects. (https://github.com/fsprojects/FsUnit/pull/236)
 - Update some dependencies.
