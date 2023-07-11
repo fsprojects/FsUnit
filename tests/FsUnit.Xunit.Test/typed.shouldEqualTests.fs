@@ -4,6 +4,7 @@ open System.Collections.Immutable
 
 open FsUnit.Xunit
 open Xunit
+open Xunit.Sdk
 open FsUnitTyped
 open System
 
@@ -81,12 +82,12 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member _.``Error "Foo" should equal fails and have same message``() =
         (fun () -> Error "Foo" |> shouldEqual(Error "Bar"))
-        |> Assert.Throws<MatchException>
+        |> Assert.Throws<EqualException>
         |> fun e ->
             e.Message
             |> shouldEqual(
                 sprintf
-                    "Exception of type 'FsUnit.Xunit+MatchException' was thrown.%sExpected: Equals Error \"Bar\"%sActual:   Error \"Foo\""
+                    "Assert.Equal() Failure: Values differ%sExpected: Equals Error \"Bar\"%sActual:   Error \"Foo\""
                     Environment.NewLine
                     Environment.NewLine
             )
@@ -98,12 +99,12 @@ type ``shouldEqual Tests``() =
     [<Fact>]
     member _.``Error "Foo" should not equal Error "Bar" fails and have same message``() =
         (fun () -> Error "Foo" |> shouldNotEqual(Error "Foo"))
-        |> Assert.Throws<MatchException>
+        |> Assert.Throws<EqualException>
         |> fun e ->
             e.Message
             |> shouldEqual(
                 sprintf
-                    "Exception of type 'FsUnit.Xunit+MatchException' was thrown.%sExpected: not Equals Error \"Foo\"%sActual:   Error \"Foo\""
+                    "Assert.Equal() Failure: Values differ%sExpected: not Equals Error \"Foo\"%sActual:   Error \"Foo\""
                     Environment.NewLine
                     Environment.NewLine
             )

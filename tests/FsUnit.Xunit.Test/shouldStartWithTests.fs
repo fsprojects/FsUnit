@@ -1,7 +1,9 @@
 namespace FsUnit.Test
 
 open Xunit
+open Xunit.Sdk
 open FsUnit.Xunit
+open FsUnitTyped
 
 type ``should startWith tests``() =
     [<Fact>]
@@ -17,8 +19,5 @@ type ``should startWith tests``() =
         "ships" |> should not' (startWith "ss")
 
     [<Fact>]
-    member _.``ships should not start with ss but messages should equal``() =
-        (fun _ -> "ships" |> should startWith "ss")
-        |> fun f -> Assert.Throws<MatchException>(f)
-        |> fun e -> (e.Expected, e.Actual)
-        |> should equal ("ss", "\"ships\"")
+    member _.``ships should not start with ss and check if it's EqualException``() =
+        shouldFail<EqualException>(fun _ -> "ships" |> should startWith "ss")

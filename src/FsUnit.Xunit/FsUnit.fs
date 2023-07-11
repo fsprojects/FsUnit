@@ -6,9 +6,6 @@ open Xunit.Sdk
 open NHamcrest
 open NHamcrest.Core
 
-type MatchException(expected, actual, userMessage) =
-    inherit AssertActualExpectedException(expected, actual, userMessage)
-
 type Xunit.Assert with
 
     static member That<'a>(actual, matcher: IMatcher<'a>) =
@@ -16,8 +13,8 @@ type Xunit.Assert with
             let description = StringDescription()
             matcher.DescribeTo(description)
 
-            let raiseMatchException(value: string) =
-                raise(MatchException(description.ToString(), value, null))
+            let raiseEqualException(value: string) =
+                raise(EqualException.ForMismatchedValues(description.ToString(), value))
 
             match box actual with
             | :? (unit -> unit) as actualfunc ->
@@ -26,8 +23,8 @@ type Xunit.Assert with
                     String.Empty
                  with ex ->
                      ex.ToString())
-                |> raiseMatchException
-            | _ -> $"%A{actual}" |> raiseMatchException
+                |> raiseEqualException
+            | _ -> $"%A{actual}" |> raiseEqualException
 
 let inline should (f: 'a -> ^b) x (actual: obj) =
     let matcher = f x
@@ -52,7 +49,7 @@ let inline shouldFail(f: unit -> unit) =
             true
 
     if not failed then
-        raise(MatchException("Method should fail", "No exception raised", null))
+        raise(ThrowsException.ForNoException(f.GetType()))
 
 let equalSeq expected =
     CustomMatchers.equalSeq (fun (e: seq<'a>) (a: seq<'a>) -> Assert.Equal<seq<'a>>(e, a)) expected

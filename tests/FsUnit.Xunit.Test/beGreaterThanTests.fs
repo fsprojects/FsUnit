@@ -2,6 +2,7 @@ namespace FsUnit.Test
 
 open Xunit
 open FsUnit.Xunit
+open Xunit.Sdk
 
 type ``be greaterThan tests``() =
     [<Fact>]
@@ -25,8 +26,6 @@ type ``be greaterThan tests``() =
         9.2 |> should not' (be greaterThan 9.2)
 
     [<Fact>]
-    member _.``10 should not be greater than 10 but messages should equal``() =
+    member _.``10 should not be greater than 10 and should throw EqualException``() =
         (fun () -> 10 |> should be (greaterThan 10))
-        |> fun f -> Assert.Throws<MatchException>(f)
-        |> fun e -> (e.Expected, e.Actual)
-        |> should equal ("Greater than 10", "10")
+        |> should throw typeof<EqualException>
