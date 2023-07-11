@@ -4,6 +4,7 @@ open System
 open System.Collections.Immutable
 
 open Xunit
+open Xunit.Sdk
 open FsUnit.Xunit
 
 type AlwaysEqual() =
@@ -104,6 +105,11 @@ type ``equal Tests``() =
     [<Fact>]
     member _.``structural value type should not equal non-equivalent value``() =
         anImmutableArray |> should not' (equal otherImmutableArray)
+
+    [<Fact>]
+    member _.``Ok "foo" should fail on equal Ok "bar" and should throw EqualException``() =
+        (fun () -> Ok "foo" |> should equal (Ok "bar"))
+        |> should throw typeof<EqualException>
 
     [<Fact>]
     member _.``structural comparable type containing non-equivalent structural equatable type fails with correct exception``() =

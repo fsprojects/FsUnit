@@ -2,6 +2,7 @@ namespace FsUnit.Test
 
 open Xunit
 open FsUnit.Xunit
+open Xunit.Sdk
 
 type ``be subsetOf tests``() =
 
@@ -36,3 +37,8 @@ type ``be subsetOf tests``() =
     [<Fact>]
     member _.``should fail on '1 to 11 should be subset of 1 to 10'``() =
         shouldFail(fun () -> [ 1..11 ] |> should be (subsetOf [ 1..10 ]))
+
+    [<Fact>]
+    member _.``11 should not be subset of 1 to 10 and should throw EqualException``() =
+        (fun _ -> [ 11 ] |> should be (subsetOf [ 1..10 ]))
+        |> should throw typeof<EqualException>

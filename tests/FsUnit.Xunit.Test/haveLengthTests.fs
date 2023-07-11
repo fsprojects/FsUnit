@@ -1,6 +1,7 @@
 namespace FsUnit.Test
 
 open Xunit
+open Xunit.Sdk
 open FsUnit.Xunit
 
 type ``haveLength tests``() =
@@ -37,6 +38,11 @@ type ``haveLength tests``() =
     [<Fact>]
     member _.``Array with 1 item should fail to not have Length 1``() =
         shouldFail(fun () -> [| 1 |] |> should not' (haveLength 1))
+
+    [<Fact>]
+    member _.``Array with 1 item should fail to have Length 2 and should throw EqualException``() =
+        (fun () -> [| 1 |] |> should haveLength 2)
+        |> should throw typeof<EqualException>
 
     // Seq
     [<Fact>]
