@@ -1,3 +1,6 @@
+### 5.5.0.0 - Oct 27, 2023
+- Update dependencies. - (https://github.com/fsprojects/FsUnit/pull/250)
+
 ### 5.4.0.0 - Jul 10, 2023
 - Add support for xunit 2.5.0. - (https://github.com/fsprojects/FsUnit/pull/240)
 - Update dependencies.
