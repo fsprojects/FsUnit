@@ -13,7 +13,7 @@ nuget System.Collections.NonGeneric
 
 // xUnit
 nuget NHamcrest
-nuget xunit
+nuget xunit ~> 2.5.3
 nuget xunit.runner.visualstudio
 
 // MsTest

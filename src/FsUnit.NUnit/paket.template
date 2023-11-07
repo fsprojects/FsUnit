@@ -27,5 +27,5 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    NUnit ~> LOCKEDVERSION
+    NUnit >= LOCKEDVERSION
     FSharp.Core >= LOCKEDVERSION
