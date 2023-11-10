@@ -1,3 +1,6 @@
+### 5.6.0.0 - Nov 10, 2023
+- Set `>= LOCKEDVERSION` in Nuget dependencies for broader compatibility. - (https://github.com/fsprojects/FsUnit/pull/254)
+
 ### 5.5.0.0 - Oct 27, 2023
 - Update dependencies. - (https://github.com/fsprojects/FsUnit/pull/250)
 
