@@ -27,6 +27,6 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    xunit ~> LOCKEDVERSION
-    NHamcrest ~> LOCKEDVERSION
+    xunit >= LOCKEDVERSION
+    NHamcrest >= LOCKEDVERSION
     FSharp.Core >= LOCKEDVERSION

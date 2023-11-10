@@ -27,6 +27,6 @@ files
     ../../src/install.ps1 ==> tools
 
 dependencies
-    MSTest.TestFramework ~> LOCKEDVERSION
-    NHamcrest ~> LOCKEDVERSION
+    MSTest.TestFramework >= LOCKEDVERSION
+    NHamcrest >= LOCKEDVERSION
     FSharp.Core >= LOCKEDVERSION
