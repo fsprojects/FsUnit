@@ -1,7 +1,9 @@
 namespace FsUnitTyped
 
+open System
 open System.Diagnostics
 open NUnit.Framework
+open NUnit.Framework.Legacy
 
 [<AutoOpen>]
 module TopLevelOperators =
@@ -20,7 +22,7 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(actual: 'a seq) =
-        Assert.IsEmpty(actual)
+        ClassicAssert.IsEmpty(actual)
 
     [<DebuggerStepThrough>]
     let shouldNotContain (expected: 'a) (actual: 'a seq) =
@@ -28,11 +30,11 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
-        Assert.Less(actual, expected)
+        ClassicAssert.Less(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (expected: 'a) (actual: 'a) =
-        Assert.Greater(actual, expected)
+        ClassicAssert.Greater(actual, expected)
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
