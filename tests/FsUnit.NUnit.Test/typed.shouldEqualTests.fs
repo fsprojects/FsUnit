@@ -23,6 +23,9 @@ type ``shouldEqual Tests``() =
     let equivalentImmutableArray = ImmutableArray.Create(1, 2, 3)
     let otherImmutableArray = ImmutableArray.Create(1, 2, 4)
 
+    let sformat (formattableString: string) (argument: string) = 
+        String.Format(formattableString, argument)
+
     [<Test>]
     member _.``value type should equal equivalent value``() =
         1 |> shouldEqual 1
@@ -87,7 +90,9 @@ type ``shouldEqual Tests``() =
             e.Message
             |> should
                 equal
-                (sprintf "  Expected: Error \"Bar\" or Error \"Bar\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+                (sformat
+                    "  Assert.That(, ){0}  Expected: Error \"Bar\" or Error \"Bar\"{0}  But was:  Error \"Foo\"{0}"
+                    Environment.NewLine)
 
     [<Test>]
     member _.``Error "Foo" should not equal Error "Bar"``() =
@@ -101,7 +106,9 @@ type ``shouldEqual Tests``() =
             e.Message
             |> should
                 equal
-                (sprintf "  Expected: not Error \"Foo\" or Error \"Foo\"%s  But was:  Error \"Foo\"%s" Environment.NewLine Environment.NewLine)
+                (sformat
+                    "  Assert.That(, ){0}  Expected: not Error \"Foo\" or Error \"Foo\"{0}  But was:  Error \"Foo\"{0}"
+                    Environment.NewLine)
 
     [<Test>]
     member this.``structural equality``() =

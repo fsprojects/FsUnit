@@ -1,6 +1,5 @@
 namespace FsUnitTyped
 
-open System
 open System.Diagnostics
 open NUnit.Framework
 open NUnit.Framework.Legacy
