@@ -4,7 +4,7 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be supersetOf tests``() =
+type ``beSupersetOfTests``() =
 
     [<TestMethod>]
     member _.``1 to 10 should be superset of 5, 3 and 8``() =
@@ -35,5 +35,5 @@ type ``be supersetOf tests``() =
         [ 1..10 ] |> should be (supersetOf [ 1..10 ])
 
     [<TestMethod>]
-    member _.``should fail on '1 to 10 should be superset of 1 to 11'``() =
+    member _.``should fail on 1 to 10 should be superset of 1 to 11``() =
         shouldFail(fun () -> [ 1..10 ] |> should be (supersetOf [ 1..11 ]))

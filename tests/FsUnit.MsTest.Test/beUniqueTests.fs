@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``have unique items list tests``() =
+type ``haveUniqueTests``() =
+
     [<TestMethod>]
     member _.``empty list should be considered as unique``() =
         [] |> should be unique

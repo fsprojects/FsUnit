@@ -5,7 +5,8 @@ open FsUnit.MsTest
 open System
 
 [<TestClass>]
-type ``Not a Number tests``() =
+type ``NotANumberTests``() =
+
     [<TestMethod>]
     member _.``Number 1 should be a number``() =
         1 |> should not' (be NaN)

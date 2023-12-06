@@ -4,7 +4,7 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be subsetOf tests``() =
+type ``beSubsetOfTests``() =
 
     [<TestMethod>]
     member _.``5, 3 and 8 should be subset of 1 to 10``() =
@@ -35,7 +35,7 @@ type ``be subsetOf tests``() =
         [ 1..10 ] |> should be (subsetOf [ 1..10 ])
 
     [<TestMethod>]
-    member _.``should fail on '1 to 11 should be subset of 1 to 10'``() =
+    member _.``shouldfailon1to11shouldbesubsetof1to10``() =
         shouldFail(fun () -> [ 1..11 ] |> should be (subsetOf [ 1..10 ]))
 
     [<TestMethod>]

@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be SameAs tests``() =
+type ``beSameAsTests``() =
+
     let anObj = obj()
     let otherObj = obj()
 

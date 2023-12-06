@@ -14,7 +14,8 @@ type NeverEqual() =
     override this.GetHashCode() = 1
 
 [<TestClass>]
-type ``equal Tests``() =
+type ``equalTests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -50,7 +51,7 @@ type ``equal Tests``() =
         { 1..10 } |> should equivalent { 10..-1..1 }
 
     [<TestMethod>]
-    member _.``collection should fail on '1 to 10 should not equivalent of 1 to 10'``() =
+    member _.``collectionshouldfailon1to10shouldnotequivalentof1to10``() =
         shouldFail(fun () -> [ 1..10 ] |> should not' (equivalent [ 1..10 ]))
 
     [<TestMethod>]
@@ -58,7 +59,7 @@ type ``equal Tests``() =
         [| 1; 4; 8 |] |> should equivalent [| 4; 8; 1 |]
 
     [<TestMethod>]
-    member _.``equivalent should fail on '[1..10] |> should equivalent []'``() =
+    member _.``equivalent should fail on [1..10] |> should equivalent []``() =
         shouldFail(fun () -> [ 1..10 ] |> should equivalent [])
 
     [<TestMethod>]

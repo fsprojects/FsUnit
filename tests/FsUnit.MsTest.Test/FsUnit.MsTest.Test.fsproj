@@ -33,9 +33,9 @@
     <Compile Include="matchListTests.fs" />
     <Compile Include="raiseTests.fs" />
     <Compile Include="shouldFailTests.fs" />
-    <Compile Include="shouldEndWithTests.fs" />
-    <Compile Include="shouldStartWithTests.fs" />
-    <Compile Include="shouldHaveSubstringTests.fs" />
+    <Compile Include="endWithTests.fs" />
+    <Compile Include="startWithTests.fs" />
+    <Compile Include="haveSubstringTests.fs" />
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="NaNTests.fs" />
     <Compile Include="beUniqueTests.fs" />

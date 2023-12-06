@@ -10,7 +10,7 @@ type ApplicationException(msg: string) =
     inherit Exception(msg)
 
 [<TestClass>]
-type ``raise tests``() =
+type ``raiseTests``() =
 
     [<TestMethod>]
     member _.``should pass when exception of expected type is thrown``() =

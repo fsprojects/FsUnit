@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``should be of exact type tests``() =
+type ``beOfExactTypeTests``() =
+
     [<TestMethod>]
     member _.``empty string should be of exact type String``() =
         "" |> should be ofExactType<string>

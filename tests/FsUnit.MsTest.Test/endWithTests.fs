@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``should endWith tests``() =
+type ``endWithTests``() =
+
     [<TestMethod>]
     member _.``empty string should end with ""``() =
         "" |> should endWith ""

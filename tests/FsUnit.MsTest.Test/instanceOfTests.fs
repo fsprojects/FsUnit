@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``Instance Of tests``() =
+type ``instanceOfTypeTests``() =
+
     [<TestMethod>]
     member _.``int should be instance of type Object``() =
         1 |> should be instanceOfType<obj>

@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be True tests``() =
+type ``beTrueTests``() =
+
     [<TestMethod>]
     member _.``true should be True``() =
         true |> should be True

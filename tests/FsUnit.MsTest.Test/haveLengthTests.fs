@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``haveLength tests``() =
+type ``haveLengthTests``() =
+
     // F# List
     [<TestMethod>]
     member _.``List with 1 item should have Length 1``() =

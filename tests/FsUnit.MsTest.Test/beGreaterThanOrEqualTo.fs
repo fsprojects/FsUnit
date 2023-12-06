@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be greaterThanOrEqualTo tests``() =
+type ``beGreaterThanOrEqualToTests``() =
+
     [<TestMethod>]
     member _.``11 should be greater than 10``() =
         11 |> should be (greaterThanOrEqualTo 10)

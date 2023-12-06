@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``contain tests``() =
+type ``containTests``() =
+
     [<TestMethod>]
     member _.``List with item should contain item``() =
         [ 1 ] |> should contain 1

@@ -5,7 +5,8 @@ open FsUnit.MsTest
 open System
 
 [<TestClass>]
-type ``shouldFail tests``() =
+type ``shouldFailTests``() =
+
     [<TestMethod>]
     member _.``empty List should fail to contain item``() =
         shouldFail(fun () -> [] |> should contain 1)
