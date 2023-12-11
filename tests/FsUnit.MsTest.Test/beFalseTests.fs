@@ -20,4 +20,4 @@ type ``beFalseTests``() =
 
     [<TestMethod>]
     member _.``false should fail to not be False``() =
-        false |> should be False
+        shouldFail(fun () -> false |> should not' (be False))

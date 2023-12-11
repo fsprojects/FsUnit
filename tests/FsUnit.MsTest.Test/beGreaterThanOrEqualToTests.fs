@@ -11,7 +11,7 @@ type ``beGreaterThanOrEqualToTests``() =
         11 |> should be (greaterThanOrEqualTo 10)
 
     [<TestMethod>]
-    member _.``11[dot]1 should be greater than 11[dot]0``() =
+    member _.``11.1 should be greater than 11.0``() =
         11.1 |> should be (greaterThanOrEqualTo 11.0)
 
     [<TestMethod>]
@@ -19,11 +19,11 @@ type ``beGreaterThanOrEqualToTests``() =
         9 |> should not' (be greaterThanOrEqualTo 10)
 
     [<TestMethod>]
-    member _.``9[dot]1 should not be greater than 9[dot]2``() =
+    member _.``9.1 should not be greater than 9.2``() =
         9.1 |> should not' (be greaterThanOrEqualTo 9.2)
 
     [<TestMethod>]
-    member _.``9[dot]2 should be equal to 9[dot]2``() =
+    member _.``9.2 should be equal to 9.2``() =
         9.2 |> should be (greaterThanOrEqualTo 9.2)
 
     [<TestMethod>]

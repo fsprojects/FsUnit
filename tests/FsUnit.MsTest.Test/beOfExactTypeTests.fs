@@ -11,7 +11,7 @@ type ``beOfExactTypeTests``() =
         "" |> should be ofExactType<string>
 
     [<TestMethod>]
-    member _.``0[dot]0 should be of exact type float``() =
+    member _.``0.0 should be of exact type float``() =
         0.0 |> should be ofExactType<float>
 
     [<TestMethod>]

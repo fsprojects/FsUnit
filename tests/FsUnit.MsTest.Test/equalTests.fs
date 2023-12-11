@@ -51,7 +51,7 @@ type ``equalTests``() =
         { 1..10 } |> should equivalent { 10..-1..1 }
 
     [<TestMethod>]
-    member _.``collectionshouldfailon1to10shouldnotequivalentof1to10``() =
+    member _.``collection should fail on "[ 1..10 ] should not equivalent of [ 1..10 ]"``() =
         shouldFail(fun () -> [ 1..10 ] |> should not' (equivalent [ 1..10 ]))
 
     [<TestMethod>]
@@ -59,7 +59,7 @@ type ``equalTests``() =
         [| 1; 4; 8 |] |> should equivalent [| 4; 8; 1 |]
 
     [<TestMethod>]
-    member _.``equivalent should fail on [1..10] |> should equivalent []``() =
+    member _.``equivalent should fail on "[1..10] |> should equivalent []"``() =
         shouldFail(fun () -> [ 1..10 ] |> should equivalent [])
 
     [<TestMethod>]

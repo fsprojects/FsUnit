@@ -5,14 +5,14 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ofCase.fs" />
+    <Compile Include="ofCaseTests.fs" />
     <Compile Include="beAscendingTests.fs" />
-    <Compile Include="beChoice.fs" />
+    <Compile Include="beChoiceTests.fs" />
     <Compile Include="beDescendingTests.fs" />
     <Compile Include="beEmptyStringTests.fs" />
     <Compile Include="beEmptyTests.fs" />
     <Compile Include="beFalseTests.fs" />
-    <Compile Include="beGreaterThanOrEqualTo.fs" />
+    <Compile Include="beGreaterThanOrEqualToTests.fs" />
     <Compile Include="beGreaterThanTests.fs" />
     <Compile Include="beInRangeTests.fs" />
     <Compile Include="beLessThanOrEqualToTests.fs" />
