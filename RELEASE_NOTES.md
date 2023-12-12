@@ -1,3 +1,6 @@
+### 6.0.0.0-alpha1 - Dec 12, 2023
+- Migrate to NUnit 4.
+
 ### 5.6.0.0 - Nov 10, 2023
 - Set `>= LOCKEDVERSION` in Nuget dependencies for broader compatibility. - (https://github.com/fsprojects/FsUnit/pull/254)
 

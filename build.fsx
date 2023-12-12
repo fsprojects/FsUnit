@@ -64,6 +64,7 @@ let cloneUrl = "git@github.com:fsprojects/FsUnit.git"
 
 // Read additional information from the release notes document
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
+let version = release.AssemblyVersion
 
 // Helper active pattern for project types
 let (|Fsproj|Csproj|Vbproj|) (projFileName: string) =
@@ -79,8 +80,8 @@ Target.create "AssemblyInfo" (fun _ ->
         [ AssemblyInfo.Title(projectName)
           AssemblyInfo.Product project
           AssemblyInfo.Description summary
-          AssemblyInfo.Version release.AssemblyVersion
-          AssemblyInfo.FileVersion release.AssemblyVersion ]
+          AssemblyInfo.Version version
+          AssemblyInfo.FileVersion version ]
 
     let getProjectDetails (projectPath: string) =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
@@ -192,7 +193,7 @@ Target.create "NuGet" (fun _ ->
         { p with
             ToolType = ToolType.CreateLocalTool()
             OutputPath = "bin"
-            Version = release.AssemblyVersion
+            Version = version
             ReleaseNotes = String.toLines release.Notes }))
 
 Target.create "PublishNuget" (fun _ ->

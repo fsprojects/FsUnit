@@ -1,12 +1,12 @@
 source https://api.nuget.org/v3/index.json
-framework: net6.0, netstandard2.0, net462
+framework: net6.0, netstandard2.0
 
 nuget FSharp.Core ~> 5.0.0
 
 nuget Microsoft.NET.Test.Sdk
 
 // NUnit
-nuget NUnit
+nuget NUnit ~> 4.0.0
 nuget NUnit3TestAdapter
 nuget System.Collections.Immutable
 nuget System.Collections.NonGeneric
