@@ -6,7 +6,7 @@ nuget FSharp.Core ~> 5.0.0
 nuget Microsoft.NET.Test.Sdk
 
 // NUnit
-nuget NUnit ~> 3.13.3
+nuget NUnit ~> 4.0.0
 nuget NUnit3TestAdapter
 nuget System.Collections.Immutable
 nuget System.Collections.NonGeneric

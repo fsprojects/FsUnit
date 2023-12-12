@@ -111,7 +111,9 @@ type ``equal Tests``() =
         |> Assert.Throws<AssertionException>
         |> fun e ->
             e.Message
-            |> should equal (sprintf "  Expected: [Ok \"no\"] or [Ok \"no\"]%s  But was:  [Ok \"ok\"]%s" Environment.NewLine Environment.NewLine)
+            |> should
+                equal
+                (String.Format("  Assert.That(, ){0}  Expected: [Ok \"no\"] or [Ok \"no\"]{0}  But was:  [Ok \"ok\"]{0}", Environment.NewLine))
 
     [<Test>]
     member _.``structural value type should equal equivalent value``() =

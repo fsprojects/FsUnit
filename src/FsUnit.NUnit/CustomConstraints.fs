@@ -9,9 +9,10 @@ module CustomConstraints =
 
         member this.Expected = expected
 
-        override this.ApplyTo<'TActual>(actual: 'TActual) : ConstraintResult =
-            do this.Description <- defaultArg (Common.caseName this.Expected) "<The method only works on union types!>"
+        override this.Description =
+            defaultArg (Common.caseName this.Expected) "<The method only works on union types!>"
 
+        override this.ApplyTo<'TActual>(actual: 'TActual) : ConstraintResult =
             if Common.isUnionCase actual then
                 let result = Common.isOfCase this.Expected actual
                 ConstraintResult(this, actual, result)
