@@ -3,10 +3,9 @@ namespace FsUnit.Test
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
-(* Thanks to erdoll for this suggestion: https://fsunit.codeplex.com/discussions/269320 *)
-
 [<TestClass>]
-type ``equalWithin tests``() =
+type ``equalWithinTests``() =
+
     [<TestMethod>]
     member _.``should equal within tolerance``() =
         10.1 |> should (equalWithin 0.1) 10.11

@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be EmptyString tests``() =
+type ``beEmptyStringTests``() =
+
     [<TestMethod>]
     member _.``empty string should be EmptyString``() =
         "" |> should be NullOrEmptyString

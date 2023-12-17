@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``match List tests``() =
+type ``matchListTests``() =
+
     [<TestMethod>]
     member _.``Empty list should match itself``() =
         ([]: List<int>) |> should matchList ([]: List<int>)
@@ -30,11 +31,11 @@ type ``match List tests``() =
         [ 10; 12; 25 ] |> should matchList [ 10; 12; 25 ]
 
     [<TestMethod>]
-    member _.``Three element list should match it's permutation``() =
+    member _.``Three element list should match its permutation``() =
         [ 25; 12; 18 ] |> should matchList [ 18; 12; 25 ]
 
     [<TestMethod>]
-    member _.``Lists with different lengths doesn't match``() =
+    member _.``Lists with different lengths doesnt match``() =
         [ "something", "is", "missed" ]
         |> should not' (matchList [ "something", "is", "missed", "here" ])
 

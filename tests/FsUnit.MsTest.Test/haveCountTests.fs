@@ -4,11 +4,10 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``have Count tests``() =
+type ``haveCountTests``() =
+
     let emptyList = System.Collections.Generic.List<int>()
-
     let singleItemList = System.Collections.Generic.List<int>()
-
     do singleItemList.Add(1)
 
     // Collection

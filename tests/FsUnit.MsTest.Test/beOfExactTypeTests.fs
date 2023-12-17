@@ -4,13 +4,14 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``should be of exact type tests``() =
+type ``beOfExactTypeTests``() =
+
     [<TestMethod>]
     member _.``empty string should be of exact type String``() =
         "" |> should be ofExactType<string>
 
     [<TestMethod>]
-    member _.``0[dot]0 should be of exact type float``() =
+    member _.``0.0 should be of exact type float``() =
         0.0 |> should be ofExactType<float>
 
     [<TestMethod>]

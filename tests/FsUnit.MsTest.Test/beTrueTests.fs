@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be True tests``() =
+type ``beTrueTests``() =
+
     [<TestMethod>]
     member _.``true should be True``() =
         true |> should be True
@@ -18,5 +19,5 @@ type ``be True tests``() =
         false |> should not' (be True)
 
     [<TestMethod>]
-    member _.``true should fail to not be True``() =
-        true |> should be True
+    member _.``false should fail to not be False``() =
+        shouldFail(fun () -> true |> should not' (be True))

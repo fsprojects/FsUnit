@@ -4,7 +4,7 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``equalSeq Tests``() =
+type ``equalSeqTests``() =
 
     [<TestMethod>]
     member _.``sequence should equal sequence``() =

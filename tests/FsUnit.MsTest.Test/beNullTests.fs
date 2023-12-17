@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be Null tests``() =
+type ``beNullTests``() =
+
     [<TestMethod>]
     member _.``null should be Null``() =
         null |> should be Null

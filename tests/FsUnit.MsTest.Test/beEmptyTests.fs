@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be Empty tests``() =
+type ``beEmptyTests``() =
+
     [<TestMethod>]
     member _.``empty List should be Empty``() =
         [] |> should be Empty

@@ -9,7 +9,7 @@ type TestUnion =
     | Third of string
 
 [<TestClass>]
-type ``ofCase tests``() =
+type ``ofCaseTests``() =
 
     [<TestMethod>]
     member _.``Given a (parameterless) union case of matching case returns true``() =

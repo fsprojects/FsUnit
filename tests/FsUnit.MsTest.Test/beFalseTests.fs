@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be False tests``() =
+type ``beFalseTests``() =
+
     [<TestMethod>]
     member _.``false should be False``() =
         false |> should be False
@@ -19,4 +20,4 @@ type ``be False tests``() =
 
     [<TestMethod>]
     member _.``false should fail to not be False``() =
-        false |> should be False
+        shouldFail(fun () -> false |> should not' (be False))

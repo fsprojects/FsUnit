@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be inRange tests``() =
+type ``beInRangeTests``() =
+
     [<TestMethod>]
     member _.``25 should be in range from 5 to 30``() =
         25 |> should be (inRange 5 30)

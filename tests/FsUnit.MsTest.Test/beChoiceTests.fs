@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be choice tests``() =
+type ``beChoiceTests``() =
+
     [<TestMethod>]
     member _.``Choice1Of2 should be the first choice``() =
         Choice<int, int>.Choice1Of2(1) |> should be (choice 1)

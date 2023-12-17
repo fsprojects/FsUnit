@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``be ascending tests``() =
+type ``beAscendingTests``() =
+
     [<TestMethod>]
     member _.``Empty list should be ascending``() =
         [] |> should be ascending

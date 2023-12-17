@@ -4,7 +4,8 @@ open Microsoft.VisualStudio.TestTools.UnitTesting
 open FsUnit.MsTest
 
 [<TestClass>]
-type ``should startWith tests``() =
+type ``startWithTests``() =
+
     [<TestMethod>]
     member _.``empty string should start with ""``() =
         "" |> should startWith ""
