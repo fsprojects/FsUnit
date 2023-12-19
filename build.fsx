@@ -64,7 +64,7 @@ let cloneUrl = "git@github.com:fsprojects/FsUnit.git"
 
 // Read additional information from the release notes document
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
-let version = $"{release.AssemblyVersion}-alpha2"
+let version = release.AssemblyVersion
 
 // Helper active pattern for project types
 let (|Fsproj|Csproj|Vbproj|) (projFileName: string) =
@@ -72,7 +72,7 @@ let (|Fsproj|Csproj|Vbproj|) (projFileName: string) =
     | f when f.EndsWith("fsproj") -> Fsproj
     | f when f.EndsWith("csproj") -> Csproj
     | f when f.EndsWith("vbproj") -> Vbproj
-    | _ -> failwith (sprintf "Project file %s not supported. Unknown project type." projFileName)
+    | _ -> failwith $"Project file %s{projFileName} not supported. Unknown project type."
 
 // Generate assembly info files with the right version & up-to-date information
 Target.create "AssemblyInfo" (fun _ ->
@@ -141,7 +141,7 @@ Target.create "CheckFormat" (fun _ ->
     elif result.ExitCode = 99 then
         failwith "Some files need formatting, check output for more info"
     else
-        Trace.logf "Errors while formatting: %A" result.Errors)
+        Trace.logf $"Errors while formatting: %A{result.Errors}")
 
 Target.create "Format" (fun _ ->
     let result =
@@ -151,7 +151,7 @@ Target.create "Format" (fun _ ->
         |> DotNet.exec id "fantomas"
 
     if not result.OK then
-        printfn "Errors while formatting all files: %A" result.Messages)
+        printfn $"Errors while formatting all files: %A{result.Messages}")
 
 // --------------------------------------------------------------------------------------
 // Build library & test project
@@ -169,19 +169,19 @@ Target.create "NUnit" (fun _ ->
     let result = DotNet.exec id "test" "tests/FsUnit.NUnit.Test/"
 
     if not result.OK then
-        failwithf "NUnit test failed: %A" result.Errors)
+        failwithf $"NUnit test failed: %A{result.Errors}")
 
 Target.create "xUnit" (fun _ -> 
     let result = DotNet.exec id "test" "tests/FsUnit.Xunit.Test/"
 
     if not result.OK then
-        failwithf "xUnit test failed: %A" result.Errors)
+        failwithf $"xUnit test failed: %A{result.Errors}")
 
 Target.create "MsTest" (fun _ -> 
     let result = DotNet.exec id "test" "tests/FsUnit.MsTest.Test/"
 
     if not result.OK then
-        failwithf "MsTest test failed: %A" result.Errors)
+        failwithf $"MsTest test failed: %A{result.Errors}")
 
 Target.create "RunTests" ignore
 
