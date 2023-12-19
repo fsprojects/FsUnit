@@ -14,9 +14,9 @@ let inline private assertThat(actual, matcher: IMatcher<'a>) =
             raise(AssertFailedException($"%A{description} was %A{value}", null))
 
         match box actual with
-        | :? (unit -> unit) as actualfunc ->
+        | :? (unit -> unit) as actualFunc ->
             (try
-                actualfunc()
+                actualFunc()
                 String.Empty
              with ex ->
                  ex.ToString())

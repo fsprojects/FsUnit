@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be NullOrEmptyString tests``() =
+
     [<Fact>]
     member _.``empty string should be NullOrEmptyString``() =
         "" |> should be NullOrEmptyString

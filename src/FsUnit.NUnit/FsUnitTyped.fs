@@ -2,7 +2,6 @@ namespace FsUnitTyped
 
 open System.Diagnostics
 open NUnit.Framework
-open NUnit.Framework.Legacy
 
 [<AutoOpen>]
 module TopLevelOperators =
@@ -17,23 +16,23 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContain (expected: 'a) (actual: 'a seq) =
-        CollectionAssert.Contains(actual, expected)
+        Assert.That(actual, Does.Contain(expected))
 
     [<DebuggerStepThrough>]
     let shouldBeEmpty(actual: 'a seq) =
-        ClassicAssert.IsEmpty(actual)
+        Assert.That(actual, Is.Empty)
 
     [<DebuggerStepThrough>]
     let shouldNotContain (expected: 'a) (actual: 'a seq) =
-        CollectionAssert.DoesNotContain(actual, expected, $"Seq %A{actual} should not contain %A{expected}")
+        Assert.That(actual, Does.Not.Contain(expected), $"Seq %A{actual} should not contain %A{expected}")
 
     [<DebuggerStepThrough>]
     let shouldBeSmallerThan (expected: 'a) (actual: 'a) =
-        ClassicAssert.Less(actual, expected)
+        Assert.That(actual, Is.LessThan(expected))
 
     [<DebuggerStepThrough>]
     let shouldBeGreaterThan (expected: 'a) (actual: 'a) =
-        ClassicAssert.Greater(actual, expected)
+        Assert.That(actual, Is.GreaterThan(expected))
 
     [<DebuggerStepThrough>]
     let shouldFail<'exn when 'exn :> exn>(f: unit -> unit) =
@@ -41,11 +40,11 @@ module TopLevelOperators =
 
     [<DebuggerStepThrough>]
     let shouldContainText (expected: string) (actual: string) =
-        StringAssert.Contains(expected, actual)
+        Assert.That(actual, Does.Contain(expected))
 
     [<DebuggerStepThrough>]
     let shouldNotContainText (expected: string) (actual: string) =
-        StringAssert.DoesNotContain(expected, actual)
+        Assert.That(actual, Does.Not.Contain(expected))
 
     [<DebuggerStepThrough>]
     let shouldHaveLength (expected: int) actual =

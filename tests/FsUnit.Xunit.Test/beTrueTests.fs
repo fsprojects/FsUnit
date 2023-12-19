@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be True tests``() =
+
     [<Fact>]
     member _.``true should be True``() =
         true |> should be True

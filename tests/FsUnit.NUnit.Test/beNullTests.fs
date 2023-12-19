@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be Null tests``() =
+
     [<Test>]
     member _.``null should be Null``() =
         null |> should be Null

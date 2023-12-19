@@ -9,7 +9,8 @@ type TestUnion =
     | Second of int
     | Third of string
 
-type ``ofCase tests``() =
+type ``be ofCase tests``() =
+
     [<Fact>]
     let ``Given a (parameterless) union case of matching case returns true``() =
         First |> should be (ofCase <@ First @>)

@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``have unique items list tests``() =
+type ``be unique tests``() =
+
     [<Fact>]
     member _.``empty list should be considered as unique``() =
         [] |> should be unique

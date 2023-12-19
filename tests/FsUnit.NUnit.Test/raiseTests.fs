@@ -11,6 +11,7 @@ type ApplicationException(msg: string) =
 
 [<TestFixture>]
 type ``raise tests``() =
+
     [<Test>]
     member _.``should pass when exception of expected type is thrown``() =
         (fun () -> raise TestException) |> should throw typeof<TestException>

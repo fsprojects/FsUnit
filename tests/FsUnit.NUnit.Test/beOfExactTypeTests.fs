@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``should be of exact type tests``() =
+type ``be ofExactType tests``() =
+
     [<Test>]
     member _.``empty string should be of exact type String``() =
         "" |> should be ofExactType<string>

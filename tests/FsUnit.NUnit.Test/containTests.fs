@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``contain tests``() =
+
     [<Test>]
     member _.``List with item should contain item``() =
         [ 1 ] |> should contain 1

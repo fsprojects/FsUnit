@@ -1,17 +1,19 @@
 namespace FsUnit.Test
 
-open Xunit
-open FsUnit.Xunit
+open NUnit.Framework
+open FsUnit
 
-type ``should endWith tests``() =
-    [<Fact>]
+[<TestFixture>]
+type ``endWith tests``() =
+
+    [<Test>]
     member _.``empty string should end with ""``() =
         "" |> should endWith ""
 
-    [<Fact>]
+    [<Test>]
     member _.``ships should end with ps``() =
         "ships" |> should endWith "ps"
 
-    [<Fact>]
+    [<Test>]
     member _.``ships should not end with ss``() =
         "ships" |> should not' (endWith "ss")

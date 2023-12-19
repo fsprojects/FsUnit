@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``Instance Of tests``() =
+type ``instanceOfType tests``() =
+
     [<Fact>]
     member _.``int should be instance of type Object``() =
         1 |> should be instanceOfType<obj>

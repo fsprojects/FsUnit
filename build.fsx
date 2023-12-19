@@ -64,7 +64,7 @@ let cloneUrl = "git@github.com:fsprojects/FsUnit.git"
 
 // Read additional information from the release notes document
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
-let version = release.AssemblyVersion
+let version = $"{release.AssemblyVersion}-alpha2"
 
 // Helper active pattern for project types
 let (|Fsproj|Csproj|Vbproj|) (projFileName: string) =

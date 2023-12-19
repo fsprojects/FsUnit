@@ -18,6 +18,7 @@ type NeverEqual() =
 
 [<TestFixture>]
 type ``areEqual Tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -66,6 +67,7 @@ type ``areEqual Tests``() =
 
 [<TestFixture>]
 type ``areNotEqual Tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -105,6 +107,7 @@ type ``areNotEqual Tests``() =
 
 [<TestFixture>]
 type ``areSame tests``() =
+
     let anObj = obj()
     let otherObj = obj()
 
@@ -118,6 +121,7 @@ type ``areSame tests``() =
 
 [<TestFixture>]
 type ``areNotSame tests``() =
+
     let anObj = obj()
     let otherObj = obj()
 
@@ -131,6 +135,7 @@ type ``areNotSame tests``() =
 
 [<TestFixture>]
 type ``contains tests``() =
+
     [<Test>]
     member _.``List with item should contain item``() =
         Assert.Contains(1, [ 1 ])
@@ -157,6 +162,7 @@ type ``contains tests``() =
 
 [<TestFixture>]
 type ``greater tests``() =
+
     [<Test>]
     member _.``11 should be greater than 10``() =
         Assert.Greater(11, 10)
@@ -179,6 +185,7 @@ type ``greater tests``() =
 
 [<TestFixture>]
 type ``greaterOrEqual tests``() =
+
     [<Test>]
     member _.``11 should be greater than 10``() =
         Assert.GreaterOrEqual(11, 10)
@@ -205,6 +212,7 @@ type ``greaterOrEqual tests``() =
 
 [<TestFixture>]
 type ``less tests``() =
+
     [<Test>]
     member _.``10 should be less than 11``() =
         Assert.Less(10, 11)
@@ -227,6 +235,7 @@ type ``less tests``() =
 
 [<TestFixture>]
 type ``lessOrEqual tests``() =
+
     [<Test>]
     member _.``10 should be less than 11``() =
         Assert.LessOrEqual(10, 11)
@@ -249,6 +258,7 @@ type ``lessOrEqual tests``() =
 
 [<TestFixture>]
 type ``null tests``() =
+
     [<Test>]
     member _.``null should be Null``() =
         Assert.Null(null)
@@ -259,6 +269,7 @@ type ``null tests``() =
 
 [<TestFixture>]
 type ``notNull tests``() =
+
     [<Test>]
     member _.``non-null should not be Null``() =
         Assert.NotNull("something")

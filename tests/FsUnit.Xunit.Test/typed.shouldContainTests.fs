@@ -4,6 +4,7 @@ open Xunit
 open FsUnitTyped
 
 type ``shouldContain tests``() =
+
     [<Fact>]
     member _.``List with item should contain item``() =
         [ 1 ] |> shouldContain 1

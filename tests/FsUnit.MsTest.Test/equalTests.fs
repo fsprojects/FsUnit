@@ -99,9 +99,13 @@ type ``equalTests``() =
         None |> should equal None
 
     [<TestMethod>]
+    member _.``None should equal null``() =
+        None |> should equal null
+
+    [<TestMethod>]
     member _.``Ok "foo" should fail on equal Ok "bar" but message should be equal``() =
         (fun () -> Ok "foo" |> should equal (Ok "bar"))
-        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> Assert.ThrowsException<AssertFailedException>
         |> fun e -> e.Message
         |> should equal ("Equals Ok \"bar\" was Ok \"foo\"")
 

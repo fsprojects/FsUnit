@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``contain tests``() =
+
     [<Fact>]
     member _.``List with item should contain item``() =
         [ 1 ] |> should contain 1

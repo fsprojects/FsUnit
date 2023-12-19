@@ -6,7 +6,7 @@ open Xunit.Sdk
 open NHamcrest
 open NHamcrest.Core
 
-type Xunit.Assert with
+type Assert with
 
     static member That<'a>(actual, matcher: IMatcher<'a>) =
         if not(matcher.Matches(actual)) then
@@ -17,9 +17,9 @@ type Xunit.Assert with
                 raise(EqualException.ForMismatchedValues(description.ToString(), value))
 
             match box actual with
-            | :? (unit -> unit) as actualfunc ->
+            | :? (unit -> unit) as actualFunc ->
                 (try
-                    actualfunc()
+                    actualFunc()
                     String.Empty
                  with ex ->
                      ex.ToString())

@@ -5,6 +5,7 @@ open FsUnitTyped
 
 [<TestFixture>]
 type ``haveLength tests``() =
+
     // F# List
     [<Test>]
     member _.``List with 1 item should have Length 1``() =

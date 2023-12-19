@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be descending tests``() =
+
     [<Test>]
     member _.``Empty list should be descending``() =
         [] |> should be descending

@@ -15,7 +15,8 @@ type NeverEqual() =
     override this.Equals(other) = false
     override this.GetHashCode() = 1
 
-type ``equal Tests``() =
+type ``equal tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -97,6 +98,10 @@ type ``equal Tests``() =
     [<Fact>]
     member _.``None should equal None``() =
         None |> should equal None
+
+    [<Fact>]
+    member _.``None should equal null``() =
+        None |> should equal null
 
     [<Fact>]
     member _.``structural value type should equal equivalent value``() =

@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``should haveSubstring tests``() =
+type ``haveSubstring tests``() =
+
     [<Fact>]
     member _.``empty string should contain ""``() =
         "" |> should haveSubstring ""

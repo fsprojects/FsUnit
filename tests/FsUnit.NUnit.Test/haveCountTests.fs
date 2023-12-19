@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``have Count tests``() =
+type ``haveCount tests``() =
+
     let emptyList = System.Collections.Generic.List<int>()
 
     let singleItemList = System.Collections.Generic.List<int>()

@@ -2,7 +2,6 @@ namespace FsUnit.Typed.Test
 
 open System.Collections.Immutable
 
-open FsUnit.Xunit
 open Xunit
 open Xunit.Sdk
 open FsUnitTyped
@@ -17,6 +16,7 @@ type NeverEqual() =
     override _.GetHashCode() = 1
 
 type ``shouldEqual Tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -72,6 +72,14 @@ type ``shouldEqual Tests``() =
         shouldFail(fun () -> anObj |> shouldNotEqual(box(AlwaysEqual())))
 
     [<Fact>]
+    member _.``null should be null``() =
+        null |> shouldEqual null
+
+    [<Fact>]
+    member _.``null should fail to not be null``() =
+        shouldFail(fun () -> null |> shouldNotEqual null)
+
+    [<Fact>]
     member _.``None should equal None``() =
         None |> shouldEqual None
 
@@ -85,12 +93,8 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<EqualException>
         |> fun e ->
             e.Message
-            |> shouldEqual(
-                sprintf
-                    "Assert.Equal() Failure: Values differ%sExpected: Equals Error \"Bar\"%sActual:   Error \"Foo\""
-                    Environment.NewLine
-                    Environment.NewLine
-            )
+            |> shouldEqual
+                $"Assert.Equal() Failure: Values differ%s{Environment.NewLine}Expected: Equals Error \"Bar\"%s{Environment.NewLine}Actual:   Error \"Foo\""
 
     [<Fact>]
     member _.``Error "Foo" should not equal Error "Bar"``() =
@@ -102,12 +106,8 @@ type ``shouldEqual Tests``() =
         |> Assert.Throws<EqualException>
         |> fun e ->
             e.Message
-            |> shouldEqual(
-                sprintf
-                    "Assert.Equal() Failure: Values differ%sExpected: not Equals Error \"Foo\"%sActual:   Error \"Foo\""
-                    Environment.NewLine
-                    Environment.NewLine
-            )
+            |> shouldEqual
+                $"Assert.Equal() Failure: Values differ%s{Environment.NewLine}Expected: not Equals Error \"Foo\"%s{Environment.NewLine}Actual:   Error \"Foo\""
 
     [<Fact>]
     member this.``structural equality``() =

@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be inRange tests``() =
+
     [<Test>]
     member _.``25 should be in range from 5 to 30``() =
         25 |> should be (inRange 5 30)

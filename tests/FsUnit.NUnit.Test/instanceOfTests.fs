@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``Instance Of tests``() =
+type ``instanceOfType tests``() =
+
     [<Test>]
     member _.``int should be instance of type Object``() =
         1 |> should be instanceOfType<obj>

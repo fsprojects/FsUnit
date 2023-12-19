@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be True tests``() =
+
     [<Test>]
     member _.``true should be True``() =
         true |> should be True

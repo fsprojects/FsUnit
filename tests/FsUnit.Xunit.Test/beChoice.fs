@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be choice tests``() =
+
     [<Fact>]
     member _.``Choice1Of2 should be the first choice``() =
         Choice<int, int>.Choice1Of2(1) |> should be (choice 1)

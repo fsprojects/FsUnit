@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be Null tests``() =
+
     [<Fact>]
     member _.``null should be Null``() =
         null |> should be Null

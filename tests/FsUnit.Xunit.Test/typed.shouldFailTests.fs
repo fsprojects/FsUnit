@@ -4,6 +4,7 @@ open Xunit
 open FsUnitTyped
 
 type ``shouldFail tests``() =
+
     [<Fact>]
     member _.``empty List should fail to contain item``() =
         shouldFail(fun () -> [] |> shouldContain 1)

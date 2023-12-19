@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``match List tests``() =
+type ``matchList tests``() =
+
     [<Fact>]
     member _.``Empty list should match itself``() =
         ([]: List<int>) |> should matchList ([]: List<int>)

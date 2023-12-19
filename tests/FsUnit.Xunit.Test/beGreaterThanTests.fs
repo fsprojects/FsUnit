@@ -5,6 +5,7 @@ open FsUnit.Xunit
 open Xunit.Sdk
 
 type ``be greaterThan tests``() =
+
     [<Fact>]
     member _.``11 should be greater than 10``() =
         11 |> should be (greaterThan 10)

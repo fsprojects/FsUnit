@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be descending tests``() =
+
     [<Fact>]
     member _.``Empty list should be descending``() =
         [] |> should be descending
