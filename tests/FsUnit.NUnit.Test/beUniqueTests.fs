@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``have unique items list tests``() =
+type ``be unique tests``() =
+
     [<Test>]
     member _.``empty list should be considered as unique``() =
         [] |> should be unique

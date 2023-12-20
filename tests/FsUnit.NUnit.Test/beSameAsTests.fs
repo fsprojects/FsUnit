@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``be SameAs tests``() =
+type ``be sameAs tests``() =
+
     let anObj = obj()
     let otherObj = obj()
 

@@ -3,9 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-(* Thanks to erdoll for this suggestion: https://fsunit.codeplex.com/discussions/269320 *)
-
 type ``equalWithin tests``() =
+
     [<Fact>]
     member _.``should equal within tolerance``() =
         10.1 |> should (equalWithin 0.1) 10.11

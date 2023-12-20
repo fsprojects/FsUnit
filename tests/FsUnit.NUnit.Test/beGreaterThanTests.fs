@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be greaterThan tests``() =
+
     [<Test>]
     member _.``11 should be greater than 10``() =
         11 |> should be (greaterThan 10)

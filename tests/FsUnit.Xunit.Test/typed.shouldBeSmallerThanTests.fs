@@ -6,6 +6,7 @@ open Xunit.Sdk
 open FsUnitTyped
 
 type ``shouldBeSmallerThan tests``() =
+
     [<Fact>]
     member _.``10 should be less than 11``() =
         10 |> shouldBeSmallerThan 11

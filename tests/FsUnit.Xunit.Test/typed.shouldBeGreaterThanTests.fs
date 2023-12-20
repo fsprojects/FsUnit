@@ -4,6 +4,7 @@ open Xunit
 open FsUnitTyped
 
 type ``shouldBeGreaterThan tests``() =
+
     [<Fact>]
     member _.``11 should be greater than 10``() =
         11 |> shouldBeGreaterThan 10

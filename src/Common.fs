@@ -26,7 +26,7 @@ module Common =
         | _ -> None
 
     /// <summary>
-    /// Checks wether the given value is of the same case of a union type as the
+    /// Checks whether the given value is of the same case of a union type as the
     /// case defined by the given expression.
     /// </summary>
     /// <exception cref="System.Exception">If the expression is not an union case or does not result in an union case.</exception>
@@ -37,7 +37,7 @@ module Common =
         | Lambda(_, expr)
         | Let(_, _, expr) -> isOfCase expr
         | NewUnionCase(case, _) ->
-            // Returns a function that check wether the tag of the argument matches
+            // Returns a function that check whether the tag of the argument matches
             // the tag of the union given in the expression.
             let readTag = FSharpValue.PreComputeUnionTagReader case.DeclaringType
 

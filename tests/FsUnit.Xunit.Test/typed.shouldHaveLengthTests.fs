@@ -3,7 +3,8 @@ namespace FsUnit.Typed.Test
 open Xunit
 open FsUnitTyped
 
-type ``haveLength tests``() =
+type ``shouldHaveLength tests``() =
+
     // F# List
     [<Fact>]
     member _.``List with 1 item should have Length 1``() =

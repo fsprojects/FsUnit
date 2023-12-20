@@ -40,8 +40,8 @@ let equalWithin (tolerance: obj) (expected: obj) =
     let matches(actual: obj) =
         let parseValue(v: string) =
             match Double.TryParse(v, NumberStyles.Any, CultureInfo("en-US")) with
-            | (true, x) -> Some(x)
-            | (false, _) -> None
+            | true, x -> Some(x)
+            | false, _ -> None
 
         let actual = string actual |> parseValue
         let expect = string expected |> parseValue
@@ -185,10 +185,10 @@ let instanceOfType<'a> =
 let contain expected =
     let matches(actual: obj) =
         match actual with
-        | :? (list<_>) as l -> l |> List.exists(fun i -> i = expected)
-        | :? (array<_>) as a -> a |> Array.exists(fun i -> i = expected)
-        | :? (seq<_>) as s -> s |> Seq.exists(fun i -> i = expected)
-        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = expected)
+        | :? list<_> as l -> l |> List.exists((=) expected)
+        | :? array<_> as a -> a |> Array.exists((=) expected)
+        | :? seq<_> as s -> s |> Seq.exists((=) expected)
+        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists((=) expected)
         | _ -> false
 
     CustomMatcher<obj>($"Contains %A{expected}", Func<_, _> matches)
@@ -213,17 +213,6 @@ let haveLength expected =
 let haveCount expected =
     CustomMatcher<obj>($"Have Count %d{expected}", (fun x -> x?Count = expected))
 
-let containf f =
-    let matches(actual: obj) =
-        match actual with
-        | :? (list<_>) as l -> l |> List.exists f
-        | :? (array<_>) as a -> a |> Array.exists f
-        | :? (seq<_>) as s -> s |> Seq.exists f
-        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists f
-        | _ -> false
-
-    CustomMatcher<obj>($"Contains %A{f}", Func<_, _> matches)
-
 let supersetOf expected =
     CustomMatcher<obj>($"Is superset of %A{expected}", (fun c -> Set.isSuperset (Set(unbox c)) (Set expected)))
 
@@ -233,7 +222,7 @@ let subsetOf expected =
 let matchList xs =
     let matches(ys: obj) =
         match ys with
-        | :? (list<_>) as ys' -> List.sort xs = List.sort ys'
+        | :? list<_> as ys' -> List.sort xs = List.sort ys'
         | :? IEnumerable as e -> e |> Seq.cast |> Seq.isEmpty && xs |> Seq.isEmpty
         | _ -> false
 
@@ -242,9 +231,9 @@ let matchList xs =
 let private makeOrderedMatcher description comparer =
     let matches(actual: obj) =
         match actual with
-        | :? (list<IComparable>) as l -> l = List.sortWith comparer l
-        | :? (array<IComparable>) as a -> a = Array.sortWith comparer a
-        | :? (seq<IComparable>) as s ->
+        | :? list<IComparable> as l -> l = List.sortWith comparer l
+        | :? array<IComparable> as a -> a = Array.sortWith comparer a
+        | :? seq<IComparable> as s ->
             let a = s |> Seq.toArray
             a = (a |> Array.sortWith comparer)
         | :? IEnumerable as e ->
@@ -262,52 +251,51 @@ type ChoiceDiscriminator(n: int) =
 
     member this.check(c: Choice<'a, 'b>) : bool =
         match c with
-        | Choice1Of2(_) -> n = 1
-        | Choice2Of2(_) -> n = 2
+        | Choice1Of2 _ -> n = 1
+        | Choice2Of2 _ -> n = 2
 
     member this.check(c: Choice<'a, 'b, 'c>) : bool =
         match c with
-        | Choice1Of3(_) -> n = 1
-        | Choice2Of3(_) -> n = 2
-        | Choice3Of3(_) -> n = 3
+        | Choice1Of3 _ -> n = 1
+        | Choice2Of3 _ -> n = 2
+        | Choice3Of3 _ -> n = 3
 
     member this.check(c: Choice<'a, 'b, 'c, 'd>) : bool =
         match c with
-        | Choice1Of4(_) -> n = 1
-        | Choice2Of4(_) -> n = 2
-        | Choice3Of4(_) -> n = 3
-        | Choice4Of4(_) -> n = 4
+        | Choice1Of4 _ -> n = 1
+        | Choice2Of4 _ -> n = 2
+        | Choice3Of4 _ -> n = 3
+        | Choice4Of4 _ -> n = 4
 
     member this.check(c: Choice<'a, 'b, 'c, 'd, 'e>) : bool =
         match c with
-        | Choice1Of5(_) -> n = 1
-        | Choice2Of5(_) -> n = 2
-        | Choice3Of5(_) -> n = 3
-        | Choice4Of5(_) -> n = 4
-        | Choice5Of5(_) -> n = 5
+        | Choice1Of5 _ -> n = 1
+        | Choice2Of5 _ -> n = 2
+        | Choice3Of5 _ -> n = 3
+        | Choice4Of5 _ -> n = 4
+        | Choice5Of5 _ -> n = 5
 
     member this.check(c: Choice<'a, 'b, 'c, 'd, 'e, 'f>) : bool =
         match c with
-        | Choice1Of6(_) -> n = 1
-        | Choice2Of6(_) -> n = 2
-        | Choice3Of6(_) -> n = 3
-        | Choice4Of6(_) -> n = 4
-        | Choice5Of6(_) -> n = 5
-        | Choice6Of6(_) -> n = 6
+        | Choice1Of6 _ -> n = 1
+        | Choice2Of6 _ -> n = 2
+        | Choice3Of6 _ -> n = 3
+        | Choice4Of6 _ -> n = 4
+        | Choice5Of6 _ -> n = 5
+        | Choice6Of6 _ -> n = 6
 
     member this.check(c: Choice<'a, 'b, 'c, 'd, 'e, 'f, 'g>) : bool =
         match c with
-        | Choice1Of7(_) -> n = 1
-        | Choice2Of7(_) -> n = 2
-        | Choice3Of7(_) -> n = 3
-        | Choice4Of7(_) -> n = 4
-        | Choice5Of7(_) -> n = 5
-        | Choice6Of7(_) -> n = 6
-        | Choice7Of7(_) -> n = 7
+        | Choice1Of7 _ -> n = 1
+        | Choice2Of7 _ -> n = 2
+        | Choice3Of7 _ -> n = 3
+        | Choice4Of7 _ -> n = 4
+        | Choice5Of7 _ -> n = 5
+        | Choice6Of7 _ -> n = 6
+        | Choice7Of7 _ -> n = 7
 
     member this.check(c: obj) : bool =
-        let cType = c.GetType()
-        let cArgs = cType.GetGenericArguments()
+        let cArgs = c.GetType().GetGenericArguments()
         let cArgCount = Seq.length cArgs
 
         try
@@ -318,7 +306,7 @@ type ChoiceDiscriminator(n: int) =
             false
 
 let choice n =
-    CustomMatcher<obj>($"The choice %d{n}", (fun x -> (ChoiceDiscriminator(n)).check(x)))
+    CustomMatcher<obj>($"The choice %d{n}", (fun x -> ChoiceDiscriminator(n).check(x)))
 
 let inRange min max =
     let matches(actual: obj) =
@@ -329,8 +317,7 @@ let inRange min max =
 
 let ofCase(case: Quotations.Expr) =
     let expected =
-        case |> Common.caseName |> defaultArg
-        <| "<The given type is not a union case and the matcher won't work.>"
+        defaultArg (Common.caseName case) "<The given type is not a union case and the matcher won't work.>"
 
     let matcher = CustomMatcher(expected, (fun x -> x |> Common.isOfCase case))
 

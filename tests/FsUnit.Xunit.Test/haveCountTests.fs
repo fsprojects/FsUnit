@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``have Count tests``() =
+type ``haveCount tests``() =
+
     let emptyList = System.Collections.Generic.List<int>()
 
     let singleItemList = System.Collections.Generic.List<int>()

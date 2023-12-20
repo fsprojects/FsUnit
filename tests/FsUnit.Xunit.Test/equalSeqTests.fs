@@ -3,7 +3,7 @@
 open Xunit
 open FsUnit.Xunit
 
-type ``equalSeq Tests``() =
+type ``equalSeq tests``() =
 
     [<Fact>]
     member _.``sequence should equal sequence``() =

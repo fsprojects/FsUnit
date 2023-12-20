@@ -7,14 +7,10 @@ open FsUnit.Xunit
 [<AutoOpen>]
 module TopLevelOperators =
 
-    /// Asserts that `expected` is equal to `actual`.
-    /// The equality instance on `actual` is used, if available.
     [<DebuggerStepThrough>]
     let shouldEqual<'a> (expected: 'a) (actual: 'a) =
         actual |> should equal expected
 
-    /// Asserts that `expected` is not equal to `actual`.
-    /// The equality instance on `actual` is used, if available.
     [<DebuggerStepThrough>]
     let shouldNotEqual<'a> (expected: 'a) (actual: 'a) =
         actual |> should not' (equal expected)

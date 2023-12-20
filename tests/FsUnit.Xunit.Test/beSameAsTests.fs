@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``be SameAs tests``() =
+type ``be sameAs tests``() =
+
     let anObj = obj()
     let otherObj = obj()
 

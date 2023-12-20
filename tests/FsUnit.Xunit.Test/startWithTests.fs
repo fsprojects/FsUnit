@@ -5,7 +5,8 @@ open Xunit.Sdk
 open FsUnit.Xunit
 open FsUnitTyped
 
-type ``should startWith tests``() =
+type ``startWith tests``() =
+
     [<Fact>]
     member _.``empty string should start with ""``() =
         "" |> should startWith ""

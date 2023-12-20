@@ -5,6 +5,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``be EmptyString tests``() =
+
     [<Test>]
     member _.``empty string should be EmptyString``() =
         "" |> should be EmptyString

@@ -6,6 +6,7 @@ open FsUnit
 
 [<TestFixture>]
 type ``shouldFail tests``() =
+
     [<Test>]
     member _.``empty List should fail to contain item``() =
         shouldFail(fun () -> [] |> should contain 1)

@@ -3,7 +3,8 @@ namespace FsUnit.Test
 open Xunit
 open FsUnit.Xunit
 
-type ``should be of exact type tests``() =
+type ``be ofExactType tests``() =
+
     [<Fact>]
     member _.``empty string should be of exact type String``() =
         "" |> should be ofExactType<string>

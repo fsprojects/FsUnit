@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be Empty tests``() =
+
     [<Fact>]
     member _.``empty List should be Empty``() =
         [] |> should be Empty

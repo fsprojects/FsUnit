@@ -17,6 +17,4 @@ module CustomConstraints =
                 let result = Common.isOfCase this.Expected actual
                 ConstraintResult(this, actual, result)
             else
-                let actualType = actual.GetType()
-                do printf $"Got a {actualType.Name}"
-                failwith "Value (not expression) is not a union case."
+                failwith $"Value (not expression) is not a union case. Got a {actual.GetType().Name}."

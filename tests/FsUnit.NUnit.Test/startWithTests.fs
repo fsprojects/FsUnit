@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``should startWith tests``() =
+type ``startWith tests``() =
+
     [<Test>]
     member _.``empty string should start with ""``() =
         "" |> should startWith ""

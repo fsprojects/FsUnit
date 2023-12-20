@@ -3,10 +3,9 @@ namespace FsUnit.Test
 open NUnit.Framework
 open FsUnit
 
-(* Thanks to erdoll for this suggestion: https://fsunit.codeplex.com/discussions/269320 *)
-
 [<TestFixture>]
 type ``equalWithin tests``() =
+
     [<Test>]
     member _.``should equal within tolerance``() =
         10.1 |> should (equalWithin 0.1) 10.11

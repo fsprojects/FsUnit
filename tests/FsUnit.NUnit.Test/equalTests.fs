@@ -1,6 +1,5 @@
 namespace FsUnit.Test
 
-open System.Collections
 open System.Collections.Immutable
 
 open NUnit.Framework
@@ -19,6 +18,7 @@ type NeverEqual() =
 
 [<TestFixture>]
 type ``equal Tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -104,6 +104,10 @@ type ``equal Tests``() =
     [<Test>]
     member _.``None should equal None``() =
         None |> should equal None
+
+    [<Test>]
+    member _.``None should equal null``() =
+        None |> should equal null
 
     [<Test>]
     member _.``Ok "ok" should equal Ok "no" should fail but message should be equal``() =

@@ -4,7 +4,8 @@ open NUnit.Framework
 open FsUnit
 
 [<TestFixture>]
-type ``should haveSubstring tests``() =
+type ``haveSubstring tests``() =
+
     [<Test>]
     member _.``empty string should contain ""``() =
         "" |> should haveSubstring ""

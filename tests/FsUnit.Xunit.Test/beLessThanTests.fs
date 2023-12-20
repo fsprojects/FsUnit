@@ -4,6 +4,7 @@ open Xunit
 open FsUnit.Xunit
 
 type ``be lessThan tests``() =
+
     [<Fact>]
     member _.``10 should be less than 11``() =
         10 |> should be (lessThan 11)

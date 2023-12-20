@@ -17,6 +17,7 @@ type NeverEqual() =
 
 [<TestFixture>]
 type ``shouldEqual Tests``() =
+
     let anObj = obj()
     let otherObj = obj()
     let anImmutableArray = ImmutableArray.Create(1, 2, 3)
@@ -73,6 +74,14 @@ type ``shouldEqual Tests``() =
     [<Test>]
     member _.``should fail when negated and Equals returns true``() =
         shouldFail(fun () -> anObj |> shouldNotEqual(box(AlwaysEqual())))
+
+    [<Test>]
+    member _.``null should be null``() =
+        null |> shouldEqual null
+
+    [<Test>]
+    member _.``null should fail to not be null``() =
+        shouldFail(fun () -> null |> shouldNotEqual null)
 
     [<Test>]
     member _.``None should equal None``() =

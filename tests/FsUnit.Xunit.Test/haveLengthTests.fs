@@ -5,6 +5,7 @@ open Xunit.Sdk
 open FsUnit.Xunit
 
 type ``haveLength tests``() =
+
     // F# List
     [<Fact>]
     member _.``List with 1 item should have Length 1``() =
