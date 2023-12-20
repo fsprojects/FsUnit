@@ -185,10 +185,10 @@ let instanceOfType<'a> =
 let contain expected =
     let matches(actual: obj) =
         match actual with
-        | :? list<_> as l -> l |> List.exists(fun i -> i = expected)
-        | :? array<_> as a -> a |> Array.exists(fun i -> i = expected)
-        | :? seq<_> as s -> s |> Seq.exists(fun i -> i = expected)
-        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists(fun i -> i = expected)
+        | :? list<_> as l -> l |> List.exists((=) expected)
+        | :? array<_> as a -> a |> Array.exists((=) expected)
+        | :? seq<_> as s -> s |> Seq.exists((=) expected)
+        | :? IEnumerable as e -> e |> Seq.cast |> Seq.exists((=) expected)
         | _ -> false
 
     CustomMatcher<obj>($"Contains %A{expected}", Func<_, _> matches)
