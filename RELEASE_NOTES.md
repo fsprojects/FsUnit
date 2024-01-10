@@ -1,7 +1,8 @@
-### 6.0.0.0-alpha2 - Dec 15, 2023
+### 6.0.0.0 - Jan 11, 2023
 - Migrate to NUnit v4.
 - [BREAKING] FsUnit (NUnit v4 as dependency) drops netstandard2.0 as target framework.
 - Update dependencies to MsTest v3.
+- Update/Fix docs.
 
 ### 5.6.1.0 - Nov 29, 2023
 - Set NUnit dependency < 4.0.0 to prevent compatibility issues. - (https://github.com/fsprojects/FsUnit/pull/257)

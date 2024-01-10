@@ -9,12 +9,14 @@ projectUrl
     https://github.com/fsprojects/FsUnit
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
+licenseExpression
+    MIT
 licenseUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/license.txt
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2012-2023
+    Copyright 2012-2024
 tags
     F# fsharp xUnit FsUnit
 summary
