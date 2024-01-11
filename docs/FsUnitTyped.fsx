@@ -1,8 +1,8 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#r "../packages/NUnit/lib/netstandard2.0/nunit.framework.dll"
-#r "../bin/FsUnit.NUnit/netstandard2.0/FsUnit.NUnit.dll"
+#r "../packages/NUnit/lib/net6.0/nunit.framework.dll"
+#r "../bin/FsUnit.NUnit/net6.0/FsUnit.NUnit.dll"
 
 (**
 What is FsUnitTyped?
