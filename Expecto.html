@@ -56,64 +56,29 @@
 <p><code>Expecto</code> is <strong>not</strong> part of FsUnit.</p>
 <h2><a name="Syntax" class="anchor" href="#Syntax">Syntax</a></h2>
 <p>With <code>Expecto.Flip</code> you can write your unit tests like this:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">Expecto</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">Flip</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="m">Expect</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="id">Expecto</span><span class="pn">.</span><span class="id">Flip</span><span class="pn">.</span><span class="id">Expect</span>
 </code></pre>
 <p>One object equals or does not equal another:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="fn">equal</span> <span class="s">&quot;1 is equal to 1.&quot;</span> <span class="n">1</span>
-<span class="n">1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="fn">notEqual</span>  <span class="s">&quot;1 is not equal to 2.&quot;</span> <span class="n">2</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">1</span> <span class="o">|&gt;</span> <span class="id">equal</span> <span class="s">&quot;1 is equal to 1.&quot;</span> <span class="n">1</span>
+<span class="n">1</span> <span class="o">|&gt;</span> <span class="id">notEqual</span>  <span class="s">&quot;1 is not equal to 2.&quot;</span> <span class="n">2</span>
 </code></pre>
 <p>One comparable value greater or smaller than another:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">(</span><span class="n">11</span><span class="pn">,</span> <span class="n">10</span><span class="pn">)</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="fn">isGreaterThan</span> <span class="s">&quot;11 is greater than 10.&quot;</span>
-<span class="pn">(</span><span class="n">10</span><span class="pn">,</span> <span class="n">11</span><span class="pn">)</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="fn">isLessThan</span> <span class="s">&quot;10 is less than 11.&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">(</span><span class="n">11</span><span class="pn">,</span> <span class="n">10</span><span class="pn">)</span> <span class="o">|&gt;</span> <span class="id">isGreaterThan</span> <span class="s">&quot;11 is greater than 10.&quot;</span>
+<span class="pn">(</span><span class="n">10</span><span class="pn">,</span> <span class="n">11</span><span class="pn">)</span> <span class="o">|&gt;</span> <span class="id">isLessThan</span> <span class="s">&quot;10 is less than 11.&quot;</span>
 </code></pre>
 <p>&amp; more operators:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">true</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="fn">isTrue</span> <span class="s">&quot;Value is true.&quot;</span>
-<span class="k">false</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="fn">isFalse</span> <span class="s">&quot;Value is false.&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">true</span> <span class="o">|&gt;</span> <span class="id">isTrue</span> <span class="s">&quot;Value is true.&quot;</span>
+<span class="k">false</span> <span class="o">|&gt;</span> <span class="id">isFalse</span> <span class="s">&quot;Value is false.&quot;</span>
 
-<span class="s">&quot;&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 10)" onmouseover="showTip(event, 'fs10', 10)" class="fn">isEmpty</span>
-<span class="s">&quot;Foobar&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 11)" onmouseover="showTip(event, 'fs11', 11)" class="fn">isNotEmpty</span> <span class="s">&quot;Value is not empty.&quot;</span>
-<span onmouseout="hideTip(event, 'fs12', 12)" onmouseover="showTip(event, 'fs12', 12)" class="uc">None</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 13)" onmouseover="showTip(event, 'fs13', 13)" class="fn">isNone</span> <span class="s">&quot;Value is None.&quot;</span>
+<span class="s">&quot;&quot;</span> <span class="o">|&gt;</span> <span class="id">isEmpty</span>
+<span class="s">&quot;Foobar&quot;</span> <span class="o">|&gt;</span> <span class="id">isNotEmpty</span> <span class="s">&quot;Value is not empty.&quot;</span>
+<span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="uc">None</span> <span class="o">|&gt;</span> <span class="id">isNone</span> <span class="s">&quot;Value is None.&quot;</span>
 
-<span class="pn">{</span><span class="n">1</span> <span class="o">..</span> <span class="n">10</span><span class="pn">}</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 14)" onmouseover="showTip(event, 'fs14', 14)" class="fn">contains</span> <span class="s">&quot;Seq 1 to 10 contains 4.&quot;</span> <span class="n">4</span>
+<span class="pn">{</span><span class="n">1</span> <span class="o">..</span> <span class="n">10</span><span class="pn">}</span> <span class="o">|&gt;</span> <span class="id">contains</span> <span class="s">&quot;Seq 1 to 10 contains 4.&quot;</span> <span class="n">4</span>
 </code></pre>
 <p>All operators are listed here: <a href="https://github.com/haf/expecto/blob/main/Expecto/Flip.Expect.fs">Expecto.Flip.Expect</a></p>
 
-                <div class="fsdocs-tip" id="fs1">Namespace Expecto</div>
-<div class="fsdocs-tip" id="fs2">Namespace Expecto.Flip</div>
-<div class="fsdocs-tip" id="fs3">Modul Expect
-
-aus Expecto.Flip</div>
-<div class="fsdocs-tip" id="fs4">val equal: message: string -&gt; expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires equality)<br /><em>&lt;summary&gt;
- Expects the two values to equal each other.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs5">val notEqual: message: string -&gt; expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires equality)<br /><em>&lt;summary&gt;
- Expects the two values not to equal each other.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs6">val isGreaterThan: message: string -&gt; a: &#39;a * b: &#39;a -&gt; unit (requires comparison)<br /><em>&lt;summary&gt;
- Expects `a` &amp;gt; `b`.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs7">val isLessThan: message: string -&gt; a: &#39;a * b: &#39;a -&gt; unit (requires comparison)<br /><em>&lt;summary&gt;
- Expects `a` to be less than `b`.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs8">val isTrue: message: string -&gt; actual: bool -&gt; unit<br /><em>&lt;summary&gt;
- Expects the value to be true.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs9">val isFalse: message: string -&gt; actual: bool -&gt; unit<br /><em>&lt;summary&gt;
- Expects the value to be false.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs10">val isEmpty: message: string -&gt; actual: seq&lt;&#39;a&gt; -&gt; unit<br /><em>&lt;summary&gt;
- Expect the passed sequence to be empty.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs11">val isNotEmpty: message: string -&gt; actual: string -&gt; unit<br /><em>&lt;summary&gt;
- Expect the passed string not to be empty.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs12">Union-Fall Option.None: Option&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The representation of &quot;No value&quot;&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs13">val isNone: message: string -&gt; x: &#39;a option -&gt; unit<br /><em>&lt;summary&gt;
- Expects the value to be a None value.
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs14">val contains: message: string -&gt; element: &#39;a -&gt; sequence: seq&lt;&#39;a&gt; -&gt; unit (requires equality)<br /><em>&lt;summary&gt;
- Expects the `sequence` to contain the `element`.
-&lt;/summary&gt;</em></div>
+                <div class="fsdocs-tip" id="fs1">Union-Fall Option.None: Option&lt;&#39;T&gt;</div>
 
             </div>
             <div class="span3">
@@ -157,7 +122,7 @@ aus Expecto.Flip</div>
             </div>
         </div>
     </div>
-    <a href="https://github.com/fsprojects/FsUnit"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"> </a>
+    <a href="https://github.com/fsprojects/FsUnit"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"> </a>
 
     <!-- BEGIN SEARCH BOX: this adds support for the search box -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />

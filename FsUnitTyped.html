@@ -82,20 +82,14 @@ unit-testing with <code>FsUnit</code> even more safe and enjoyable (available on
                 <div class="fsdocs-tip" id="fs1">Namespace FsUnitTyped</div>
 <div class="fsdocs-tip" id="fs2">val shouldEqual: expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires equality)</div>
 <div class="fsdocs-tip" id="fs3">val shouldNotEqual: expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires equality)</div>
-<div class="fsdocs-tip" id="fs4">val shouldBeGreaterThan: expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires &#39;a :&gt; System.IComparable)</div>
-<div class="fsdocs-tip" id="fs5">val shouldBeSmallerThan: expected: &#39;a -&gt; actual: &#39;a -&gt; unit (requires &#39;a :&gt; System.IComparable)</div>
+<div class="fsdocs-tip" id="fs4">val shouldBeGreaterThan: expected: &#39;a -&gt; actual: &#39;a -&gt; unit</div>
+<div class="fsdocs-tip" id="fs5">val shouldBeSmallerThan: expected: &#39;a -&gt; actual: &#39;a -&gt; unit</div>
 <div class="fsdocs-tip" id="fs6">val shouldContainText: expected: string -&gt; actual: string -&gt; unit</div>
-<div class="fsdocs-tip" id="fs7">val shouldContain: expected: &#39;a -&gt; actual: seq&lt;&#39;a&gt; -&gt; unit</div>
-<div class="fsdocs-tip" id="fs8">val shouldNotContain: expected: &#39;a -&gt; actual: seq&lt;&#39;a&gt; -&gt; unit</div>
-<div class="fsdocs-tip" id="fs9">val shouldBeEmpty: actual: seq&lt;&#39;a&gt; -&gt; unit</div>
-<div class="fsdocs-tip" id="fs10">val shouldHaveLength: expected: int -&gt; actual: seq&lt;&#39;a&gt; -&gt; unit</div>
-<div class="fsdocs-tip" id="fs11">val failwith: message: string -&gt; &#39;T<br /><em>&lt;summary&gt;Throw a &lt;see cref=&quot;T:System.Exception&quot; /&gt; exception.&lt;/summary&gt;<br />&lt;param name=&quot;message&quot;&gt;The exception message.&lt;/param&gt;<br />&lt;returns&gt;Never returns.&lt;/returns&gt;<br />&lt;example id=&quot;failwith-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
- let failingFunction() = 
-     failwith &quot;Oh no&quot; // Throws an exception
-     true  // Never reaches this
-   
- failingFunction()  // Throws a System.Exception
- &lt;/code&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs7">val shouldContain: expected: &#39;a -&gt; actual: &#39;a seq -&gt; unit</div>
+<div class="fsdocs-tip" id="fs8">val shouldNotContain: expected: &#39;a -&gt; actual: &#39;a seq -&gt; unit</div>
+<div class="fsdocs-tip" id="fs9">val shouldBeEmpty: actual: &#39;a seq -&gt; unit</div>
+<div class="fsdocs-tip" id="fs10">val shouldHaveLength: expected: int -&gt; actual: &#39;a seq -&gt; unit</div>
+<div class="fsdocs-tip" id="fs11">val failwith: message: string -&gt; &#39;T</div>
 <div class="fsdocs-tip" id="fs12">val shouldFail&lt;&#39;exn (requires &#39;exn :&gt; exn)&gt; : f: (unit -&gt; unit) -&gt; unit (requires &#39;exn :&gt; exn)</div>
 <div class="fsdocs-tip" id="fs13">Namespace System</div>
 <div class="fsdocs-tip" id="fs14">Multiple items<br />type Exception =
@@ -110,9 +104,7 @@ unit-testing with <code>FsUnit</code> even more safe and enjoyable (available on
   member HelpLink: string
   member InnerException: exn
   ...<br /><em>&lt;summary&gt;Represents errors that occur during application execution.&lt;/summary&gt;</em><br /><br />--------------------<br />System.Exception() : System.Exception<br />System.Exception(message: string) : System.Exception<br />System.Exception(message: string, innerException: exn) : System.Exception</div>
-<div class="fsdocs-tip" id="fs15">val ignore: value: &#39;T -&gt; unit<br /><em>&lt;summary&gt;Ignore the passed value. This is often used to throw away results of a computation.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to ignore.&lt;/param&gt;<br />&lt;example id=&quot;min-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
-  ignore 55555   //  Evaluates to ()
- &lt;/code&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs15">val ignore: value: &#39;T -&gt; unit</div>
 
             </div>
             <div class="span3">
@@ -156,7 +148,7 @@ unit-testing with <code>FsUnit</code> even more safe and enjoyable (available on
             </div>
         </div>
     </div>
-    <a href="https://github.com/fsprojects/FsUnit"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"> </a>
+    <a href="https://github.com/fsprojects/FsUnit"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"> </a>
 
     <!-- BEGIN SEARCH BOX: this adds support for the search box -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
