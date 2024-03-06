@@ -222,7 +222,7 @@ Target.create "ReleaseDocs" (fun _ ->
     Repository.fullclean tempDocsDir
     Shell.copyRecursive "output" tempDocsDir true |> Trace.tracefn "%A"
     Staging.stageAll tempDocsDir
-    Commit.exec tempDocsDir (sprintf "Update generated documentation for version %s" release.NugetVersion)
+    Commit.exec tempDocsDir (sprintf "Update generated documentation for version %s" version)
     Branches.push tempDocsDir)
 
 // --------------------------------------------------------------------------------------

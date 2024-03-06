@@ -10,7 +10,7 @@ projectUrl
 iconUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/img/logo.png
 licenseExpression
-    MIT
+    https://licenses.nuget.org/MIT
 licenseUrl
     https://raw.githubusercontent.com/fsprojects/FsUnit/master/license.txt
 requireLicenseAcceptance

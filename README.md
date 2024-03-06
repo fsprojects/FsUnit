@@ -27,9 +27,7 @@ A few things to keep in mind:
 * Since the unit tests for FsUnit are written with FsUnit, failing tests are just as important as passing tests.
 
 ## Build Instructions
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/fsprojects/FsUnit)
-
+- Find and run either `./build.sh` or `build.cmd` (depending on your platform).
 
 ## Maintainer(s)
 
