@@ -21,7 +21,7 @@
       ]
     },
     "fantomas": {
-      "version": "6.3.3",
+      "version": "6.3.4",
       "commands": [
         "fantomas"
       ]
