@@ -1,3 +1,7 @@
+### 6.0.1.0 - Sep 13, 2024
+- Minor code cleanup. - (https://github.com/fsprojects/FsUnit/pull/281)
+- Update dependencies.
+
 ### 6.0.0.0 - Jan 11, 2024
 - [BREAKING] FsUnit (NUnit v4 as dependency) drops netstandard2.0 as target framework.
 - Migrate to NUnit v4. - (https://github.com/fsprojects/FsUnit/pull/259)
