@@ -13,9 +13,9 @@ nuget System.Collections.NonGeneric
 
 // xUnit
 nuget NHamcrest
-nuget xunit ~> 2.5.3
+nuget xunit ~> 2.6.2
 nuget xunit.runner.visualstudio
 
 // MsTest
-nuget MSTest.TestFramework ~> 3.0.4
-nuget MSTest.TestAdapter ~> 3.0.4
+nuget MSTest.TestFramework ~> 3.2.2
+nuget MSTest.TestAdapter ~> 3.2.2
