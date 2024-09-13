@@ -40,14 +40,14 @@ let equalWithin (tolerance: obj) (expected: obj) =
     let matches(actual: obj) =
         let parseValue(v: string) =
             match Double.TryParse(v, NumberStyles.Any, CultureInfo("en-US")) with
-            | true, x -> Some(x)
-            | false, _ -> None
+            | true, x -> ValueSome x
+            | false, _ -> ValueNone
 
         let actual = string actual |> parseValue
         let expect = string expected |> parseValue
         let tol = string tolerance |> parseValue
 
-        if [| actual; expect; tol |] |> Array.contains None |> not then
+        if [| actual; expect; tol |] |> Array.contains ValueNone |> not then
             abs(actual.Value - expect.Value) <= tol.Value
         else
             false
