@@ -1,3 +1,8 @@
+### 7.0.0.0 - Dec 23, 2024
+- [BREAKING] FsUnit.Xunit now consumes `xunit.v3` as testing framework. - (https://github.com/fsprojects/FsUnit/pull/297)
+- Update to NHamcrest v4.0.
+- Update to MsTest v3.6 in Fs30Unit.MsTest.
+
 ### 6.0.1.0 - Sep 13, 2024
 - Minor code cleanup. - (https://github.com/fsprojects/FsUnit/pull/281)
 - Update dependencies.
