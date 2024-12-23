@@ -127,6 +127,7 @@ let sourceFiles =
     !! "src/**/*.fs"
     ++ "tests/**/*.fs"
     -- "./**/*Assembly*.fs"
+    -- "tests/**/obj/**/*.fs"
 
 Target.create "CheckFormat" (fun _ ->
     let result =
