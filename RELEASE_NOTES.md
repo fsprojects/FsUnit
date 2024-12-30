@@ -1,3 +1,6 @@
+### 7.0.1.0 - Dec 30, 2024
+- Fix exporting only .dll to nupkg for FsUnit.Xunit. - (https://github.com/fsprojects/FsUnit/pull/299)
+
 ### 7.0.0.0 - Dec 23, 2024
 - [BREAKING] FsUnit.Xunit now consumes `xunit.v3` as testing framework. - (https://github.com/fsprojects/FsUnit/pull/297)
 - Update to NHamcrest v4.0.
