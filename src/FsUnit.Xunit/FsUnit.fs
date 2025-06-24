@@ -57,6 +57,9 @@ let equalSeq expected =
 let equal expected =
     CustomMatchers.equal expected
 
+let equivalent expected =
+    CustomMatchers.equivalent (fun e a -> Assert.Equivalent(e, a, true)) expected
+
 let equalWithin (tolerance: obj) (expected: obj) =
     CustomMatchers.equalWithin tolerance expected
 

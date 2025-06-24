@@ -45,6 +45,7 @@
     <Compile Include="typed.shouldContainTextTests.fs" />
     <Compile Include="typed.shouldFailTests.fs" />
     <Compile Include="typed.shouldEqualTests.fs" />
+    <Compile Include="equivalentTests.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
