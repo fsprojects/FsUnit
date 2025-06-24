@@ -14,7 +14,7 @@ Operators comparison across frameworks
 | `should`               | ✔     | ✔     | ✔     |
 | `equal`                | ✔     | ✔     | ✔     |
 | `equalSeq`             | ✔     | ✔     | ✔     |
-| `equivalent`           | ✔     | ❌    | ✔     |
+| `equivalent`           | ✔     | ✔     | ✔     |
 | `equalWithin`          | ✔     | ✔     | ✔     |
 | `contain`              | ✔     | ✔     | ✔     |
 | `haveLength`           | ✔     | ✔     | ✔     |
