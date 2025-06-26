@@ -12,6 +12,10 @@ module TopLevelOperators =
         actual |> should equal expected
 
     [<DebuggerStepThrough>]
+    let shouldEquivalent<'a when 'a: equality> (expected: 'a seq) (actual: 'a seq) =
+        actual |> should equivalent expected
+
+    [<DebuggerStepThrough>]
     let shouldNotEqual<'a> (expected: 'a) (actual: 'a) =
         actual |> should not' (equal expected)
 
