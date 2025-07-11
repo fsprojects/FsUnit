@@ -20,14 +20,14 @@ FsUnit currently supports NUnit, xUnit, and MsTest.
 
 The goals of FsUnit are:
 
-* to make unit-testing feel more at home in F# , i.e., more functional.
+* to make unit-testing feel more at home in F#, i.e., more functional.
 * to leverage existing test frameworks while at the same time adapting them to the F# language in new ways.
 
 NuGet packages are available for each of the supported testing frameworks:
 
-* [![NuGet Status](https://buildstats.info/nuget/FsUnit) - NUnit](https://www.nuget.org/packages/FsUnit/)
-* [![NuGet Status](https://buildstats.info/nuget/FsUnit.Xunit) - xUnit](https://www.nuget.org/packages/FsUnit.Xunit/)
-* [![NuGet Status](https://buildstats.info/nuget/Fs30Unit.MsTest) - MsTest](https://www.nuget.org/packages/Fs30Unit.MsTest/)
+* [![NuGet Status](https://img.shields.io/nuget/v/FsUnit) - NUnit](https://www.nuget.org/packages/FsUnit/)
+* [![NuGet Status](https://img.shields.io/nuget/v/FsUnit.Xunit) - xUnit](https://www.nuget.org/packages/FsUnit.Xunit/)
+* [![NuGet Status](https://img.shields.io/nuget/v/Fs30Unit.MsTest) - MsTest](https://www.nuget.org/packages/Fs30Unit.MsTest/)
 
 
 Syntax
