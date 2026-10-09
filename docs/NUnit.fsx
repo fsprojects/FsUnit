@@ -60,6 +60,38 @@ type MyTests () =
         FSharpCustomMessageFormatter() |> ignore
 
 (**
+Type inference with generic values
+---------------------------------
+
+`should equal` accepts the actual value as `obj`, so the expected value's type
+does not constrain the actual value's type. For example, an unannotated `Ok`
+can become `Result<CommitMessage, obj>` even when the expected value is
+`Result<CommitMessage, string>`. These are different types and compare unequal,
+although NUnit's formatted values can look identical.
+
+Use [FsUnitTyped](FsUnitTyped.html) to keep the expected and actual types linked:
+*)
+module ``Result type inference`` =
+    open FsUnitTyped
+
+    type CommitMessage = { Type: string }
+
+    let expectedTyped: Result<_, string> = Ok { Type = "feat" }
+
+    Ok { Type = "feat" } |> shouldEqual expectedTyped
+
+    (**
+    Alternatively, keep `should equal` and annotate the actual value:
+    *)
+    (Ok { Type = "feat" } : Result<_, string>) |> should equal expectedTyped
+
+(**
+The same limitation applies to `Error` with an unconstrained success type.
+Changing `should` to require matching types would break assertions such as
+`[1] |> should contain 1`, where actual and expected intentionally differ in type.
+*)
+
+(**
 
 Euler - Problem 1
 -----------------
