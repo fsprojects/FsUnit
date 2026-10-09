@@ -24,10 +24,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        # FAKE 6 needs the .NET 6 SDK alongside the .NET 8 project SDK.
-        dotnet-version: |
-          6.0.428
-          ${{ matrix.dotnet }}
+        dotnet-version: ${{ matrix.dotnet }}
 
     - name: Install local tools
       run: dotnet tool restore
