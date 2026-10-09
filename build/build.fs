@@ -143,7 +143,7 @@ Target.create "Format" (fun _ ->
 // Build library & test project
 
 Target.create "Build" (fun _ ->
-    let result = DotNet.exec id "build" "FsUnit.sln -c Release"
+    let result = DotNet.exec id "build" "FsUnit.slnx -c Release"
 
     if not result.OK then 
         failwithf "Build failed: %A" result.Errors)
