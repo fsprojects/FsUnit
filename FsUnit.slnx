@@ -1,0 +1,38 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/global/">
+    <File Path="build.cmd" />
+    <File Path="build.sh" />
+    <File Path="paket.dependencies" />
+    <File Path="paket.lock" />
+    <File Path="RELEASE_NOTES.md" />
+  </Folder>
+  <Folder Name="/global/docs/">
+    <File Path="docs/generate.fsx" />
+  </Folder>
+  <Folder Name="/global/docs/content/">
+    <File Path="docs/content/FsUnitTyped.fsx" />
+    <File Path="docs/content/index.fsx" />
+    <File Path="docs/content/license.md" />
+    <File Path="docs/content/MsTest.fsx" />
+    <File Path="docs/content/NUnit.fsx" />
+    <File Path="docs/content/operators.md" />
+    <File Path="docs/content/Paket.fsx" />
+    <File Path="docs/content/release-notes.md" />
+    <File Path="docs/content/xUnit.fsx" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/FsUnit.MsTestUnit/FsUnit.MsTest.fsproj" />
+    <Project Path="src/FsUnit.NUnit/FsUnit.NUnit.fsproj" />
+    <Project Path="src/FsUnit.Xunit/FsUnit.Xunit.fsproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FsUnit.MsTest.Test/FsUnit.MsTest.Test.fsproj" />
+    <Project Path="tests/FsUnit.NUnit.Test/FsUnit.NUnit.Test.fsproj" />
+    <Project Path="tests/FsUnit.Xunit.Test/FsUnit.Xunit.Test.fsproj" />
+  </Folder>
+</Solution>

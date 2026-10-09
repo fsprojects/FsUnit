@@ -15,16 +15,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macOS-latest, ubuntu-latest]
-        dotnet: [8.0.425]
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
 
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+    - name: Setup .NET SDKs and .NET 8 runtime
+      uses: actions/setup-dotnet@v6
       with:
-        dotnet-version: ${{ matrix.dotnet }}
+        dotnet-version: 8.0.x
+        global-json-file: global.json
 
     - name: Install local tools
       run: dotnet tool restore
