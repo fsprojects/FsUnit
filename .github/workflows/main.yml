@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macOS-latest, ubuntu-latest]
-        dotnet: [6.0.408]
+        dotnet: [8.0.425]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -24,7 +24,10 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: ${{ matrix.dotnet }}
+        # FAKE 6 needs the .NET 6 SDK alongside the .NET 8 project SDK.
+        dotnet-version: |
+          6.0.428
+          ${{ matrix.dotnet }}
 
     - name: Install local tools
       run: dotnet tool restore
