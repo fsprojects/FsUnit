@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "global", "global", "{35F65EEF-9059-4829-93EE-C8F7810B3997}"
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
-		build.fsx = build.fsx
 		build.sh = build.sh
 		paket.dependencies = paket.dependencies
 		paket.lock = paket.lock
