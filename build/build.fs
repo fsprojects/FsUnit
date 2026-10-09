@@ -1,20 +1,4 @@
-#r @"paket:
-source https://api.nuget.org/v3/index.json
-framework: net6.0
-nuget FSharp.Core 6.0.0.0
-nuget Fake.Core.Target
-nuget Fake.Core.Trace
-nuget Fake.Core.ReleaseNotes
-nuget Fake.IO.FileSystem
-nuget Fake.DotNet.Cli
-nuget Fake.DotNet.MSBuild
-nuget Fake.DotNet.AssemblyInfoFile
-nuget Fake.DotNet.Paket
-nuget Fake.DotNet.Fsi
-nuget Fake.Tools.Git
-nuget Fake.Api.GitHub //"
-
-#load "./.fake/build.fsx/intellisense.fsx"
+module Build
 
 open Fake.Core
 open Fake.Core.TargetOperators
@@ -25,7 +9,8 @@ open Fake.DotNet
 open Fake.Tools.Git
 open System.IO
 
-Target.initEnvironment()
+let execContext = Context.FakeExecutionContext.Create false "build.fs" []
+Context.setExecutionContext (Context.RuntimeContext.Fake execContext)
 
 // --------------------------------------------------------------------------------------
 // Project-specific details below
@@ -252,4 +237,9 @@ Target.create "Release" ignore
   ==> "ReleaseDocs"
   ==> "Release"
 
-Target.runOrDefault "All"
+[<EntryPoint>]
+let main args =
+    match args with
+    | [| target |] -> Target.runOrDefault target
+    | _ -> Target.runOrDefault "All"
+    0

@@ -34,4 +34,4 @@ jobs:
     - name: Paket Restore
       run: dotnet paket restore
     - name: Build and Test
-      run: dotnet fake run build.fsx
+      run: dotnet run --project build/build.fsproj
