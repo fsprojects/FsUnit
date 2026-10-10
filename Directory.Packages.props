@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The F# SDK disables its implicit reference when central package management is enabled. -->
+    <PackageVersion Include="FSharp.Core" Version="5.0.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="NUnit" Version="5.0.0" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageVersion Include="System.Collections.NonGeneric" Version="4.3.0" />
+    <PackageVersion Include="NHamcrest" Version="4.0.0" />
+    <PackageVersion Include="xunit.v3" Version="1.0.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0" />
+    <PackageVersion Include="MSTest.TestFramework" Version="3.6.4" />
+    <PackageVersion Include="MSTest.TestAdapter" Version="3.6.4" />
+  </ItemGroup>
+</Project>

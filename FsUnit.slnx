@@ -7,8 +7,6 @@
   <Folder Name="/global/">
     <File Path="build.cmd" />
     <File Path="build.sh" />
-    <File Path="paket.dependencies" />
-    <File Path="paket.lock" />
     <File Path="RELEASE_NOTES.md" />
   </Folder>
   <Folder Name="/global/docs/">
@@ -21,7 +19,6 @@
     <File Path="docs/content/MsTest.fsx" />
     <File Path="docs/content/NUnit.fsx" />
     <File Path="docs/content/operators.md" />
-    <File Path="docs/content/Paket.fsx" />
     <File Path="docs/content/release-notes.md" />
     <File Path="docs/content/xUnit.fsx" />
   </Folder>

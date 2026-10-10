@@ -39,11 +39,12 @@
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="beNaNTests.fs" />
     <Compile Include="beUniqueTests.fs" />
-    <None Include="paket.references" />
     <None Include="MSTest.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/FsUnit.MsTestUnit/FsUnit.MsTest.fsproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="MSTest.TestAdapter" />
+    <PackageReference Include="MSTest.TestFramework" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

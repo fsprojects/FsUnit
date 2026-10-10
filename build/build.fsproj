@@ -2,6 +2,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <!-- Opt out of CPM: build tooling uses the SDK's implicit FSharp.Core, not the 5.0.2 library pin. Versions are pinned here explicitly. -->
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="build.fs" />
@@ -14,7 +16,6 @@
     <PackageReference Include="Fake.DotNet.Cli" Version="6.1.4" />
     <PackageReference Include="Fake.DotNet.MSBuild" Version="6.1.4" />
     <PackageReference Include="Fake.DotNet.AssemblyInfoFile" Version="6.1.4" />
-    <PackageReference Include="Fake.DotNet.Paket" Version="6.1.4" />
     <PackageReference Include="Fake.DotNet.Fsi" Version="6.1.4" />
     <PackageReference Include="Fake.Tools.Git" Version="6.1.4" />
     <PackageReference Include="Fake.Api.GitHub" Version="6.1.4" />
