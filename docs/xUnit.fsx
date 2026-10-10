@@ -1,9 +1,11 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#r "../packages/xunit.extensibility.core/lib/netstandard1.1/xunit.core.dll"
-#r "../packages/NHamcrest/lib/netstandard2.0/NHamcrest.dll"
-#r "../bin/FsUnit.Xunit/netstandard2.0/FsUnit.Xunit.dll"
+#r "../tests/FsUnit.Xunit.Test/bin/Release/net8.0/xunit.v3.core.dll"
+#r "../tests/FsUnit.Xunit.Test/bin/Release/net8.0/xunit.v3.common.dll"
+#r "../tests/FsUnit.Xunit.Test/bin/Release/net8.0/xunit.v3.assert.dll"
+#r "../tests/FsUnit.Xunit.Test/bin/Release/net8.0/NHamcrest.dll"
+#r "../tests/FsUnit.Xunit.Test/bin/Release/net8.0/FsUnit.Xunit.dll"
 
 (**
 FsUnit for xUnit
@@ -15,8 +17,6 @@ FsUnit for xUnit
     <div class="well well-small" id="nuget">
       The FsUnit library for xUnit can be <a href="https://nuget.org/packages/FsUnit.xUnit">installed from NuGet</a>:
       <pre>PM> Install-Package FsUnit.xUnit</pre>
-      Sample FsUnit tests for xUnit can be <a href="https://nuget.org/packages/FsUnit.xUnit.Sample">installed from NuGet</a>:
-      <pre>PM> Install-Package FsUnit.xUnit.Sample</pre>
     </div>
   </div>
   <div class="span1"></div>

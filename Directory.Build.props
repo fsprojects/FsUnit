@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <Authors>Ray Vernagus; Daniel Mohl; Sergey Tihon; Constantin Tews</Authors>
+    <PackageProjectUrl>https://github.com/fsprojects/FsUnit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fsprojects/FsUnit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright 2012-2026</Copyright>
+  </PropertyGroup>
+</Project>

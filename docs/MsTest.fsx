@@ -1,9 +1,9 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#r "../packages/MSTest.TestFramework/lib/netstandard2.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll"
-#r "../packages/NHamcrest/lib/netstandard2.0/NHamcrest.dll"
-#r "../bin/FsUnit.MsTest/netstandard2.0/FsUnit.MsTest.dll"
+#r "../tests/FsUnit.MsTest.Test/bin/Release/net8.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll"
+#r "../tests/FsUnit.MsTest.Test/bin/Release/net8.0/NHamcrest.dll"
+#r "../tests/FsUnit.MsTest.Test/bin/Release/net8.0/FsUnit.MsTest.dll"
 
 (**
 FsUnit for MsTest
@@ -15,8 +15,6 @@ FsUnit for MsTest
     <div class="well well-small" id="nuget">
       The FsUnit library for MsTest can be <a href="https://www.nuget.org/packages/Fs30Unit.MsTest/">installed from NuGet</a>:
       <pre>PM> Install-Package Fs30Unit.MsTest</pre>
-      Sample FsUnit tests for MsTest can be <a href="https://www.nuget.org/packages/Fs30Unit.MsTest.Sample/">installed from NuGet</a>:
-      <pre>PM> Install-Package Fs30Unit.MsTest.Sample</pre>
     </div>
   </div>
   <div class="span1"></div>

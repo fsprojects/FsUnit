@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>FsUnit.NUnit</AssemblyName>
+    <PackageId>FsUnit</PackageId>
+    <Description>FsUnit is a set of extensions that add special testing syntax to NUnit.</Description>
+    <PackageTags>F# fsharp NUnit FsUnit</PackageTags>
     <OutputType>Library</OutputType>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -19,12 +22,10 @@
     <Compile Include="FsUnit.fs" />
     <Compile Include="FsUnitTyped.fs" />
     <Compile Include="GenericAssert.fs" />
-    <None Include="paket.references" />
-    <None Include="paket.template" />
-    <None Include="FsUnitSample.fs.pp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="sample.paket.template" />
+    <None Include="../../docs/img/logo.png" Pack="true" PackagePath="/" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+    <PackageReference Include="NUnit" />
+  </ItemGroup>
 </Project>

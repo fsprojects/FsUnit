@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>FsUnit.MsTest</AssemblyName>
+    <PackageId>Fs30Unit.MsTest</PackageId>
+    <Description>FsUnit is a set of extensions that add special testing syntax to MsTest.</Description>
+    <PackageTags>F# fsharp MsTest FsUnit</PackageTags>
     <OutputType>Library</OutputType>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
@@ -17,12 +20,11 @@
       <Link>CustomMatchers.fs</Link>
     </Compile>
     <Compile Include="FsUnit.fs" />
-    <None Include="paket.references" />
-    <None Include="paket.template" />
-    <None Include="FsUnitSample.fs.pp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="sample.paket.template" />
+    <None Include="../../docs/img/logo.png" Pack="true" PackagePath="/" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+    <PackageReference Include="MSTest.TestFramework" />
+    <PackageReference Include="NHamcrest" />
+  </ItemGroup>
 </Project>

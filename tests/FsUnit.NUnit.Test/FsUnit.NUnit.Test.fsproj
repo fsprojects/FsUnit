@@ -46,10 +46,12 @@
     <Compile Include="typed.haveLengthTests.fs" />
     <Compile Include="typed.shouldContainText.fs" />
     <Compile Include="genericAssertTests.fs" />
-    <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/FsUnit.NUnit/FsUnit.NUnit.fsproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="System.Collections.NonGeneric" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

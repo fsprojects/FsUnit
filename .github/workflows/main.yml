@@ -28,7 +28,5 @@ jobs:
 
     - name: Install local tools
       run: dotnet tool restore
-    - name: Paket Restore
-      run: dotnet paket restore
     - name: Build and Test
       run: dotnet run --project build/build.fsproj
