@@ -161,12 +161,12 @@ Supplying an expression that will result in a non-union type as well as supplyin
 *)
 type TestUnion = First | Second of int | Third of string
 
-First |> should be (ofCase<@ First @>)
-First |> should be (ofCase<@ First, Second @>) // checks if on the cases matches the given case
-Second 5 |> should be (ofCase<@ Second 10 @>) // note, the actual value is not checked!
-First |> should not' (be ofCase<@ Second 5 @>)
-5 |> should be (ofCase<@ Second 5 @>) // will throw an exception
-Second 5 |> should be (ofCase<@ int @>) // will throw an exception
+First |> should be (ofCase <@ First @>)
+First |> should be (ofCase <@ First, Second @>) // checks if on the cases matches the given case
+Second 5 |> should be (ofCase <@ Second 10 @>) // note, the actual value is not checked!
+First |> should not' (be ofCase <@ Second 5 @>)
+5 |> should be (ofCase <@ Second 5 @>) // will throw an exception
+Second 5 |> should be (ofCase <@ int @>) // will throw an exception
 
 (**
 

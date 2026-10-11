@@ -8,9 +8,7 @@
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-  </PropertyGroup>
-  <PropertyGroup Condition="($(DesignTimeBuild) == true)">
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
@@ -23,9 +21,9 @@
     <None Include="../../docs/img/logo.png" Pack="true" PackagePath="/" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FSharp.Core" />
-    <PackageReference Include="NHamcrest" />
-    <PackageReference Include="xunit.v3.extensibility.core" />
-    <PackageReference Include="xunit.v3.assert" />
+    <PackageReference Include="FSharp.Core" Version="[6.0.0]" />
+    <PackageReference Include="NHamcrest" Version="4.0.0" />
+    <PackageReference Include="xunit.v3.extensibility.core" Version="4.0.2" />
+    <PackageReference Include="xunit.v3.assert" Version="4.0.2" />
   </ItemGroup>
 </Project>
