@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- The F# SDK disables its implicit reference when central package management is enabled. -->
-    <PackageVersion Include="FSharp.Core" Version="5.0.2" />
+    <PackageVersion Include="FSharp.Core" Version="[5.0.2]" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
     <PackageVersion Include="NUnit" Version="5.0.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.3.1" />
