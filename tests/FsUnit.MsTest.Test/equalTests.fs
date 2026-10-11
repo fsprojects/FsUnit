@@ -105,7 +105,7 @@ type ``equalTests``() =
     [<TestMethod>]
     member _.``Ok "foo" should fail on equal Ok "bar" but message should be equal``() =
         (fun () -> Ok "foo" |> should equal (Ok "bar"))
-        |> Assert.ThrowsException<AssertFailedException>
+        |> Assert.ThrowsExactly<AssertFailedException>
         |> fun e -> e.Message
         |> should equal ("Equals Ok \"bar\" was Ok \"foo\"")
 

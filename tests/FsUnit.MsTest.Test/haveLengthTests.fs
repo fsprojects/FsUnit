@@ -43,7 +43,7 @@ type ``haveLengthTests``() =
     [<TestMethod>]
     member _.``Array with 1 item should fail to have Length 2 but message should be equal``() =
         (fun () -> [| 1 |] |> should haveLength 2)
-        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun f -> Assert.ThrowsExactly<AssertFailedException>(f)
         |> fun e -> e.Message
         |> should equal ("Have Length 2 was [|1|]")
 

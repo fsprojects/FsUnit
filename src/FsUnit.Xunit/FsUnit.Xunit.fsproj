@@ -25,6 +25,7 @@
   <ItemGroup>
     <PackageReference Include="FSharp.Core" />
     <PackageReference Include="NHamcrest" />
-    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.v3.extensibility.core" />
+    <PackageReference Include="xunit.v3.assert" />
   </ItemGroup>
 </Project>
