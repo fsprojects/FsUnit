@@ -151,7 +151,7 @@ Target.create "NUnit" (fun _ ->
         failwithf $"NUnit test failed: %A{result.Errors}")
 
 Target.create "xUnit" (fun _ -> 
-    let result = DotNet.exec id "test" "tests/FsUnit.Xunit.Test/"
+    let result = DotNet.exec id "run" "--project tests/FsUnit.Xunit.Test/"
 
     if not result.OK then
         failwithf $"xUnit test failed: %A{result.Errors}")
