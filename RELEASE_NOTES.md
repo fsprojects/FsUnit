@@ -1,4 +1,5 @@
 ### 7.1.1.0 - Jun 26, 2025
+- Restore netstandard2.0 target for FsUnit.xUnit and Fs30Unit.MsTest; add net462 target for FsUnit (NUnit) (.NET Framework support)
 - Add `equivalent` assertion to FsUnit.Xunit. - (https://github.com/fsprojects/FsUnit/pull/305)
 
 ### 7.0.1.0 - Dec 30, 2024

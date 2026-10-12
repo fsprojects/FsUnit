@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net462</TargetFrameworks>
     <AssemblyName>FsUnit.NUnit</AssemblyName>
     <PackageId>FsUnit</PackageId>
     <Description>FsUnit is a set of extensions that add special testing syntax to NUnit.</Description>
