@@ -2,8 +2,6 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <!-- Opt out of CPM: build tooling uses the SDK's implicit FSharp.Core, not the 5.0.2 library pin. Versions are pinned here explicitly. -->
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="build.fs" />
