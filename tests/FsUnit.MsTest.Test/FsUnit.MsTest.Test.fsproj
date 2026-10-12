@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <OutputType>Exe</OutputType>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="beOfCaseTests.fs" />
@@ -39,11 +41,9 @@
     <Compile Include="instanceOfTests.fs" />
     <Compile Include="beNaNTests.fs" />
     <Compile Include="beUniqueTests.fs" />
-    <None Include="MSTest.runsettings" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/FsUnit.MsTestUnit/FsUnit.MsTest.fsproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="4.5.1" />
     <PackageReference Include="MSTest.TestFramework" Version="4.5.1" />
   </ItemGroup>
