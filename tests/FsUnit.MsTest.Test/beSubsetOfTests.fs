@@ -41,6 +41,6 @@ type ``beSubsetOfTests``() =
     [<TestMethod>]
     member _.``11 should not be subset of 1 to 10 but message should be equal``() =
         (fun () -> [ 11 ] |> should be (subsetOf [ 1..10 ]))
-        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun f -> Assert.ThrowsExactly<AssertFailedException>(f)
         |> fun e -> e.Message
         |> should equal ("Is subset of [1; 2; 3; 4; 5; 6; 7; 8; 9; 10] was [11]")

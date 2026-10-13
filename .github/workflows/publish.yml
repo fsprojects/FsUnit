@@ -1,0 +1,74 @@
+name: Publish NuGet packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup .NET SDKs and .NET 8 runtime
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 8.0.x
+          global-json-file: global.json
+      - name: Install local tools
+        run: dotnet tool restore
+      - name: Build NuGet packages
+        run: dotnet run --project build/build.fsproj -- NuGet
+      - name: Verify tag version and packages
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="${TAG#v}"
+          if [[ "$version" =~ ^([0-9]+\.[0-9]+\.[0-9]+)\.0$ ]]; then version="${BASH_REMATCH[1]}"; fi
+          for package in FsUnit FsUnit.xUnit Fs30Unit.MsTest; do
+            test -f "bin/${package}.${version}.nupkg" || {
+              echo "Missing bin/${package}.${version}.nupkg (tag ${TAG} must match RELEASE_NOTES.md)" >&2
+              exit 1
+            }
+          done
+          for package in FsUnit FsUnit.xUnit Fs30Unit.MsTest; do
+            test -f "bin/${package}.${version}.snupkg" || {
+              echo "Missing bin/${package}.${version}.snupkg (tag ${TAG} must match RELEASE_NOTES.md)" >&2
+              exit 1
+            }
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: |
+            bin/*.nupkg
+            bin/*.snupkg
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts
+      # Configure a NuGet Trusted Publisher for fsprojects/FsUnit and this workflow (publish.yml).
+      # Store the NuGet.org account username (not email) in the NUGET_USER GitHub secret.
+      - name: NuGet login (Trusted Publishing)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+      - name: Push packages to NuGet.org
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+        run: |
+          for package in artifacts/*.nupkg; do
+            dotnet nuget push "$package" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done

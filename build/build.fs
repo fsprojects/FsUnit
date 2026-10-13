@@ -81,13 +81,6 @@ Target.create "AssemblyInfo" (fun _ ->
         | Csproj -> AssemblyInfoFile.createCSharp ((folderName @@ "Properties") @@ "AssemblyInfo.cs") attributes
         | Vbproj -> AssemblyInfoFile.createVisualBasic ((folderName @@ "My Project") @@ "AssemblyInfo.vb") attributes))
 
-// Copies binaries from default VS location to expected bin folder
-// But keeps a subdirectory structure for each project in the
-// src folder to support multiple project outputs
-Target.create "CopyBinaries" (fun _ ->
-    !! "src/**/*.??proj"
-    |> Seq.map (fun f -> ((Path.GetDirectoryName f) @@ "bin/Release", "bin" @@ (Path.GetFileNameWithoutExtension f)))
-    |> Seq.iter (fun (fromDir, toDir) -> Shell.copyDir toDir fromDir (fun _ -> true)))
 
 // --------------------------------------------------------------------------------------
 // Clean build results
@@ -172,21 +165,23 @@ Target.create "MsTest" (fun _ ->
 Target.create "RunTests" ignore
 
 // --------------------------------------------------------------------------------------
-// Build a NuGet package
+// Build NuGet packages with the .NET SDK
 
 Target.create "NuGet" (fun _ ->
-    Paket.pack (fun p ->
-        { p with
-            ToolType = ToolType.CreateLocalTool()
-            OutputPath = "bin"
-            Version = version
-            ReleaseNotes = String.toLines release.Notes }))
+    // MSBuild splits -p: values on ',' and ';'; environment variables are read as properties verbatim.
+    Environment.setEnvironVar "PackageReleaseNotes" (String.toLines release.Notes)
 
-Target.create "PublishNuget" (fun _ ->
-    Paket.push (fun p ->
-        { p with
-            ToolType = ToolType.CreateLocalTool()
-            WorkingDir = "bin" }))
+    let pack projectPath extraProperties =
+        let result =
+            DotNet.exec id "pack" $"%s{projectPath} -c Release -o bin -p:Version=%s{version} %s{extraProperties}"
+
+        if not result.OK then
+            failwithf "Package build failed for %s: %A" projectPath result.Errors
+    [ "src/FsUnit.NUnit/FsUnit.NUnit.fsproj"
+      "src/FsUnit.Xunit/FsUnit.Xunit.fsproj"
+      "src/FsUnit.MsTestUnit/FsUnit.MsTest.fsproj" ]
+    |> List.iter (fun projectPath -> pack projectPath ""))
+
 
 
 // --------------------------------------------------------------------------------------
@@ -221,7 +216,6 @@ Target.create "Release" ignore
   ==> "AssemblyInfo"
   ==> "CheckFormat"
   ==> "Build"
-  ==> "CopyBinaries"
   ==> "RunTests"
   ==> "All"
 
@@ -230,6 +224,7 @@ Target.create "Release" ignore
   ==> "xUnit"
   ==> "MsTest"
   ==> "RunTests"
+
 
 "All"
   ==> "NuGet"

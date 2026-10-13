@@ -29,6 +29,6 @@ type ``beGreaterThanTests``() =
     [<TestMethod>]
     member _.``9.2 should not be greater than 9.2 but message should be equal``() =
         (fun () -> 9.2 |> should be (greaterThan 9.2))
-        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun f -> Assert.ThrowsExactly<AssertFailedException>(f)
         |> fun e -> e.Message
         |> should equal ("Greater than 9.2 was 9.2")

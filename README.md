@@ -28,6 +28,9 @@ A few things to keep in mind:
 
 ## Build Instructions
 - Find and run either `./build.sh` or `build.cmd` (depending on your platform).
+- Restore local tools with `dotnet tool restore`; use `dotnet outdated` to review or update NuGet dependencies.
+- Push a `v<version>` tag matching the latest entry in `RELEASE_NOTES.md` to build and publish all six NuGet packages.
+- Configure a NuGet.org Trusted Publisher for `fsprojects/FsUnit` and `.github/workflows/publish.yml`; add the NuGet account username (not email) as the `NUGET_USER` GitHub secret.
 
 ## Maintainer(s)
 

@@ -1,8 +1,8 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#r "../packages/NUnit/lib/net8.0/nunit.framework.dll"
-#r "../bin/FsUnit.NUnit/net8.0/FsUnit.NUnit.dll"
+#r "../tests/FsUnit.NUnit.Test/bin/Release/net8.0/nunit.framework.dll"
+#r "../tests/FsUnit.NUnit.Test/bin/Release/net8.0/FsUnit.NUnit.dll"
 
 open NUnit.Framework
 (**
@@ -15,8 +15,6 @@ FsUnit for NUnit
     <div class="well well-small" id="nuget">
       The FsUnit library for NUnit can be <a href="https://nuget.org/packages/FsUnit">installed from NuGet</a>:
       <pre>PM> Install-Package FsUnit</pre>
-      Sample FsUnit tests for NUnit can be <a href="https://nuget.org/packages/FsUnit.Sample">installed from NuGet</a>:
-      <pre>PM> Install-Package FsUnit.Sample</pre>
     </div>
   </div>
   <div class="span1"></div>

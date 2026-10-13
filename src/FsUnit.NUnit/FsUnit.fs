@@ -34,8 +34,8 @@ module TopLevelOperators =
 
         let y =
             match actual with
-            | :? (unit -> unit) as testFunc -> box(System.Action(testFunc))
-            | :? (unit -> obj) as testFunc -> box(System.Action(testFunc >> ignore))
+            | :? (unit -> unit) as testFunc -> box(new System.Action(testFunc))
+            | :? (unit -> obj) as testFunc -> box(new System.Action(testFunc >> ignore))
             | _ -> actual
 
         if isNull(box expression) then
@@ -87,7 +87,7 @@ module TopLevelOperators =
         LessThanOrEqualConstraint(expected)
 
     let shouldFail(f: unit -> unit) =
-        System.Action(f) |> should throw typeof<AssertionException>
+        new System.Action(f) |> should throw typeof<AssertionException>
 
     let endWith(expected: string) =
         EndsWithConstraint expected

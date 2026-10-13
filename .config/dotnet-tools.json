@@ -2,10 +2,10 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "paket": {
-      "version": "11.0.0",
+    "dotnet-outdated-tool": {
+      "version": "4.8.1",
       "commands": [
-        "paket"
+        "dotnet-outdated"
       ]
     },
     "fsdocs-tool": {

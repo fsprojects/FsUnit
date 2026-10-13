@@ -21,6 +21,6 @@ type ``startWithTests``() =
     [<TestMethod>]
     member _.``ships should not start with ss but message should be equal``() =
         (fun () -> "ships" |> should startWith "ss")
-        |> fun f -> Assert.ThrowsException<AssertFailedException>(f)
+        |> fun f -> Assert.ThrowsExactly<AssertFailedException>(f)
         |> fun e -> e.Message
         |> should equal ("ss was \"ships\"")
