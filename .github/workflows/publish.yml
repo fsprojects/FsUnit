@@ -72,3 +72,29 @@ jobs:
           for package in artifacts/*.nupkg; do
             dotnet nuget push "$package" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
           done
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" artifacts/*.nupkg artifacts/*.snupkg --clobber
+          else
+            gh release create "$TAG" \
+              artifacts/*.nupkg \
+              artifacts/*.snupkg \
+              --verify-tag \
+              --title "$TAG" \
+              --generate-notes
+          fi

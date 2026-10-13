@@ -1,3 +1,10 @@
+### 8.0.0.0 - Oct 13, 2026
+- [BREAKING] Upgrade FsUnit.NUnit to NUnit 5 and replace its .NET 6 target with .NET 8 and .NET Framework 4.6.2.
+- Replace the .NET 6 targets for FsUnit.xUnit and Fs30Unit.MsTest with .NET 8 while retaining .NET Standard 2.0 support.
+- Replace Paket manifests and packaging with versioned NuGet `PackageReference`s in project files and `dotnet pack`; generate symbol packages.
+- Modernize build and test infrastructure with a FAKE project, the .NET 10 SDK, `.slnx`, and Microsoft Testing Platform v2.
+- Fix generated documentation.
+
 ### 7.1.1.0 - Jun 26, 2025
 - Add `equivalent` assertion to FsUnit.Xunit. - (https://github.com/fsprojects/FsUnit/pull/305)
 
