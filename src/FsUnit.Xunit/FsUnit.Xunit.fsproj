@@ -21,7 +21,7 @@
     <None Include="../../docs/img/logo.png" Pack="true" PackagePath="/" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FSharp.Core" Version="6.0.0" />
+    <PackageReference Include="FSharp.Core" Version="10.1.403" />
     <PackageReference Include="NHamcrest" Version="4.0.0" />
     <PackageReference Include="xunit.v3.extensibility.core" Version="4.0.2" />
     <PackageReference Include="xunit.v3.assert" Version="4.0.2" />
