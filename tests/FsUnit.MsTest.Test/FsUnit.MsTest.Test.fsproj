@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/FsUnit.MsTestUnit/FsUnit.MsTest.fsproj" />
-    <PackageReference Include="MSTest.TestAdapter" Version="4.5.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="4.5.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.5.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.5.2" />
   </ItemGroup>
 </Project>
