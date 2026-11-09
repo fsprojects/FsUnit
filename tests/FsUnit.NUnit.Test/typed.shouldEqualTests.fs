@@ -15,6 +15,8 @@ type NeverEqual() =
     override _.Equals(other) = false
     override _.GetHashCode() = 1
 
+type CommitMessage = { Type: string }
+
 [<TestFixture>]
 type ``shouldEqual Tests``() =
 
@@ -90,6 +92,32 @@ type ``shouldEqual Tests``() =
     [<Test>]
     member _.``Error "Foo" should equal Error "Foo"``() =
         Error "Foo" |> shouldEqual(Error "Foo")
+
+    [<Test>]
+    member _.``Ok should infer the error type from the expected Result``() =
+        let expected: Result<_, string> = Ok { Type = "feat" }
+        Ok { Type = "feat" } |> shouldEqual expected
+
+    [<Test>]
+    member _.``Error should infer the success type from the expected Result``() =
+        let expected: Result<CommitMessage, _> = Error "invalid"
+        Error "invalid" |> shouldEqual expected
+
+    [<Test>]
+    member _.``Result with inferred error type should fail for a different payload``() =
+        let expected: Result<_, string> = Ok { Type = "feat" }
+
+        (fun () -> Ok { Type = "fix" } |> shouldEqual expected)
+        |> Assert.Throws<AssertionException>
+        |> ignore
+
+    [<Test>]
+    member _.``Result with inferred error type should fail for a different case``() =
+        let expected: Result<_, string> = Ok { Type = "feat" }
+
+        (fun () -> Error "invalid" |> shouldEqual expected)
+        |> Assert.Throws<AssertionException>
+        |> ignore
 
     [<Test>]
     member _.``Error "Foo" should equal fails and have same message``() =
