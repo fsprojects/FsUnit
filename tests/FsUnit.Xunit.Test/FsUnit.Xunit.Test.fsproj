@@ -51,6 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/FsUnit.Xunit/FsUnit.Xunit.fsproj" />
-    <PackageReference Include="xunit.v3.mtp-v2" Version="4.0.2" />
+    <PackageReference Include="xunit.v3.mtp-v2" Version="4.0.3" />
   </ItemGroup>
 </Project>
